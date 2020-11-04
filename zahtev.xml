@@ -1,0 +1,36 @@
+<zahtev>
+    <naziv></naziv>
+    <organ>
+        <naziv></naziv>
+        <sediste></sediste>
+    </organ>
+
+    <checkbox name=""></checkbox>
+    <checkbox name=""></checkbox>
+    <checkbox name=""></checkbox>
+    <checkbox name="">
+        <checkbox name=""></checkbox>
+        <checkbox name=""></checkbox>
+        <checkbox name=""></checkbox>
+        <checkbox name="">
+            <opis></opis>
+        </checkbox>
+    </checkbox>
+    
+
+    <informacije></informacije>
+
+    <mesto></mesto>
+
+    <datum>
+        <dan></dan>
+        <godina></godina>
+    </datum>
+
+    <trazilac>
+        <ime></ime>
+        <prezime></prezime>
+        <adresa></adresa>
+        <drugi_podaci></drugi_podaci>
+    </trazilac>
+</zahtev>

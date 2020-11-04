@@ -1,0 +1,39 @@
+<obavestenje>
+    <naziv></naziv>
+    <organ>
+        <naziv></naziv>
+
+        <sediste></sediste>
+    </organ>
+    <broj_predmeta></broj_predmeta>
+    <telo>
+        <godina>
+    
+        </godina>
+    
+        <opis>
+    
+        </opis>
+        <uvid>
+            <datum_uvida>
+                <datum></datum>
+                <sat></sat>
+                <pocetni_sat></pocetni_sat>
+                <krajnji_sat></krajnji_sat>
+            </datum_uvida>
+            
+            <adresa_uvida>
+                <mesto></mesto>
+                <ulica></ulica>
+                <broj></broj>
+            </adresa_uvida>
+
+            <br_kancelarije></br_kancelarije>
+        </uvid>
+
+    </telo>
+
+    <dostavljeno></dostavljeno>
+
+
+</obavestenje>

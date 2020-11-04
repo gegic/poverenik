@@ -1,0 +1,22 @@
+<zalba naziv="" adresa_za_postu="">
+    <naziv_organa></naziv_organa>
+    <razlog></razlog>
+    <datum_zahteva>
+        <dan></dan>
+        <mesec></mesec>
+        <godina></godina>
+    </datum_zahteva>
+    <podaci_o_zahtevu></podaci_o_zahtevu>
+    <podnosilac>
+        <ime></ime>
+        <prezime></prezime>
+        <adresa></adresa>
+        <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>
+
+    </podnosilac>
+    <datum_zalbe>
+        <dan></dan>
+        <mesec></mesec>
+        <godina></godina>
+    </datum_zalbe>
+</zalba>
