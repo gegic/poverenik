@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zalba-cutanje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:noNamespaceSchemaLocation="zalbacutanje.xsd" datum="2020-12-05">
+    xsi:noNamespaceSchemaLocation="../xmlSchema/zalbacutanje.xsd" datum="2020-12-05">
     
     <svrha> ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У
         ЗАКОНСКОМ РОКУ (ЋУТАЊЕ УПРАВЕ) </svrha>

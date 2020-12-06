@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zahtev xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:noNamespaceSchemaLocation="zahtev.xsd" datum="2020-12-05">
+ xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd" datum="2020-12-05">
     <organ naziv="naziv">
         <sediste ulica="ulica" broj="1a">
             <mesto>Tutin</mesto>

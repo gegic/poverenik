@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<obavestenje broj-predmeta="245/19" datum="2019-04-13">
+<obavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../xmlSchema/obavestenje.xsd" broj-predmeta="245/19"
+ datum="2019-04-13">
     <organ naziv="naziv">
-        <adresa ulica="u" broj="b">
-            <mesto/>
+        <adresa ulica="u" broj="1b">
+            <mesto>Novi Sad</mesto>
         </adresa>
     </organ>
     
-    <podnosilac ime="i" prezime="p">
-        <adresa ulica="u" broj="b">
+    <podnosilac ime="i" prezime="p" xsi:type="TOsoba">
+        <adresa ulica="u" broj="1b">
             <mesto/>
         </adresa>
     </podnosilac>
@@ -26,9 +28,12 @@
     поступајући по вашем захтеву за слободан приступ информацијама од <datum>2019-03-08</datum> год., којим сте
     тражили увид у документ/е са информацијама о / у вези са: 
     <opis-zahteva></opis-zahteva>
-    обавештавамо вас да дана <datum>2019-04-18</datum>, у <vreme>10</vreme> часова, у
-    просторијама органа у <kancelarija br="3"><adresa ulica="u" broj="12"><mesto>Tutin</mesto></adresa></kancelarija>
-    можете извршити увид у документ/е у коме је садржана тражена информација. 
+    <sadrzaj-obavestenja>
+        обавештавамо вас да дана <datum>2019-04-18</datum>, у <vreme>10:30:00</vreme> часова, у
+        просторијама органа у <kancelarija broj="3"><adresa ulica="u" broj="12"><mesto>Tutin</mesto></adresa></kancelarija>
+        можете извршити увид у документ/е у коме је садржана тражена информација. 
+    </sadrzaj-obavestenja>
+    
     
     Том приликом, на ваш захтев, 
     <odluka>може вам се издати и копија документа са траженом информацијом.</odluka>
@@ -54,7 +59,7 @@
     уплаћује се на жиро-рачун Буџета Републике Србије бр. 840-742328-843-30, с позивом на број
     97 – ознака шифре општине/града где се налази орган власти (из Правилника о условима и
     начину вођења рачуна – „Сл. гласник РС“, 20/07... 40/10).
-    <primalac broj-racuna="840-742328-843-30" model="97" poziv-na-broj="">
+    <primalac broj-racuna="840-742328-843-30" model="97" poziv-na-broj="1994882100239">
         <organ naziv="naziv">
             <adresa ulica="u" broj="12">
                 <mesto></mesto>
@@ -63,7 +68,7 @@
     </primalac>
     
     <dostavljeno>
-        <primalac> Именованом </primalac>
-        <primalac> Архиви </primalac>
+        <primalac naziv="Именовани"/>
+        <primalac naziv="Архива"/>
     </dostavljeno>
 </obavestenje>

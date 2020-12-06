@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zalba xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:noNamespaceSchemaLocation="zalbanaodluku.xsd" datum="2020-12-05">
+    xsi:noNamespaceSchemaLocation="../xmlSchema/zalbanaodluku.xsd" datum="2020-12-05">
     <svrha>
         ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ 
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ
