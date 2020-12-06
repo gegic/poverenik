@@ -17,7 +17,7 @@
     У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим: 
     Ж А Л Б У
     против
-    <protiv> </protiv>
+    <protiv naziv="Protivnik"/> 
     <razlog>
         <izbor naziv-izbora="није поступио" id="R1"/> 
         <izbor naziv-izbora="није поступио у целости" id="R2"/>  

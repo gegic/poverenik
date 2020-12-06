@@ -2,9 +2,9 @@
 <zahtev xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd" datum="2020-12-05">
     <organ naziv="naziv">
-        <sediste ulica="ulica" broj="1a">
+        <adresa ulica="ulica" broj="1a">
             <mesto>Tutin</mesto>
-        </sediste>
+        </adresa>
     </organ>
 
     <naslov> З А Х Т Е В </naslov>

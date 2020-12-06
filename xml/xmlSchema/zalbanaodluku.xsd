@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:zno="http://www.ftn.uns.ac.rs/zabla-na-odluku">
+    <xs:include schemaLocation="poverenik.xsd"/>
     <xs:element name="zalba" type="TZalba"/>
     <xs:complexType mixed="true" name="TZalba">
         <xs:sequence>
             <xs:element name="svrha" type="xs:string"/>
-            <xs:element name="primalac" type="TOrgan"/>
+            <xs:element name="primalac"/>
             <xs:element name="zalilac" type="TLice"/>
             <xs:element name="protiv" type="TOdluka"/>
             <xs:element name="datum" type="xs:date"/>
             <xs:element default="у целости" name="deo-pobijanja" type="xs:string"/>
-            <xs:element name="zakon" type="TZakon"/>
+            <xs:element name="zakon" type="TAkt"/>
             <xs:element name="mesto" type="xs:string"/>
             <xs:element name="podnosilac" type="TOsoba"/>
         </xs:sequence>
@@ -28,68 +29,5 @@
             </xs:simpleType>
         </xs:attribute>
         <xs:attribute name="datum" type="xs:date" use="required"/>
-    </xs:complexType>
-    <xs:complexType name="TOrgan">
-        <xs:complexContent>
-            <xs:extension base="TLice">
-                <xs:attribute name="naziv" type="xs:string" use="required"/>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType abstract="true" name="TLice">
-        <xs:sequence>
-            <xs:element name="adresa" type="TAdresa"/>
-            <xs:element minOccurs="0" name="ostali-podaci" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="TOsoba">
-        <xs:complexContent>
-            <xs:extension base="TLice">
-                <xs:attribute name="ime" type="xs:string" use="required"/>
-                <xs:attribute name="prezime" type="xs:string" use="required"/>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TAdresa">
-        <xs:sequence>
-            <xs:element name="mesto" type="xs:string"/>
-        </xs:sequence>
-        <xs:attribute name="ulica" type="xs:string" use="required"/>
-        <xs:attribute name="broj" use="required">
-            <xs:simpleType>
-                <xs:restriction base="xs:string">
-                    <xs:pattern value="(\d+\w?)|(bb)"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:attribute>
-    </xs:complexType>
-    <xs:complexType name="TZakon">
-        <xs:sequence>
-            <xs:element minOccurs="0" name="clan">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element minOccurs="0" name="stav">
-                            <xs:complexType>
-                                <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                    <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
-                </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sluzbeni-glasnik" type="TListObjave"/>
-        </xs:sequence>
-        <xs:attribute name="naziv" type="xs:string" use="required"/>
-    </xs:complexType>
-    <xs:complexType name="TListObjave">
-        <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="broj">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="\d{1,5}/\d\d"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-        </xs:sequence>
     </xs:complexType>
 </xs:schema>
