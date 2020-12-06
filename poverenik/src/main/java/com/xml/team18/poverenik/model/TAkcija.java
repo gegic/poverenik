@@ -45,10 +45,10 @@ import javax.xml.bind.annotation.XmlType;
 public class TAkcija {
 
     @XmlElementRefs({
+        @XmlElementRef(name = "nacin-dostave", type = JAXBElement.class),
         @XmlElementRef(name = "cenzura", type = JAXBElement.class),
-        @XmlElementRef(name = "zahtev", type = Zahtev.class),
         @XmlElementRef(name = "zalilac", type = JAXBElement.class),
-        @XmlElementRef(name = "nacin-dostave", type = JAXBElement.class)
+        @XmlElementRef(name = "zahtev", type = Zahtev.class)
     })
     @XmlMixed
     protected List<Object> content;
@@ -74,10 +74,10 @@ public class TAkcija {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * {@link JAXBElement }{@code <}{@link TNacinDostave }{@code >}
      * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
      * {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * {@link JAXBElement }{@code <}{@link TNacinDostave }{@code >}
-     * {@link String }
      * {@link Zahtev }
      * 
      * 

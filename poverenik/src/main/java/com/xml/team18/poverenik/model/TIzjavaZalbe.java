@@ -71,9 +71,9 @@ public class TIzjavaZalbe {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TUzrok }{@code >}
      * {@link String }
      * {@link JAXBElement }{@code <}{@link TLice }{@code >}
+     * {@link JAXBElement }{@code <}{@link TUzrok }{@code >}
      * 
      * 
      */

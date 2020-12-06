@@ -9,7 +9,7 @@
             <xs:element name="primalac" type="TOrgan"/>
             <xs:element name="zakon" type="TAkt"/>
             <xs:element name="protiv" type="TOrgan"/>
-            <xs:element name="razlog" type="TBiranje">
+            <xs:element name="razlog" type="TBiranjeRazloga">
                 <xs:key name="kljucRazloga">
                     <xs:selector xpath="izbor"/>
                     <xs:field xpath="@id"/>
@@ -23,18 +23,18 @@
         </xs:sequence>
         <xs:attribute name="datum" type="xs:date"/>
     </xs:complexType>
-    <xs:complexType name="TIzbor">
+    <xs:complexType name="TIzborRazloga">
         <xs:simpleContent>
             <xs:extension base="xs:string">
-                <xs:attribute name="naziv-izbora" type="xs:string" use="required"/>
+                <xs:attribute name="naziv" type="xs:string" use="required"/>
                 <xs:attribute name="id" type="xs:ID" use="required"/>
                 <xs:attribute name="izabran" type="xs:boolean"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    <xs:complexType name="TBiranje">
+    <xs:complexType name="TBiranjeRazloga">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="izbor" type="TIzbor"/>
+            <xs:element maxOccurs="unbounded" name="izbor" type="TIzborRazloga"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

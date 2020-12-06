@@ -9,7 +9,7 @@
             <xs:element name="organ" type="TOrgan"/>
             <xs:element name="naslov" type="xs:string"/>
             <xs:element name="zakon" type="TAkt"/>
-            <xs:element name="tip-zahteva" type="TBiranje">
+            <xs:element name="tip-zahteva" type="TBiranjeZahteva">
                 <xs:key name="kljucZahteva">
                     <xs:selector xpath="izbor"/>
                     <xs:field xpath="@id"/>
@@ -21,14 +21,14 @@
         </xs:sequence>
         <xs:attribute use="required" name="datum" type="xs:date"/>
     </xs:complexType>
-    <xs:complexType name="TBiranje">
+    <xs:complexType name="TBiranjeZahteva">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="izbor" type="TIzbor"/>
+            <xs:element maxOccurs="unbounded" name="izbor" type="TIzborZahteva"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TIzbor">
+    <xs:complexType name="TIzborZahteva">
         <xs:choice minOccurs="0">
-            <xs:element name="tip-dostave" type="TBiranje">
+            <xs:element name="tip-dostave" type="TBiranjeZahteva">
                 <xs:key name="kljucDostave">
                     <xs:selector xpath="izbor"/>
                     <xs:field xpath="@id"/>

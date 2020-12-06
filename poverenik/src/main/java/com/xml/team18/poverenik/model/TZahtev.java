@@ -29,7 +29,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="organ" type="{}TOrgan"/>
  *         &lt;element name="naslov" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="zakon" type="{}TAkt"/>
- *         &lt;element name="tip-zahteva" type="{}TBiranje"/>
+ *         &lt;element name="tip-zahteva" type="{}TBiranjeZahteva"/>
  *         &lt;element name="tip-informacije" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="mesto" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="trazilac-informacije" type="{}TOsoba"/>
@@ -49,13 +49,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class TZahtev {
 
     @XmlElementRefs({
+        @XmlElementRef(name = "trazilac-informacije", type = JAXBElement.class),
         @XmlElementRef(name = "zakon", type = JAXBElement.class),
-        @XmlElementRef(name = "organ", type = JAXBElement.class),
-        @XmlElementRef(name = "naslov", type = JAXBElement.class),
+        @XmlElementRef(name = "tip-zahteva", type = JAXBElement.class),
         @XmlElementRef(name = "tip-informacije", type = JAXBElement.class),
         @XmlElementRef(name = "mesto", type = JAXBElement.class),
-        @XmlElementRef(name = "tip-zahteva", type = JAXBElement.class),
-        @XmlElementRef(name = "trazilac-informacije", type = JAXBElement.class)
+        @XmlElementRef(name = "naslov", type = JAXBElement.class),
+        @XmlElementRef(name = "organ", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -81,14 +81,14 @@ public class TZahtev {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TAkt }{@code >}
-     * {@link JAXBElement }{@code <}{@link TOrgan }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link TBiranje }{@code >}
      * {@link JAXBElement }{@code <}{@link TOsoba }{@code >}
+     * {@link JAXBElement }{@code <}{@link TAkt }{@code >}
+     * {@link JAXBElement }{@code <}{@link TBiranjeZahteva }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link String }
+     * {@link JAXBElement }{@code <}{@link TOrgan }{@code >}
      * 
      * 
      */

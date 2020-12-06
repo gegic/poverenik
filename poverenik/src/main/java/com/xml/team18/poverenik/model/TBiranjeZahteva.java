@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TBiranje complex type.
+ * <p>Java class for TBiranjeZahteva complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TBiranje">
+ * &lt;complexType name="TBiranjeZahteva">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="izbor" type="{}TIzbor" maxOccurs="unbounded"/>
+ *         &lt;element name="izbor" type="{}TIzborZahteva" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TBiranje", propOrder = {
+@XmlType(name = "TBiranjeZahteva", propOrder = {
     "izbor"
 })
-public class TBiranje {
+public class TBiranjeZahteva {
 
     @XmlElement(required = true)
-    protected List<TIzbor> izbor;
+    protected List<TIzborZahteva> izbor;
 
     /**
      * Gets the value of the izbor property.
@@ -55,13 +55,13 @@ public class TBiranje {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TIzbor }
+     * {@link TIzborZahteva }
      * 
      * 
      */
-    public List<TIzbor> getIzbor() {
+    public List<TIzborZahteva> getIzbor() {
         if (izbor == null) {
-            izbor = new ArrayList<TIzbor>();
+            izbor = new ArrayList<TIzborZahteva>();
         }
         return this.izbor;
     }

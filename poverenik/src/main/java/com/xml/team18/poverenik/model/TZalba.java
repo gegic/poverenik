@@ -27,7 +27,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="svrha" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="primalac" type="{http://www.w3.org/2001/XMLSchema}anyType"/>
+ *         &lt;element name="primalac" type="{}TOrgan"/>
  *         &lt;element name="zalilac" type="{}TLice"/>
  *         &lt;element name="protiv" type="{}TOdluka"/>
  *         &lt;element name="datum" type="{http://www.w3.org/2001/XMLSchema}date"/>
@@ -52,14 +52,14 @@ public class TZalba {
 
     @XmlElementRefs({
         @XmlElementRef(name = "svrha", type = JAXBElement.class),
-        @XmlElementRef(name = "zalilac", type = JAXBElement.class),
-        @XmlElementRef(name = "primalac", type = JAXBElement.class),
-        @XmlElementRef(name = "mesto", type = JAXBElement.class),
-        @XmlElementRef(name = "protiv", type = JAXBElement.class),
-        @XmlElementRef(name = "datum", type = JAXBElement.class),
         @XmlElementRef(name = "deo-pobijanja", type = JAXBElement.class),
-        @XmlElementRef(name = "zakon", type = JAXBElement.class),
-        @XmlElementRef(name = "podnosilac", type = JAXBElement.class)
+        @XmlElementRef(name = "zalilac", type = JAXBElement.class),
+        @XmlElementRef(name = "protiv", type = JAXBElement.class),
+        @XmlElementRef(name = "primalac", type = JAXBElement.class),
+        @XmlElementRef(name = "datum", type = JAXBElement.class),
+        @XmlElementRef(name = "mesto", type = JAXBElement.class),
+        @XmlElementRef(name = "podnosilac", type = JAXBElement.class),
+        @XmlElementRef(name = "zakon", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -86,15 +86,15 @@ public class TZalba {
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link TLice }{@code >}
-     * {@link JAXBElement }{@code <}{@link Object }{@code >}
+     * {@link JAXBElement }{@code <}{@link TOdluka }{@code >}
+     * {@link JAXBElement }{@code <}{@link TOrgan }{@code >}
+     * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
      * {@link String }
      * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link TOdluka }{@code >}
-     * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
-     * {@link JAXBElement }{@code <}{@link TAkt }{@code >}
      * {@link JAXBElement }{@code <}{@link TOsoba }{@code >}
+     * {@link JAXBElement }{@code <}{@link TAkt }{@code >}
      * 
      * 
      */

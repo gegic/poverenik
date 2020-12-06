@@ -6,7 +6,7 @@
     <xs:complexType mixed="true" name="TZalba">
         <xs:sequence>
             <xs:element name="svrha" type="xs:string"/>
-            <xs:element name="primalac"/>
+            <xs:element name="primalac" type="TOrgan"/>
             <xs:element name="zalilac" type="TLice"/>
             <xs:element name="protiv" type="TOdluka"/>
             <xs:element name="datum" type="xs:date"/>

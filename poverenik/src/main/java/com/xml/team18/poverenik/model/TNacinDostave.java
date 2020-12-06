@@ -79,8 +79,8 @@ public class TNacinDostave {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TNacinDostave.Posta }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link TNacinDostave.Posta }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * 

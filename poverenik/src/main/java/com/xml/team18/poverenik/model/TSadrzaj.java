@@ -25,7 +25,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;all>
  *         &lt;element ref="{}datum"/>
- *         &lt;element name="vreme" type="{}TVremePeriod"/>
+ *         &lt;element name="vreme" type="{}TVreme"/>
  *         &lt;element name="kancelarija" type="{}TKancelarija"/>
  *       &lt;/all>
  *     &lt;/restriction>
@@ -42,9 +42,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class TSadrzaj {
 
     @XmlElementRefs({
+        @XmlElementRef(name = "vreme", type = JAXBElement.class),
         @XmlElementRef(name = "datum", type = JAXBElement.class),
-        @XmlElementRef(name = "kancelarija", type = JAXBElement.class),
-        @XmlElementRef(name = "vreme", type = JAXBElement.class)
+        @XmlElementRef(name = "kancelarija", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -67,10 +67,10 @@ public class TSadrzaj {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TKancelarija }{@code >}
-     * {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}
      * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     * {@link JAXBElement }{@code <}{@link TKancelarija }{@code >}
      * {@link String }
+     * {@link JAXBElement }{@code <}{@link TVreme }{@code >}
      * 
      * 
      */

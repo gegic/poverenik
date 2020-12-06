@@ -33,7 +33,7 @@
     <xs:complexType mixed="true" name="TSadrzaj">
         <xs:all>
             <xs:element ref="datum"/>
-            <xs:element name="vreme" type="TVremePeriod"/>
+            <xs:element name="vreme" type="TVreme"/>
             <xs:element name="kancelarija" type="TKancelarija"/>
         </xs:all>
     </xs:complexType>
@@ -79,16 +79,14 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:simpleType name="TVremePeriod">
-        <xs:union memberTypes="TVreme TPeriod"/>
-    </xs:simpleType>
-    <xs:simpleType name="TPeriod">
-        <xs:restriction base="TVreme">
-            <xs:maxLength value="2"/>
-            <xs:minLength value="2"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="TVreme" final="">
-        <xs:list itemType="xs:time"/>
-    </xs:simpleType>
+    <xs:complexType name="TVreme">
+        <xs:attribute name="pocetak" type="xs:time"/>
+    </xs:complexType>
+    <xs:complexType name="TVremePeriod">
+        <xs:complexContent>
+            <xs:extension base="TVreme">
+                <xs:attribute name="zavrsetak" type="xs:time"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 </xs:schema>

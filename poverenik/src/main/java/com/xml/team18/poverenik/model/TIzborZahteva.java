@@ -4,41 +4,48 @@ package com.xml.team18.poverenik.model;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for TIzbor complex type.
+ * <p>Java class for TIzborZahteva complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TIzbor">
- *   &lt;simpleContent>
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+ * &lt;complexType name="TIzborZahteva">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;choice minOccurs="0">
+ *         &lt;element name="tip-dostave" type="{}TBiranjeZahteva"/>
+ *         &lt;element name="drugi-nacin" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *       &lt;/choice>
  *       &lt;attribute name="naziv-izbora" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *       &lt;attribute name="izabran" type="{http://www.w3.org/2001/XMLSchema}boolean" />
- *     &lt;/extension>
- *   &lt;/simpleContent>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TIzbor", propOrder = {
-    "value"
+@XmlType(name = "TIzborZahteva", propOrder = {
+    "tipDostave",
+    "drugiNacin"
 })
-public class TIzbor {
+public class TIzborZahteva {
 
-    @XmlValue
-    protected String value;
+    @XmlElement(name = "tip-dostave")
+    protected TBiranjeZahteva tipDostave;
+    @XmlElement(name = "drugi-nacin")
+    protected String drugiNacin;
     @XmlAttribute(name = "naziv-izbora", required = true)
     protected String nazivIzbora;
     @XmlAttribute(name = "id", required = true)
@@ -50,27 +57,51 @@ public class TIzbor {
     protected Boolean izabran;
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the tipDostave property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TBiranjeZahteva }
+     *     
+     */
+    public TBiranjeZahteva getTipDostave() {
+        return tipDostave;
+    }
+
+    /**
+     * Sets the value of the tipDostave property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TBiranjeZahteva }
+     *     
+     */
+    public void setTipDostave(TBiranjeZahteva value) {
+        this.tipDostave = value;
+    }
+
+    /**
+     * Gets the value of the drugiNacin property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getValue() {
-        return value;
+    public String getDrugiNacin() {
+        return drugiNacin;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the drugiNacin property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setDrugiNacin(String value) {
+        this.drugiNacin = value;
     }
 
     /**

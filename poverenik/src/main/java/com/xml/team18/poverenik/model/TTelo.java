@@ -44,8 +44,8 @@ import javax.xml.bind.annotation.XmlType;
 public class TTelo {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "nalog", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "odbijanje", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "odbijanje", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "nalog", type = JAXBElement.class, required = false)
     })
     @XmlMixed
     protected List<Serializable> content;

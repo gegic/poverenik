@@ -42,8 +42,8 @@ public class TPredgovor {
 
     @XmlElementRefs({
         @XmlElementRef(name = "zalilac", type = JAXBElement.class),
-        @XmlElementRef(name = "uzrok", type = JAXBElement.class),
-        @XmlElementRef(name = "osnov", type = JAXBElement.class)
+        @XmlElementRef(name = "osnov", type = JAXBElement.class),
+        @XmlElementRef(name = "uzrok", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -66,10 +66,10 @@ public class TPredgovor {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link TLice }{@code >}
-     * {@link JAXBElement }{@code <}{@link TUzrok }{@code >}
-     * {@link String }
      * {@link JAXBElement }{@code <}{@link TOsnov }{@code >}
+     * {@link String }
+     * {@link JAXBElement }{@code <}{@link TUzrok }{@code >}
+     * {@link JAXBElement }{@code <}{@link TLice }{@code >}
      * 
      * 
      */
