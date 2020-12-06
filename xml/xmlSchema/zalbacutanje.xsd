@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:zalba-cutanje="http://www.ftn.uns.ac.rs/zalba-cutanje">
+    <xs:element name="zalba-cutanje" type="TZalba"/>
+    <xs:complexType mixed="true" name="TZalba">
+        <xs:sequence>
+            <xs:element name="svrha" type="xs:string"/>
+            <xs:element name="primalac" type="TOrgan"/>
+            <xs:element name="zakon" type="TZakon"/>
+            <xs:element name="protiv" type="TOrgan"/>
+            <xs:element name="razlog" type="TBiranje">
+                <xs:key name="kljucRazloga">
+                    <xs:selector xpath="izbor"/>
+                    <xs:field xpath="@id"/>
+                </xs:key>
+            </xs:element>
+            <xs:element name="datum-zahteva" type="xs:date"/>
+            <xs:element name="podaci-o-zahtevu" type="xs:string"/>
+            <xs:element name="napomena" type="xs:string"/>
+            <xs:element name="mesto" type="xs:string"/>
+            <xs:element name="podnosilac" type="TOsoba"/>
+        </xs:sequence>
+        <xs:attribute name="datum" type="xs:date"/>
+    </xs:complexType>
+    <xs:complexType name="TOrgan">
+        <xs:sequence>
+            <xs:element name="adresa" type="TAdresa" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="naziv" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="TAdresa">
+        <xs:sequence>
+            <xs:element name="mesto" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="ulica" type="xs:string"/>
+        <xs:attribute name="broj">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="(\d+\w?)|(bb)"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="TZakon">
+        <xs:sequence>
+            <xs:element name="clan" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="stav" minOccurs="0">
+                            <xs:complexType>
+                                <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sluzbeni-glasnik" type="TListObjave" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="naziv" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="TListObjave">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="broj">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{1,5}/\d\d"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TBiranje">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="izbor" type="TIzbor"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TIzbor">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="naziv-izbora" type="xs:string" use="required"/>
+                <xs:attribute name="id" type="xs:ID" use="required"/>
+                <xs:attribute name="izabran" type="xs:boolean"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="TOsoba">
+        <xs:sequence>
+            <xs:element name="adresa" type="TAdresa"/>
+            <xs:element name="ostali-podaci" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="ime" type="xs:string" use="required"/>
+        <xs:attribute name="prezime" type="xs:string" use="required"/>
+    </xs:complexType>
+</xs:schema>

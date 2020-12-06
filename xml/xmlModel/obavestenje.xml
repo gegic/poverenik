@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<obavestenje broj-predmeta="245/19" datum="2019-04-13">
+    <organ naziv="naziv">
+        <adresa ulica="u" broj="b">
+            <mesto/>
+        </adresa>
+    </organ>
+    
+    <podnosilac ime="i" prezime="p">
+        <adresa ulica="u" broj="b">
+            <mesto/>
+        </adresa>
+    </podnosilac>
+    
+    О Б А В Е Ш Т Е Њ Е
+    <opis>о стављању на увид документа који садржи тражену информацију и о изради копије</opis>
+    
+    
+    На основу 
+    <zakon naziv="Закон о слободном приступу информацијама од јавног значаја">
+        <clan broj="16">
+            <stav broj="1"/>
+        </clan>
+    </zakon>
+    члана 16. ст. 1. Закона о слободном приступу информацијама од јавног значаја,
+    поступајући по вашем захтеву за слободан приступ информацијама од <datum>2019-03-08</datum> год., којим сте
+    тражили увид у документ/е са информацијама о / у вези са: 
+    <opis-zahteva></opis-zahteva>
+    обавештавамо вас да дана <datum>2019-04-18</datum>, у <vreme>10</vreme> часова, у
+    просторијама органа у <kancelarija br="3"><adresa ulica="u" broj="12"><mesto>Tutin</mesto></adresa></kancelarija>
+    можете извршити увид у документ/е у коме је садржана тражена информација. 
+    
+    Том приликом, на ваш захтев, 
+    <odluka>може вам се издати и копија документа са траженом информацијом.</odluka>
+    
+    Трошкови су утврђени 
+    <uredba naziv="Uredba o troskovima">
+        <sluzbeni-glasnik>
+            <broj>8/06</broj>
+        </sluzbeni-glasnik>
+    </uredba>
+    Уредбом Владе Републике Србије („Сл. гласник РС“, бр. 8/06), и то:
+    <cenovnik>
+        <stavka artikl="копија стране А4 формата" cena="3"/>
+        <stavka artikl="копија стране А3 формата" cena="6"/>
+        <stavka artikl="CD" cena="35"/>
+        <stavka artikl="DVD" cena="40"/>
+        <stavka artikl="аудио-касета" cena="150"/>
+        <stavka artikl="видео-касета" cena="300"/>
+        <stavka artikl="претварање једне  стране документа из физичког у електронски облик" cena="30"/>
+    </cenovnik>
+    Износ укупних трошкова израде копије документа по вашем захтеву износи 
+    <cena>30</cena> и
+    уплаћује се на жиро-рачун Буџета Републике Србије бр. 840-742328-843-30, с позивом на број
+    97 – ознака шифре општине/града где се налази орган власти (из Правилника о условима и
+    начину вођења рачуна – „Сл. гласник РС“, 20/07... 40/10).
+    <primalac broj-racuna="840-742328-843-30" model="97" poziv-na-broj="">
+        <organ naziv="naziv">
+            <adresa ulica="u" broj="12">
+                <mesto></mesto>
+            </adresa>
+        </organ>
+    </primalac>
+    
+    <dostavljeno>
+        <primalac> Именованом </primalac>
+        <primalac> Архиви </primalac>
+    </dostavljeno>
+</obavestenje>

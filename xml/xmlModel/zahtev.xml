@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zahtev xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="zahtev.xsd" datum="2020-12-05">
+    <organ naziv="naziv">
+        <sediste ulica="ulica" broj="1a">
+            <mesto>Tutin</mesto>
+        </sediste>
+    </organ>
+
+    <naslov> З А Х Т Е В </naslov>
+    за приступ информацији од јавног значаја
+
+    <zakon naziv="Закон о слободном приступу информацијама од јавног значаја">
+        <clan broj="15">
+            <stav broj="1"/>
+        </clan>
+        <sluzbeni-glasnik>
+            <broj>120/04</broj>
+            <broj>54/07</broj>
+            <broj>104/09</broj>
+            <broj>36/10</broj>
+        </sluzbeni-glasnik>
+    </zakon>
+    На основу Закона...
+    од горе наведеног органа захтевам:*
+    <tip-zahteva>
+        <izbor id="Z1" naziv-izbora="обавештење да ли поседује тражену информацију"/>
+        <izbor id="Z2" naziv-izbora="увид у документ који садржи тражену информацију"/>
+        <izbor id="Z3" naziv-izbora="копију документа који садржи тражену информацију"/>
+        <izbor id="Z4" naziv-izbora="достављање копије документа који садржи тражену информацију">
+            <tip-dostave>
+                <izbor id="D1" naziv-izbora="поштом"/>
+                <izbor id="D2" naziv-izbora="електронском поштом"/>
+                <izbor id="D3" naziv-izbora="факсом"/>
+                <izbor id="D4" naziv-izbora="на други начин">
+                    <drugi-nacin></drugi-nacin>
+                </izbor>
+            </tip-dostave>
+        </izbor>
+    </tip-zahteva>
+
+    
+
+    Овај захтев се односи на следеће информације:
+    <tip-informacije> </tip-informacije>
+
+    
+    <mesto></mesto>
+    
+    <trazilac-informacije ime="ip" prezime="p">
+        <adresa ulica="u" broj="bb">
+            <mesto>Tutin</mesto>
+        </adresa>
+        <ostali-podaci> </ostali-podaci>
+    </trazilac-informacije>
+</zahtev>
