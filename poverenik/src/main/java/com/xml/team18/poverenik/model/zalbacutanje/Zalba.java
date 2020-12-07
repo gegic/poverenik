@@ -40,7 +40,7 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-        name = "Zalba",
+        name = "ZalbaCutanje",
         propOrder = {"content"})
 public class Zalba {
 

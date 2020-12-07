@@ -39,8 +39,9 @@ import java.util.List;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 @XmlType(
-        name = "Zalba",
+        name = "ZalbaNaOdluku",
         propOrder = {"content"})
 public class Zalba {
 

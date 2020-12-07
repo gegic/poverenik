@@ -7,13 +7,12 @@ import com.xml.team18.poverenik.model.zalbacutanje.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
+import java.io.File;
+import java.util.Scanner;
 
 @RestController
 @RequestMapping(path = "/api/zalba-cutanje")
@@ -41,6 +40,23 @@ public class ZalbaCutanjeController {
             String xml = jaxB.marshall(o, Zalba.class, zalbaCutanjeFactory.getClass());
             return ResponseEntity.ok(xml);
         } catch (JAXBException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping(
+            produces = MediaType.APPLICATION_XML_VALUE
+    )
+    public ResponseEntity<String> getZalbaCutanje() {
+        try {
+            Scanner s = new Scanner(new File("./xml/xmlModel/zalbacutanje.xml"));
+            String xml = s.useDelimiter("\\Z").next();
+            Object o = jaxB.unmarshall(xml, Zalba.class, ZalbaCutanjeFactory.class);
+            Zalba z = (Zalba) ((JAXBElement) o).getValue();
+            xml = jaxB.marshall(z, Zalba.class, ZalbaCutanjeFactory.class);
+            return ResponseEntity.ok(xml);
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.badRequest().build();
         }
