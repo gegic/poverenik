@@ -2,24 +2,24 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:zno="http://www.ftn.uns.ac.rs/zabla-na-odluku">
     <xs:include schemaLocation="poverenik.xsd"/>
-    <xs:element name="zalba" type="TZalba"/>
-    <xs:complexType mixed="true" name="TZalba">
+    <xs:element name="zalba" type="Zalba"/>
+    <xs:complexType mixed="true" name="Zalba">
         <xs:sequence>
             <xs:element name="svrha" type="xs:string"/>
-            <xs:element name="primalac" type="TOrgan"/>
-            <xs:element name="zalilac" type="TLice"/>
-            <xs:element name="protiv" type="TOdluka"/>
+            <xs:element name="primalac" type="Organ"/>
+            <xs:element name="zalilac" type="Lice"/>
+            <xs:element name="protiv" type="Odluka"/>
             <xs:element name="datum" type="xs:date"/>
             <xs:element default="у целости" name="deo-pobijanja" type="xs:string"/>
-            <xs:element name="zakon" type="TAkt"/>
+            <xs:element name="zakon" type="Akt"/>
             <xs:element name="mesto" type="xs:string"/>
-            <xs:element name="podnosilac" type="TOsoba"/>
+            <xs:element name="podnosilac" type="Osoba"/>
         </xs:sequence>
         <xs:attribute name="datum" type="xs:date" use="required"/>
     </xs:complexType>
-    <xs:complexType name="TOdluka">
+    <xs:complexType name="Odluka">
         <xs:sequence>
-            <xs:element name="donosilac" type="TOrgan"/>
+            <xs:element name="donosilac" type="Organ"/>
         </xs:sequence>
         <xs:attribute name="broj" use="required">
             <xs:simpleType>

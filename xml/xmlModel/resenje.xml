@@ -4,10 +4,10 @@
  datum="2020-06-09">
     <predgovor>
         Повереник за информације од јавног значаја и заштиту података о личности, у поступку по жалби
-        коју је изјавио <zalilac ime="A" prezime="A" xsi:type="TOsoba"/>, због непоступања 
+        коју је изјавио <zalilac ime="A" prezime="A" xsi:type="Osoba"/>, због непоступања 
         <uzrok>
             <nepostupanje>
-                <zahtev datum="2020-04-16"/>
+                <podneti-zahtev datum="2020-04-16"/>
             </nepostupanje>
             <protiv naziv="Учитељски факултет у Призрену">
                 <adresa ulica="Немањина" broj="bb">
@@ -66,7 +66,7 @@
             <akcija rok="5">
                 да без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести <zalilac ime="A" prezime="A"/>, да ли
                 поседује тражене информације односно документ у коме су исте садржане, и то: 
-                <zahtev>Neki ugovor</zahtev>
+                <podneti-zahtev>Neki ugovor</podneti-zahtev>
                 те да му, уколико такав документ поседује
                 достави копију истог
                 <nacin-dostave>
@@ -101,10 +101,10 @@
     <obrazlozenje>
         <tok>
             <izjava-zalbe datum="2020-07-05">
-                <zalilac ime="A" prezime="A" xsi:type="TOsoba"/>, као тражилац информација, изјавио је дана 2020-07-05 године жалбу Поверенику, због
+                <zalilac ime="A" prezime="A" xsi:type="Osoba"/>, као тражилац информација, изјавио је дана 2020-07-05 године жалбу Поверенику, због
                 <uzrok>
                     <nepostupanje>
-                        <zahtev datum="2020-04-16"/>
+                        <podneti-zahtev datum="2020-04-16"/>
                     </nepostupanje>
                     <protiv naziv="Учитељски факултет у Призрену">
                         <adresa ulica="Немањина" broj="bb">

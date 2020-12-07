@@ -13,7 +13,7 @@
     
     Ж А Л Б А 
     
-    <zalilac ime="i" prezime="p" xsi:type="TOsoba">
+    <zalilac ime="i" prezime="p" xsi:type="Osoba">
         <adresa ulica="ulica" broj="1b">
             <mesto> </mesto>
         </adresa>

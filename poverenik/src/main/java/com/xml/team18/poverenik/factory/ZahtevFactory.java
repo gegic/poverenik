@@ -1,7 +1,10 @@
 
 package com.xml.team18.poverenik.factory;
 
-import com.xml.team18.poverenik.model.*;
+import com.xml.team18.poverenik.model.zahtev.*;
+import com.xml.team18.poverenik.model.poverenik.*;
+import org.springframework.stereotype.Component;
+
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -23,192 +26,192 @@ import javax.xml.namespace.QName;
  * provided in this class.
  * 
  */
+@Component
 @XmlRegistry
-public class ZahtevFactory extends PoverenikFactory {
+public class ZahtevFactory extends PoverenikFactory{
 
     private final static QName _Zahtev_QNAME = new QName("", "zahtev");
-    private final static QName _TZahtevOrgan_QNAME = new QName("", "organ");
-    private final static QName _TZahtevNaslov_QNAME = new QName("", "naslov");
-    private final static QName _TZahtevZakon_QNAME = new QName("", "zakon");
-    private final static QName _TZahtevTipZahteva_QNAME = new QName("", "tip-zahteva");
-    private final static QName _TZahtevTipInformacije_QNAME = new QName("", "tip-informacije");
-    private final static QName _TZahtevMesto_QNAME = new QName("", "mesto");
-    private final static QName _TZahtevTrazilacInformacije_QNAME = new QName("", "trazilac-informacije");
+    private final static QName _ZahtevOrgan_QNAME = new QName("", "organ");
+    private final static QName _ZahtevNaslov_QNAME = new QName("", "naslov");
+    private final static QName _ZahtevZakon_QNAME = new QName("", "zakon");
+    private final static QName _ZahtevTipZahteva_QNAME = new QName("", "tip-zahteva");
+    private final static QName _ZahtevTipInformacije_QNAME = new QName("", "tip-informacije");
+    private final static QName _ZahtevMesto_QNAME = new QName("", "mesto");
+    private final static QName _ZahtevTrazilacInformacije_QNAME = new QName("", "trazilac-informacije");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
-     *
+     * 
      */
     public ZahtevFactory() {
-        super();
     }
 
     /**
-     * Create an instance of {@link TListObjave }
+     * Create an instance of {@link Akt }
      * 
      */
-    public TListObjave createTListObjave() {
-        return new TListObjave();
+    public Akt createAkt() {
+        return new Akt();
     }
 
     /**
-     * Create an instance of {@link TAkt }
+     * Create an instance of {@link Akt.Clan }
      * 
      */
-    public TAkt createTAkt() {
-        return new TAkt();
+    public Akt.Clan createAktClan() {
+        return new Akt.Clan();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan }
+     * Create an instance of {@link Akt.Clan.Stav }
      * 
      */
-    public TAkt.Clan createTAktClan() {
-        return new TAkt.Clan();
+    public Akt.Clan.Stav createAktClanStav() {
+        return new Akt.Clan.Stav();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav }
+     * Create an instance of {@link ListObjave }
      * 
      */
-    public TAkt.Clan.Stav createTAktClanStav() {
-        return new TAkt.Clan.Stav();
+    public ListObjave createListObjave() {
+        return new ListObjave();
     }
 
     /**
-     * Create an instance of {@link TZahtev }
+     * Create an instance of {@link Zahtev }
      * 
      */
-    public TZahtev createTZahtev() {
-        return new TZahtev();
+    public Zahtev createZahtev() {
+        return new Zahtev();
     }
 
     /**
-     * Create an instance of {@link TOsoba }
+     * Create an instance of {@link IzborZahteva }
      * 
      */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
+    public IzborZahteva createIzborZahteva() {
+        return new IzborZahteva();
     }
 
     /**
-     * Create an instance of {@link TBiranjeZahteva }
+     * Create an instance of {@link Osoba }
      * 
      */
-    public TBiranjeZahteva createTBiranjeZahteva() {
-        return new TBiranjeZahteva();
+    public Osoba createOsoba() {
+        return new Osoba();
     }
 
     /**
-     * Create an instance of {@link TAdresa }
+     * Create an instance of {@link Adresa }
      * 
      */
-    public TAdresa createTAdresa() {
-        return new TAdresa();
+    public Adresa createAdresa() {
+        return new Adresa();
     }
 
     /**
-     * Create an instance of {@link TIzborZahteva }
+     * Create an instance of {@link BiranjeZahteva }
      * 
      */
-    public TIzborZahteva createTIzborZahteva() {
-        return new TIzborZahteva();
+    public BiranjeZahteva createBiranjeZahteva() {
+        return new BiranjeZahteva();
     }
 
     /**
-     * Create an instance of {@link TOrgan }
+     * Create an instance of {@link Organ }
      * 
      */
-    public TOrgan createTOrgan() {
-        return new TOrgan();
+    public Organ createOrgan() {
+        return new Organ();
     }
 
     /**
-     * Create an instance of {@link TListObjave.Broj }
+     * Create an instance of {@link Akt.Clan.Stav.Tacka }
      * 
      */
-    public TListObjave.Broj createTListObjaveBroj() {
-        return new TListObjave.Broj();
+    public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
+        return new Akt.Clan.Stav.Tacka();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav.Tacka }
+     * Create an instance of {@link ListObjave.Broj }
      * 
      */
-    public TAkt.Clan.Stav.Tacka createTAktClanStavTacka() {
-        return new TAkt.Clan.Stav.Tacka();
+    public ListObjave.Broj createListObjaveBroj() {
+        return new ListObjave.Broj();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TZahtev }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Zahtev }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "zahtev")
-    public JAXBElement<TZahtev> createZahtev(TZahtev value) {
-        return new JAXBElement<TZahtev>(_Zahtev_QNAME, TZahtev.class, null, value);
+    public JAXBElement<Zahtev> createZahtev(Zahtev value) {
+        return new JAXBElement<Zahtev>(_Zahtev_QNAME, Zahtev.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOrgan }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "organ", scope = TZahtev.class)
-    public JAXBElement<TOrgan> createTZahtevOrgan(TOrgan value) {
-        return new JAXBElement<TOrgan>(_TZahtevOrgan_QNAME, TOrgan.class, TZahtev.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "naslov", scope = TZahtev.class)
-    public JAXBElement<String> createTZahtevNaslov(String value) {
-        return new JAXBElement<String>(_TZahtevNaslov_QNAME, String.class, TZahtev.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TAkt }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "zakon", scope = TZahtev.class)
-    public JAXBElement<TAkt> createTZahtevZakon(TAkt value) {
-        return new JAXBElement<TAkt>(_TZahtevZakon_QNAME, TAkt.class, TZahtev.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TBiranjeZahteva }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "tip-zahteva", scope = TZahtev.class)
-    public JAXBElement<TBiranjeZahteva> createTZahtevTipZahteva(TBiranjeZahteva value) {
-        return new JAXBElement<TBiranjeZahteva>(_TZahtevTipZahteva_QNAME, TBiranjeZahteva.class, TZahtev.class, value);
+    @XmlElementDecl(namespace = "", name = "organ", scope = Zahtev.class)
+    public JAXBElement<Organ> createZahtevOrgan(Organ value) {
+        return new JAXBElement<Organ>(_ZahtevOrgan_QNAME, Organ.class, Zahtev.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "tip-informacije", scope = TZahtev.class)
-    public JAXBElement<String> createTZahtevTipInformacije(String value) {
-        return new JAXBElement<String>(_TZahtevTipInformacije_QNAME, String.class, TZahtev.class, value);
+    @XmlElementDecl(namespace = "", name = "naslov", scope = Zahtev.class)
+    public JAXBElement<String> createZahtevNaslov(String value) {
+        return new JAXBElement<String>(_ZahtevNaslov_QNAME, String.class, Zahtev.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Akt }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "zakon", scope = Zahtev.class)
+    public JAXBElement<Akt> createZahtevZakon(Akt value) {
+        return new JAXBElement<Akt>(_ZahtevZakon_QNAME, Akt.class, Zahtev.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BiranjeZahteva }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "tip-zahteva", scope = Zahtev.class)
+    public JAXBElement<BiranjeZahteva> createZahtevTipZahteva(BiranjeZahteva value) {
+        return new JAXBElement<BiranjeZahteva>(_ZahtevTipZahteva_QNAME, BiranjeZahteva.class, Zahtev.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "mesto", scope = TZahtev.class)
-    public JAXBElement<String> createTZahtevMesto(String value) {
-        return new JAXBElement<String>(_TZahtevMesto_QNAME, String.class, TZahtev.class, value);
+    @XmlElementDecl(namespace = "", name = "tip-informacije", scope = Zahtev.class)
+    public JAXBElement<String> createZahtevTipInformacije(String value) {
+        return new JAXBElement<String>(_ZahtevTipInformacije_QNAME, String.class, Zahtev.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOsoba }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "trazilac-informacije", scope = TZahtev.class)
-    public JAXBElement<TOsoba> createTZahtevTrazilacInformacije(TOsoba value) {
-        return new JAXBElement<TOsoba>(_TZahtevTrazilacInformacije_QNAME, TOsoba.class, TZahtev.class, value);
+    @XmlElementDecl(namespace = "", name = "mesto", scope = Zahtev.class)
+    public JAXBElement<String> createZahtevMesto(String value) {
+        return new JAXBElement<String>(_ZahtevMesto_QNAME, String.class, Zahtev.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Osoba }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "trazilac-informacije", scope = Zahtev.class)
+    public JAXBElement<Osoba> createZahtevTrazilacInformacije(Osoba value) {
+        return new JAXBElement<Osoba>(_ZahtevTrazilacInformacije_QNAME, Osoba.class, Zahtev.class, value);
     }
 
 }

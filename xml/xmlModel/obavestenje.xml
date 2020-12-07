@@ -8,7 +8,7 @@
         </adresa>
     </organ>
     
-    <podnosilac ime="i" prezime="p" xsi:type="TOsoba">
+    <podnosilac ime="i" prezime="p" xsi:type="Osoba">
         <adresa ulica="u" broj="1b">
             <mesto/>
         </adresa>
@@ -29,7 +29,7 @@
     тражили увид у документ/е са информацијама о / у вези са: 
     <opis-zahteva></opis-zahteva>
     <sadrzaj-obavestenja>
-        обавештавамо вас да дана <datum>2019-04-18</datum>, у <vreme pocetak="10:30:00" zavrsetak="10:45:00" xsi:type="TVremePeriod"/> часова, у
+        обавештавамо вас да дана <datum>2019-04-18</datum>, у <vreme pocetak="10:30:00" zavrsetak="10:45:00" xsi:type="VremePeriod"/> часова, у
         просторијама органа у <kancelarija broj="3"><adresa ulica="u" broj="12"><mesto>Tutin</mesto></adresa></kancelarija>
         можете извршити увид у документ/е у коме је садржана тражена информација. 
     </sadrzaj-obavestenja>

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:po="http://team14.xml.com/poverenik">
-    <xs:complexType name="TOrgan">
+    <xs:complexType name="Organ">
         <xs:complexContent>
-            <xs:extension base="TLice">
+            <xs:extension base="Lice">
                 <xs:attribute name="naziv" type="xs:string" use="required"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:complexType abstract="true" name="TLice">
+    <xs:complexType abstract="true" name="Lice">
         <xs:sequence>
-            <xs:element minOccurs="0" name="adresa" type="TAdresa"/>
+            <xs:element minOccurs="0" name="adresa" type="Adresa"/>
             <xs:element minOccurs="0" name="ostali-podaci" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TOsoba">
+    <xs:complexType name="Osoba">
         <xs:complexContent>
-            <xs:extension base="TLice">
+            <xs:extension base="Lice">
                 <xs:attribute name="ime" type="xs:string" use="required"/>
                 <xs:attribute name="prezime" type="xs:string" use="required"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:complexType name="TAdresa">
+    <xs:complexType name="Adresa">
         <xs:sequence>
             <xs:element name="mesto" type="xs:string"/>
         </xs:sequence>
@@ -35,7 +35,7 @@
             </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
-    <xs:complexType name="TAkt">
+    <xs:complexType name="Akt">
         <xs:sequence>
             <xs:element minOccurs="0" name="clan">
                 <xs:complexType>
@@ -57,16 +57,16 @@
                     <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="sluzbeni-glasnik" type="TListObjave"/>
+            <xs:element minOccurs="0" name="sluzbeni-glasnik" type="ListObjave"/>
         </xs:sequence>
         <xs:attribute name="naziv" type="xs:string" use="required"/>
     </xs:complexType>
-    <xs:complexType name="TListObjave">
+    <xs:complexType name="ListObjave">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" name="broj">
                 <xs:complexType>
                     <xs:simpleContent>
-                        <xs:extension base="TBrojObjave">
+                        <xs:extension base="BrojObjave">
                             <xs:attribute default="false" name="autenticno-tumacenje"
                                 type="xs:boolean"/>
                         </xs:extension>
@@ -75,7 +75,7 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:simpleType name="TBrojObjave">
+    <xs:simpleType name="BrojObjave">
         <xs:restriction base="xs:string">
             <xs:pattern value="\d{1,5}/\d\d(\d\d)?"/>
         </xs:restriction>

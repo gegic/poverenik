@@ -2,14 +2,14 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:zalba-cutanje="http://www.ftn.uns.ac.rs/zalba-cutanje">
     <xs:include schemaLocation="poverenik.xsd"/>
-    <xs:element name="zalba-cutanje" type="TZalba"/>
-    <xs:complexType mixed="true" name="TZalba">
+    <xs:element name="zalba-cutanje" type="Zalba"/>
+    <xs:complexType mixed="true" name="Zalba">
         <xs:sequence>
             <xs:element name="svrha" type="xs:string"/>
-            <xs:element name="primalac" type="TOrgan"/>
-            <xs:element name="zakon" type="TAkt"/>
-            <xs:element name="protiv" type="TOrgan"/>
-            <xs:element name="razlog" type="TBiranjeRazloga">
+            <xs:element name="primalac" type="Organ"/>
+            <xs:element name="zakon" type="Akt"/>
+            <xs:element name="protiv" type="Organ"/>
+            <xs:element name="razlog" type="BiranjeRazloga">
                 <xs:key name="kljucRazloga">
                     <xs:selector xpath="izbor"/>
                     <xs:field xpath="@id"/>
@@ -19,11 +19,11 @@
             <xs:element name="podaci-o-zahtevu" type="xs:string"/>
             <xs:element name="napomena" type="xs:string"/>
             <xs:element name="mesto" type="xs:string"/>
-            <xs:element name="podnosilac" type="TOsoba"/>
+            <xs:element name="podnosilac" type="Osoba"/>
         </xs:sequence>
         <xs:attribute name="datum" type="xs:date"/>
     </xs:complexType>
-    <xs:complexType name="TIzborRazloga">
+    <xs:complexType name="IzborRazloga">
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="naziv" type="xs:string" use="required"/>
@@ -32,9 +32,9 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    <xs:complexType name="TBiranjeRazloga">
+    <xs:complexType name="BiranjeRazloga">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="izbor" type="TIzborRazloga"/>
+            <xs:element maxOccurs="unbounded" name="izbor" type="IzborRazloga"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

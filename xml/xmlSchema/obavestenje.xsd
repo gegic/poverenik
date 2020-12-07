@@ -3,22 +3,22 @@
     xmlns:obavestenje="http://www.ftn.uns.ac.rs/obavestenje">
 
     <xs:include schemaLocation="poverenik.xsd"/>
-    <xs:element name="obavestenje" type="TObavestenje"/>
-    <xs:complexType mixed="true" name="TObavestenje">
+    <xs:element name="obavestenje" type="Obavestenje"/>
+    <xs:complexType mixed="true" name="Obavestenje">
         <xs:sequence>
-            <xs:element name="organ" type="TOrgan"/>
-            <xs:element name="podnosilac" type="TLice"/>
+            <xs:element name="organ" type="Organ"/>
+            <xs:element name="podnosilac" type="Lice"/>
             <xs:element name="opis" type="xs:string"/>
-            <xs:element name="zakon" type="TAkt"/>
+            <xs:element name="zakon" type="Akt"/>
             <xs:element ref="datum"/>
             <xs:element name="opis-zahteva" type="xs:string"/>
-            <xs:element name="sadrzaj-obavestenja" type="TSadrzaj"/>
+            <xs:element name="sadrzaj-obavestenja" type="Sadrzaj"/>
             <xs:element name="odluka" type="xs:string"/>
-            <xs:element name="uredba" type="TAkt"/>
-            <xs:element name="cenovnik" type="TCenovnik"/>
+            <xs:element name="uredba" type="Akt"/>
+            <xs:element name="cenovnik" type="Cenovnik"/>
             <xs:element name="cena" type="xs:nonNegativeInteger"/>
-            <xs:element name="primalac" type="TPrimalac"/>
-            <xs:element name="dostavljeno" type="TDostavljeno"/>
+            <xs:element name="primalac" type="Primalac"/>
+            <xs:element name="dostavljeno" type="Dostavljeno"/>
         </xs:sequence>
         <xs:attribute name="broj-predmeta" use="required">
             <xs:simpleType>
@@ -30,21 +30,21 @@
         <xs:attribute name="datum" type="xs:date" use="required"/>
     </xs:complexType>
     <xs:element name="datum" type="xs:date"/>
-    <xs:complexType mixed="true" name="TSadrzaj">
+    <xs:complexType mixed="true" name="Sadrzaj">
         <xs:all>
             <xs:element ref="datum"/>
-            <xs:element name="vreme" type="TVreme"/>
-            <xs:element name="kancelarija" type="TKancelarija"/>
+            <xs:element name="vreme" type="Vreme"/>
+            <xs:element name="kancelarija" type="Kancelarija"/>
         </xs:all>
     </xs:complexType>
-    <xs:complexType name="TDostavljeno">
+    <xs:complexType name="Dostavljeno">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="primalac" type="TOrgan"/>
+            <xs:element maxOccurs="unbounded" name="primalac" type="Organ"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TPrimalac">
+    <xs:complexType name="Primalac">
         <xs:sequence>
-            <xs:element name="organ" type="TOrgan"/>
+            <xs:element name="organ" type="Organ"/>
         </xs:sequence>
         <xs:attribute name="broj-racuna" use="required">
             <xs:simpleType>
@@ -62,13 +62,13 @@
             </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
-    <xs:complexType name="TKancelarija">
+    <xs:complexType name="Kancelarija">
         <xs:sequence>
-            <xs:element name="adresa" type="TAdresa"/>
+            <xs:element name="adresa" type="Adresa"/>
         </xs:sequence>
         <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
-    <xs:complexType name="TCenovnik">
+    <xs:complexType name="Cenovnik">
         <xs:sequence>
             <xs:element name="stavka" maxOccurs="unbounded">
                 <xs:complexType>
@@ -79,12 +79,12 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TVreme">
+    <xs:complexType name="Vreme">
         <xs:attribute name="pocetak" type="xs:time"/>
     </xs:complexType>
-    <xs:complexType name="TVremePeriod">
+    <xs:complexType name="VremePeriod">
         <xs:complexContent>
-            <xs:extension base="TVreme">
+            <xs:extension base="Vreme">
                 <xs:attribute name="zavrsetak" type="xs:time"/>
             </xs:extension>
         </xs:complexContent>

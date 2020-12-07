@@ -1,13 +1,15 @@
 
 package com.xml.team18.poverenik.factory;
 
-import com.xml.team18.poverenik.model.*;
+import com.xml.team18.poverenik.model.resenje.*;
+import com.xml.team18.poverenik.model.poverenik.*;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import java.util.List;
 
 
 /**
@@ -24,24 +26,25 @@ import java.util.List;
  * provided in this class.
  * 
  */
+@Component
 @XmlRegistry
 public class ResenjeFactory extends PoverenikFactory {
 
     private final static QName _Resenje_QNAME = new QName("", "resenje");
-    private final static QName _TIzjavaZalbeUzrok_QNAME = new QName("", "uzrok");
-    private final static QName _TIzjavaZalbeZalilac_QNAME = new QName("", "zalilac");
-    private final static QName _TNalogObavestiti_QNAME = new QName("", "obavestiti");
-    private final static QName _TNalogPrimalac_QNAME = new QName("", "primalac");
-    private final static QName _TNalogAkcija_QNAME = new QName("", "akcija");
-    private final static QName _TUputPoverenikaOsnov_QNAME = new QName("", "osnov");
-    private final static QName _TNacinDostaveElektronskaPosta_QNAME = new QName("", "elektronska-posta");
-    private final static QName _TNacinDostaveFaks_QNAME = new QName("", "faks");
-    private final static QName _TNacinDostavePosta_QNAME = new QName("", "posta");
-    private final static QName _TTeloOdbijanje_QNAME = new QName("", "odbijanje");
-    private final static QName _TTeloNalog_QNAME = new QName("", "nalog");
-    private final static QName _TPravnoSredstvoSud_QNAME = new QName("", "sud");
-    private final static QName _TAkcijaNacinDostave_QNAME = new QName("", "nacin-dostave");
-    private final static QName _TAkcijaCenzura_QNAME = new QName("", "cenzura");
+    private final static QName _ObavestitiPrimalac_QNAME = new QName("", "primalac");
+    private final static QName _NalogObavestiti_QNAME = new QName("", "obavestiti");
+    private final static QName _NalogAkcija_QNAME = new QName("", "akcija");
+    private final static QName _OdbijanjeUzrok_QNAME = new QName("", "uzrok");
+    private final static QName _OdbijanjeZalilac_QNAME = new QName("", "zalilac");
+    private final static QName _PravnoSredstvoSud_QNAME = new QName("", "sud");
+    private final static QName _UputPoverenikaOsnov_QNAME = new QName("", "osnov");
+    private final static QName _TeloOdbijanje_QNAME = new QName("", "odbijanje");
+    private final static QName _TeloNalog_QNAME = new QName("", "nalog");
+    private final static QName _AkcijaNacinDostave_QNAME = new QName("", "nacin-dostave");
+    private final static QName _AkcijaCenzura_QNAME = new QName("", "cenzura");
+    private final static QName _NacinDostaveElektronskaPosta_QNAME = new QName("", "elektronska-posta");
+    private final static QName _NacinDostaveFaks_QNAME = new QName("", "faks");
+    private final static QName _NacinDostavePosta_QNAME = new QName("", "posta");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
@@ -51,433 +54,433 @@ public class ResenjeFactory extends PoverenikFactory {
     }
 
     /**
-     * Create an instance of {@link TNacinDostave }
+     * Create an instance of {@link Akt }
      * 
      */
-    public TNacinDostave createTNacinDostave() {
-        return new TNacinDostave();
+    public Akt createAkt() {
+        return new Akt();
     }
 
     /**
-     * Create an instance of {@link TAkt }
+     * Create an instance of {@link Akt.Clan }
      * 
      */
-    public TAkt createTAkt() {
-        return new TAkt();
+    public Akt.Clan createAktClan() {
+        return new Akt.Clan();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan }
+     * Create an instance of {@link Akt.Clan.Stav }
      * 
      */
-    public TAkt.Clan createTAktClan() {
-        return new TAkt.Clan();
+    public Akt.Clan.Stav createAktClanStav() {
+        return new Akt.Clan.Stav();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav }
+     * Create an instance of {@link ListObjave }
      * 
      */
-    public TAkt.Clan.Stav createTAktClanStav() {
-        return new TAkt.Clan.Stav();
+    public ListObjave createListObjave() {
+        return new ListObjave();
     }
 
     /**
-     * Create an instance of {@link TListObjave }
+     * Create an instance of {@link NacinDostave }
      * 
      */
-    public TListObjave createTListObjave() {
-        return new TListObjave();
+    public NacinDostave createNacinDostave() {
+        return new NacinDostave();
     }
 
     /**
-     * Create an instance of {@link Zahtev }
+     * Create an instance of {@link Resenje }
      * 
      */
-    public Zahtev createZahtev() {
-        return new Zahtev();
+    public Resenje createResenje() {
+        return new Resenje();
     }
 
     /**
-     * Create an instance of {@link TResenje }
+     * Create an instance of {@link PodnetiZahtev }
      * 
      */
-    public TResenje createTResenje() {
-        return new TResenje();
+    public PodnetiZahtev createPodnetiZahtev() {
+        return new PodnetiZahtev();
     }
 
     /**
-     * Create an instance of {@link TPravnoSredstvo }
+     * Create an instance of {@link Uzrok }
      * 
      */
-    public TPravnoSredstvo createTPravnoSredstvo() {
-        return new TPravnoSredstvo();
+    public Uzrok createUzrok() {
+        return new Uzrok();
     }
 
     /**
-     * Create an instance of {@link TIzjavaZalbe }
+     * Create an instance of {@link Predgovor }
      * 
      */
-    public TIzjavaZalbe createTIzjavaZalbe() {
-        return new TIzjavaZalbe();
+    public Predgovor createPredgovor() {
+        return new Predgovor();
     }
 
     /**
-     * Create an instance of {@link TNepostupanje }
+     * Create an instance of {@link IzjavaZalbe }
      * 
      */
-    public TNepostupanje createTNepostupanje() {
-        return new TNepostupanje();
+    public IzjavaZalbe createIzjavaZalbe() {
+        return new IzjavaZalbe();
     }
 
     /**
-     * Create an instance of {@link TUputPoverenika }
+     * Create an instance of {@link Akcija }
      * 
      */
-    public TUputPoverenika createTUputPoverenika() {
-        return new TUputPoverenika();
+    public Akcija createAkcija() {
+        return new Akcija();
     }
 
     /**
-     * Create an instance of {@link TOsnov }
+     * Create an instance of {@link NegativnoObavestenje }
      * 
      */
-    public TOsnov createTOsnov() {
-        return new TOsnov();
+    public NegativnoObavestenje createNegativnoObavestenje() {
+        return new NegativnoObavestenje();
     }
 
     /**
-     * Create an instance of {@link TPredgovor }
+     * Create an instance of {@link Nepostupanje }
      * 
      */
-    public TPredgovor createTPredgovor() {
-        return new TPredgovor();
+    public Nepostupanje createNepostupanje() {
+        return new Nepostupanje();
     }
 
     /**
-     * Create an instance of {@link TObavestiti }
+     * Create an instance of {@link Osnov }
      * 
      */
-    public TObavestiti createTObavestiti() {
-        return new TObavestiti();
+    public Osnov createOsnov() {
+        return new Osnov();
     }
 
     /**
-     * Create an instance of {@link TUzrok }
+     * Create an instance of {@link Obrazlozenje }
      * 
      */
-    public TUzrok createTUzrok() {
-        return new TUzrok();
+    public Obrazlozenje createObrazlozenje() {
+        return new Obrazlozenje();
     }
 
     /**
-     * Create an instance of {@link TTelo }
+     * Create an instance of {@link Osoba }
      * 
      */
-    public TTelo createTTelo() {
-        return new TTelo();
+    public Osoba createOsoba() {
+        return new Osoba();
     }
 
     /**
-     * Create an instance of {@link TOsoba }
+     * Create an instance of {@link Adresa }
      * 
      */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
+    public Adresa createAdresa() {
+        return new Adresa();
     }
 
     /**
-     * Create an instance of {@link TNalog }
+     * Create an instance of {@link PravnoSredstvo }
      * 
      */
-    public TNalog createTNalog() {
-        return new TNalog();
+    public PravnoSredstvo createPravnoSredstvo() {
+        return new PravnoSredstvo();
     }
 
     /**
-     * Create an instance of {@link TAkcija }
+     * Create an instance of {@link Nalog }
      * 
      */
-    public TAkcija createTAkcija() {
-        return new TAkcija();
+    public Nalog createNalog() {
+        return new Nalog();
     }
 
     /**
-     * Create an instance of {@link TAdresa }
+     * Create an instance of {@link Odbijanje }
      * 
      */
-    public TAdresa createTAdresa() {
-        return new TAdresa();
+    public Odbijanje createOdbijanje() {
+        return new Odbijanje();
     }
 
     /**
-     * Create an instance of {@link TObavestenje }
+     * Create an instance of {@link Tok }
      * 
      */
-    public TObavestenje createTObavestenje() {
-        return new TObavestenje();
+    public Tok createTok() {
+        return new Tok();
     }
 
     /**
-     * Create an instance of {@link TObrazlozenje }
+     * Create an instance of {@link Obavestiti }
      * 
      */
-    public TObrazlozenje createTObrazlozenje() {
-        return new TObrazlozenje();
+    public Obavestiti createObavestiti() {
+        return new Obavestiti();
     }
 
     /**
-     * Create an instance of {@link TOrgan }
+     * Create an instance of {@link Telo }
      * 
      */
-    public TOrgan createTOrgan() {
-        return new TOrgan();
+    public Telo createTelo() {
+        return new Telo();
     }
 
     /**
-     * Create an instance of {@link TDonosenjeOdluke }
+     * Create an instance of {@link DonosenjeOdluke }
      * 
      */
-    public TDonosenjeOdluke createTDonosenjeOdluke() {
-        return new TDonosenjeOdluke();
+    public DonosenjeOdluke createDonosenjeOdluke() {
+        return new DonosenjeOdluke();
     }
 
     /**
-     * Create an instance of {@link TTok }
+     * Create an instance of {@link Organ }
      * 
      */
-    public TTok createTTok() {
-        return new TTok();
+    public Organ createOrgan() {
+        return new Organ();
     }
 
     /**
-     * Create an instance of {@link TOdbijanje }
+     * Create an instance of {@link UputPoverenika }
      * 
      */
-    public TOdbijanje createTOdbijanje() {
-        return new TOdbijanje();
+    public UputPoverenika createUputPoverenika() {
+        return new UputPoverenika();
     }
 
     /**
-     * Create an instance of {@link TNacinDostave.Posta }
+     * Create an instance of {@link Akt.Clan.Stav.Tacka }
      * 
      */
-    public TNacinDostave.Posta createTNacinDostavePosta() {
-        return new TNacinDostave.Posta();
+    public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
+        return new Akt.Clan.Stav.Tacka();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav.Tacka }
+     * Create an instance of {@link ListObjave.Broj }
      * 
      */
-    public TAkt.Clan.Stav.Tacka createTAktClanStavTacka() {
-        return new TAkt.Clan.Stav.Tacka();
+    public ListObjave.Broj createListObjaveBroj() {
+        return new ListObjave.Broj();
     }
 
     /**
-     * Create an instance of {@link TListObjave.Broj }
+     * Create an instance of {@link NacinDostave.Posta }
      * 
      */
-    public TListObjave.Broj createTListObjaveBroj() {
-        return new TListObjave.Broj();
+    public NacinDostave.Posta createNacinDostavePosta() {
+        return new NacinDostave.Posta();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TResenje }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Resenje }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "resenje")
-    public JAXBElement<TResenje> createResenje(TResenje value) {
-        return new JAXBElement<TResenje>(_Resenje_QNAME, TResenje.class, null, value);
+    public JAXBElement<Resenje> createResenje(Resenje value) {
+        return new JAXBElement<Resenje>(_Resenje_QNAME, Resenje.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TUzrok }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "uzrok", scope = TIzjavaZalbe.class)
-    public JAXBElement<TUzrok> createTIzjavaZalbeUzrok(TUzrok value) {
-        return new JAXBElement<TUzrok>(_TIzjavaZalbeUzrok_QNAME, TUzrok.class, TIzjavaZalbe.class, value);
+    @XmlElementDecl(namespace = "", name = "primalac", scope = Obavestiti.class)
+    public JAXBElement<Organ> createObavestitiPrimalac(Organ value) {
+        return new JAXBElement<Organ>(_ObavestitiPrimalac_QNAME, Organ.class, Obavestiti.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TLice }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestiti }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "zalilac", scope = TIzjavaZalbe.class)
-    public JAXBElement<TLice> createTIzjavaZalbeZalilac(TLice value) {
-        return new JAXBElement<TLice>(_TIzjavaZalbeZalilac_QNAME, TLice.class, TIzjavaZalbe.class, value);
+    @XmlElementDecl(namespace = "", name = "obavestiti", scope = Nalog.class)
+    public JAXBElement<Obavestiti> createNalogObavestiti(Obavestiti value) {
+        return new JAXBElement<Obavestiti>(_NalogObavestiti_QNAME, Obavestiti.class, Nalog.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TObavestiti }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "obavestiti", scope = TNalog.class)
-    public JAXBElement<TObavestiti> createTNalogObavestiti(TObavestiti value) {
-        return new JAXBElement<TObavestiti>(_TNalogObavestiti_QNAME, TObavestiti.class, TNalog.class, value);
+    @XmlElementDecl(namespace = "", name = "primalac", scope = Nalog.class)
+    public JAXBElement<Organ> createNalogPrimalac(Organ value) {
+        return new JAXBElement<Organ>(_ObavestitiPrimalac_QNAME, Organ.class, Nalog.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOrgan }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Akcija }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "primalac", scope = TNalog.class)
-    public JAXBElement<TOrgan> createTNalogPrimalac(TOrgan value) {
-        return new JAXBElement<TOrgan>(_TNalogPrimalac_QNAME, TOrgan.class, TNalog.class, value);
+    @XmlElementDecl(namespace = "", name = "akcija", scope = Nalog.class)
+    public JAXBElement<Akcija> createNalogAkcija(Akcija value) {
+        return new JAXBElement<Akcija>(_NalogAkcija_QNAME, Akcija.class, Nalog.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TAkcija }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Uzrok }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "akcija", scope = TNalog.class)
-    public JAXBElement<TAkcija> createTNalogAkcija(TAkcija value) {
-        return new JAXBElement<TAkcija>(_TNalogAkcija_QNAME, TAkcija.class, TNalog.class, value);
+    @XmlElementDecl(namespace = "", name = "uzrok", scope = Odbijanje.class)
+    public JAXBElement<Uzrok> createOdbijanjeUzrok(Uzrok value) {
+        return new JAXBElement<Uzrok>(_OdbijanjeUzrok_QNAME, Uzrok.class, Odbijanje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOsnov }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Lice }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "osnov", scope = TUputPoverenika.class)
-    public JAXBElement<TOsnov> createTUputPoverenikaOsnov(TOsnov value) {
-        return new JAXBElement<TOsnov>(_TUputPoverenikaOsnov_QNAME, TOsnov.class, TUputPoverenika.class, value);
+    @XmlElementDecl(namespace = "", name = "zalilac", scope = Odbijanje.class)
+    public JAXBElement<Lice> createOdbijanjeZalilac(Lice value) {
+        return new JAXBElement<Lice>(_OdbijanjeZalilac_QNAME, Lice.class, Odbijanje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TUzrok }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "uzrok", scope = TOdbijanje.class)
-    public JAXBElement<TUzrok> createTOdbijanjeUzrok(TUzrok value) {
-        return new JAXBElement<TUzrok>(_TIzjavaZalbeUzrok_QNAME, TUzrok.class, TOdbijanje.class, value);
+    @XmlElementDecl(namespace = "", name = "sud", scope = PravnoSredstvo.class)
+    public JAXBElement<Organ> createPravnoSredstvoSud(Organ value) {
+        return new JAXBElement<Organ>(_PravnoSredstvoSud_QNAME, Organ.class, PravnoSredstvo.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TLice }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Uzrok }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "zalilac", scope = TOdbijanje.class)
-    public JAXBElement<TLice> createTOdbijanjeZalilac(TLice value) {
-        return new JAXBElement<TLice>(_TIzjavaZalbeZalilac_QNAME, TLice.class, TOdbijanje.class, value);
+    @XmlElementDecl(namespace = "", name = "uzrok", scope = IzjavaZalbe.class)
+    public JAXBElement<Uzrok> createIzjavaZalbeUzrok(Uzrok value) {
+        return new JAXBElement<Uzrok>(_OdbijanjeUzrok_QNAME, Uzrok.class, IzjavaZalbe.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TUzrok }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Lice }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "uzrok", scope = TPredgovor.class)
-    public JAXBElement<TUzrok> createTPredgovorUzrok(TUzrok value) {
-        return new JAXBElement<TUzrok>(_TIzjavaZalbeUzrok_QNAME, TUzrok.class, TPredgovor.class, value);
+    @XmlElementDecl(namespace = "", name = "zalilac", scope = IzjavaZalbe.class)
+    public JAXBElement<Lice> createIzjavaZalbeZalilac(Lice value) {
+        return new JAXBElement<Lice>(_OdbijanjeZalilac_QNAME, Lice.class, IzjavaZalbe.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOsnov }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Osnov }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "osnov", scope = TPredgovor.class)
-    public JAXBElement<TOsnov> createTPredgovorOsnov(TOsnov value) {
-        return new JAXBElement<TOsnov>(_TUputPoverenikaOsnov_QNAME, TOsnov.class, TPredgovor.class, value);
+    @XmlElementDecl(namespace = "", name = "osnov", scope = UputPoverenika.class)
+    public JAXBElement<Osnov> createUputPoverenikaOsnov(Osnov value) {
+        return new JAXBElement<Osnov>(_UputPoverenikaOsnov_QNAME, Osnov.class, UputPoverenika.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TLice }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Odbijanje }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "zalilac", scope = TPredgovor.class)
-    public JAXBElement<TLice> createTPredgovorZalilac(TLice value) {
-        return new JAXBElement<TLice>(_TIzjavaZalbeZalilac_QNAME, TLice.class, TPredgovor.class, value);
+    @XmlElementDecl(namespace = "", name = "odbijanje", scope = Telo.class)
+    public JAXBElement<Odbijanje> createTeloOdbijanje(Odbijanje value) {
+        return new JAXBElement<Odbijanje>(_TeloOdbijanje_QNAME, Odbijanje.class, Telo.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Nalog }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "elektronska-posta", scope = TNacinDostave.class)
-    public JAXBElement<String> createTNacinDostaveElektronskaPosta(String value) {
-        return new JAXBElement<String>(_TNacinDostaveElektronskaPosta_QNAME, String.class, TNacinDostave.class, value);
+    @XmlElementDecl(namespace = "", name = "nalog", scope = Telo.class)
+    public JAXBElement<Nalog> createTeloNalog(Nalog value) {
+        return new JAXBElement<Nalog>(_TeloNalog_QNAME, Nalog.class, Telo.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NacinDostave }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "faks", scope = TNacinDostave.class)
-    public JAXBElement<String> createTNacinDostaveFaks(String value) {
-        return new JAXBElement<String>(_TNacinDostaveFaks_QNAME, String.class, TNacinDostave.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TNacinDostave.Posta }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "posta", scope = TNacinDostave.class)
-    public JAXBElement<TNacinDostave.Posta> createTNacinDostavePosta(TNacinDostave.Posta value) {
-        return new JAXBElement<TNacinDostave.Posta>(_TNacinDostavePosta_QNAME, TNacinDostave.Posta.class, TNacinDostave.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOdbijanje }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "odbijanje", scope = TTelo.class)
-    public JAXBElement<TOdbijanje> createTTeloOdbijanje(TOdbijanje value) {
-        return new JAXBElement<TOdbijanje>(_TTeloOdbijanje_QNAME, TOdbijanje.class, TTelo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TNalog }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "nalog", scope = TTelo.class)
-    public JAXBElement<TNalog> createTTeloNalog(TNalog value) {
-        return new JAXBElement<TNalog>(_TTeloNalog_QNAME, TNalog.class, TTelo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOrgan }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "sud", scope = TPravnoSredstvo.class)
-    public JAXBElement<TOrgan> createTPravnoSredstvoSud(TOrgan value) {
-        return new JAXBElement<TOrgan>(_TPravnoSredstvoSud_QNAME, TOrgan.class, TPravnoSredstvo.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOrgan }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "primalac", scope = TObavestiti.class)
-    public JAXBElement<TOrgan> createTObavestitiPrimalac(TOrgan value) {
-        return new JAXBElement<TOrgan>(_TNalogPrimalac_QNAME, TOrgan.class, TObavestiti.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TNacinDostave }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "nacin-dostave", scope = TAkcija.class)
-    public JAXBElement<TNacinDostave> createTAkcijaNacinDostave(TNacinDostave value) {
-        return new JAXBElement<TNacinDostave>(_TAkcijaNacinDostave_QNAME, TNacinDostave.class, TAkcija.class, value);
+    @XmlElementDecl(namespace = "", name = "nacin-dostave", scope = Akcija.class)
+    public JAXBElement<NacinDostave> createAkcijaNacinDostave(NacinDostave value) {
+        return new JAXBElement<NacinDostave>(_AkcijaNacinDostave_QNAME, NacinDostave.class, Akcija.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "zalilac", scope = TAkcija.class)
-    public JAXBElement<Object> createTAkcijaZalilac(Object value) {
-        return new JAXBElement<Object>(_TIzjavaZalbeZalilac_QNAME, Object.class, TAkcija.class, value);
+    @XmlElementDecl(namespace = "", name = "zalilac", scope = Akcija.class)
+    public JAXBElement<Object> createAkcijaZalilac(Object value) {
+        return new JAXBElement<Object>(_OdbijanjeZalilac_QNAME, Object.class, Akcija.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "cenzura", scope = TAkcija.class)
-    public JAXBElement<List<String>> createTAkcijaCenzura(List<String> value) {
-        return new JAXBElement<List<String>>(_TAkcijaCenzura_QNAME, ((Class) List.class), TAkcija.class, ((List<String> ) value));
+    @XmlElementDecl(namespace = "", name = "cenzura", scope = Akcija.class)
+    public JAXBElement<List<String>> createAkcijaCenzura(List<String> value) {
+        return new JAXBElement<List<String>>(_AkcijaCenzura_QNAME, ((Class) List.class), Akcija.class, ((List<String> ) value));
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "elektronska-posta", scope = NacinDostave.class)
+    public JAXBElement<String> createNacinDostaveElektronskaPosta(String value) {
+        return new JAXBElement<String>(_NacinDostaveElektronskaPosta_QNAME, String.class, NacinDostave.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "faks", scope = NacinDostave.class)
+    public JAXBElement<String> createNacinDostaveFaks(String value) {
+        return new JAXBElement<String>(_NacinDostaveFaks_QNAME, String.class, NacinDostave.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NacinDostave.Posta }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "posta", scope = NacinDostave.class)
+    public JAXBElement<NacinDostave.Posta> createNacinDostavePosta(NacinDostave.Posta value) {
+        return new JAXBElement<NacinDostave.Posta>(_NacinDostavePosta_QNAME, NacinDostave.Posta.class, NacinDostave.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Uzrok }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "uzrok", scope = Predgovor.class)
+    public JAXBElement<Uzrok> createPredgovorUzrok(Uzrok value) {
+        return new JAXBElement<Uzrok>(_OdbijanjeUzrok_QNAME, Uzrok.class, Predgovor.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Osnov }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "osnov", scope = Predgovor.class)
+    public JAXBElement<Osnov> createPredgovorOsnov(Osnov value) {
+        return new JAXBElement<Osnov>(_UputPoverenikaOsnov_QNAME, Osnov.class, Predgovor.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Lice }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "zalilac", scope = Predgovor.class)
+    public JAXBElement<Lice> createPredgovorZalilac(Lice value) {
+        return new JAXBElement<Lice>(_OdbijanjeZalilac_QNAME, Lice.class, Predgovor.class, value);
     }
 
 }

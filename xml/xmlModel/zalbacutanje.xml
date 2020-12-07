@@ -19,9 +19,9 @@
     против
     <protiv naziv="Protivnik"/> 
     <razlog>
-        <izbor naziv-izbora="није поступио" id="R1"/> 
-        <izbor naziv-izbora="није поступио у целости" id="R2"/>  
-        <izbor naziv-izbora="у законском року" id="R3"/>  
+        <izbor naziv="није поступио" id="R1"/> 
+        <izbor naziv="није поступио у целости" id="R2"/>  
+        <izbor naziv="у законском року" id="R3"/>  
     </razlog> 
     по мом захтеву за слободан приступ информацијама од јавног значаја који сам поднео
     том органу дана <datum-zahteva>2020-12-01</datum-zahteva> године, а којим сам тражио/ла да ми се у складу са

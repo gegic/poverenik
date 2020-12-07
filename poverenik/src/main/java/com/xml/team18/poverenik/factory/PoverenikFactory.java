@@ -1,7 +1,7 @@
 
 package com.xml.team18.poverenik.factory;
 
-import com.xml.team18.poverenik.model.*;
+import com.xml.team18.poverenik.model.poverenik.*;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -20,87 +20,87 @@ import javax.xml.bind.annotation.XmlRegistry;
  * provided in this class.
  * 
  */
-
 @XmlRegistry
-public class PoverenikFactory {
+public abstract class PoverenikFactory {
+
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
-     *
+     * 
      */
     public PoverenikFactory() {
     }
 
     /**
-     * Create an instance of {@link TListObjave }
+     * Create an instance of {@link Akt }
      * 
      */
-    public TListObjave createTListObjave() {
-        return new TListObjave();
+    public Akt createAkt() {
+        return new Akt();
     }
 
     /**
-     * Create an instance of {@link TAkt }
+     * Create an instance of {@link Akt.Clan }
      * 
      */
-    public TAkt createTAkt() {
-        return new TAkt();
+    public Akt.Clan createAktClan() {
+        return new Akt.Clan();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan }
+     * Create an instance of {@link Akt.Clan.Stav }
      * 
      */
-    public TAkt.Clan createTAktClan() {
-        return new TAkt.Clan();
+    public Akt.Clan.Stav createAktClanStav() {
+        return new Akt.Clan.Stav();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav }
+     * Create an instance of {@link ListObjave }
      * 
      */
-    public TAkt.Clan.Stav createTAktClanStav() {
-        return new TAkt.Clan.Stav();
+    public ListObjave createListObjave() {
+        return new ListObjave();
     }
 
     /**
-     * Create an instance of {@link TOsoba }
+     * Create an instance of {@link Osoba }
      * 
      */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
+    public Osoba createOsoba() {
+        return new Osoba();
     }
 
     /**
-     * Create an instance of {@link TAdresa }
+     * Create an instance of {@link Adresa }
      * 
      */
-    public TAdresa createTAdresa() {
-        return new TAdresa();
+    public Adresa createAdresa() {
+        return new Adresa();
     }
 
     /**
-     * Create an instance of {@link TOrgan }
+     * Create an instance of {@link Organ }
      * 
      */
-    public TOrgan createTOrgan() {
-        return new TOrgan();
+    public Organ createOrgan() {
+        return new Organ();
     }
 
     /**
-     * Create an instance of {@link TListObjave.Broj }
+     * Create an instance of {@link Akt.Clan.Stav.Tacka }
      * 
      */
-    public TListObjave.Broj createTListObjaveBroj() {
-        return new TListObjave.Broj();
+    public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
+        return new Akt.Clan.Stav.Tacka();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav.Tacka }
+     * Create an instance of {@link ListObjave.Broj }
      * 
      */
-    public TAkt.Clan.Stav.Tacka createTAktClanStavTacka() {
-        return new TAkt.Clan.Stav.Tacka();
+    public ListObjave.Broj createListObjaveBroj() {
+        return new ListObjave.Broj();
     }
 
 }

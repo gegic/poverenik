@@ -2,14 +2,14 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:zahtev="http://www.ftn.uns.ac.rs/zahtev">
     <xs:include schemaLocation="poverenik.xsd"/>
-    <xs:element name="zahtev" type="TZahtev"/>
+    <xs:element name="zahtev" type="Zahtev"/>
 
-    <xs:complexType name="TZahtev" mixed="true">
+    <xs:complexType name="Zahtev" mixed="true">
         <xs:sequence>
-            <xs:element name="organ" type="TOrgan"/>
+            <xs:element name="organ" type="Organ"/>
             <xs:element name="naslov" type="xs:string"/>
-            <xs:element name="zakon" type="TAkt"/>
-            <xs:element name="tip-zahteva" type="TBiranjeZahteva">
+            <xs:element name="zakon" type="Akt"/>
+            <xs:element name="tip-zahteva" type="BiranjeZahteva">
                 <xs:key name="kljucZahteva">
                     <xs:selector xpath="izbor"/>
                     <xs:field xpath="@id"/>
@@ -17,18 +17,18 @@
             </xs:element>
             <xs:element name="tip-informacije" type="xs:string"/>
             <xs:element name="mesto" type="xs:string"/>
-            <xs:element name="trazilac-informacije" type="TOsoba"/>
+            <xs:element name="trazilac-informacije" type="Osoba"/>
         </xs:sequence>
         <xs:attribute use="required" name="datum" type="xs:date"/>
     </xs:complexType>
-    <xs:complexType name="TBiranjeZahteva">
+    <xs:complexType name="BiranjeZahteva">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="izbor" type="TIzborZahteva"/>
+            <xs:element maxOccurs="unbounded" name="izbor" type="IzborZahteva"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="TIzborZahteva">
+    <xs:complexType name="IzborZahteva">
         <xs:choice minOccurs="0">
-            <xs:element name="tip-dostave" type="TBiranjeZahteva">
+            <xs:element name="tip-dostave" type="BiranjeZahteva">
                 <xs:key name="kljucDostave">
                     <xs:selector xpath="izbor"/>
                     <xs:field xpath="@id"/>

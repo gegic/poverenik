@@ -1,14 +1,16 @@
 
 package com.xml.team18.poverenik.factory;
 
-import com.xml.team18.poverenik.model.*;
+import com.xml.team18.poverenik.model.obavestenje.*;
+import com.xml.team18.poverenik.model.poverenik.*;
+import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
-import java.math.BigInteger;
 
 
 /**
@@ -25,175 +27,176 @@ import java.math.BigInteger;
  * provided in this class.
  * 
  */
+@Component
 @XmlRegistry
 public class ObavestenjeFactory extends PoverenikFactory {
 
     private final static QName _Datum_QNAME = new QName("", "datum");
     private final static QName _Obavestenje_QNAME = new QName("", "obavestenje");
-    private final static QName _TSadrzajVreme_QNAME = new QName("", "vreme");
-    private final static QName _TSadrzajKancelarija_QNAME = new QName("", "kancelarija");
-    private final static QName _TObavestenjeOrgan_QNAME = new QName("", "organ");
-    private final static QName _TObavestenjeSadrzajObavestenja_QNAME = new QName("", "sadrzaj-obavestenja");
-    private final static QName _TObavestenjePodnosilac_QNAME = new QName("", "podnosilac");
-    private final static QName _TObavestenjeZakon_QNAME = new QName("", "zakon");
-    private final static QName _TObavestenjeUredba_QNAME = new QName("", "uredba");
-    private final static QName _TObavestenjePrimalac_QNAME = new QName("", "primalac");
-    private final static QName _TObavestenjeDostavljeno_QNAME = new QName("", "dostavljeno");
-    private final static QName _TObavestenjeOdluka_QNAME = new QName("", "odluka");
-    private final static QName _TObavestenjeCena_QNAME = new QName("", "cena");
-    private final static QName _TObavestenjeOpisZahteva_QNAME = new QName("", "opis-zahteva");
-    private final static QName _TObavestenjeOpis_QNAME = new QName("", "opis");
-    private final static QName _TObavestenjeCenovnik_QNAME = new QName("", "cenovnik");
+    private final static QName _ObavestenjeOrgan_QNAME = new QName("", "organ");
+    private final static QName _ObavestenjeSadrzajObavestenja_QNAME = new QName("", "sadrzaj-obavestenja");
+    private final static QName _ObavestenjePodnosilac_QNAME = new QName("", "podnosilac");
+    private final static QName _ObavestenjeZakon_QNAME = new QName("", "zakon");
+    private final static QName _ObavestenjeUredba_QNAME = new QName("", "uredba");
+    private final static QName _ObavestenjePrimalac_QNAME = new QName("", "primalac");
+    private final static QName _ObavestenjeDostavljeno_QNAME = new QName("", "dostavljeno");
+    private final static QName _ObavestenjeOdluka_QNAME = new QName("", "odluka");
+    private final static QName _ObavestenjeCena_QNAME = new QName("", "cena");
+    private final static QName _ObavestenjeOpisZahteva_QNAME = new QName("", "opis-zahteva");
+    private final static QName _ObavestenjeOpis_QNAME = new QName("", "opis");
+    private final static QName _ObavestenjeCenovnik_QNAME = new QName("", "cenovnik");
+    private final static QName _SadrzajVreme_QNAME = new QName("", "vreme");
+    private final static QName _SadrzajKancelarija_QNAME = new QName("", "kancelarija");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
-     *
+     * 
      */
     public ObavestenjeFactory() {
     }
 
     /**
-     * Create an instance of {@link TAkt }
+     * Create an instance of {@link Cenovnik }
      * 
      */
-    public TAkt createTAkt() {
-        return new TAkt();
+    public Cenovnik createCenovnik() {
+        return new Cenovnik();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan }
+     * Create an instance of {@link Akt }
      * 
      */
-    public TAkt.Clan createTAktClan() {
-        return new TAkt.Clan();
+    public Akt createAkt() {
+        return new Akt();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav }
+     * Create an instance of {@link Akt.Clan }
      * 
      */
-    public TAkt.Clan.Stav createTAktClanStav() {
-        return new TAkt.Clan.Stav();
+    public Akt.Clan createAktClan() {
+        return new Akt.Clan();
     }
 
     /**
-     * Create an instance of {@link TCenovnik }
+     * Create an instance of {@link Akt.Clan.Stav }
      * 
      */
-    public TCenovnik createTCenovnik() {
-        return new TCenovnik();
+    public Akt.Clan.Stav createAktClanStav() {
+        return new Akt.Clan.Stav();
     }
 
     /**
-     * Create an instance of {@link TListObjave }
+     * Create an instance of {@link ListObjave }
      * 
      */
-    public TListObjave createTListObjave() {
-        return new TListObjave();
+    public ListObjave createListObjave() {
+        return new ListObjave();
     }
 
     /**
-     * Create an instance of {@link TObavestenje }
+     * Create an instance of {@link Obavestenje }
      * 
      */
-    public TObavestenje createTObavestenje() {
-        return new TObavestenje();
+    public Obavestenje createObavestenje() {
+        return new Obavestenje();
     }
 
     /**
-     * Create an instance of {@link TVreme }
+     * Create an instance of {@link Kancelarija }
      * 
      */
-    public TVreme createTVreme() {
-        return new TVreme();
+    public Kancelarija createKancelarija() {
+        return new Kancelarija();
     }
 
     /**
-     * Create an instance of {@link TKancelarija }
+     * Create an instance of {@link VremePeriod }
      * 
      */
-    public TKancelarija createTKancelarija() {
-        return new TKancelarija();
+    public VremePeriod createVremePeriod() {
+        return new VremePeriod();
     }
 
     /**
-     * Create an instance of {@link TOsoba }
+     * Create an instance of {@link Osoba }
      * 
      */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
+    public Osoba createOsoba() {
+        return new Osoba();
     }
 
     /**
-     * Create an instance of {@link TDostavljeno }
+     * Create an instance of {@link Adresa }
      * 
      */
-    public TDostavljeno createTDostavljeno() {
-        return new TDostavljeno();
+    public Adresa createAdresa() {
+        return new Adresa();
     }
 
     /**
-     * Create an instance of {@link TAdresa }
+     * Create an instance of {@link Sadrzaj }
      * 
      */
-    public TAdresa createTAdresa() {
-        return new TAdresa();
+    public Sadrzaj createSadrzaj() {
+        return new Sadrzaj();
     }
 
     /**
-     * Create an instance of {@link TPrimalac }
+     * Create an instance of {@link Primalac }
      * 
      */
-    public TPrimalac createTPrimalac() {
-        return new TPrimalac();
+    public Primalac createPrimalac() {
+        return new Primalac();
     }
 
     /**
-     * Create an instance of {@link TSadrzaj }
+     * Create an instance of {@link Vreme }
      * 
      */
-    public TSadrzaj createTSadrzaj() {
-        return new TSadrzaj();
+    public Vreme createVreme() {
+        return new Vreme();
     }
 
     /**
-     * Create an instance of {@link TOrgan }
+     * Create an instance of {@link Dostavljeno }
      * 
      */
-    public TOrgan createTOrgan() {
-        return new TOrgan();
+    public Dostavljeno createDostavljeno() {
+        return new Dostavljeno();
     }
 
     /**
-     * Create an instance of {@link TVremePeriod }
+     * Create an instance of {@link Organ }
      * 
      */
-    public TVremePeriod createTVremePeriod() {
-        return new TVremePeriod();
+    public Organ createOrgan() {
+        return new Organ();
     }
 
     /**
-     * Create an instance of {@link TAkt.Clan.Stav.Tacka }
+     * Create an instance of {@link Cenovnik.Stavka }
      * 
      */
-    public TAkt.Clan.Stav.Tacka createTAktClanStavTacka() {
-        return new TAkt.Clan.Stav.Tacka();
+    public Cenovnik.Stavka createCenovnikStavka() {
+        return new Cenovnik.Stavka();
     }
 
     /**
-     * Create an instance of {@link TCenovnik.Stavka }
+     * Create an instance of {@link Akt.Clan.Stav.Tacka }
      * 
      */
-    public TCenovnik.Stavka createTCenovnikStavka() {
-        return new TCenovnik.Stavka();
+    public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
+        return new Akt.Clan.Stav.Tacka();
     }
 
     /**
-     * Create an instance of {@link TListObjave.Broj }
+     * Create an instance of {@link ListObjave.Broj }
      * 
      */
-    public TListObjave.Broj createTListObjaveBroj() {
-        return new TListObjave.Broj();
+    public ListObjave.Broj createListObjaveBroj() {
+        return new ListObjave.Broj();
     }
 
     /**
@@ -206,138 +209,138 @@ public class ObavestenjeFactory extends PoverenikFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TObavestenje }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "obavestenje")
-    public JAXBElement<TObavestenje> createObavestenje(TObavestenje value) {
-        return new JAXBElement<TObavestenje>(_Obavestenje_QNAME, TObavestenje.class, null, value);
+    public JAXBElement<Obavestenje> createObavestenje(Obavestenje value) {
+        return new JAXBElement<Obavestenje>(_Obavestenje_QNAME, Obavestenje.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TVreme }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "vreme", scope = TSadrzaj.class)
-    public JAXBElement<TVreme> createTSadrzajVreme(TVreme value) {
-        return new JAXBElement<TVreme>(_TSadrzajVreme_QNAME, TVreme.class, TSadrzaj.class, value);
+    @XmlElementDecl(namespace = "", name = "organ", scope = Obavestenje.class)
+    public JAXBElement<Organ> createObavestenjeOrgan(Organ value) {
+        return new JAXBElement<Organ>(_ObavestenjeOrgan_QNAME, Organ.class, Obavestenje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TKancelarija }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Sadrzaj }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "kancelarija", scope = TSadrzaj.class)
-    public JAXBElement<TKancelarija> createTSadrzajKancelarija(TKancelarija value) {
-        return new JAXBElement<TKancelarija>(_TSadrzajKancelarija_QNAME, TKancelarija.class, TSadrzaj.class, value);
+    @XmlElementDecl(namespace = "", name = "sadrzaj-obavestenja", scope = Obavestenje.class)
+    public JAXBElement<Sadrzaj> createObavestenjeSadrzajObavestenja(Sadrzaj value) {
+        return new JAXBElement<Sadrzaj>(_ObavestenjeSadrzajObavestenja_QNAME, Sadrzaj.class, Obavestenje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOrgan }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Lice }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "organ", scope = TObavestenje.class)
-    public JAXBElement<TOrgan> createTObavestenjeOrgan(TOrgan value) {
-        return new JAXBElement<TOrgan>(_TObavestenjeOrgan_QNAME, TOrgan.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "podnosilac", scope = Obavestenje.class)
+    public JAXBElement<Lice> createObavestenjePodnosilac(Lice value) {
+        return new JAXBElement<Lice>(_ObavestenjePodnosilac_QNAME, Lice.class, Obavestenje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TSadrzaj }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Akt }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "sadrzaj-obavestenja", scope = TObavestenje.class)
-    public JAXBElement<TSadrzaj> createTObavestenjeSadrzajObavestenja(TSadrzaj value) {
-        return new JAXBElement<TSadrzaj>(_TObavestenjeSadrzajObavestenja_QNAME, TSadrzaj.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "zakon", scope = Obavestenje.class)
+    public JAXBElement<Akt> createObavestenjeZakon(Akt value) {
+        return new JAXBElement<Akt>(_ObavestenjeZakon_QNAME, Akt.class, Obavestenje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TLice }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Akt }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "podnosilac", scope = TObavestenje.class)
-    public JAXBElement<TLice> createTObavestenjePodnosilac(TLice value) {
-        return new JAXBElement<TLice>(_TObavestenjePodnosilac_QNAME, TLice.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "uredba", scope = Obavestenje.class)
+    public JAXBElement<Akt> createObavestenjeUredba(Akt value) {
+        return new JAXBElement<Akt>(_ObavestenjeUredba_QNAME, Akt.class, Obavestenje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TAkt }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Primalac }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "zakon", scope = TObavestenje.class)
-    public JAXBElement<TAkt> createTObavestenjeZakon(TAkt value) {
-        return new JAXBElement<TAkt>(_TObavestenjeZakon_QNAME, TAkt.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "primalac", scope = Obavestenje.class)
+    public JAXBElement<Primalac> createObavestenjePrimalac(Primalac value) {
+        return new JAXBElement<Primalac>(_ObavestenjePrimalac_QNAME, Primalac.class, Obavestenje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TAkt }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Dostavljeno }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "uredba", scope = TObavestenje.class)
-    public JAXBElement<TAkt> createTObavestenjeUredba(TAkt value) {
-        return new JAXBElement<TAkt>(_TObavestenjeUredba_QNAME, TAkt.class, TObavestenje.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TPrimalac }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "primalac", scope = TObavestenje.class)
-    public JAXBElement<TPrimalac> createTObavestenjePrimalac(TPrimalac value) {
-        return new JAXBElement<TPrimalac>(_TObavestenjePrimalac_QNAME, TPrimalac.class, TObavestenje.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TDostavljeno }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "dostavljeno", scope = TObavestenje.class)
-    public JAXBElement<TDostavljeno> createTObavestenjeDostavljeno(TDostavljeno value) {
-        return new JAXBElement<TDostavljeno>(_TObavestenjeDostavljeno_QNAME, TDostavljeno.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "dostavljeno", scope = Obavestenje.class)
+    public JAXBElement<Dostavljeno> createObavestenjeDostavljeno(Dostavljeno value) {
+        return new JAXBElement<Dostavljeno>(_ObavestenjeDostavljeno_QNAME, Dostavljeno.class, Obavestenje.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "odluka", scope = TObavestenje.class)
-    public JAXBElement<String> createTObavestenjeOdluka(String value) {
-        return new JAXBElement<String>(_TObavestenjeOdluka_QNAME, String.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "odluka", scope = Obavestenje.class)
+    public JAXBElement<String> createObavestenjeOdluka(String value) {
+        return new JAXBElement<String>(_ObavestenjeOdluka_QNAME, String.class, Obavestenje.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "cena", scope = TObavestenje.class)
-    public JAXBElement<BigInteger> createTObavestenjeCena(BigInteger value) {
-        return new JAXBElement<BigInteger>(_TObavestenjeCena_QNAME, BigInteger.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "cena", scope = Obavestenje.class)
+    public JAXBElement<BigInteger> createObavestenjeCena(BigInteger value) {
+        return new JAXBElement<BigInteger>(_ObavestenjeCena_QNAME, BigInteger.class, Obavestenje.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "opis-zahteva", scope = TObavestenje.class)
-    public JAXBElement<String> createTObavestenjeOpisZahteva(String value) {
-        return new JAXBElement<String>(_TObavestenjeOpisZahteva_QNAME, String.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "opis-zahteva", scope = Obavestenje.class)
+    public JAXBElement<String> createObavestenjeOpisZahteva(String value) {
+        return new JAXBElement<String>(_ObavestenjeOpisZahteva_QNAME, String.class, Obavestenje.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "opis", scope = TObavestenje.class)
-    public JAXBElement<String> createTObavestenjeOpis(String value) {
-        return new JAXBElement<String>(_TObavestenjeOpis_QNAME, String.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "opis", scope = Obavestenje.class)
+    public JAXBElement<String> createObavestenjeOpis(String value) {
+        return new JAXBElement<String>(_ObavestenjeOpis_QNAME, String.class, Obavestenje.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TCenovnik }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Cenovnik }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "cenovnik", scope = TObavestenje.class)
-    public JAXBElement<TCenovnik> createTObavestenjeCenovnik(TCenovnik value) {
-        return new JAXBElement<TCenovnik>(_TObavestenjeCenovnik_QNAME, TCenovnik.class, TObavestenje.class, value);
+    @XmlElementDecl(namespace = "", name = "cenovnik", scope = Obavestenje.class)
+    public JAXBElement<Cenovnik> createObavestenjeCenovnik(Cenovnik value) {
+        return new JAXBElement<Cenovnik>(_ObavestenjeCenovnik_QNAME, Cenovnik.class, Obavestenje.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Vreme }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "vreme", scope = Sadrzaj.class)
+    public JAXBElement<Vreme> createSadrzajVreme(Vreme value) {
+        return new JAXBElement<Vreme>(_SadrzajVreme_QNAME, Vreme.class, Sadrzaj.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Kancelarija }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "kancelarija", scope = Sadrzaj.class)
+    public JAXBElement<Kancelarija> createSadrzajKancelarija(Kancelarija value) {
+        return new JAXBElement<Kancelarija>(_SadrzajKancelarija_QNAME, Kancelarija.class, Sadrzaj.class, value);
     }
 
 }
