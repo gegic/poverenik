@@ -1,5 +1,7 @@
 
-package com.xml.team18.poverenik.model;
+package com.xml.team18.poverenik.factory;
+
+import com.xml.team18.poverenik.model.*;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
