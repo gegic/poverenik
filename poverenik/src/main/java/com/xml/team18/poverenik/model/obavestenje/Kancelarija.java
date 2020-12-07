@@ -1,21 +1,15 @@
-
 package com.xml.team18.poverenik.model.obavestenje;
 
-import com.xml.team18.poverenik.model.poverenik.*;
-import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.xml.team18.poverenik.model.poverenik.Adresa;
 
+import javax.xml.bind.annotation.*;
+import java.math.BigInteger;
 
 /**
- * <p>Java class for Kancelarija complex type.
- * 
+ * Java class for Kancelarija complex type.
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Kancelarija">
  *   &lt;complexContent>
@@ -28,67 +22,53 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Kancelarija", propOrder = {
-    "adresa"
-})
+@XmlType(
+    name = "Kancelarija",
+    propOrder = {"adresa"})
 public class Kancelarija {
 
-    @XmlElement(required = true)
-    protected Adresa adresa;
-    @XmlAttribute(name = "broj", required = true)
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger broj;
+  @XmlElement(required = true)
+  protected Adresa adresa;
 
-    /**
-     * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa }
-     *     
-     */
-    public Adresa getAdresa() {
-        return adresa;
-    }
+  @XmlAttribute(name = "broj", required = true)
+  @XmlSchemaType(name = "positiveInteger")
+  protected BigInteger broj;
 
-    /**
-     * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa }
-     *     
-     */
-    public void setAdresa(Adresa value) {
-        this.adresa = value;
-    }
+  /**
+   * Gets the value of the adresa property.
+   *
+   * @return possible object is {@link Adresa }
+   */
+  public Adresa getAdresa() {
+    return adresa;
+  }
 
-    /**
-     * Gets the value of the broj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getBroj() {
-        return broj;
-    }
+  /**
+   * Sets the value of the adresa property.
+   *
+   * @param value allowed object is {@link Adresa }
+   */
+  public void setAdresa(Adresa value) {
+    this.adresa = value;
+  }
 
-    /**
-     * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setBroj(BigInteger value) {
-        this.broj = value;
-    }
+  /**
+   * Gets the value of the broj property.
+   *
+   * @return possible object is {@link BigInteger }
+   */
+  public BigInteger getBroj() {
+    return broj;
+  }
 
+  /**
+   * Sets the value of the broj property.
+   *
+   * @param value allowed object is {@link BigInteger }
+   */
+  public void setBroj(BigInteger value) {
+    this.broj = value;
+  }
 }

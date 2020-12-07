@@ -1,4 +1,3 @@
-
 package com.xml.team18.poverenik.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -6,12 +5,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for Obrazlozenje complex type.
- * 
+ * Java class for Obrazlozenje complex type.
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Obrazlozenje">
  *   &lt;complexContent>
@@ -26,121 +24,94 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Obrazlozenje", propOrder = {
-    "tok",
-    "opisZakljucka",
-    "sazetakResenja",
-    "pravnoSredstvo"
-})
+@XmlType(
+    name = "Obrazlozenje",
+    propOrder = {"tok", "opisZakljucka", "sazetakResenja", "pravnoSredstvo"})
 public class Obrazlozenje {
 
-    @XmlElement(required = true)
-    protected Tok tok;
-    @XmlElement(name = "opis-zakljucka", required = true)
-    protected String opisZakljucka;
-    @XmlElement(name = "sazetak-resenja", required = true)
-    protected String sazetakResenja;
-    @XmlElement(name = "pravno-sredstvo", required = true)
-    protected PravnoSredstvo pravnoSredstvo;
+  @XmlElement(required = true)
+  protected Tok tok;
 
-    /**
-     * Gets the value of the tok property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Tok }
-     *     
-     */
-    public Tok getTok() {
-        return tok;
-    }
+  @XmlElement(name = "opis-zakljucka", required = true)
+  protected String opisZakljucka;
 
-    /**
-     * Sets the value of the tok property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Tok }
-     *     
-     */
-    public void setTok(Tok value) {
-        this.tok = value;
-    }
+  @XmlElement(name = "sazetak-resenja", required = true)
+  protected String sazetakResenja;
 
-    /**
-     * Gets the value of the opisZakljucka property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getOpisZakljucka() {
-        return opisZakljucka;
-    }
+  @XmlElement(name = "pravno-sredstvo", required = true)
+  protected PravnoSredstvo pravnoSredstvo;
 
-    /**
-     * Sets the value of the opisZakljucka property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setOpisZakljucka(String value) {
-        this.opisZakljucka = value;
-    }
+  /**
+   * Gets the value of the tok property.
+   *
+   * @return possible object is {@link Tok }
+   */
+  public Tok getTok() {
+    return tok;
+  }
 
-    /**
-     * Gets the value of the sazetakResenja property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSazetakResenja() {
-        return sazetakResenja;
-    }
+  /**
+   * Sets the value of the tok property.
+   *
+   * @param value allowed object is {@link Tok }
+   */
+  public void setTok(Tok value) {
+    this.tok = value;
+  }
 
-    /**
-     * Sets the value of the sazetakResenja property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSazetakResenja(String value) {
-        this.sazetakResenja = value;
-    }
+  /**
+   * Gets the value of the opisZakljucka property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getOpisZakljucka() {
+    return opisZakljucka;
+  }
 
-    /**
-     * Gets the value of the pravnoSredstvo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PravnoSredstvo }
-     *     
-     */
-    public PravnoSredstvo getPravnoSredstvo() {
-        return pravnoSredstvo;
-    }
+  /**
+   * Sets the value of the opisZakljucka property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setOpisZakljucka(String value) {
+    this.opisZakljucka = value;
+  }
 
-    /**
-     * Sets the value of the pravnoSredstvo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PravnoSredstvo }
-     *     
-     */
-    public void setPravnoSredstvo(PravnoSredstvo value) {
-        this.pravnoSredstvo = value;
-    }
+  /**
+   * Gets the value of the sazetakResenja property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getSazetakResenja() {
+    return sazetakResenja;
+  }
 
+  /**
+   * Sets the value of the sazetakResenja property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setSazetakResenja(String value) {
+    this.sazetakResenja = value;
+  }
+
+  /**
+   * Gets the value of the pravnoSredstvo property.
+   *
+   * @return possible object is {@link PravnoSredstvo }
+   */
+  public PravnoSredstvo getPravnoSredstvo() {
+    return pravnoSredstvo;
+  }
+
+  /**
+   * Sets the value of the pravnoSredstvo property.
+   *
+   * @param value allowed object is {@link PravnoSredstvo }
+   */
+  public void setPravnoSredstvo(PravnoSredstvo value) {
+    this.pravnoSredstvo = value;
+  }
 }

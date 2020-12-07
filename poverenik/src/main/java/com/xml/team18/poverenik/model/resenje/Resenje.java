@@ -1,21 +1,15 @@
-
 package com.xml.team18.poverenik.model.resenje;
 
-import com.xml.team18.poverenik.model.poverenik.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.xml.team18.poverenik.model.poverenik.Osoba;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-
 /**
- * <p>Java class for Resenje complex type.
- * 
+ * Java class for Resenje complex type.
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Resenje">
  *   &lt;complexContent>
@@ -38,174 +32,137 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Resenje", propOrder = {
-    "predgovor",
-    "telo",
-    "obrazlozenje",
-    "poverenik"
-})
+@XmlType(
+    name = "Resenje",
+    propOrder = {"predgovor", "telo", "obrazlozenje", "poverenik"})
 public class Resenje {
 
-    @XmlElement(required = true)
-    protected Predgovor predgovor;
-    @XmlElement(required = true)
-    protected Telo telo;
-    @XmlElement(required = true)
-    protected Obrazlozenje obrazlozenje;
-    @XmlElement(required = true)
-    protected Osoba poverenik;
-    @XmlAttribute(name = "broj", required = true)
-    protected String broj;
-    @XmlAttribute(name = "datum", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar datum;
+  @XmlElement(required = true)
+  protected Predgovor predgovor;
 
-    /**
-     * Gets the value of the predgovor property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Predgovor }
-     *     
-     */
-    public Predgovor getPredgovor() {
-        return predgovor;
-    }
+  @XmlElement(required = true)
+  protected Telo telo;
 
-    /**
-     * Sets the value of the predgovor property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Predgovor }
-     *     
-     */
-    public void setPredgovor(Predgovor value) {
-        this.predgovor = value;
-    }
+  @XmlElement(required = true)
+  protected Obrazlozenje obrazlozenje;
 
-    /**
-     * Gets the value of the telo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Telo }
-     *     
-     */
-    public Telo getTelo() {
-        return telo;
-    }
+  @XmlElement(required = true)
+  protected Osoba poverenik;
 
-    /**
-     * Sets the value of the telo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Telo }
-     *     
-     */
-    public void setTelo(Telo value) {
-        this.telo = value;
-    }
+  @XmlAttribute(name = "broj", required = true)
+  protected String broj;
 
-    /**
-     * Gets the value of the obrazlozenje property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Obrazlozenje }
-     *     
-     */
-    public Obrazlozenje getObrazlozenje() {
-        return obrazlozenje;
-    }
+  @XmlAttribute(name = "datum", required = true)
+  @XmlSchemaType(name = "date")
+  protected XMLGregorianCalendar datum;
 
-    /**
-     * Sets the value of the obrazlozenje property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Obrazlozenje }
-     *     
-     */
-    public void setObrazlozenje(Obrazlozenje value) {
-        this.obrazlozenje = value;
-    }
+  /**
+   * Gets the value of the predgovor property.
+   *
+   * @return possible object is {@link Predgovor }
+   */
+  public Predgovor getPredgovor() {
+    return predgovor;
+  }
 
-    /**
-     * Gets the value of the poverenik property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Osoba }
-     *     
-     */
-    public Osoba getPoverenik() {
-        return poverenik;
-    }
+  /**
+   * Sets the value of the predgovor property.
+   *
+   * @param value allowed object is {@link Predgovor }
+   */
+  public void setPredgovor(Predgovor value) {
+    this.predgovor = value;
+  }
 
-    /**
-     * Sets the value of the poverenik property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Osoba }
-     *     
-     */
-    public void setPoverenik(Osoba value) {
-        this.poverenik = value;
-    }
+  /**
+   * Gets the value of the telo property.
+   *
+   * @return possible object is {@link Telo }
+   */
+  public Telo getTelo() {
+    return telo;
+  }
 
-    /**
-     * Gets the value of the broj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBroj() {
-        return broj;
-    }
+  /**
+   * Sets the value of the telo property.
+   *
+   * @param value allowed object is {@link Telo }
+   */
+  public void setTelo(Telo value) {
+    this.telo = value;
+  }
 
-    /**
-     * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBroj(String value) {
-        this.broj = value;
-    }
+  /**
+   * Gets the value of the obrazlozenje property.
+   *
+   * @return possible object is {@link Obrazlozenje }
+   */
+  public Obrazlozenje getObrazlozenje() {
+    return obrazlozenje;
+  }
 
-    /**
-     * Gets the value of the datum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getDatum() {
-        return datum;
-    }
+  /**
+   * Sets the value of the obrazlozenje property.
+   *
+   * @param value allowed object is {@link Obrazlozenje }
+   */
+  public void setObrazlozenje(Obrazlozenje value) {
+    this.obrazlozenje = value;
+  }
 
-    /**
-     * Sets the value of the datum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setDatum(XMLGregorianCalendar value) {
-        this.datum = value;
-    }
+  /**
+   * Gets the value of the poverenik property.
+   *
+   * @return possible object is {@link Osoba }
+   */
+  public Osoba getPoverenik() {
+    return poverenik;
+  }
 
+  /**
+   * Sets the value of the poverenik property.
+   *
+   * @param value allowed object is {@link Osoba }
+   */
+  public void setPoverenik(Osoba value) {
+    this.poverenik = value;
+  }
+
+  /**
+   * Gets the value of the broj property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getBroj() {
+    return broj;
+  }
+
+  /**
+   * Sets the value of the broj property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setBroj(String value) {
+    this.broj = value;
+  }
+
+  /**
+   * Gets the value of the datum property.
+   *
+   * @return possible object is {@link XMLGregorianCalendar }
+   */
+  public XMLGregorianCalendar getDatum() {
+    return datum;
+  }
+
+  /**
+   * Sets the value of the datum property.
+   *
+   * @param value allowed object is {@link XMLGregorianCalendar }
+   */
+  public void setDatum(XMLGregorianCalendar value) {
+    this.datum = value;
+  }
 }

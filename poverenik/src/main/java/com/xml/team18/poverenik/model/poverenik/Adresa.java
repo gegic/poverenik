@@ -1,18 +1,12 @@
-
 package com.xml.team18.poverenik.model.poverenik;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import javax.xml.bind.annotation.*;
 
 /**
- * <p>Java class for Adresa complex type.
- * 
+ * Java class for Adresa complex type.
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Adresa">
  *   &lt;complexContent>
@@ -32,92 +26,73 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Adresa", propOrder = {
-    "mesto"
-})
+@XmlType(
+    name = "Adresa",
+    propOrder = {"mesto"})
 public class Adresa {
 
-    @XmlElement(required = true)
-    protected String mesto;
-    @XmlAttribute(name = "ulica", required = true)
-    protected String ulica;
-    @XmlAttribute(name = "broj", required = true)
-    protected String broj;
+  @XmlElement(required = true)
+  protected String mesto;
 
-    /**
-     * Gets the value of the mesto property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMesto() {
-        return mesto;
-    }
+  @XmlAttribute(name = "ulica", required = true)
+  protected String ulica;
 
-    /**
-     * Sets the value of the mesto property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMesto(String value) {
-        this.mesto = value;
-    }
+  @XmlAttribute(name = "broj", required = true)
+  protected String broj;
 
-    /**
-     * Gets the value of the ulica property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUlica() {
-        return ulica;
-    }
+  /**
+   * Gets the value of the mesto property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getMesto() {
+    return mesto;
+  }
 
-    /**
-     * Sets the value of the ulica property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUlica(String value) {
-        this.ulica = value;
-    }
+  /**
+   * Sets the value of the mesto property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setMesto(String value) {
+    this.mesto = value;
+  }
 
-    /**
-     * Gets the value of the broj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getBroj() {
-        return broj;
-    }
+  /**
+   * Gets the value of the ulica property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getUlica() {
+    return ulica;
+  }
 
-    /**
-     * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setBroj(String value) {
-        this.broj = value;
-    }
+  /**
+   * Sets the value of the ulica property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setUlica(String value) {
+    this.ulica = value;
+  }
 
+  /**
+   * Gets the value of the broj property.
+   *
+   * @return possible object is {@link String }
+   */
+  public String getBroj() {
+    return broj;
+  }
+
+  /**
+   * Sets the value of the broj property.
+   *
+   * @param value allowed object is {@link String }
+   */
+  public void setBroj(String value) {
+    this.broj = value;
+  }
 }
