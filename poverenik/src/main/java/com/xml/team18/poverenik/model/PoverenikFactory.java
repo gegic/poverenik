@@ -18,15 +18,15 @@ import javax.xml.bind.annotation.XmlRegistry;
  * provided in this class.
  * 
  */
-@XmlRegistry
-public class ObjectFactory {
 
+@XmlRegistry
+public class PoverenikFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
-     * 
+     *
      */
-    public ObjectFactory() {
+    public PoverenikFactory() {
     }
 
     /**
