@@ -28,32 +28,32 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Dostavljeno",
-    propOrder = {"primalac"})
+        name = "Dostavljeno",
+        propOrder = {"primalac"})
 public class Dostavljeno {
 
-  @XmlElement(required = true)
-  protected List<Organ> primalac;
+    @XmlElement(required = true)
+    protected List<Organ> primalac;
 
-  /**
-   * Gets the value of the primalac property.
-   *
-   * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-   * modification you make to the returned list will be present inside the JAXB object. This is why
-   * there is not a <CODE>set</CODE> method for the primalac property.
-   *
-   * <p>For example, to add a new item, do as follows:
-   *
-   * <pre>
-   *    getPrimalac().add(newItem);
-   * </pre>
-   *
-   * <p>Objects of the following type(s) are allowed in the list {@link Organ }
-   */
-  public List<Organ> getPrimalac() {
-    if (primalac == null) {
-      primalac = new ArrayList<Organ>();
+    /**
+     * Gets the value of the primalac property.
+     *
+     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
+     * modification you make to the returned list will be present inside the JAXB object. This is why
+     * there is not a <CODE>set</CODE> method for the primalac property.
+     *
+     * <p>For example, to add a new item, do as follows:
+     *
+     * <pre>
+     *    getPrimalac().add(newItem);
+     * </pre>
+     *
+     * <p>Objects of the following type(s) are allowed in the list {@link Organ }
+     */
+    public List<Organ> getPrimalac() {
+        if (primalac == null) {
+            primalac = new ArrayList<Organ>();
+        }
+        return this.primalac;
     }
-    return this.primalac;
-  }
 }

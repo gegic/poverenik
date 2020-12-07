@@ -22,49 +22,49 @@ import javax.xml.bind.annotation.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Lice",
-    propOrder = {"adresa", "ostaliPodaci"})
+        name = "Lice",
+        propOrder = {"adresa", "ostaliPodaci"})
 @XmlSeeAlso({Osoba.class, Organ.class})
 public abstract class Lice {
 
-  protected Adresa adresa;
+    protected Adresa adresa;
 
-  @XmlElement(name = "ostali-podaci")
-  protected String ostaliPodaci;
+    @XmlElement(name = "ostali-podaci")
+    protected String ostaliPodaci;
 
-  /**
-   * Gets the value of the adresa property.
-   *
-   * @return possible object is {@link Adresa }
-   */
-  public Adresa getAdresa() {
-    return adresa;
-  }
+    /**
+     * Gets the value of the adresa property.
+     *
+     * @return possible object is {@link Adresa }
+     */
+    public Adresa getAdresa() {
+        return adresa;
+    }
 
-  /**
-   * Sets the value of the adresa property.
-   *
-   * @param value allowed object is {@link Adresa }
-   */
-  public void setAdresa(Adresa value) {
-    this.adresa = value;
-  }
+    /**
+     * Sets the value of the adresa property.
+     *
+     * @param value allowed object is {@link Adresa }
+     */
+    public void setAdresa(Adresa value) {
+        this.adresa = value;
+    }
 
-  /**
-   * Gets the value of the ostaliPodaci property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getOstaliPodaci() {
-    return ostaliPodaci;
-  }
+    /**
+     * Gets the value of the ostaliPodaci property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getOstaliPodaci() {
+        return ostaliPodaci;
+    }
 
-  /**
-   * Sets the value of the ostaliPodaci property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setOstaliPodaci(String value) {
-    this.ostaliPodaci = value;
-  }
+    /**
+     * Sets the value of the ostaliPodaci property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setOstaliPodaci(String value) {
+        this.ostaliPodaci = value;
+    }
 }

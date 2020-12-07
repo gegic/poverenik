@@ -29,95 +29,95 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Tok",
-    propOrder = {"izjavaZalbe", "uputPoverenika", "donosenjeOdluke", "drugiDogadjaj"})
+        name = "Tok",
+        propOrder = {"izjavaZalbe", "uputPoverenika", "donosenjeOdluke", "drugiDogadjaj"})
 public class Tok {
 
-  @XmlElement(name = "izjava-zalbe", required = true)
-  protected IzjavaZalbe izjavaZalbe;
+    @XmlElement(name = "izjava-zalbe", required = true)
+    protected IzjavaZalbe izjavaZalbe;
 
-  @XmlElement(name = "uput-poverenika", required = true)
-  protected UputPoverenika uputPoverenika;
+    @XmlElement(name = "uput-poverenika", required = true)
+    protected UputPoverenika uputPoverenika;
 
-  @XmlElement(name = "donosenje-odluke", required = true)
-  protected DonosenjeOdluke donosenjeOdluke;
+    @XmlElement(name = "donosenje-odluke", required = true)
+    protected DonosenjeOdluke donosenjeOdluke;
 
-  @XmlElement(name = "drugi-dogadjaj", required = true)
-  protected List<String> drugiDogadjaj;
+    @XmlElement(name = "drugi-dogadjaj", required = true)
+    protected List<String> drugiDogadjaj;
 
-  /**
-   * Gets the value of the izjavaZalbe property.
-   *
-   * @return possible object is {@link IzjavaZalbe }
-   */
-  public IzjavaZalbe getIzjavaZalbe() {
-    return izjavaZalbe;
-  }
-
-  /**
-   * Sets the value of the izjavaZalbe property.
-   *
-   * @param value allowed object is {@link IzjavaZalbe }
-   */
-  public void setIzjavaZalbe(IzjavaZalbe value) {
-    this.izjavaZalbe = value;
-  }
-
-  /**
-   * Gets the value of the uputPoverenika property.
-   *
-   * @return possible object is {@link UputPoverenika }
-   */
-  public UputPoverenika getUputPoverenika() {
-    return uputPoverenika;
-  }
-
-  /**
-   * Sets the value of the uputPoverenika property.
-   *
-   * @param value allowed object is {@link UputPoverenika }
-   */
-  public void setUputPoverenika(UputPoverenika value) {
-    this.uputPoverenika = value;
-  }
-
-  /**
-   * Gets the value of the donosenjeOdluke property.
-   *
-   * @return possible object is {@link DonosenjeOdluke }
-   */
-  public DonosenjeOdluke getDonosenjeOdluke() {
-    return donosenjeOdluke;
-  }
-
-  /**
-   * Sets the value of the donosenjeOdluke property.
-   *
-   * @param value allowed object is {@link DonosenjeOdluke }
-   */
-  public void setDonosenjeOdluke(DonosenjeOdluke value) {
-    this.donosenjeOdluke = value;
-  }
-
-  /**
-   * Gets the value of the drugiDogadjaj property.
-   *
-   * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-   * modification you make to the returned list will be present inside the JAXB object. This is why
-   * there is not a <CODE>set</CODE> method for the drugiDogadjaj property.
-   *
-   * <p>For example, to add a new item, do as follows:
-   *
-   * <pre>
-   *    getDrugiDogadjaj().add(newItem);
-   * </pre>
-   *
-   * <p>Objects of the following type(s) are allowed in the list {@link String }
-   */
-  public List<String> getDrugiDogadjaj() {
-    if (drugiDogadjaj == null) {
-      drugiDogadjaj = new ArrayList<String>();
+    /**
+     * Gets the value of the izjavaZalbe property.
+     *
+     * @return possible object is {@link IzjavaZalbe }
+     */
+    public IzjavaZalbe getIzjavaZalbe() {
+        return izjavaZalbe;
     }
-    return this.drugiDogadjaj;
-  }
+
+    /**
+     * Sets the value of the izjavaZalbe property.
+     *
+     * @param value allowed object is {@link IzjavaZalbe }
+     */
+    public void setIzjavaZalbe(IzjavaZalbe value) {
+        this.izjavaZalbe = value;
+    }
+
+    /**
+     * Gets the value of the uputPoverenika property.
+     *
+     * @return possible object is {@link UputPoverenika }
+     */
+    public UputPoverenika getUputPoverenika() {
+        return uputPoverenika;
+    }
+
+    /**
+     * Sets the value of the uputPoverenika property.
+     *
+     * @param value allowed object is {@link UputPoverenika }
+     */
+    public void setUputPoverenika(UputPoverenika value) {
+        this.uputPoverenika = value;
+    }
+
+    /**
+     * Gets the value of the donosenjeOdluke property.
+     *
+     * @return possible object is {@link DonosenjeOdluke }
+     */
+    public DonosenjeOdluke getDonosenjeOdluke() {
+        return donosenjeOdluke;
+    }
+
+    /**
+     * Sets the value of the donosenjeOdluke property.
+     *
+     * @param value allowed object is {@link DonosenjeOdluke }
+     */
+    public void setDonosenjeOdluke(DonosenjeOdluke value) {
+        this.donosenjeOdluke = value;
+    }
+
+    /**
+     * Gets the value of the drugiDogadjaj property.
+     *
+     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
+     * modification you make to the returned list will be present inside the JAXB object. This is why
+     * there is not a <CODE>set</CODE> method for the drugiDogadjaj property.
+     *
+     * <p>For example, to add a new item, do as follows:
+     *
+     * <pre>
+     *    getDrugiDogadjaj().add(newItem);
+     * </pre>
+     *
+     * <p>Objects of the following type(s) are allowed in the list {@link String }
+     */
+    public List<String> getDrugiDogadjaj() {
+        if (drugiDogadjaj == null) {
+            drugiDogadjaj = new ArrayList<String>();
+        }
+        return this.drugiDogadjaj;
+    }
 }

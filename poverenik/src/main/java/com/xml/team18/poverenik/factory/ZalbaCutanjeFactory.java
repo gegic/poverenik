@@ -25,149 +25,196 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ZalbaCutanjeFactory extends PoverenikFactory {
 
-  private static final QName _ZalbaCutanje_QNAME = new QName("", "zalba-cutanje");
-  private static final QName _ZalbaRazlog_QNAME = new QName("", "razlog");
-  private static final QName _ZalbaPodnosilac_QNAME = new QName("", "podnosilac");
-  private static final QName _ZalbaSvrha_QNAME = new QName("", "svrha");
-  private static final QName _ZalbaNapomena_QNAME = new QName("", "napomena");
-  private static final QName _ZalbaPrimalac_QNAME = new QName("", "primalac");
-  private static final QName _ZalbaZakon_QNAME = new QName("", "zakon");
-  private static final QName _ZalbaDatumZahteva_QNAME = new QName("", "datum-zahteva");
-  private static final QName _ZalbaMesto_QNAME = new QName("", "mesto");
-  private static final QName _ZalbaPodaciOZahtevu_QNAME = new QName("", "podaci-o-zahtevu");
-  private static final QName _ZalbaProtiv_QNAME = new QName("", "protiv");
+    private static final QName _ZalbaCutanje_QNAME = new QName("", "zalba-cutanje");
+    private static final QName _ZalbaRazlog_QNAME = new QName("", "razlog");
+    private static final QName _ZalbaPodnosilac_QNAME = new QName("", "podnosilac");
+    private static final QName _ZalbaSvrha_QNAME = new QName("", "svrha");
+    private static final QName _ZalbaNapomena_QNAME = new QName("", "napomena");
+    private static final QName _ZalbaPrimalac_QNAME = new QName("", "primalac");
+    private static final QName _ZalbaZakon_QNAME = new QName("", "zakon");
+    private static final QName _ZalbaDatumZahteva_QNAME = new QName("", "datum-zahteva");
+    private static final QName _ZalbaMesto_QNAME = new QName("", "mesto");
+    private static final QName _ZalbaPodaciOZahtevu_QNAME = new QName("", "podaci-o-zahtevu");
+    private static final QName _ZalbaProtiv_QNAME = new QName("", "protiv");
 
-  /**
-   * Create a new ObjectFactory that can be used to create new instances of schema derived classes
-   * for package: mypackage
-   */
-  public ZalbaCutanjeFactory() {}
+    /**
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes
+     * for package: mypackage
+     */
+    public ZalbaCutanjeFactory() {
+    }
 
-  /** Create an instance of {@link Akt } */
-  public Akt createAkt() {
-    return new Akt();
-  }
+    /**
+     * Create an instance of {@link Akt }
+     */
+    public Akt createAkt() {
+        return new Akt();
+    }
 
-  /** Create an instance of {@link Akt.Clan } */
-  public Akt.Clan createAktClan() {
-    return new Akt.Clan();
-  }
+    /**
+     * Create an instance of {@link Akt.Clan }
+     */
+    public Akt.Clan createAktClan() {
+        return new Akt.Clan();
+    }
 
-  /** Create an instance of {@link Akt.Clan.Stav } */
-  public Akt.Clan.Stav createAktClanStav() {
-    return new Akt.Clan.Stav();
-  }
+    /**
+     * Create an instance of {@link Akt.Clan.Stav }
+     */
+    public Akt.Clan.Stav createAktClanStav() {
+        return new Akt.Clan.Stav();
+    }
 
-  /** Create an instance of {@link ListObjave } */
-  public ListObjave createListObjave() {
-    return new ListObjave();
-  }
+    /**
+     * Create an instance of {@link ListObjave }
+     */
+    public ListObjave createListObjave() {
+        return new ListObjave();
+    }
 
-  /** Create an instance of {@link Zalba } */
-  public Zalba createZalba() {
-    return new Zalba();
-  }
+    /**
+     * Create an instance of {@link Zalba }
+     */
+    public Zalba createZalba() {
+        return new Zalba();
+    }
 
-  /** Create an instance of {@link Osoba } */
-  public Osoba createOsoba() {
-    return new Osoba();
-  }
+    /**
+     * Create an instance of {@link Osoba }
+     */
+    public Osoba createOsoba() {
+        return new Osoba();
+    }
 
-  /** Create an instance of {@link Adresa } */
-  public Adresa createAdresa() {
-    return new Adresa();
-  }
+    /**
+     * Create an instance of {@link Adresa }
+     */
+    public Adresa createAdresa() {
+        return new Adresa();
+    }
 
-  /** Create an instance of {@link IzborRazloga } */
-  public IzborRazloga createIzborRazloga() {
-    return new IzborRazloga();
-  }
+    /**
+     * Create an instance of {@link IzborRazloga }
+     */
+    public IzborRazloga createIzborRazloga() {
+        return new IzborRazloga();
+    }
 
-  /** Create an instance of {@link BiranjeRazloga } */
-  public BiranjeRazloga createBiranjeRazloga() {
-    return new BiranjeRazloga();
-  }
+    /**
+     * Create an instance of {@link BiranjeRazloga }
+     */
+    public BiranjeRazloga createBiranjeRazloga() {
+        return new BiranjeRazloga();
+    }
 
-  /** Create an instance of {@link Organ } */
-  public Organ createOrgan() {
-    return new Organ();
-  }
+    /**
+     * Create an instance of {@link Organ }
+     */
+    public Organ createOrgan() {
+        return new Organ();
+    }
 
-  /** Create an instance of {@link Akt.Clan.Stav.Tacka } */
-  public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
-    return new Akt.Clan.Stav.Tacka();
-  }
+    /**
+     * Create an instance of {@link Akt.Clan.Stav.Tacka }
+     */
+    public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
+        return new Akt.Clan.Stav.Tacka();
+    }
 
-  /** Create an instance of {@link ListObjave.Broj } */
-  public ListObjave.Broj createListObjaveBroj() {
-    return new ListObjave.Broj();
-  }
+    /**
+     * Create an instance of {@link ListObjave.Broj }
+     */
+    public ListObjave.Broj createListObjaveBroj() {
+        return new ListObjave.Broj();
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link Zalba }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "zalba-cutanje")
-  public JAXBElement<Zalba> createZalbaCutanje(Zalba value) {
-    return new JAXBElement<Zalba>(_ZalbaCutanje_QNAME, Zalba.class, null, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Zalba }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "zalba-cutanje")
+    public JAXBElement<Zalba> createZalbaCutanje(Zalba value) {
+        return new JAXBElement<Zalba>(_ZalbaCutanje_QNAME, Zalba.class, null, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link BiranjeRazloga }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "razlog", scope = Zalba.class)
-  public JAXBElement<BiranjeRazloga> createZalbaRazlog(BiranjeRazloga value) {
-    return new JAXBElement<BiranjeRazloga>(
-        _ZalbaRazlog_QNAME, BiranjeRazloga.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BiranjeRazloga }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "razlog", scope = Zalba.class)
+    public JAXBElement<BiranjeRazloga> createZalbaRazlog(BiranjeRazloga value) {
+        return new JAXBElement<BiranjeRazloga>(
+                _ZalbaRazlog_QNAME, BiranjeRazloga.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link Osoba }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "podnosilac", scope = Zalba.class)
-  public JAXBElement<Osoba> createZalbaPodnosilac(Osoba value) {
-    return new JAXBElement<Osoba>(_ZalbaPodnosilac_QNAME, Osoba.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Osoba }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "podnosilac", scope = Zalba.class)
+    public JAXBElement<Osoba> createZalbaPodnosilac(Osoba value) {
+        return new JAXBElement<Osoba>(_ZalbaPodnosilac_QNAME, Osoba.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "svrha", scope = Zalba.class)
-  public JAXBElement<String> createZalbaSvrha(String value) {
-    return new JAXBElement<String>(_ZalbaSvrha_QNAME, String.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "svrha", scope = Zalba.class)
+    public JAXBElement<String> createZalbaSvrha(String value) {
+        return new JAXBElement<String>(_ZalbaSvrha_QNAME, String.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "napomena", scope = Zalba.class)
-  public JAXBElement<String> createZalbaNapomena(String value) {
-    return new JAXBElement<String>(_ZalbaNapomena_QNAME, String.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "napomena", scope = Zalba.class)
+    public JAXBElement<String> createZalbaNapomena(String value) {
+        return new JAXBElement<String>(_ZalbaNapomena_QNAME, String.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "primalac", scope = Zalba.class)
-  public JAXBElement<Organ> createZalbaPrimalac(Organ value) {
-    return new JAXBElement<Organ>(_ZalbaPrimalac_QNAME, Organ.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "primalac", scope = Zalba.class)
+    public JAXBElement<Organ> createZalbaPrimalac(Organ value) {
+        return new JAXBElement<Organ>(_ZalbaPrimalac_QNAME, Organ.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link Akt }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "zakon", scope = Zalba.class)
-  public JAXBElement<Akt> createZalbaZakon(Akt value) {
-    return new JAXBElement<Akt>(_ZalbaZakon_QNAME, Akt.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Akt }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "zakon", scope = Zalba.class)
+    public JAXBElement<Akt> createZalbaZakon(Akt value) {
+        return new JAXBElement<Akt>(_ZalbaZakon_QNAME, Akt.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "datum-zahteva", scope = Zalba.class)
-  public JAXBElement<XMLGregorianCalendar> createZalbaDatumZahteva(XMLGregorianCalendar value) {
-    return new JAXBElement<XMLGregorianCalendar>(
-        _ZalbaDatumZahteva_QNAME, XMLGregorianCalendar.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "datum-zahteva", scope = Zalba.class)
+    public JAXBElement<XMLGregorianCalendar> createZalbaDatumZahteva(XMLGregorianCalendar value) {
+        return new JAXBElement<XMLGregorianCalendar>(
+                _ZalbaDatumZahteva_QNAME, XMLGregorianCalendar.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "mesto", scope = Zalba.class)
-  public JAXBElement<String> createZalbaMesto(String value) {
-    return new JAXBElement<String>(_ZalbaMesto_QNAME, String.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "mesto", scope = Zalba.class)
+    public JAXBElement<String> createZalbaMesto(String value) {
+        return new JAXBElement<String>(_ZalbaMesto_QNAME, String.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "podaci-o-zahtevu", scope = Zalba.class)
-  public JAXBElement<String> createZalbaPodaciOZahtevu(String value) {
-    return new JAXBElement<String>(_ZalbaPodaciOZahtevu_QNAME, String.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "podaci-o-zahtevu", scope = Zalba.class)
+    public JAXBElement<String> createZalbaPodaciOZahtevu(String value) {
+        return new JAXBElement<String>(_ZalbaPodaciOZahtevu_QNAME, String.class, Zalba.class, value);
+    }
 
-  /** Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}} */
-  @XmlElementDecl(namespace = "", name = "protiv", scope = Zalba.class)
-  public JAXBElement<Organ> createZalbaProtiv(Organ value) {
-    return new JAXBElement<Organ>(_ZalbaProtiv_QNAME, Organ.class, Zalba.class, value);
-  }
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
+     */
+    @XmlElementDecl(namespace = "", name = "protiv", scope = Zalba.class)
+    public JAXBElement<Organ> createZalbaProtiv(Organ value) {
+        return new JAXBElement<Organ>(_ZalbaProtiv_QNAME, Organ.class, Zalba.class, value);
+    }
 }

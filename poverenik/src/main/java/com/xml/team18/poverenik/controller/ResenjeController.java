@@ -19,30 +19,30 @@ import javax.xml.bind.JAXBException;
 @RequestMapping(path = "/api/resenja")
 public class ResenjeController {
 
-  private final ResenjeFactory resenjeFactory;
-  private final JaxB jaxB;
+    private final ResenjeFactory resenjeFactory;
+    private final JaxB jaxB;
 
-  @Autowired
-  public ResenjeController(ResenjeFactory resenjeFactory, JaxB jaxB) {
-    this.resenjeFactory = resenjeFactory;
-    this.jaxB = jaxB;
-  }
-
-  @PostMapping(
-      consumes = MediaType.APPLICATION_XML_VALUE,
-      produces = MediaType.APPLICATION_XML_VALUE)
-  ResponseEntity<String> addResenje(@RequestBody String xmlResenje) {
-    Resenje resenje;
-    try {
-      Object o = jaxB.unmarshall(xmlResenje, Resenje.class, resenjeFactory.getClass());
-      resenje = (Resenje) ((JAXBElement) o).getValue();
-      resenje.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
-
-      String xml = jaxB.marshall(o, Resenje.class, resenjeFactory.getClass());
-      return ResponseEntity.ok(xml);
-    } catch (JAXBException e) {
-      e.printStackTrace();
-      return ResponseEntity.badRequest().build();
+    @Autowired
+    public ResenjeController(ResenjeFactory resenjeFactory, JaxB jaxB) {
+        this.resenjeFactory = resenjeFactory;
+        this.jaxB = jaxB;
     }
-  }
+
+    @PostMapping(
+            consumes = MediaType.APPLICATION_XML_VALUE,
+            produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<String> addResenje(@RequestBody String xmlResenje) {
+        Resenje resenje;
+        try {
+            Object o = jaxB.unmarshall(xmlResenje, Resenje.class, resenjeFactory.getClass());
+            resenje = (Resenje) ((JAXBElement) o).getValue();
+            resenje.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
+
+            String xml = jaxB.marshall(o, Resenje.class, resenjeFactory.getClass());
+            return ResponseEntity.ok(xml);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

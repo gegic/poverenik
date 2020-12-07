@@ -23,93 +23,94 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "IzborRazloga",
-    propOrder = {"value"})
+        name = "IzborRazloga",
+        propOrder = {"value"})
 public class IzborRazloga {
 
-  @XmlValue protected String value;
+    @XmlValue
+    protected String value;
 
-  @XmlAttribute(name = "naziv", required = true)
-  protected String naziv;
+    @XmlAttribute(name = "naziv", required = true)
+    protected String naziv;
 
-  @XmlAttribute(name = "id", required = true)
-  @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-  @XmlID
-  @XmlSchemaType(name = "ID")
-  protected String id;
+    @XmlAttribute(name = "id", required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String id;
 
-  @XmlAttribute(name = "izabran")
-  protected Boolean izabran;
+    @XmlAttribute(name = "izabran")
+    protected Boolean izabran;
 
-  /**
-   * Gets the value of the value property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getValue() {
-    return value;
-  }
+    /**
+     * Gets the value of the value property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getValue() {
+        return value;
+    }
 
-  /**
-   * Sets the value of the value property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setValue(String value) {
-    this.value = value;
-  }
+    /**
+     * Sets the value of the value property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-  /**
-   * Gets the value of the naziv property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getNaziv() {
-    return naziv;
-  }
+    /**
+     * Gets the value of the naziv property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getNaziv() {
+        return naziv;
+    }
 
-  /**
-   * Sets the value of the naziv property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setNaziv(String value) {
-    this.naziv = value;
-  }
+    /**
+     * Sets the value of the naziv property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setNaziv(String value) {
+        this.naziv = value;
+    }
 
-  /**
-   * Gets the value of the id property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getId() {
-    return id;
-  }
+    /**
+     * Gets the value of the id property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getId() {
+        return id;
+    }
 
-  /**
-   * Sets the value of the id property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setId(String value) {
-    this.id = value;
-  }
+    /**
+     * Sets the value of the id property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setId(String value) {
+        this.id = value;
+    }
 
-  /**
-   * Gets the value of the izabran property.
-   *
-   * @return possible object is {@link Boolean }
-   */
-  public Boolean isIzabran() {
-    return izabran;
-  }
+    /**
+     * Gets the value of the izabran property.
+     *
+     * @return possible object is {@link Boolean }
+     */
+    public Boolean isIzabran() {
+        return izabran;
+    }
 
-  /**
-   * Sets the value of the izabran property.
-   *
-   * @param value allowed object is {@link Boolean }
-   */
-  public void setIzabran(Boolean value) {
-    this.izabran = value;
-  }
+    /**
+     * Sets the value of the izabran property.
+     *
+     * @param value allowed object is {@link Boolean }
+     */
+    public void setIzabran(Boolean value) {
+        this.izabran = value;
+    }
 }

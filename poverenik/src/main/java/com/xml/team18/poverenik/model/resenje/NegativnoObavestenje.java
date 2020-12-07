@@ -28,49 +28,49 @@ import javax.xml.bind.annotation.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "NegativnoObavestenje",
-    propOrder = {"podnetiZahtev"})
+        name = "NegativnoObavestenje",
+        propOrder = {"podnetiZahtev"})
 public class NegativnoObavestenje {
 
-  @XmlElement(name = "podneti-zahtev", required = true)
-  protected PodnetiZahtev podnetiZahtev;
+    @XmlElement(name = "podneti-zahtev", required = true)
+    protected PodnetiZahtev podnetiZahtev;
 
-  @XmlAttribute(name = "broj", required = true)
-  protected String broj;
+    @XmlAttribute(name = "broj", required = true)
+    protected String broj;
 
-  /**
-   * Gets the value of the podnetiZahtev property.
-   *
-   * @return possible object is {@link PodnetiZahtev }
-   */
-  public PodnetiZahtev getPodnetiZahtev() {
-    return podnetiZahtev;
-  }
+    /**
+     * Gets the value of the podnetiZahtev property.
+     *
+     * @return possible object is {@link PodnetiZahtev }
+     */
+    public PodnetiZahtev getPodnetiZahtev() {
+        return podnetiZahtev;
+    }
 
-  /**
-   * Sets the value of the podnetiZahtev property.
-   *
-   * @param value allowed object is {@link PodnetiZahtev }
-   */
-  public void setPodnetiZahtev(PodnetiZahtev value) {
-    this.podnetiZahtev = value;
-  }
+    /**
+     * Sets the value of the podnetiZahtev property.
+     *
+     * @param value allowed object is {@link PodnetiZahtev }
+     */
+    public void setPodnetiZahtev(PodnetiZahtev value) {
+        this.podnetiZahtev = value;
+    }
 
-  /**
-   * Gets the value of the broj property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getBroj() {
-    return broj;
-  }
+    /**
+     * Gets the value of the broj property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getBroj() {
+        return broj;
+    }
 
-  /**
-   * Sets the value of the broj property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setBroj(String value) {
-    this.broj = value;
-  }
+    /**
+     * Sets the value of the broj property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setBroj(String value) {
+        this.broj = value;
+    }
 }

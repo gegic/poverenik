@@ -25,45 +25,45 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Osoba")
 public class Osoba extends Lice {
 
-  @XmlAttribute(name = "ime", required = true)
-  protected String ime;
+    @XmlAttribute(name = "ime", required = true)
+    protected String ime;
 
-  @XmlAttribute(name = "prezime", required = true)
-  protected String prezime;
+    @XmlAttribute(name = "prezime", required = true)
+    protected String prezime;
 
-  /**
-   * Gets the value of the ime property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getIme() {
-    return ime;
-  }
+    /**
+     * Gets the value of the ime property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getIme() {
+        return ime;
+    }
 
-  /**
-   * Sets the value of the ime property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setIme(String value) {
-    this.ime = value;
-  }
+    /**
+     * Sets the value of the ime property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setIme(String value) {
+        this.ime = value;
+    }
 
-  /**
-   * Gets the value of the prezime property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getPrezime() {
-    return prezime;
-  }
+    /**
+     * Gets the value of the prezime property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getPrezime() {
+        return prezime;
+    }
 
-  /**
-   * Sets the value of the prezime property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setPrezime(String value) {
-    this.prezime = value;
-  }
+    /**
+     * Sets the value of the prezime property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setPrezime(String value) {
+        this.prezime = value;
+    }
 }

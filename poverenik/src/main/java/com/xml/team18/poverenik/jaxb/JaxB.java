@@ -12,19 +12,19 @@ import java.io.StringWriter;
 @Component
 public class JaxB {
 
-  public Object unmarshall(String text, Class<?> clazz, Class<?> factoryClazz)
-      throws JAXBException {
-    JAXBContext context = JAXBContext.newInstance(clazz, factoryClazz);
-    Unmarshaller unmarshaller = context.createUnmarshaller();
-    return unmarshaller.unmarshal(new StringReader(text));
-  }
+    public Object unmarshall(String text, Class<?> clazz, Class<?> factoryClazz)
+            throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(clazz, factoryClazz);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        return unmarshaller.unmarshal(new StringReader(text));
+    }
 
-  public String marshall(Object toMarshall, Class<?> clazz, Class<?> factoryClazz)
-      throws JAXBException {
-    JAXBContext context = JAXBContext.newInstance(clazz, factoryClazz);
-    Marshaller marshaller = context.createMarshaller();
-    StringWriter sw = new StringWriter();
-    marshaller.marshal(toMarshall, sw);
-    return sw.toString();
-  }
+    public String marshall(Object toMarshall, Class<?> clazz, Class<?> factoryClazz)
+            throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(clazz, factoryClazz);
+        Marshaller marshaller = context.createMarshaller();
+        StringWriter sw = new StringWriter();
+        marshaller.marshal(toMarshall, sw);
+        return sw.toString();
+    }
 }

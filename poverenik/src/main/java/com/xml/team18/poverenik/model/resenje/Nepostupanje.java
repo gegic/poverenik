@@ -24,28 +24,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Nepostupanje",
-    propOrder = {"podnetiZahtev"})
+        name = "Nepostupanje",
+        propOrder = {"podnetiZahtev"})
 public class Nepostupanje {
 
-  @XmlElement(name = "podneti-zahtev", required = true)
-  protected PodnetiZahtev podnetiZahtev;
+    @XmlElement(name = "podneti-zahtev", required = true)
+    protected PodnetiZahtev podnetiZahtev;
 
-  /**
-   * Gets the value of the podnetiZahtev property.
-   *
-   * @return possible object is {@link PodnetiZahtev }
-   */
-  public PodnetiZahtev getPodnetiZahtev() {
-    return podnetiZahtev;
-  }
+    /**
+     * Gets the value of the podnetiZahtev property.
+     *
+     * @return possible object is {@link PodnetiZahtev }
+     */
+    public PodnetiZahtev getPodnetiZahtev() {
+        return podnetiZahtev;
+    }
 
-  /**
-   * Sets the value of the podnetiZahtev property.
-   *
-   * @param value allowed object is {@link PodnetiZahtev }
-   */
-  public void setPodnetiZahtev(PodnetiZahtev value) {
-    this.podnetiZahtev = value;
-  }
+    /**
+     * Sets the value of the podnetiZahtev property.
+     *
+     * @param value allowed object is {@link PodnetiZahtev }
+     */
+    public void setPodnetiZahtev(PodnetiZahtev value) {
+        this.podnetiZahtev = value;
+    }
 }

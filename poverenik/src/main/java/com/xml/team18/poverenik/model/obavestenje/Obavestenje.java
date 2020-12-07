@@ -51,98 +51,98 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Obavestenje",
-    propOrder = {"content"})
+        name = "Obavestenje",
+        propOrder = {"content"})
 public class Obavestenje {
 
-  @XmlElementRefs({
-    @XmlElementRef(name = "datum", type = JAXBElement.class),
-    @XmlElementRef(name = "opis", type = JAXBElement.class),
-    @XmlElementRef(name = "organ", type = JAXBElement.class),
-    @XmlElementRef(name = "cenovnik", type = JAXBElement.class),
-    @XmlElementRef(name = "dostavljeno", type = JAXBElement.class),
-    @XmlElementRef(name = "primalac", type = JAXBElement.class),
-    @XmlElementRef(name = "podnosilac", type = JAXBElement.class),
-    @XmlElementRef(name = "opis-zahteva", type = JAXBElement.class),
-    @XmlElementRef(name = "sadrzaj-obavestenja", type = JAXBElement.class),
-    @XmlElementRef(name = "uredba", type = JAXBElement.class),
-    @XmlElementRef(name = "zakon", type = JAXBElement.class),
-    @XmlElementRef(name = "odluka", type = JAXBElement.class),
-    @XmlElementRef(name = "cena", type = JAXBElement.class)
-  })
-  @XmlMixed
-  protected List<Serializable> content;
+    @XmlElementRefs({
+            @XmlElementRef(name = "datum", type = JAXBElement.class),
+            @XmlElementRef(name = "opis", type = JAXBElement.class),
+            @XmlElementRef(name = "organ", type = JAXBElement.class),
+            @XmlElementRef(name = "cenovnik", type = JAXBElement.class),
+            @XmlElementRef(name = "dostavljeno", type = JAXBElement.class),
+            @XmlElementRef(name = "primalac", type = JAXBElement.class),
+            @XmlElementRef(name = "podnosilac", type = JAXBElement.class),
+            @XmlElementRef(name = "opis-zahteva", type = JAXBElement.class),
+            @XmlElementRef(name = "sadrzaj-obavestenja", type = JAXBElement.class),
+            @XmlElementRef(name = "uredba", type = JAXBElement.class),
+            @XmlElementRef(name = "zakon", type = JAXBElement.class),
+            @XmlElementRef(name = "odluka", type = JAXBElement.class),
+            @XmlElementRef(name = "cena", type = JAXBElement.class)
+    })
+    @XmlMixed
+    protected List<Serializable> content;
 
-  @XmlAttribute(name = "broj-predmeta", required = true)
-  protected String brojPredmeta;
+    @XmlAttribute(name = "broj-predmeta", required = true)
+    protected String brojPredmeta;
 
-  @XmlAttribute(name = "datum", required = true)
-  @XmlSchemaType(name = "date")
-  protected XMLGregorianCalendar datum;
+    @XmlAttribute(name = "datum", required = true)
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar datum;
 
-  /**
-   * Gets the value of the content property.
-   *
-   * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-   * modification you make to the returned list will be present inside the JAXB object. This is why
-   * there is not a <CODE>set</CODE> method for the content property.
-   *
-   * <p>For example, to add a new item, do as follows:
-   *
-   * <pre>
-   *    getContent().add(newItem);
-   * </pre>
-   *
-   * <p>Objects of the following type(s) are allowed in the list {@link JAXBElement }{@code <}{@link
-   * XMLGregorianCalendar }{@code >} {@link JAXBElement }{@code <}{@link String }{@code >} {@link
-   * JAXBElement }{@code <}{@link Organ }{@code >} {@link JAXBElement }{@code <}{@link Cenovnik
-   * }{@code >} {@link JAXBElement }{@code <}{@link Dostavljeno }{@code >} {@link JAXBElement
-   * }{@code <}{@link Primalac }{@code >} {@link JAXBElement }{@code <}{@link Lice }{@code >} {@link
-   * JAXBElement }{@code <}{@link String }{@code >} {@link JAXBElement }{@code <}{@link Sadrzaj
-   * }{@code >} {@link JAXBElement }{@code <}{@link Akt }{@code >} {@link JAXBElement }{@code
-   * <}{@link Akt }{@code >} {@link JAXBElement }{@code <}{@link String }{@code >} {@link String }
-   * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-   */
-  public List<Serializable> getContent() {
-    if (content == null) {
-      content = new ArrayList<Serializable>();
+    /**
+     * Gets the value of the content property.
+     *
+     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
+     * modification you make to the returned list will be present inside the JAXB object. This is why
+     * there is not a <CODE>set</CODE> method for the content property.
+     *
+     * <p>For example, to add a new item, do as follows:
+     *
+     * <pre>
+     *    getContent().add(newItem);
+     * </pre>
+     *
+     * <p>Objects of the following type(s) are allowed in the list {@link JAXBElement }{@code <}{@link
+     * XMLGregorianCalendar }{@code >} {@link JAXBElement }{@code <}{@link String }{@code >} {@link
+     * JAXBElement }{@code <}{@link Organ }{@code >} {@link JAXBElement }{@code <}{@link Cenovnik
+     * }{@code >} {@link JAXBElement }{@code <}{@link Dostavljeno }{@code >} {@link JAXBElement
+     * }{@code <}{@link Primalac }{@code >} {@link JAXBElement }{@code <}{@link Lice }{@code >} {@link
+     * JAXBElement }{@code <}{@link String }{@code >} {@link JAXBElement }{@code <}{@link Sadrzaj
+     * }{@code >} {@link JAXBElement }{@code <}{@link Akt }{@code >} {@link JAXBElement }{@code
+     * <}{@link Akt }{@code >} {@link JAXBElement }{@code <}{@link String }{@code >} {@link String }
+     * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     */
+    public List<Serializable> getContent() {
+        if (content == null) {
+            content = new ArrayList<Serializable>();
+        }
+        return this.content;
     }
-    return this.content;
-  }
 
-  /**
-   * Gets the value of the brojPredmeta property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getBrojPredmeta() {
-    return brojPredmeta;
-  }
+    /**
+     * Gets the value of the brojPredmeta property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getBrojPredmeta() {
+        return brojPredmeta;
+    }
 
-  /**
-   * Sets the value of the brojPredmeta property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setBrojPredmeta(String value) {
-    this.brojPredmeta = value;
-  }
+    /**
+     * Sets the value of the brojPredmeta property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setBrojPredmeta(String value) {
+        this.brojPredmeta = value;
+    }
 
-  /**
-   * Gets the value of the datum property.
-   *
-   * @return possible object is {@link XMLGregorianCalendar }
-   */
-  public XMLGregorianCalendar getDatum() {
-    return datum;
-  }
+    /**
+     * Gets the value of the datum property.
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     */
+    public XMLGregorianCalendar getDatum() {
+        return datum;
+    }
 
-  /**
-   * Sets the value of the datum property.
-   *
-   * @param value allowed object is {@link XMLGregorianCalendar }
-   */
-  public void setDatum(XMLGregorianCalendar value) {
-    this.datum = value;
-  }
+    /**
+     * Sets the value of the datum property.
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     */
+    public void setDatum(XMLGregorianCalendar value) {
+        this.datum = value;
+    }
 }

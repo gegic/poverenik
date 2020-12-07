@@ -28,32 +28,32 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Osnov",
-    propOrder = {"zakon"})
+        name = "Osnov",
+        propOrder = {"zakon"})
 public class Osnov {
 
-  @XmlElement(required = true)
-  protected List<Akt> zakon;
+    @XmlElement(required = true)
+    protected List<Akt> zakon;
 
-  /**
-   * Gets the value of the zakon property.
-   *
-   * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-   * modification you make to the returned list will be present inside the JAXB object. This is why
-   * there is not a <CODE>set</CODE> method for the zakon property.
-   *
-   * <p>For example, to add a new item, do as follows:
-   *
-   * <pre>
-   *    getZakon().add(newItem);
-   * </pre>
-   *
-   * <p>Objects of the following type(s) are allowed in the list {@link Akt }
-   */
-  public List<Akt> getZakon() {
-    if (zakon == null) {
-      zakon = new ArrayList<Akt>();
+    /**
+     * Gets the value of the zakon property.
+     *
+     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
+     * modification you make to the returned list will be present inside the JAXB object. This is why
+     * there is not a <CODE>set</CODE> method for the zakon property.
+     *
+     * <p>For example, to add a new item, do as follows:
+     *
+     * <pre>
+     *    getZakon().add(newItem);
+     * </pre>
+     *
+     * <p>Objects of the following type(s) are allowed in the list {@link Akt }
+     */
+    public List<Akt> getZakon() {
+        if (zakon == null) {
+            zakon = new ArrayList<Akt>();
+        }
+        return this.zakon;
     }
-    return this.zakon;
-  }
 }

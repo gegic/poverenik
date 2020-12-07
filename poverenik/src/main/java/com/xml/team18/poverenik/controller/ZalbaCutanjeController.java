@@ -19,30 +19,30 @@ import javax.xml.bind.JAXBException;
 @RequestMapping(path = "/api/zalba-cutanje")
 public class ZalbaCutanjeController {
 
-  private final ZalbaCutanjeFactory zalbaCutanjeFactory;
-  private final JaxB jaxB;
+    private final ZalbaCutanjeFactory zalbaCutanjeFactory;
+    private final JaxB jaxB;
 
-  @Autowired
-  public ZalbaCutanjeController(ZalbaCutanjeFactory zalbaCutanjeFactory, JaxB jaxB) {
-    this.zalbaCutanjeFactory = zalbaCutanjeFactory;
-    this.jaxB = jaxB;
-  }
-
-  @PostMapping(
-      consumes = MediaType.APPLICATION_XML_VALUE,
-      produces = MediaType.APPLICATION_XML_VALUE)
-  ResponseEntity<String> addZalbaCutanje(@RequestBody String xmlZalbaCutanje) {
-    Zalba zalbaCutanje;
-    try {
-      Object o = jaxB.unmarshall(xmlZalbaCutanje, Zalba.class, zalbaCutanjeFactory.getClass());
-      zalbaCutanje = (Zalba) ((JAXBElement) o).getValue();
-      zalbaCutanje.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
-
-      String xml = jaxB.marshall(o, Zalba.class, zalbaCutanjeFactory.getClass());
-      return ResponseEntity.ok(xml);
-    } catch (JAXBException e) {
-      e.printStackTrace();
-      return ResponseEntity.badRequest().build();
+    @Autowired
+    public ZalbaCutanjeController(ZalbaCutanjeFactory zalbaCutanjeFactory, JaxB jaxB) {
+        this.zalbaCutanjeFactory = zalbaCutanjeFactory;
+        this.jaxB = jaxB;
     }
-  }
+
+    @PostMapping(
+            consumes = MediaType.APPLICATION_XML_VALUE,
+            produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<String> addZalbaCutanje(@RequestBody String xmlZalbaCutanje) {
+        Zalba zalbaCutanje;
+        try {
+            Object o = jaxB.unmarshall(xmlZalbaCutanje, Zalba.class, zalbaCutanjeFactory.getClass());
+            zalbaCutanje = (Zalba) ((JAXBElement) o).getValue();
+            zalbaCutanje.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
+
+            String xml = jaxB.marshall(o, Zalba.class, zalbaCutanjeFactory.getClass());
+            return ResponseEntity.ok(xml);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

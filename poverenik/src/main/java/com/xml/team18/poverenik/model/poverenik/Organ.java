@@ -24,24 +24,24 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Organ")
 public class Organ extends Lice {
 
-  @XmlAttribute(name = "naziv", required = true)
-  protected String naziv;
+    @XmlAttribute(name = "naziv", required = true)
+    protected String naziv;
 
-  /**
-   * Gets the value of the naziv property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getNaziv() {
-    return naziv;
-  }
+    /**
+     * Gets the value of the naziv property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getNaziv() {
+        return naziv;
+    }
 
-  /**
-   * Sets the value of the naziv property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setNaziv(String value) {
-    this.naziv = value;
-  }
+    /**
+     * Sets the value of the naziv property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setNaziv(String value) {
+        this.naziv = value;
+    }
 }

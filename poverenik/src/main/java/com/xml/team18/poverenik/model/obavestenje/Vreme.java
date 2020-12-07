@@ -23,25 +23,25 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlSeeAlso({VremePeriod.class})
 public class Vreme {
 
-  @XmlAttribute(name = "pocetak")
-  @XmlSchemaType(name = "time")
-  protected XMLGregorianCalendar pocetak;
+    @XmlAttribute(name = "pocetak")
+    @XmlSchemaType(name = "time")
+    protected XMLGregorianCalendar pocetak;
 
-  /**
-   * Gets the value of the pocetak property.
-   *
-   * @return possible object is {@link XMLGregorianCalendar }
-   */
-  public XMLGregorianCalendar getPocetak() {
-    return pocetak;
-  }
+    /**
+     * Gets the value of the pocetak property.
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     */
+    public XMLGregorianCalendar getPocetak() {
+        return pocetak;
+    }
 
-  /**
-   * Sets the value of the pocetak property.
-   *
-   * @param value allowed object is {@link XMLGregorianCalendar }
-   */
-  public void setPocetak(XMLGregorianCalendar value) {
-    this.pocetak = value;
-  }
+    /**
+     * Sets the value of the pocetak property.
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     */
+    public void setPocetak(XMLGregorianCalendar value) {
+        this.pocetak = value;
+    }
 }

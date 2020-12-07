@@ -20,50 +20,51 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "",
-    propOrder = {"value"})
+        name = "",
+        propOrder = {"value"})
 @XmlRootElement(name = "podneti-zahtev")
 public class PodnetiZahtev {
 
-  @XmlValue protected String value;
+    @XmlValue
+    protected String value;
 
-  @XmlAttribute(name = "datum")
-  @XmlSchemaType(name = "date")
-  protected XMLGregorianCalendar datum;
+    @XmlAttribute(name = "datum")
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar datum;
 
-  /**
-   * Gets the value of the value property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getValue() {
-    return value;
-  }
+    /**
+     * Gets the value of the value property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getValue() {
+        return value;
+    }
 
-  /**
-   * Sets the value of the value property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setValue(String value) {
-    this.value = value;
-  }
+    /**
+     * Sets the value of the value property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-  /**
-   * Gets the value of the datum property.
-   *
-   * @return possible object is {@link XMLGregorianCalendar }
-   */
-  public XMLGregorianCalendar getDatum() {
-    return datum;
-  }
+    /**
+     * Gets the value of the datum property.
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     */
+    public XMLGregorianCalendar getDatum() {
+        return datum;
+    }
 
-  /**
-   * Sets the value of the datum property.
-   *
-   * @param value allowed object is {@link XMLGregorianCalendar }
-   */
-  public void setDatum(XMLGregorianCalendar value) {
-    this.datum = value;
-  }
+    /**
+     * Sets the value of the datum property.
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     */
+    public void setDatum(XMLGregorianCalendar value) {
+        this.datum = value;
+    }
 }

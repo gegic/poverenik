@@ -25,50 +25,50 @@ import java.math.BigInteger;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Kancelarija",
-    propOrder = {"adresa"})
+        name = "Kancelarija",
+        propOrder = {"adresa"})
 public class Kancelarija {
 
-  @XmlElement(required = true)
-  protected Adresa adresa;
+    @XmlElement(required = true)
+    protected Adresa adresa;
 
-  @XmlAttribute(name = "broj", required = true)
-  @XmlSchemaType(name = "positiveInteger")
-  protected BigInteger broj;
+    @XmlAttribute(name = "broj", required = true)
+    @XmlSchemaType(name = "positiveInteger")
+    protected BigInteger broj;
 
-  /**
-   * Gets the value of the adresa property.
-   *
-   * @return possible object is {@link Adresa }
-   */
-  public Adresa getAdresa() {
-    return adresa;
-  }
+    /**
+     * Gets the value of the adresa property.
+     *
+     * @return possible object is {@link Adresa }
+     */
+    public Adresa getAdresa() {
+        return adresa;
+    }
 
-  /**
-   * Sets the value of the adresa property.
-   *
-   * @param value allowed object is {@link Adresa }
-   */
-  public void setAdresa(Adresa value) {
-    this.adresa = value;
-  }
+    /**
+     * Sets the value of the adresa property.
+     *
+     * @param value allowed object is {@link Adresa }
+     */
+    public void setAdresa(Adresa value) {
+        this.adresa = value;
+    }
 
-  /**
-   * Gets the value of the broj property.
-   *
-   * @return possible object is {@link BigInteger }
-   */
-  public BigInteger getBroj() {
-    return broj;
-  }
+    /**
+     * Gets the value of the broj property.
+     *
+     * @return possible object is {@link BigInteger }
+     */
+    public BigInteger getBroj() {
+        return broj;
+    }
 
-  /**
-   * Sets the value of the broj property.
-   *
-   * @param value allowed object is {@link BigInteger }
-   */
-  public void setBroj(BigInteger value) {
-    this.broj = value;
-  }
+    /**
+     * Sets the value of the broj property.
+     *
+     * @param value allowed object is {@link BigInteger }
+     */
+    public void setBroj(BigInteger value) {
+        this.broj = value;
+    }
 }

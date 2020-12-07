@@ -26,32 +26,32 @@ import java.util.List;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "BiranjeRazloga",
-    propOrder = {"izbor"})
+        name = "BiranjeRazloga",
+        propOrder = {"izbor"})
 public class BiranjeRazloga {
 
-  @XmlElement(required = true)
-  protected List<IzborRazloga> izbor;
+    @XmlElement(required = true)
+    protected List<IzborRazloga> izbor;
 
-  /**
-   * Gets the value of the izbor property.
-   *
-   * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-   * modification you make to the returned list will be present inside the JAXB object. This is why
-   * there is not a <CODE>set</CODE> method for the izbor property.
-   *
-   * <p>For example, to add a new item, do as follows:
-   *
-   * <pre>
-   *    getIzbor().add(newItem);
-   * </pre>
-   *
-   * <p>Objects of the following type(s) are allowed in the list {@link IzborRazloga }
-   */
-  public List<IzborRazloga> getIzbor() {
-    if (izbor == null) {
-      izbor = new ArrayList<IzborRazloga>();
+    /**
+     * Gets the value of the izbor property.
+     *
+     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
+     * modification you make to the returned list will be present inside the JAXB object. This is why
+     * there is not a <CODE>set</CODE> method for the izbor property.
+     *
+     * <p>For example, to add a new item, do as follows:
+     *
+     * <pre>
+     *    getIzbor().add(newItem);
+     * </pre>
+     *
+     * <p>Objects of the following type(s) are allowed in the list {@link IzborRazloga }
+     */
+    public List<IzborRazloga> getIzbor() {
+        if (izbor == null) {
+            izbor = new ArrayList<IzborRazloga>();
+        }
+        return this.izbor;
     }
-    return this.izbor;
-  }
 }

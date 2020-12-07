@@ -38,95 +38,95 @@ import javax.xml.bind.annotation.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Primalac",
-    propOrder = {"organ"})
+        name = "Primalac",
+        propOrder = {"organ"})
 public class Primalac {
 
-  @XmlElement(required = true)
-  protected Organ organ;
+    @XmlElement(required = true)
+    protected Organ organ;
 
-  @XmlAttribute(name = "broj-racuna", required = true)
-  protected String brojRacuna;
+    @XmlAttribute(name = "broj-racuna", required = true)
+    protected String brojRacuna;
 
-  @XmlAttribute(name = "model")
-  protected Integer model;
+    @XmlAttribute(name = "model")
+    protected Integer model;
 
-  @XmlAttribute(name = "poziv-na-broj", required = true)
-  protected String pozivNaBroj;
+    @XmlAttribute(name = "poziv-na-broj", required = true)
+    protected String pozivNaBroj;
 
-  /**
-   * Gets the value of the organ property.
-   *
-   * @return possible object is {@link Organ }
-   */
-  public Organ getOrgan() {
-    return organ;
-  }
-
-  /**
-   * Sets the value of the organ property.
-   *
-   * @param value allowed object is {@link Organ }
-   */
-  public void setOrgan(Organ value) {
-    this.organ = value;
-  }
-
-  /**
-   * Gets the value of the brojRacuna property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getBrojRacuna() {
-    return brojRacuna;
-  }
-
-  /**
-   * Sets the value of the brojRacuna property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setBrojRacuna(String value) {
-    this.brojRacuna = value;
-  }
-
-  /**
-   * Gets the value of the model property.
-   *
-   * @return possible object is {@link Integer }
-   */
-  public int getModel() {
-    if (model == null) {
-      return 97;
-    } else {
-      return model;
+    /**
+     * Gets the value of the organ property.
+     *
+     * @return possible object is {@link Organ }
+     */
+    public Organ getOrgan() {
+        return organ;
     }
-  }
 
-  /**
-   * Sets the value of the model property.
-   *
-   * @param value allowed object is {@link Integer }
-   */
-  public void setModel(Integer value) {
-    this.model = value;
-  }
+    /**
+     * Sets the value of the organ property.
+     *
+     * @param value allowed object is {@link Organ }
+     */
+    public void setOrgan(Organ value) {
+        this.organ = value;
+    }
 
-  /**
-   * Gets the value of the pozivNaBroj property.
-   *
-   * @return possible object is {@link String }
-   */
-  public String getPozivNaBroj() {
-    return pozivNaBroj;
-  }
+    /**
+     * Gets the value of the brojRacuna property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getBrojRacuna() {
+        return brojRacuna;
+    }
 
-  /**
-   * Sets the value of the pozivNaBroj property.
-   *
-   * @param value allowed object is {@link String }
-   */
-  public void setPozivNaBroj(String value) {
-    this.pozivNaBroj = value;
-  }
+    /**
+     * Sets the value of the brojRacuna property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setBrojRacuna(String value) {
+        this.brojRacuna = value;
+    }
+
+    /**
+     * Gets the value of the model property.
+     *
+     * @return possible object is {@link Integer }
+     */
+    public int getModel() {
+        if (model == null) {
+            return 97;
+        } else {
+            return model;
+        }
+    }
+
+    /**
+     * Sets the value of the model property.
+     *
+     * @param value allowed object is {@link Integer }
+     */
+    public void setModel(Integer value) {
+        this.model = value;
+    }
+
+    /**
+     * Gets the value of the pozivNaBroj property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getPozivNaBroj() {
+        return pozivNaBroj;
+    }
+
+    /**
+     * Sets the value of the pozivNaBroj property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setPozivNaBroj(String value) {
+        this.pozivNaBroj = value;
+    }
 }

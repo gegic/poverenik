@@ -30,67 +30,67 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-    name = "Uzrok",
-    propOrder = {"obavestenje", "nepostupanje", "protiv"})
+        name = "Uzrok",
+        propOrder = {"obavestenje", "nepostupanje", "protiv"})
 public class Uzrok {
 
-  protected NegativnoObavestenje obavestenje;
-  protected Nepostupanje nepostupanje;
+    protected NegativnoObavestenje obavestenje;
+    protected Nepostupanje nepostupanje;
 
-  @XmlElement(required = true)
-  protected Organ protiv;
+    @XmlElement(required = true)
+    protected Organ protiv;
 
-  /**
-   * Gets the value of the obavestenje property.
-   *
-   * @return possible object is {@link NegativnoObavestenje }
-   */
-  public NegativnoObavestenje getObavestenje() {
-    return obavestenje;
-  }
+    /**
+     * Gets the value of the obavestenje property.
+     *
+     * @return possible object is {@link NegativnoObavestenje }
+     */
+    public NegativnoObavestenje getObavestenje() {
+        return obavestenje;
+    }
 
-  /**
-   * Sets the value of the obavestenje property.
-   *
-   * @param value allowed object is {@link NegativnoObavestenje }
-   */
-  public void setObavestenje(NegativnoObavestenje value) {
-    this.obavestenje = value;
-  }
+    /**
+     * Sets the value of the obavestenje property.
+     *
+     * @param value allowed object is {@link NegativnoObavestenje }
+     */
+    public void setObavestenje(NegativnoObavestenje value) {
+        this.obavestenje = value;
+    }
 
-  /**
-   * Gets the value of the nepostupanje property.
-   *
-   * @return possible object is {@link Nepostupanje }
-   */
-  public Nepostupanje getNepostupanje() {
-    return nepostupanje;
-  }
+    /**
+     * Gets the value of the nepostupanje property.
+     *
+     * @return possible object is {@link Nepostupanje }
+     */
+    public Nepostupanje getNepostupanje() {
+        return nepostupanje;
+    }
 
-  /**
-   * Sets the value of the nepostupanje property.
-   *
-   * @param value allowed object is {@link Nepostupanje }
-   */
-  public void setNepostupanje(Nepostupanje value) {
-    this.nepostupanje = value;
-  }
+    /**
+     * Sets the value of the nepostupanje property.
+     *
+     * @param value allowed object is {@link Nepostupanje }
+     */
+    public void setNepostupanje(Nepostupanje value) {
+        this.nepostupanje = value;
+    }
 
-  /**
-   * Gets the value of the protiv property.
-   *
-   * @return possible object is {@link Organ }
-   */
-  public Organ getProtiv() {
-    return protiv;
-  }
+    /**
+     * Gets the value of the protiv property.
+     *
+     * @return possible object is {@link Organ }
+     */
+    public Organ getProtiv() {
+        return protiv;
+    }
 
-  /**
-   * Sets the value of the protiv property.
-   *
-   * @param value allowed object is {@link Organ }
-   */
-  public void setProtiv(Organ value) {
-    this.protiv = value;
-  }
+    /**
+     * Sets the value of the protiv property.
+     *
+     * @param value allowed object is {@link Organ }
+     */
+    public void setProtiv(Organ value) {
+        this.protiv = value;
+    }
 }

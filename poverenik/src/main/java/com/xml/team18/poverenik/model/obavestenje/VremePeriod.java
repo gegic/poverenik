@@ -22,25 +22,25 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "VremePeriod")
 public class VremePeriod extends Vreme {
 
-  @XmlAttribute(name = "zavrsetak")
-  @XmlSchemaType(name = "time")
-  protected XMLGregorianCalendar zavrsetak;
+    @XmlAttribute(name = "zavrsetak")
+    @XmlSchemaType(name = "time")
+    protected XMLGregorianCalendar zavrsetak;
 
-  /**
-   * Gets the value of the zavrsetak property.
-   *
-   * @return possible object is {@link XMLGregorianCalendar }
-   */
-  public XMLGregorianCalendar getZavrsetak() {
-    return zavrsetak;
-  }
+    /**
+     * Gets the value of the zavrsetak property.
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     */
+    public XMLGregorianCalendar getZavrsetak() {
+        return zavrsetak;
+    }
 
-  /**
-   * Sets the value of the zavrsetak property.
-   *
-   * @param value allowed object is {@link XMLGregorianCalendar }
-   */
-  public void setZavrsetak(XMLGregorianCalendar value) {
-    this.zavrsetak = value;
-  }
+    /**
+     * Sets the value of the zavrsetak property.
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     */
+    public void setZavrsetak(XMLGregorianCalendar value) {
+        this.zavrsetak = value;
+    }
 }

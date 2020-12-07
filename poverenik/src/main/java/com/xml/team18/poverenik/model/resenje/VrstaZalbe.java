@@ -24,28 +24,28 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "VrstaZalbe")
 @XmlEnum
 public enum VrstaZalbe {
-  @XmlEnumValue("osnovana")
-  OSNOVANA("osnovana"),
-  @XmlEnumValue("neosnovana-zalba")
-  NEOSNOVANA_ZALBA("neosnovana-zalba"),
-  @XmlEnumValue("neosnovan-zahtev")
-  NEOSNOVAN_ZAHTEV("neosnovan-zahtev");
-  private final String value;
+    @XmlEnumValue("osnovana")
+    OSNOVANA("osnovana"),
+    @XmlEnumValue("neosnovana-zalba")
+    NEOSNOVANA_ZALBA("neosnovana-zalba"),
+    @XmlEnumValue("neosnovan-zahtev")
+    NEOSNOVAN_ZAHTEV("neosnovan-zahtev");
+    private final String value;
 
-  VrstaZalbe(String v) {
-    value = v;
-  }
-
-  public static VrstaZalbe fromValue(String v) {
-    for (VrstaZalbe c : VrstaZalbe.values()) {
-      if (c.value.equals(v)) {
-        return c;
-      }
+    VrstaZalbe(String v) {
+        value = v;
     }
-    throw new IllegalArgumentException(v);
-  }
 
-  public String value() {
-    return value;
-  }
+    public static VrstaZalbe fromValue(String v) {
+        for (VrstaZalbe c : VrstaZalbe.values()) {
+            if (c.value.equals(v)) {
+                return c;
+            }
+        }
+        throw new IllegalArgumentException(v);
+    }
+
+    public String value() {
+        return value;
+    }
 }
