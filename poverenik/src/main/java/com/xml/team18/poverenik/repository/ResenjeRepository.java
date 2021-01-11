@@ -1,5 +1,6 @@
 package com.xml.team18.poverenik.repository;
 
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.factory.ResenjeFactory;
 import com.xml.team18.poverenik.factory.ZahtevFactory;
@@ -12,6 +13,7 @@ import com.xml.team18.poverenik.model.zahtev.Zahtev;
 import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
 import javax.xml.bind.JAXBElement;
@@ -55,7 +57,10 @@ public class ResenjeRepository implements XmlRepository<Resenje> {
             String graphUri = String.format("resenja/%s", id);
             this.fusekiWriter.saveRDF(rdf, graphUri);
             XMLResource found = this.existManager.read(collectionId, id);
-            return null;
+            String contentFound = found.getContent().toString();
+            return (Resenje) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Resenje.class, com.xml.team18.poverenik.factory.ResenjeFactory.class))
+                    .getValue();
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -64,9 +69,19 @@ public class ResenjeRepository implements XmlRepository<Resenje> {
         }
     }
 
-    @Override
-    public Resenje findById(UUID uuid) throws Exception {
-        return null;
+    public Resenje findById(UUID uuid) throws ResourceNotFoundException {
+        String id = uuid.toString();
+        XMLResource found = this.existManager.read(collectionId, id);
+        String contentFound = null;
+        try {
+            contentFound = found.getContent().toString();
+            return (Resenje) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Resenje.class, com.xml.team18.poverenik.factory.ResenjeFactory.class))
+                    .getValue();
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public List<Resenje> getAll() throws Exception {

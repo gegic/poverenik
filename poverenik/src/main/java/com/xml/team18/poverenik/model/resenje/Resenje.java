@@ -2,6 +2,8 @@
 package com.xml.team18.poverenik.model.resenje;
 
 import com.xml.team18.poverenik.model.docs.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -83,6 +85,16 @@ public class Resenje {
     protected Obrazlozenje obrazlozenje;
     @XmlElement(required = true)
     protected Osoba poverenik;
+    @XmlAttribute(name = "rdfa_re", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String re;
+    @XmlAttribute(name = "rdfa_pred", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String pred;
     @XmlAttribute(name = "broj", required = true)
     protected String broj;
     @XmlAttribute(name = "vocab", required = true)
@@ -91,7 +103,7 @@ public class Resenje {
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String about;
-    @XmlAttribute(name = "id", required = true)
+    @XmlAttribute(name = "id")
     protected String id;
 
     /**

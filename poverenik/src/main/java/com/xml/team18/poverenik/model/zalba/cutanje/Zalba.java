@@ -2,6 +2,8 @@
 package com.xml.team18.poverenik.model.zalba.cutanje;
 
 import com.xml.team18.poverenik.model.docs.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -97,13 +99,23 @@ public class Zalba {
     protected Zalba.Datum datum;
     @XmlElement(required = true)
     protected Osoba podnosilac;
+    @XmlAttribute(name = "rdfa_zc", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String zc;
+    @XmlAttribute(name = "rdfa_pred", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String pred;
     @XmlAttribute(name = "vocab", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String vocab;
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String about;
-    @XmlAttribute(name = "id", required = true)
+    @XmlAttribute(name = "id")
     protected String id;
 
     /**
@@ -300,11 +312,11 @@ public class Zalba {
 
     /**
      * Gets the value of the vocab property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getVocab() {
         return vocab;
@@ -312,16 +324,24 @@ public class Zalba {
 
     /**
      * Sets the value of the vocab property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setVocab(String value) {
         this.vocab = value;
     }
 
+    /**
+     * Gets the value of the vocab property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
     /**
      * Gets the value of the about property.
      * 

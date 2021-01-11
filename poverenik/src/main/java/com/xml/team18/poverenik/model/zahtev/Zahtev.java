@@ -2,6 +2,8 @@
 package com.xml.team18.poverenik.model.zahtev;
 
 import com.xml.team18.poverenik.model.docs.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -102,13 +104,23 @@ public class Zahtev {
     protected Zahtev.Datum datum;
     @XmlElement(name = "trazilac-informacije", required = true)
     protected Osoba trazilacInformacije;
+    @XmlAttribute(name = "rdfa_za", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String za;
+    @XmlAttribute(name = "rdfa_pred", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String pred;
     @XmlAttribute(name = "vocab", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String vocab;
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String about;
-    @XmlAttribute(name = "id", required = true)
+    @XmlAttribute(name = "id")
     protected String id;
 
     /**

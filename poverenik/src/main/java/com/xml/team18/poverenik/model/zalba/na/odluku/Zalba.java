@@ -2,6 +2,9 @@
 package com.xml.team18.poverenik.model.zalba.na.odluku;
 
 import com.xml.team18.poverenik.model.docs.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -80,13 +83,23 @@ public class Zalba {
     protected String mesto;
     @XmlElement(required = true)
     protected Osoba podnosilac;
+    @XmlAttribute(name = "rdfa_zo", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String zo;
+    @XmlAttribute(name = "rdfa_pred", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String pred;
     @XmlAttribute(name = "vocab", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String vocab;
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String about;
-    @XmlAttribute(name = "id", required = true)
+    @XmlAttribute(name = "id")
     protected String id;
 
     /**

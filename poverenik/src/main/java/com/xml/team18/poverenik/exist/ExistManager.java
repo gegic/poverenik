@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import javax.xml.transform.OutputKeys;
 
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import org.exist.xmldb.EXistResource;
 import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class ExistManager {
         this.existProperties = existProperties;
     }
 
-    public void createConnection() throws Exception {
+    public void createConnection() throws ClassNotFoundException, IllegalAccessException, InstantiationException, XMLDBException {
         Class<?> cl = Class.forName(existProperties.getDriver());
         Database database = (Database) cl.newInstance();
         database.setProperty("create-database", "true");
@@ -115,12 +116,17 @@ public class ExistManager {
         }
     }
 
-    public XMLResource read(String collectionId, String documentId) throws Exception  {
-        createConnection();
+    public XMLResource read(String collectionId, String documentId) throws ResourceNotFoundException {
         try (Collection col = DatabaseManager.getCollection(existProperties.getUri() + collectionId,
                 existProperties.getUser(), existProperties.getPassword())) {
+            createConnection();
             col.setProperty(OutputKeys.INDENT, "yes");
             return (XMLResource) col.getResource(documentId);
+        } catch (XMLDBException e) {
+            throw new ResourceNotFoundException(collectionId, documentId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

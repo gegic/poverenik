@@ -1,5 +1,6 @@
 package com.xml.team18.poverenik.repository;
 
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.factory.ZahtevFactory;
 import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
@@ -58,7 +59,10 @@ public class ZahtevRepository implements XmlRepository<Zahtev> {
             String graphUri = String.format("zahtevi/%s", id);
             this.fusekiWriter.saveRDF(rdf, graphUri);
             XMLResource found = this.existManager.read(collectionId, id);
-            return null;
+            String contentFound = found.getContent().toString();
+            return (Zahtev) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Zahtev.class, com.xml.team18.poverenik.factory.ZahtevFactory.class))
+                    .getValue();
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -67,13 +71,21 @@ public class ZahtevRepository implements XmlRepository<Zahtev> {
         }
     }
 
-    public Zahtev findById(UUID uuid) throws Exception {
+
+
+    public Zahtev findById(UUID uuid) throws ResourceNotFoundException {
         String id = uuid.toString();
         XMLResource found = this.existManager.read(collectionId, id);
-        String contentFound = found.getContent().toString();
-        return (Zahtev) ((JAXBElement<?>) jaxB
-                .unmarshall(contentFound, Zahtev.class, com.xml.team18.poverenik.factory.ZahtevFactory.class))
-                .getValue();
+        String contentFound = null;
+        try {
+            contentFound = found.getContent().toString();
+            return (Zahtev) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Zahtev.class, com.xml.team18.poverenik.factory.ZahtevFactory.class))
+                    .getValue();
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public List<Zahtev> getAll() throws Exception {

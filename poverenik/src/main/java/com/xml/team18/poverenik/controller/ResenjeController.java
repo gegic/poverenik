@@ -1,44 +1,40 @@
 package com.xml.team18.poverenik.controller;
 
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.factory.ResenjeFactory;
 import com.xml.team18.poverenik.jaxb.JaxB;
-import com.xml.team18.poverenik.model.resenje.Resenje;
+import com.xml.team18.poverenik.service.ResenjeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
+import java.net.URI;
 
 @RestController
-@RequestMapping(path = "/api/resenja")
+@RequestMapping(
+        path = "/api/resenja",
+        consumes = MediaType.APPLICATION_XML_VALUE,
+        produces = MediaType.APPLICATION_XML_VALUE)
 public class ResenjeController {
 
-    private final ResenjeFactory resenjeFactory;
-    private final JaxB jaxB;
+    private final ResenjeService service;
 
     @Autowired
-    public ResenjeController(ResenjeFactory resenjeFactory, JaxB jaxB) {
-        this.resenjeFactory = resenjeFactory;
-        this.jaxB = jaxB;
+    public ResenjeController(ResenjeService service) {
+        this.service = service;
     }
 
-    @PostMapping(
-            consumes = MediaType.APPLICATION_XML_VALUE,
-            produces = MediaType.APPLICATION_XML_VALUE)
-    ResponseEntity<String> addResenje(@RequestBody String xmlResenje) {
-        try {
-            Resenje resenje = (Resenje) jaxB.unmarshall(xmlResenje, Resenje.class, resenjeFactory.getClass());
+    @PostMapping
+    ResponseEntity<String> addResenje(@RequestBody String xmlResenje) throws JAXBException {
+        return ResponseEntity.created(URI.create(this.service.save(xmlResenje))).build();
+    }
 
-            String xml = jaxB.marshall(resenje, Resenje.class, resenjeFactory.getClass());
-            return ResponseEntity.ok(xml);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().build();
-        }
+    @GetMapping(path = "/{id}")
+    ResponseEntity<String> getById(@PathVariable String id) throws ResourceNotFoundException, JAXBException {
+        return ResponseEntity.ok(service.getById(id));
     }
 }

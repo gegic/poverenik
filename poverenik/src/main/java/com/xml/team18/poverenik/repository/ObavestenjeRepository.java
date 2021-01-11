@@ -1,5 +1,6 @@
 package com.xml.team18.poverenik.repository;
 
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.factory.ObavestenjeFactory;
 import com.xml.team18.poverenik.factory.ZahtevFactory;
@@ -13,11 +14,13 @@ import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
 import org.apache.jena.vocabulary.OA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
+import javax.xml.parsers.SAXParser;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -86,9 +89,19 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
         }
     }
 
-    @Override
-    public Obavestenje findById(UUID uuid) throws Exception {
-        return null;
+    public Obavestenje findById(UUID uuid) throws ResourceNotFoundException {
+        String id = uuid.toString();
+        XMLResource found = this.existManager.read(collectionId, id);
+        String contentFound = null;
+        try {
+            contentFound = found.getContent().toString();
+            return (Obavestenje) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Obavestenje.class, com.xml.team18.poverenik.factory.ObavestenjeFactory.class))
+                    .getValue();
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public List<Obavestenje> getAll() throws Exception {

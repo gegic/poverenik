@@ -2,7 +2,7 @@
 <zahtev 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd"
-    xmlns:z="http://team14.xml.com/rdf/zahtevi"
+    xmlns:za="http://team14.xml.com/rdf/zahtevi"
     xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
     vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
     about="http://team14.xml.com/rdf/zahtevi/5f9c00aa-a86c-4d26-8bc8-7021c086adb3"

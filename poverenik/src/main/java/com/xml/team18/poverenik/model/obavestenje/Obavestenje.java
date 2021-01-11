@@ -2,6 +2,9 @@
 package com.xml.team18.poverenik.model.obavestenje;
 
 import com.xml.team18.poverenik.model.docs.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -89,13 +92,23 @@ public class Obavestenje {
     protected IzdanaDokumenta izdanaDokumenta;
     @XmlElement(required = true)
     protected Dostavljeno dostavljeno;
+    @XmlAttribute(name = "rdfa_ob", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String ob;
+    @XmlAttribute(name = "rdfa_pred", required = true)
+    @XmlSchemaType(name = "anyURI")
+    @Getter
+    @Setter
+    protected String pred;
     @XmlAttribute(name = "vocab", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String vocab;
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anyURI")
     protected String about;
-    @XmlAttribute(name = "id", required = true)
+    @XmlAttribute(name = "id")
     protected String id;
     @XmlAttribute(name = "zahtev-prihvacen", required = true)
     protected boolean zahtevPrihvacen;

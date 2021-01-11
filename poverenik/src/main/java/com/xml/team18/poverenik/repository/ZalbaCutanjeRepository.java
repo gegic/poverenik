@@ -1,5 +1,6 @@
 package com.xml.team18.poverenik.repository;
 
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.factory.ZahtevFactory;
 import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
 import com.xml.team18.poverenik.fuseki.FusekiWriter;
@@ -11,6 +12,7 @@ import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
 import javax.xml.bind.JAXBElement;
@@ -47,14 +49,17 @@ public class ZalbaCutanjeRepository implements XmlRepository<Zalba> {
             if (id == null || id.isEmpty()) {
                 id = UUID.randomUUID().toString();
             }
-            JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba"), Zalba.class, z);
+            JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba-cutanje"), Zalba.class, z);
             String rawXml = jaxB.marshall(element, Zalba.class, ZalbaCutanjeFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
             String rdf = this.metadataExtractor.extractMetadata(rawXml);
             String graphUri = String.format("zalbecutanje/%s", id);
             this.fusekiWriter.saveRDF(rdf, graphUri);
             XMLResource found = this.existManager.read(collectionId, id);
-            return null;
+            String contentFound = found.getContent().toString();
+            return (Zalba) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Zalba.class, com.xml.team18.poverenik.factory.ZalbaCutanjeFactory.class))
+                    .getValue();
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -63,9 +68,19 @@ public class ZalbaCutanjeRepository implements XmlRepository<Zalba> {
         }
     }
 
-    @Override
-    public Zalba findById(UUID uuid) throws Exception {
-        return null;
+    public Zalba findById(UUID uuid) throws ResourceNotFoundException {
+        String id = uuid.toString();
+        XMLResource found = this.existManager.read(collectionId, id);
+        String contentFound = null;
+        try {
+            contentFound = found.getContent().toString();
+            return (Zalba) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Zalba.class, com.xml.team18.poverenik.factory.ZalbaCutanjeFactory.class))
+                    .getValue();
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public List<Zalba> getAll() throws Exception {

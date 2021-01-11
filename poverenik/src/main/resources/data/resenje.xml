@@ -5,9 +5,9 @@
     xmlns:re="http://team14.xml.com/rdf/resenja"
     xmlns:pred="http://team14.xml.com/rdf/resenja/predicate/"
     vocab="http://team14.xml.com/rdf/resenja/predicate/"
-    about="http://team14.xml.com/rdf/resenja/6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
+    about="http://team14.xml.com/rdf/resenja/fc0711f5-aa74-4e4d-99d9-6aedc6d19d3a"
     broj="071-01-1114/2021-01"
-    id="6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
+    id="fc0711f5-aa74-4e4d-99d9-6aedc6d19d3a"
     >
     <datum property="pred:datum-resenja" datatype="xs:date">2020-01-03</datum>
     <predgovor>

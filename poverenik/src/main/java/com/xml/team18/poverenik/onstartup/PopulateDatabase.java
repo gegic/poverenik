@@ -54,30 +54,24 @@ public class PopulateDatabase {
         try {
 //            save("/db/zahtevi", this.existManager, "data/zahtev.xml", this.zahtevRepository);
 //            save("/db/obavestenja", this.existManager, "data/obavestenje.xml", this.obavestenjeRepository);
-            save("/db/zahtevi",
-                    this.existManager,
-                    "data/zahtev.xml",
-                    this.zahtevService,
-                    Zahtev.class,
-                    ZahtevFactory.class);
+//            save("/db/zahtevi",
+//                    this.existManager,
+//                    "data/zahtev.xml",
+//                    this.zahtevService,
+//                    Zahtev.class,
+//                    ZahtevFactory.class);
             save("/db/zalbecutanje",
                     this.existManager,
                     "data/zalbacutanje.xml",
-                    this.zalbaCutanjeService,
-                    com.xml.team18.poverenik.model.zalba.cutanje.Zalba.class,
-                    ZalbaCutanjeFactory.class);
+                    this.zalbaCutanjeService);
             save("/db/zalbenaodluku",
                     this.existManager,
                     "data/zalbanaodluku.xml",
-                    this.zalbaNaOdlukuService,
-                    com.xml.team18.poverenik.model.zalba.na.odluku.Zalba.class,
-                    ZalbaNaOdlukuFactory.class);
+                    this.zalbaNaOdlukuService);
             save("/db/resenja",
                     this.existManager,
                     "data/resenje.xml",
-                    this.resenjeService,
-                    Resenje.class,
-                    ResenjeFactory.class);
+                    this.resenjeService);
         } catch (Exception ignored) { // as it's not that important
             System.err.println("Ignored exception");
         }
@@ -86,13 +80,10 @@ public class PopulateDatabase {
     private <T> void save(String collectionId,
                              ExistManager existManager,
                              String dataPath,
-                             PoverenikService<T> service,
-                             Class<T> clazz,
-                             Class<?> factoryClazz) throws Exception {
+                             PoverenikService<T> service) throws Exception {
         if(!existManager.containsCollection(collectionId)) {
             String rawXml = IOUtils.toString(new ClassPathResource(dataPath).getInputStream(), StandardCharsets.UTF_8);
-            T o = (T) ((JAXBElement<?>) this.jaxB.unmarshall(rawXml, clazz, factoryClazz)).getValue();
-            service.save(o);
+            service.save(rawXml);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.xml.team18.poverenik.repository;
 
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
 import com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory;
@@ -9,6 +10,7 @@ import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.zalba.na.odluku.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
 import javax.xml.bind.JAXBElement;
@@ -52,7 +54,10 @@ public class ZalbaNaOdlukuRepository implements XmlRepository<Zalba> {
             String graphUri = String.format("zalbenaodluku/%s", id);
             this.fusekiWriter.saveRDF(rdf, graphUri);
             XMLResource found = this.existManager.read(collectionId, id);
-            return null;
+            String contentFound = found.getContent().toString();
+            return (Zalba) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Zalba.class, com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory.class))
+                    .getValue();
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -61,9 +66,19 @@ public class ZalbaNaOdlukuRepository implements XmlRepository<Zalba> {
         }
     }
 
-    @Override
-    public Zalba findById(UUID uuid) throws Exception {
-        return null;
+    public Zalba findById(UUID uuid) throws ResourceNotFoundException {
+        String id = uuid.toString();
+        XMLResource found = this.existManager.read(collectionId, id);
+        String contentFound = null;
+        try {
+            contentFound = found.getContent().toString();
+            return (Zalba) ((JAXBElement<?>) jaxB
+                    .unmarshall(contentFound, Zalba.class, com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory.class))
+                    .getValue();
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public List<Zalba> getAll() throws Exception {

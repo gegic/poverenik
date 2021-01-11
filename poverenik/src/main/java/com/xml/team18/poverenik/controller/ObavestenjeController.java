@@ -1,45 +1,40 @@
 package com.xml.team18.poverenik.controller;
 
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.factory.ObavestenjeFactory;
 import com.xml.team18.poverenik.jaxb.JaxB;
-import com.xml.team18.poverenik.model.obavestenje.Obavestenje;
+import com.xml.team18.poverenik.service.ObavestenjeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
+import java.net.URI;
 
 @RestController
-@RequestMapping(path = "/api/obavestenja")
+@RequestMapping(
+        path = "/api/obavestenja",
+        consumes = MediaType.APPLICATION_XML_VALUE,
+        produces = MediaType.APPLICATION_XML_VALUE)
 public class ObavestenjeController {
 
-    private final ObavestenjeFactory obavestenjeFactory;
-    private final JaxB jaxB;
+    private final ObavestenjeService service;
 
     @Autowired
-    public ObavestenjeController(ObavestenjeFactory obavestenjeFactory, JaxB jaxB) {
-        this.obavestenjeFactory = obavestenjeFactory;
-        this.jaxB = jaxB;
+    public ObavestenjeController(ObavestenjeService service) {
+        this.service = service;
     }
 
-    @PostMapping(
-            consumes = MediaType.APPLICATION_XML_VALUE,
-            produces = MediaType.APPLICATION_XML_VALUE)
-    ResponseEntity<String> addObavestenje(@RequestBody String xmlObavestenje) {
-        Obavestenje obavestenje;
-        try {
-            Object o = jaxB.unmarshall(xmlObavestenje, Obavestenje.class, obavestenjeFactory.getClass());
-            String xml = jaxB.marshall(o, Obavestenje.class, obavestenjeFactory.getClass());
-            return ResponseEntity.ok(xml);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().build();
-        }
+    @PostMapping
+    ResponseEntity<String> addObavestenje(@RequestBody String xmlObavestenje) throws JAXBException {
+        return ResponseEntity.created(URI.create(this.service.save(xmlObavestenje))).build();
+    }
+
+    @GetMapping(path = "/{id}")
+    ResponseEntity<String> getById(@PathVariable String id) throws ResourceNotFoundException, JAXBException {
+        return ResponseEntity.ok(service.getById(id));
     }
 }
