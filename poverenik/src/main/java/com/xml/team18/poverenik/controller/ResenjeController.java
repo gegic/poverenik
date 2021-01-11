@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 
 @RestController
@@ -32,13 +31,10 @@ public class ResenjeController {
             consumes = MediaType.APPLICATION_XML_VALUE,
             produces = MediaType.APPLICATION_XML_VALUE)
     ResponseEntity<String> addResenje(@RequestBody String xmlResenje) {
-        Resenje resenje;
         try {
-            Object o = jaxB.unmarshall(xmlResenje, Resenje.class, resenjeFactory.getClass());
-            resenje = (Resenje) ((JAXBElement) o).getValue();
-            resenje.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
+            Resenje resenje = (Resenje) jaxB.unmarshall(xmlResenje, Resenje.class, resenjeFactory.getClass());
 
-            String xml = jaxB.marshall(o, Resenje.class, resenjeFactory.getClass());
+            String xml = jaxB.marshall(resenje, Resenje.class, resenjeFactory.getClass());
             return ResponseEntity.ok(xml);
         } catch (JAXBException e) {
             e.printStackTrace();

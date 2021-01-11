@@ -35,9 +35,6 @@ public class ObavestenjeController {
         Obavestenje obavestenje;
         try {
             Object o = jaxB.unmarshall(xmlObavestenje, Obavestenje.class, obavestenjeFactory.getClass());
-            obavestenje = (Obavestenje) ((JAXBElement) o).getValue();
-            obavestenje.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
-
             String xml = jaxB.marshall(o, Obavestenje.class, obavestenjeFactory.getClass());
             return ResponseEntity.ok(xml);
         } catch (JAXBException e) {

@@ -1,6 +1,7 @@
 package com.xml.team18.poverenik.jaxb;
 
 import org.springframework.stereotype.Component;
+import org.xmldb.api.modules.XMLResource;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -16,6 +17,8 @@ public class JaxB {
             throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(clazz, factoryClazz);
         Unmarshaller unmarshaller = context.createUnmarshaller();
+        XMLResource m = null;
+
         return unmarshaller.unmarshal(new StringReader(text));
     }
 

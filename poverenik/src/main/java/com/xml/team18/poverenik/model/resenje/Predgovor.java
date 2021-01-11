@@ -1,65 +1,148 @@
+
 package com.xml.team18.poverenik.model.resenje;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.*;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import com.xml.team18.poverenik.model.docs.*;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
- * Java class for Predgovor complex type.
- *
+ * <p>Java class for Predgovor complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="Predgovor">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="zalilac" type="{}Lice"/>
+ *         &lt;element name="zalilac" type="{}Osoba"/>
  *         &lt;element name="uzrok" type="{}Uzrok"/>
+ *         &lt;element name="zahtev" type="{}PodnetiZahtev"/>
  *         &lt;element name="osnov" type="{}Osnov"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-        name = "Predgovor",
-        propOrder = {"content"})
+@XmlType(name = "Predgovor", propOrder = {
+    "zalilac",
+    "uzrok",
+    "zahtev",
+    "osnov"
+})
 public class Predgovor {
 
-    @XmlElementRefs({
-            @XmlElementRef(name = "uzrok", type = JAXBElement.class),
-            @XmlElementRef(name = "zalilac", type = JAXBElement.class),
-            @XmlElementRef(name = "osnov", type = JAXBElement.class)
-    })
-    @XmlMixed
-    protected List<Serializable> content;
+    @XmlElement(required = true)
+    protected Osoba zalilac;
+    @XmlElement(required = true)
+    protected Uzrok uzrok;
+    @XmlElement(required = true)
+    protected PodnetiZahtev zahtev;
+    @XmlElement(required = true)
+    protected Osnov osnov;
 
     /**
-     * Gets the value of the content property.
-     *
-     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-     * modification you make to the returned list will be present inside the JAXB object. This is why
-     * there is not a <CODE>set</CODE> method for the content property.
-     *
-     * <p>For example, to add a new item, do as follows:
-     *
-     * <pre>
-     *    getContent().add(newItem);
-     * </pre>
-     *
-     * <p>Objects of the following type(s) are allowed in the list {@link String } {@link JAXBElement
-     * }{@code <}{@link Uzrok }{@code >} {@link JAXBElement }{@code <}{@link Lice }{@code >} {@link
-     * JAXBElement }{@code <}{@link Osnov }{@code >}
+     * Gets the value of the zalilac property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Osoba }
+     *     
      */
-    public List<Serializable> getContent() {
-        if (content == null) {
-            content = new ArrayList<Serializable>();
-        }
-        return this.content;
+    public Osoba getZalilac() {
+        return zalilac;
     }
+
+    /**
+     * Sets the value of the zalilac property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Osoba }
+     *     
+     */
+    public void setZalilac(Osoba value) {
+        this.zalilac = value;
+    }
+
+    /**
+     * Gets the value of the uzrok property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Uzrok }
+     *     
+     */
+    public Uzrok getUzrok() {
+        return uzrok;
+    }
+
+    /**
+     * Sets the value of the uzrok property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Uzrok }
+     *     
+     */
+    public void setUzrok(Uzrok value) {
+        this.uzrok = value;
+    }
+
+    /**
+     * Gets the value of the zahtev property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link PodnetiZahtev }
+     *     
+     */
+    public PodnetiZahtev getZahtev() {
+        return zahtev;
+    }
+
+    /**
+     * Sets the value of the zahtev property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link PodnetiZahtev }
+     *     
+     */
+    public void setZahtev(PodnetiZahtev value) {
+        this.zahtev = value;
+    }
+
+    /**
+     * Gets the value of the osnov property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Osnov }
+     *     
+     */
+    public Osnov getOsnov() {
+        return osnov;
+    }
+
+    /**
+     * Sets the value of the osnov property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Osnov }
+     *     
+     */
+    public void setOsnov(Osnov value) {
+        this.osnov = value;
+    }
+
 }

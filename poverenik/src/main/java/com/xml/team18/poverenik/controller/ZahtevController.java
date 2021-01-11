@@ -36,7 +36,6 @@ public class ZahtevController {
         try {
             Object o = jaxB.unmarshall(xmlZahtev, Zahtev.class, zahtevFactory.getClass());
             zahtev = (Zahtev) ((JAXBElement) o).getValue();
-            zahtev.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
 
             String xml = jaxB.marshall(o, Zahtev.class, zahtevFactory.getClass());
             return ResponseEntity.ok(xml);

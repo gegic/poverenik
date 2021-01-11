@@ -1,17 +1,19 @@
+
 package com.xml.team18.poverenik.model.resenje;
 
-import com.xml.team18.poverenik.model.poverenik.Organ;
+import com.xml.team18.poverenik.model.docs.*;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * Java class for Uzrok complex type.
- *
+ * <p>Java class for Uzrok complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="Uzrok">
  *   &lt;complexContent>
@@ -27,23 +29,29 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-        name = "Uzrok",
-        propOrder = {"obavestenje", "nepostupanje", "protiv"})
+@XmlType(name = "Uzrok", propOrder = {
+    "obavestenje",
+    "nepostupanje",
+    "protiv"
+})
 public class Uzrok {
 
     protected NegativnoObavestenje obavestenje;
     protected Nepostupanje nepostupanje;
-
     @XmlElement(required = true)
     protected Organ protiv;
 
     /**
      * Gets the value of the obavestenje property.
-     *
-     * @return possible object is {@link NegativnoObavestenje }
+     * 
+     * @return
+     *     possible object is
+     *     {@link NegativnoObavestenje }
+     *     
      */
     public NegativnoObavestenje getObavestenje() {
         return obavestenje;
@@ -51,8 +59,11 @@ public class Uzrok {
 
     /**
      * Sets the value of the obavestenje property.
-     *
-     * @param value allowed object is {@link NegativnoObavestenje }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link NegativnoObavestenje }
+     *     
      */
     public void setObavestenje(NegativnoObavestenje value) {
         this.obavestenje = value;
@@ -60,8 +71,11 @@ public class Uzrok {
 
     /**
      * Gets the value of the nepostupanje property.
-     *
-     * @return possible object is {@link Nepostupanje }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Nepostupanje }
+     *     
      */
     public Nepostupanje getNepostupanje() {
         return nepostupanje;
@@ -69,8 +83,11 @@ public class Uzrok {
 
     /**
      * Sets the value of the nepostupanje property.
-     *
-     * @param value allowed object is {@link Nepostupanje }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Nepostupanje }
+     *     
      */
     public void setNepostupanje(Nepostupanje value) {
         this.nepostupanje = value;
@@ -78,8 +95,11 @@ public class Uzrok {
 
     /**
      * Gets the value of the protiv property.
-     *
-     * @return possible object is {@link Organ }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Organ }
+     *     
      */
     public Organ getProtiv() {
         return protiv;
@@ -87,10 +107,14 @@ public class Uzrok {
 
     /**
      * Sets the value of the protiv property.
-     *
-     * @param value allowed object is {@link Organ }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Organ }
+     *     
      */
     public void setProtiv(Organ value) {
         this.protiv = value;
     }
+
 }

@@ -3,7 +3,7 @@ package com.xml.team18.poverenik.controller;
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
 import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
 import com.xml.team18.poverenik.jaxb.JaxB;
-import com.xml.team18.poverenik.model.zalbacutanje.Zalba;
+import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +36,6 @@ public class ZalbaCutanjeController {
         try {
             Object o = jaxB.unmarshall(xmlZalbaCutanje, Zalba.class, zalbaCutanjeFactory.getClass());
             zalbaCutanje = (Zalba) ((JAXBElement) o).getValue();
-            zalbaCutanje.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
 
             String xml = jaxB.marshall(o, Zalba.class, zalbaCutanjeFactory.getClass());
             return ResponseEntity.ok(xml);
