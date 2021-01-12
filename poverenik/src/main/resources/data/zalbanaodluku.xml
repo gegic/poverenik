@@ -23,7 +23,7 @@
             <ulica property="pred:ulica-podnosioca" datatype="xs:string">Svetozara Markovica bb</ulica>
         </adresa>
         <ostali-podaci></ostali-podaci>
-        <ime-prezime property="ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
+        <ime-prezime property="pred:ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
     </zalilac>
     <protiv id="081c6f67-2cc8-40ca-b057-b5a4c2896d3f">
         <broj>2/2021</broj>

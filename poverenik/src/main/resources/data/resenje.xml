@@ -16,7 +16,7 @@
                 <mesto property="pred:mesto-zalioca" datatype="xs:string">Tutin</mesto>
                 <ulica property="pred:ulica-zalioca" datatype="xs:string">Svetozara Markovica bb</ulica>
             </adresa>
-            <ime-prezime property="ime-prezime-zalioca" datatype="xs:string">Haris Gegic</ime-prezime>
+            <ime-prezime property="pred:ime-prezime-zalioca" datatype="xs:string">Haris Gegic</ime-prezime>
         </zalilac>
         <uzrok>
             <nepostupanje>
