@@ -29,8 +29,7 @@ public class ZalbaNaOdlukuService implements PoverenikService<Zalba> {
     public String save(String zalbaXml) throws JAXBException {
         Zalba z = (Zalba) ((JAXBElement<?>) this.jaxB.unmarshall(zalbaXml, Zalba.class, ZalbaNaOdlukuFactory.class)).getValue();
         z = this.repository.save(z);
-        JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba"), Zalba.class, z);
-        return jaxB.marshall(element, Zalba.class, ZalbaNaOdlukuFactory.class);
+        return z.getId();
     }
 
     @Override

@@ -12,7 +12,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping(
-        path = "/api/zalba-cutanje",
+        path = "/api/zalbe-cutanje",
         consumes = MediaType.APPLICATION_XML_VALUE,
         produces = MediaType.APPLICATION_XML_VALUE)
 public class ZalbaCutanjeController {

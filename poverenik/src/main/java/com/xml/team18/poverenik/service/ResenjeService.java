@@ -28,8 +28,7 @@ public class ResenjeService implements PoverenikService<Resenje> {
     public String save(String resenjeXml) throws JAXBException {
         Resenje r = (Resenje) ((JAXBElement<?>) this.jaxB.unmarshall(resenjeXml, Resenje.class, ResenjeFactory.class)).getValue();
         r = this.repository.save(r);
-        JAXBElement<Resenje> element = new JAXBElement<Resenje>(QName.valueOf("resenje"), Resenje.class, r);
-        return jaxB.marshall(element, Resenje.class, ResenjeFactory.class);
+        return r.getId();
     }
 
     @Override

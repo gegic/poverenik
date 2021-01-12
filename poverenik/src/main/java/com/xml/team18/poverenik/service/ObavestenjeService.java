@@ -28,8 +28,7 @@ public class ObavestenjeService implements PoverenikService<Obavestenje> {
     public String save(String obavestenjeXml) throws JAXBException {
         Obavestenje r = (Obavestenje) ((JAXBElement<?>) this.jaxB.unmarshall(obavestenjeXml, Obavestenje.class, ObavestenjeFactory.class)).getValue();
         r = this.repository.save(r);
-        JAXBElement<Obavestenje> element = new JAXBElement<Obavestenje>(QName.valueOf("obavestenje"), Obavestenje.class, r);
-        return jaxB.marshall(element, Obavestenje.class, ObavestenjeFactory.class);
+        return r.getId();
     }
 
     @Override

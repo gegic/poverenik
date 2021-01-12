@@ -28,8 +28,7 @@ public class ZahtevService implements PoverenikService<Zahtev> {
     public String save(String zahtevXml) throws JAXBException {
         Zahtev z = (Zahtev) ((JAXBElement<?>) this.jaxB.unmarshall(zahtevXml, Zahtev.class, ZahtevFactory.class)).getValue();
         z = this.repository.save(z);
-        JAXBElement<Zahtev> element = new JAXBElement<Zahtev>(QName.valueOf("zahtev"), Zahtev.class, z);
-        return jaxB.marshall(element, Zahtev.class, ZahtevFactory.class);
+        return z.getId();
     }
 
     @Override
