@@ -1,7 +1,8 @@
 
 package com.xml.team18.poverenik.model.resenje;
 
-import com.xml.team18.poverenik.model.docs.*;
+import com.xml.team18.poverenik.model.docs.Osoba;
+import com.xml.team18.poverenik.model.docs.PodnetiZahtev;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

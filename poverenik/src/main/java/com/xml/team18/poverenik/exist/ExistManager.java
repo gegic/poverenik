@@ -1,12 +1,5 @@
 package com.xml.team18.poverenik.exist;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.xml.transform.OutputKeys;
-
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import org.exist.xmldb.EXistResource;
 import org.exist.xupdate.XUpdateProcessor;
@@ -21,6 +14,12 @@ import org.xmldb.api.modules.CollectionManagementService;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XPathQueryService;
 import org.xmldb.api.modules.XUpdateQueryService;
+
+import javax.xml.transform.OutputKeys;
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ExistManager {

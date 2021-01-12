@@ -1,14 +1,7 @@
 package com.xml.team18.poverenik.onstartup;
 
 import com.xml.team18.poverenik.exist.ExistManager;
-import com.xml.team18.poverenik.factory.ResenjeFactory;
-import com.xml.team18.poverenik.factory.ZahtevFactory;
-import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
-import com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory;
 import com.xml.team18.poverenik.jaxb.JaxB;
-import com.xml.team18.poverenik.model.resenje.Resenje;
-import com.xml.team18.poverenik.model.zahtev.Zahtev;
-import com.xml.team18.poverenik.repository.*;
 import com.xml.team18.poverenik.service.*;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.xml.bind.JAXBElement;
-import java.io.File;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Component
 public class PopulateDatabase {

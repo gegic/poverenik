@@ -1,15 +1,12 @@
 package com.xml.team18.poverenik.repository;
 
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
-import com.xml.team18.poverenik.factory.ZahtevFactory;
+import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
 import com.xml.team18.poverenik.fuseki.FusekiWriter;
 import com.xml.team18.poverenik.fuseki.MetadataExtractor;
-import com.xml.team18.poverenik.model.zahtev.Zahtev;
-import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
-
-import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.jaxb.JaxB;
+import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.XMLDBException;
@@ -18,7 +15,6 @@ import org.xmldb.api.modules.XMLResource;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;

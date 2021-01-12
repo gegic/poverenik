@@ -1,12 +1,11 @@
 package com.xml.team18.poverenik.jaxb;
 
-import org.apache.commons.io.output.XmlStreamWriter;
-import org.jdom.Element;
 import org.springframework.stereotype.Component;
-import org.xmldb.api.modules.XMLResource;
 
-import javax.xml.bind.*;
-import javax.xml.transform.dom.DOMResult;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.regex.Matcher;

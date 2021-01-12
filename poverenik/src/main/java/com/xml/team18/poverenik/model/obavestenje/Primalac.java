@@ -1,12 +1,9 @@
 
 package com.xml.team18.poverenik.model.obavestenje;
 
-import com.xml.team18.poverenik.model.docs.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.xml.team18.poverenik.model.docs.Organ;
+
+import javax.xml.bind.annotation.*;
 
 
 /**

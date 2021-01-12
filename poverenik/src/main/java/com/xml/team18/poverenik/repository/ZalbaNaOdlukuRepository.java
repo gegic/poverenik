@@ -2,7 +2,6 @@ package com.xml.team18.poverenik.repository;
 
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.exist.ExistManager;
-import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
 import com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory;
 import com.xml.team18.poverenik.fuseki.FusekiWriter;
 import com.xml.team18.poverenik.fuseki.MetadataExtractor;

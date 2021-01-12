@@ -2,10 +2,8 @@ package com.xml.team18.poverenik.service;
 
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.factory.ObavestenjeFactory;
-import com.xml.team18.poverenik.factory.ResenjeFactory;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.obavestenje.Obavestenje;
-import com.xml.team18.poverenik.model.resenje.Resenje;
 import com.xml.team18.poverenik.repository.ObavestenjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

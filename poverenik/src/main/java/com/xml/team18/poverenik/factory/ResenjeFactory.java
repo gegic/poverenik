@@ -5,11 +5,11 @@ import com.xml.team18.poverenik.model.docs.*;
 import com.xml.team18.poverenik.model.resenje.*;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
+import java.util.List;
 
 
 /**
