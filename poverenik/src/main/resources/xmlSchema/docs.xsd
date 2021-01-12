@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:docs="http://team14.xml.com/docs">
+    <xs:complexType name="Organ">
+        <xs:complexContent>
+            <xs:extension base="Lice">
+                <xs:sequence>
+                    <xs:element name="naziv">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                    <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                                    <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                                </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType abstract="true" name="Lice">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="adresa" type="Adresa"/>
+            <xs:element minOccurs="0" name="ostali-podaci" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Osoba">
+        <xs:complexContent>
+            <xs:extension base="Lice">
+                <xs:sequence>
+                    <xs:element name="ime-prezime">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                    <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                                    <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                                </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="id" use="optional">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Adresa">
+        <xs:sequence>
+            <xs:element name="mesto">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ulica" minOccurs="0">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Akt">
+        <xs:sequence>
+            <xs:element name="naziv" type="xs:string"/>
+            <xs:element minOccurs="0" name="clan">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="stav">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="tacka">
+                                        <xs:complexType>
+                                            <xs:attribute name="broj" type="xs:positiveInteger"
+                                                use="required"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sluzbeni-glasnik" type="ListObjave"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListObjave">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="broj">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="BrojObjave">
+                            <xs:attribute default="false" name="autenticno-tumacenje"
+                                type="xs:boolean"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="BrojObjave">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{1,5}/\d\d(\d\d)?"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="PodnetiZahtev">
+        <xs:sequence>
+            <xs:element name="datum">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opis-zahteva" minOccurs="0">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

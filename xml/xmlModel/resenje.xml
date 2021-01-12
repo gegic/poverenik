@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:noNamespaceSchemaLocation="../xmlSchema/resenje.xsd" broj="071-01-1114/2020-03"
- datum="2020-06-09">
+<resenje 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../xmlSchema/resenje.xsd"
+    xmlns:re="http://team14.xml.com/rdf/resenja"
+    xmlns:pred="http://team14.xml.com/rdf/resenja/predicate/"
+    vocab="http://team14.xml.com/rdf/resenja/predicate/"
+    about="http://team14.xml.com/rdf/resenja/6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
+    broj="071-01-1114/2021-01"
+    id="6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
+    >
+    <datum property="pred:datum-resenja" datatype="xs:date">2020-01-03</datum>
     <predgovor>
-        Повереник за информације од јавног значаја и заштиту података о личности, у поступку по жалби
-        коју је изјавио <zalilac ime="A" prezime="A" xsi:type="Osoba"/>, због непоступања 
+        <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
+            <adresa>
+                <mesto property="pred:mesto-zalioca" datatype="xs:string">Tutin</mesto>
+                <ulica property="pred:ulica-zalioca" datatype="xs:string">Svetozara Markovica bb</ulica>
+            </adresa>
+            <ime-prezime property="ime-prezime-zalioca" datatype="xs:string">Haris Gegic</ime-prezime>
+        </zalilac>
         <uzrok>
             <nepostupanje>
-                <podneti-zahtev datum="2020-04-16"/>
+                <podneti-zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+                    <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
+                </podneti-zahtev>
             </nepostupanje>
-            <protiv naziv="Учитељски факултет у Призрену">
-                <adresa ulica="Немањина" broj="bb">
-                    <mesto>Лепосавић</mesto>
+            <protiv>
+                <adresa>
+                    <mesto property="pred:mesto-protivnika" datatype="xs:string">Tutin</mesto>
+                    <ulica property="pred:ulica-protivnika" datatype="xs:string">Svetozara Markovica</ulica>
                 </adresa>
-            </protiv>
+                <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
+            </protiv> 
         </uzrok>
-        
-        захтеву од године за приступ информацијама од јавног значаја, на основу
+        <zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+            <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
+            <opis-zahteva property="pred:opis-zahteva" datatype="xs:string">O nekoj bitnoj informaciji</opis-zahteva>
+        </zahtev>
         <osnov>
-            <zakon naziv="Закона о слободном приступу
-                информацијама од јавног значаја">
+            <zakon>
+                <naziv>Zakon o slobodnom pristupu informacijama od javnog znacaja</naziv>
                 <clan broj="35">
                     <stav broj="1"/>
                 </clan>
@@ -28,7 +47,8 @@
                     <broj>54/07</broj>
                 </sluzbeni-glasnik>
             </zakon>
-            <zakon naziv="Закона о заштити података о личности">
+            <zakon>
+                <naziv>Zakon o zastiti podataka o licnosti</naziv>
                 <clan broj="4">
                     <stav broj="1">
                         <tacka broj="22"/>
@@ -38,12 +58,14 @@
                     <broj>87/18</broj>
                 </sluzbeni-glasnik>
             </zakon>
-            <zakon naziv="Закона о слободном приступу информацијама од јавног значаја">
+            <zakon>
+                <naziv>Zakon o slobodnom pristupu informacijama od javnog znacaja</naziv>
                 <clan broj="24">
                     <stav broj="4"/>
                 </clan>
             </zakon>
-            <zakon naziv="Закона о општем управном поступку">
+            <zakon>
+                <naziv>Zakon o opstem upravnom postupku</naziv>
                 <clan broj="173">
                     <stav broj="2"/>
                 </clan>
@@ -54,30 +76,32 @@
             </zakon>    
         </osnov>
     </predgovor>
+    
     <telo vrsta-zalbe="osnovana">
-        Р Е Ш Е Њ Е
         <nalog>
-            Налаже се 
-            <primalac naziv="Учитељском факултету у Призрену са привременим седиштем у Лепосавићу">
-                <adresa ulica="Немањина" broj="bb">
-                    <mesto>Лепосавић</mesto>
+            <primalac>
+                <adresa>
+                    <mesto property="pred:mesto-protivnika" datatype="xs:string">Tutin</mesto>
+                    <ulica property="pred:ulica-protivnika" datatype="xs:string">Svetozara Markovica</ulica>
                 </adresa>
+                <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
             </primalac>
             <akcija rok="5">
-                да без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести <zalilac ime="A" prezime="A"/>, да ли
+                да без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9"><ime-prezime property="ime-prezime-zalioca" datatype="xs:string">Haris Gegic</ime-prezime></zalilac>, да ли
                 поседује тражене информације односно документ у коме су исте садржане, и то: 
-                <podneti-zahtev>Neki ugovor</podneti-zahtev>
+                <podneti-zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+                    <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
+                </podneti-zahtev>
                 те да му, уколико такав документ поседује
                 достави копију истог
                 <nacin-dostave>
                     <elektronska-posta>email@email.com</elektronska-posta>
                     <posta>
-                        <adresa ulica="Немањина" broj="bb">
-                            <mesto>Лепосавић</mesto>
+                        <adresa>
+                            <mesto property="pred:mesto-dostave" datatype="xs:string">Tutin</mesto>
+                            <ulica property="pred:ulica-dostave" datatype="xs:string">Svetozara Markovica</ulica>
                         </adresa>
                     </posta>
-                    <drugo>dsa</drugo>
-                    <drugo>dsada</drugo>
                 </nacin-dostave>
                 с тим што ће пре достављања
                 заштитити и учинити недоступним податке о личности којима би се повредило право на приватност
@@ -87,34 +111,41 @@
                 уколико су такви подаци садржани у траженом документу.
             </akcija>
             <obavestiti rok="7">
-                О извршењу решења 
-                <primalac naziv="Учитељском факултету у Призрену са привременим седиштем у Лепосавићу">
-                    <adresa ulica="Немањина" broj="bb">
-                        <mesto>Лепосавић</mesto>
+                <primalac>
+                    <adresa>
+                        <mesto property="pred:mesto-primaoca" datatype="xs:string">Tutin</mesto>
+                        <ulica property="pred:ulica-primaoca" datatype="xs:string">Svetozara Markovica</ulica>
                     </adresa>
+                    <naziv property="pred:naziv-primaoca" datatype="xs:string">Neka ustanova</naziv>
                 </primalac>
-                Учитељски факултет у Призрену са привременим седиштем у
-                Лепосавићу, те обавестити Повереника у року од седам дана од пријема овог решења.
+                <primalac><naziv property="pred:naziv-primaoca" datatype="xs:string">Poverenik</naziv></primalac>
             </obavestiti>
         </nalog>        
     </telo>
     <obrazlozenje>
         <tok>
             <izjava-zalbe datum="2020-07-05">
-                <zalilac ime="A" prezime="A" xsi:type="Osoba"/>, као тражилац информација, изјавио је дана 2020-07-05 године жалбу Поверенику, због
+                <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
+                    <adresa>
+                        <mesto property="pred:mesto-zalioca" datatype="xs:string">Tutin</mesto>
+                        <ulica property="pred:ulica-zalioca" datatype="xs:string">Svetozara Markovica bb</ulica>
+                    </adresa>
+                    <ime-prezime property="ime-prezime-zalioca" datatype="xs:string">Haris Gegic</ime-prezime>
+                </zalilac>
                 <uzrok>
                     <nepostupanje>
-                        <podneti-zahtev datum="2020-04-16"/>
+                        <podneti-zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+                            <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
+                        </podneti-zahtev>
                     </nepostupanje>
-                    <protiv naziv="Учитељски факултет у Призрену">
-                        <adresa ulica="Немањина" broj="bb">
-                            <mesto>Лепосавић</mesto>
+                    <protiv>
+                        <adresa>
+                            <mesto property="pred:mesto-protivnika" datatype="xs:string">Tutin</mesto>
+                            <ulica property="pred:ulica-protivnika" datatype="xs:string">Svetozara Markovica</ulica>
                         </adresa>
-                    </protiv>
+                        <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
+                    </protiv> 
                 </uzrok>
-                непоступања Учитељског факултета у Призрену са привременим седиштем у Лепосавићу по
-                његовом захтеву од 16.04.2020. године за приступ информацијама од јавног значаја и у прилогу
-                доставио копију истог.
             </izjava-zalbe>
             <uput-poverenika datum="2020-05-11">
                 Поступајући по жалби, Повереник је дана 2020-05-11 године упутио исту на изјашњење
@@ -124,8 +155,8 @@
                 у складу са одредбама члана 16. ст.1-9. или ст. 10. Закона, остављајући рок од осам дана, поводом
                 чега није добио одговор.
                 <osnov>
-                    <zakon naziv="Закона о слободном приступу
-                        информацијама од јавног значаја">
+                    <zakon>
+                        <naziv>Zakon o slobodnom pristupu infromacijama od javnog znacaja</naziv>
                         <clan broj="35">
                             <stav broj="1"/>
                         </clan>
@@ -134,7 +165,8 @@
                             <broj>54/07</broj>
                         </sluzbeni-glasnik>
                     </zakon>
-                    <zakon naziv="Закона о заштити података о личности">
+                    <zakon>
+                        <naziv>Zakon o zasititi podataka o licnosti</naziv>
                         <clan broj="4">
                             <stav broj="1">
                                 <tacka broj="22"/>
@@ -190,8 +222,8 @@
             Упутство о правном средству:
             Против овог решења није допуштена жалба већ се, у складу са Законом о управним
             споровима, може покренути управни спор тужбом Управном суду у Београду.
-            <sud naziv="Управни суд"/>
+            <sud><naziv property="pred:naziv-suda" datatype="xs:string">Osnovni sud u novom pazaru</naziv></sud>
         </pravno-sredstvo>
     </obrazlozenje>
-    <poverenik ime="Милан" prezime="Мариновић"/>
+    <poverenik><ime-prezime property="pred:ime-poverenika" datatype="xs:string">Milan Marinovic</ime-prezime></poverenik>
 </resenje>

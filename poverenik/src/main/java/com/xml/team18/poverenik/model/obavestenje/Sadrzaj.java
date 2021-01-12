@@ -1,66 +1,90 @@
+
 package com.xml.team18.poverenik.model.obavestenje;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
- * Java class for Sadrzaj complex type.
- *
+ * <p>Java class for Sadrzaj complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="Sadrzaj">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;all>
- *         &lt;element ref="{}datum"/>
- *         &lt;element name="vreme" type="{}Vreme"/>
- *         &lt;element name="kancelarija" type="{}Kancelarija"/>
- *       &lt;/all>
+ *       &lt;choice>
+ *         &lt;element name="prihvacen-zahtev" type="{}PrihvacenZahtev"/>
+ *         &lt;element name="razlog-odbijanja" type="{}RazlogOdbijanja"/>
+ *       &lt;/choice>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-        name = "Sadrzaj",
-        propOrder = {"content"})
+@XmlType(name = "Sadrzaj", propOrder = {
+    "prihvacenZahtev",
+    "razlogOdbijanja"
+})
 public class Sadrzaj {
 
-    @XmlElementRefs({
-            @XmlElementRef(name = "datum", type = JAXBElement.class),
-            @XmlElementRef(name = "vreme", type = JAXBElement.class),
-            @XmlElementRef(name = "kancelarija", type = JAXBElement.class)
-    })
-    @XmlMixed
-    protected List<Serializable> content;
+    @XmlElement(name = "prihvacen-zahtev")
+    protected PrihvacenZahtev prihvacenZahtev;
+    @XmlElement(name = "razlog-odbijanja")
+    protected String razlogOdbijanja;
 
     /**
-     * Gets the value of the content property.
-     *
-     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-     * modification you make to the returned list will be present inside the JAXB object. This is why
-     * there is not a <CODE>set</CODE> method for the content property.
-     *
-     * <p>For example, to add a new item, do as follows:
-     *
-     * <pre>
-     *    getContent().add(newItem);
-     * </pre>
-     *
-     * <p>Objects of the following type(s) are allowed in the list {@link JAXBElement }{@code <}{@link
-     * XMLGregorianCalendar }{@code >} {@link JAXBElement }{@code <}{@link Vreme }{@code >} {@link
-     * String } {@link JAXBElement }{@code <}{@link Kancelarija }{@code >}
+     * Gets the value of the prihvacenZahtev property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link PrihvacenZahtev }
+     *     
      */
-    public List<Serializable> getContent() {
-        if (content == null) {
-            content = new ArrayList<Serializable>();
-        }
-        return this.content;
+    public PrihvacenZahtev getPrihvacenZahtev() {
+        return prihvacenZahtev;
     }
+
+    /**
+     * Sets the value of the prihvacenZahtev property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link PrihvacenZahtev }
+     *     
+     */
+    public void setPrihvacenZahtev(PrihvacenZahtev value) {
+        this.prihvacenZahtev = value;
+    }
+
+    /**
+     * Gets the value of the razlogOdbijanja property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRazlogOdbijanja() {
+        return razlogOdbijanja;
+    }
+
+    /**
+     * Sets the value of the razlogOdbijanja property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRazlogOdbijanja(String value) {
+        this.razlogOdbijanja = value;
+    }
+
 }

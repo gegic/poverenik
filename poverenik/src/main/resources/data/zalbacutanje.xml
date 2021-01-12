@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zalba-cutanje 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../xmlSchema/zalbacutanje.xsd"
+    xmlns:zc="http://team14.xml.com/rdf/zalbecutanje"
+    xmlns:pred="http://team14.xml.com/rdf/zalbecutanje/predicate/"
+    vocab="http://team14.xml.com/rdf/zalbecutanje/predicate/"
+    about="http://team14.xml.com/rdf/zalbecutanje/6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
+    id="6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
+    >
+
+    <primalac>
+        <adresa>
+            <mesto property="pred:mesto-poverenika" datatype="xs:string">Beograd</mesto>
+            <ulica property="pred:ulica-poverenika" datatype="xs:string">Nemanjina 12</ulica>
+        </adresa>
+        <naziv property="pred:naziv-poverenika" datatype="xs:string">Drzavni poverenik</naziv>
+    </primalac>
+    
+    <zakon>
+        <naziv>Zakon o javnim informacijama</naziv>
+        <clan broj="22"/>
+    </zakon>
+    <protiv>
+        <adresa>
+            <mesto property="pred:mesto-protivnika" datatype="xs:string">Tutin</mesto>
+            <ulica property="pred:ulica-protivnika" datatype="xs:string">Svetozara Markovica</ulica>
+        </adresa>
+        <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
+    </protiv> 
+    <razlog>
+        <izbor izabran="true" naziv="није поступио" id="R1"/> 
+        <izbor naziv="није поступио у целости" id="R2"/>  
+        <izbor naziv="у законском року" id="R3"/>  
+    </razlog> 
+    <zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+        <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
+        <opis-zahteva property="pred:opis-zahteva" datatype="xs:string">O nekoj bitnoj informaciji</opis-zahteva>
+    </zahtev>
+    <mesto property="pred:mesto-zalbe" datatype="xs:string">Tutin</mesto>
+    <datum property="pred:datum-zalbe" datatype="xs:date">2020-12-25</datum>
+    <podnosilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
+        <adresa>
+            <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
+            <ulica property="pred:ulica-podnosioca" datatype="xs:string">Svetozara Markovica bb</ulica>
+        </adresa>
+        <ostali-podaci></ostali-podaci>
+        <ime-prezime property="pred:ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
+    </podnosilac>
+</zalba-cutanje>

@@ -2,40 +2,75 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:obavestenje="http://www.ftn.uns.ac.rs/obavestenje">
 
-    <xs:include schemaLocation="poverenik.xsd"/>
+    <xs:include schemaLocation="docs.xsd"/>
     <xs:element name="obavestenje" type="Obavestenje"/>
-    <xs:complexType mixed="true" name="Obavestenje">
+    <xs:complexType name="Obavestenje">
         <xs:sequence>
+            <xs:element name="broj" type="xs:string"/>
+            <xs:element name="datum" type="xs:date"/>
             <xs:element name="organ" type="Organ"/>
-            <xs:element name="podnosilac" type="Lice"/>
+            <xs:element name="podnosilac" type="Osoba"/>
             <xs:element name="opis" type="xs:string"/>
             <xs:element name="zakon" type="Akt"/>
-            <xs:element ref="datum"/>
-            <xs:element name="opis-zahteva" type="xs:string"/>
+            <xs:element name="zahtev" type="PodnetiZahtev"/>
             <xs:element name="sadrzaj-obavestenja" type="Sadrzaj"/>
-            <xs:element name="odluka" type="xs:string"/>
+            <xs:element name="dodatna-odluka" type="xs:string" minOccurs="0"/>
+            <xs:element minOccurs="0" name="izdana-dokumenta" type="IzdanaDokumenta"/>
+            <xs:element name="dostavljeno" type="Dostavljeno"/>
+        </xs:sequence>
+        <xs:attribute name="vocab" type="xs:anyURI" use="required"/>
+        <xs:attribute name="about" type="xs:anyURI" use="required"/>
+        <xs:attribute name="id" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="zahtev-prihvacen" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="Sadrzaj">
+        <xs:choice>
+            <xs:element name="prihvacen-zahtev" type="PrihvacenZahtev"/>
+            <xs:element name="razlog-odbijanja" type="RazlogOdbijanja"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="PrihvacenZahtev">
+        <xs:all>
+            <xs:element name="datum">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="vreme" type="Vreme"/>
+            <xs:element name="kancelarija">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:positiveInteger">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="adresa" type="Adresa"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:simpleType name="RazlogOdbijanja">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:complexType name="IzdanaDokumenta">
+        <xs:sequence>
             <xs:element name="uredba" type="Akt"/>
             <xs:element name="cenovnik" type="Cenovnik"/>
             <xs:element name="cena" type="xs:nonNegativeInteger"/>
             <xs:element name="primalac" type="Primalac"/>
-            <xs:element name="dostavljeno" type="Dostavljeno"/>
         </xs:sequence>
-        <xs:attribute name="broj-predmeta" use="required">
-            <xs:simpleType>
-                <xs:restriction base="xs:string">
-                    <xs:pattern value="\d+/\d\d(\d\d)?"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:attribute>
-        <xs:attribute name="datum" type="xs:date" use="required"/>
-    </xs:complexType>
-    <xs:element name="datum" type="xs:date"/>
-    <xs:complexType mixed="true" name="Sadrzaj">
-        <xs:all>
-            <xs:element ref="datum"/>
-            <xs:element name="vreme" type="Vreme"/>
-            <xs:element name="kancelarija" type="Kancelarija"/>
-        </xs:all>
     </xs:complexType>
     <xs:complexType name="Dostavljeno">
         <xs:sequence>
@@ -61,12 +96,6 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-    </xs:complexType>
-    <xs:complexType name="Kancelarija">
-        <xs:sequence>
-            <xs:element name="adresa" type="Adresa"/>
-        </xs:sequence>
-        <xs:attribute name="broj" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
     <xs:complexType name="Cenovnik">
         <xs:sequence>

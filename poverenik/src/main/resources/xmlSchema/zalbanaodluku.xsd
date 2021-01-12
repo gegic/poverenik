@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:zno="http://www.ftn.uns.ac.rs/zalba-na-odluku">
+    <xs:include schemaLocation="docs.xsd"/>
+    <xs:element name="zalba" type="Zalba"/>
+    <xs:complexType name="Zalba">
+        <xs:sequence>
+            <xs:element name="datum" type="xs:date"/>
+            <xs:element name="primalac" type="Organ"/>
+            <xs:element name="zalilac" type="Osoba"/>
+            <xs:element name="protiv" type="Odluka"/>
+            <xs:element name="zahtev" type="PodnetiZahtev"/>
+            <xs:element default="у целости" name="deo-pobijanja" type="xs:string"/>
+            <xs:element name="zakon" type="Akt"/>
+            <xs:element name="mesto" type="xs:string"/>
+            <xs:element name="podnosilac" type="Osoba"/>
+        </xs:sequence>
+        <xs:attribute name="vocab" type="xs:anyURI" use="required"/>
+        <xs:attribute name="about" type="xs:anyURI" use="required"/>
+        <xs:attribute name="id">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="Odluka">
+        <xs:sequence>
+            <xs:element name="broj" type="xs:string"/>
+            <xs:element name="datum" type="xs:date"/>
+            <xs:element name="donosilac" type="Organ"/>
+        </xs:sequence>
+        <xs:attribute name="id" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

@@ -1,19 +1,21 @@
+
 package com.xml.team18.poverenik.model.obavestenje;
 
-import com.xml.team18.poverenik.model.poverenik.Organ;
+import com.xml.team18.poverenik.model.docs.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
- * Java class for Dostavljeno complex type.
- *
+ * <p>Java class for Dostavljeno complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="Dostavljeno">
  *   &lt;complexContent>
@@ -25,11 +27,13 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-        name = "Dostavljeno",
-        propOrder = {"primalac"})
+@XmlType(name = "Dostavljeno", propOrder = {
+    "primalac"
+})
 public class Dostavljeno {
 
     @XmlElement(required = true)
@@ -37,18 +41,25 @@ public class Dostavljeno {
 
     /**
      * Gets the value of the primalac property.
-     *
-     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-     * modification you make to the returned list will be present inside the JAXB object. This is why
-     * there is not a <CODE>set</CODE> method for the primalac property.
-     *
-     * <p>For example, to add a new item, do as follows:
-     *
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the primalac property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getPrimalac().add(newItem);
      * </pre>
-     *
-     * <p>Objects of the following type(s) are allowed in the list {@link Organ }
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Organ }
+     * 
+     * 
      */
     public List<Organ> getPrimalac() {
         if (primalac == null) {
@@ -56,4 +67,5 @@ public class Dostavljeno {
         }
         return this.primalac;
     }
+
 }

@@ -1,15 +1,22 @@
+
 package com.xml.team18.poverenik.model.obavestenje;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
- * Java class for Cenovnik complex type.
- *
+ * <p>Java class for Cenovnik complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="Cenovnik">
  *   &lt;complexContent>
@@ -31,11 +38,13 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-        name = "Cenovnik",
-        propOrder = {"stavka"})
+@XmlType(name = "Cenovnik", propOrder = {
+    "stavka"
+})
 public class Cenovnik {
 
     @XmlElement(required = true)
@@ -43,18 +52,25 @@ public class Cenovnik {
 
     /**
      * Gets the value of the stavka property.
-     *
-     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-     * modification you make to the returned list will be present inside the JAXB object. This is why
-     * there is not a <CODE>set</CODE> method for the stavka property.
-     *
-     * <p>For example, to add a new item, do as follows:
-     *
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the stavka property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getStavka().add(newItem);
      * </pre>
-     *
-     * <p>Objects of the following type(s) are allowed in the list {@link Cenovnik.Stavka }
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Cenovnik.Stavka }
+     * 
+     * 
      */
     public List<Cenovnik.Stavka> getStavka() {
         if (stavka == null) {
@@ -63,11 +79,12 @@ public class Cenovnik {
         return this.stavka;
     }
 
+
     /**
-     * Java class for anonymous complex type.
-     *
+     * <p>Java class for anonymous complex type.
+     * 
      * <p>The following schema fragment specifies the expected content contained within this class.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -79,6 +96,8 @@ public class Cenovnik {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
@@ -86,18 +105,19 @@ public class Cenovnik {
 
         @XmlAttribute(name = "artikl", required = true)
         protected String artikl;
-
         @XmlAttribute(name = "cena", required = true)
         @XmlSchemaType(name = "nonNegativeInteger")
         protected BigInteger cena;
-
         @XmlAttribute(name = "valuta")
         protected String valuta;
 
         /**
          * Gets the value of the artikl property.
-         *
-         * @return possible object is {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getArtikl() {
             return artikl;
@@ -105,8 +125,11 @@ public class Cenovnik {
 
         /**
          * Sets the value of the artikl property.
-         *
-         * @param value allowed object is {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setArtikl(String value) {
             this.artikl = value;
@@ -114,8 +137,11 @@ public class Cenovnik {
 
         /**
          * Gets the value of the cena property.
-         *
-         * @return possible object is {@link BigInteger }
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigInteger }
+         *     
          */
         public BigInteger getCena() {
             return cena;
@@ -123,8 +149,11 @@ public class Cenovnik {
 
         /**
          * Sets the value of the cena property.
-         *
-         * @param value allowed object is {@link BigInteger }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigInteger }
+         *     
          */
         public void setCena(BigInteger value) {
             this.cena = value;
@@ -132,8 +161,11 @@ public class Cenovnik {
 
         /**
          * Gets the value of the valuta property.
-         *
-         * @return possible object is {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getValuta() {
             if (valuta == null) {
@@ -145,11 +177,16 @@ public class Cenovnik {
 
         /**
          * Sets the value of the valuta property.
-         *
-         * @param value allowed object is {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setValuta(String value) {
             this.valuta = value;
         }
+
     }
+
 }

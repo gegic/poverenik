@@ -1,9 +1,12 @@
 package com.xml.team18.poverenik.controller;
 
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.zalbanaodluku.Zalba;
+import com.xml.team18.poverenik.model.zalba.na.odluku.Zalba;
+import com.xml.team18.poverenik.service.ZalbaNaOdlukuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,36 +16,30 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.util.Scanner;
+import java.net.URI;
 
 @RestController
-@RequestMapping(path = "/api/zalba-na-odluku")
+@RequestMapping(
+        path = "/api/zalba-na-odluku",
+        consumes = MediaType.APPLICATION_XML_VALUE,
+        produces = MediaType.APPLICATION_XML_VALUE)
 public class ZalbaNaOdlukuController {
 
-    private final ZalbaNaOdlukuFactory zalbaNaOdlukuFactory;
-    private final JaxB jaxB;
+    private final ZalbaNaOdlukuService service;
 
     @Autowired
-    public ZalbaNaOdlukuController(ZalbaNaOdlukuFactory zalbaNaOdlukuFactory, JaxB jaxB) {
-        this.zalbaNaOdlukuFactory = zalbaNaOdlukuFactory;
-        this.jaxB = jaxB;
+    public ZalbaNaOdlukuController(ZalbaNaOdlukuService service) {
+        this.service = service;
     }
 
-    @PostMapping(
-            consumes = MediaType.APPLICATION_XML_VALUE,
-            produces = MediaType.APPLICATION_XML_VALUE)
-    ResponseEntity<String> addZalbaNaOdluku(@RequestBody String xmlZalbaNaOdluku) {
-        Zalba zalbaNaOdluku;
-        try {
-            Object o = jaxB.unmarshall(xmlZalbaNaOdluku, Zalba.class, zalbaNaOdlukuFactory.getClass());
-            zalbaNaOdluku = (Zalba) ((JAXBElement) o).getValue();
-            zalbaNaOdluku.setDatum(XMLGregorianCalendarImpl.createDate(2020, 12, 7, 1));
+    @PostMapping
+    ResponseEntity<String> addZalbaCutanje(@RequestBody String xmlZalbaCutanje) throws JAXBException {
+        return ResponseEntity.created(URI.create(this.service.save(xmlZalbaCutanje))).build();
+    }
 
-            String xml = jaxB.marshall(o, Zalba.class, zalbaNaOdlukuFactory.getClass());
-            return ResponseEntity.ok(xml);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().build();
-        }
+    @GetMapping(path = "/{id}")
+    ResponseEntity<String> getById(@PathVariable String id) throws ResourceNotFoundException, JAXBException {
+        return ResponseEntity.ok(service.getById(id));
     }
 
     @GetMapping(

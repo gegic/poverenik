@@ -1,17 +1,24 @@
+
 package com.xml.team18.poverenik.model.resenje;
 
-import com.xml.team18.poverenik.model.poverenik.Adresa;
+import com.xml.team18.poverenik.model.docs.*;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
- * Java class for NacinDostave complex type.
- *
+ * <p>Java class for NacinDostave complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="NacinDostave">
  *   &lt;complexContent>
@@ -38,38 +45,47 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(
-        name = "NacinDostave",
-        propOrder = {"elektronskaPostaOrPostaOrFaks", "drugo"})
+@XmlType(name = "NacinDostave", propOrder = {
+    "elektronskaPostaOrPostaOrFaks",
+    "drugo"
+})
 public class NacinDostave {
 
     @XmlElementRefs({
-            @XmlElementRef(name = "faks", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "posta", type = JAXBElement.class, required = false),
-            @XmlElementRef(name = "elektronska-posta", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "elektronska-posta", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "faks", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "posta", type = JAXBElement.class, required = false)
     })
     protected List<JAXBElement<?>> elektronskaPostaOrPostaOrFaks;
-
     protected List<Object> drugo;
 
     /**
      * Gets the value of the elektronskaPostaOrPostaOrFaks property.
-     *
-     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-     * modification you make to the returned list will be present inside the JAXB object. This is why
-     * there is not a <CODE>set</CODE> method for the elektronskaPostaOrPostaOrFaks property.
-     *
-     * <p>For example, to add a new item, do as follows:
-     *
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the elektronskaPostaOrPostaOrFaks property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getElektronskaPostaOrPostaOrFaks().add(newItem);
      * </pre>
-     *
-     * <p>Objects of the following type(s) are allowed in the list {@link JAXBElement }{@code <}{@link
-     * NacinDostave.Posta }{@code >} {@link JAXBElement }{@code <}{@link String }{@code >} {@link
-     * JAXBElement }{@code <}{@link String }{@code >}
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link NacinDostave.Posta }{@code >}
+     * 
+     * 
      */
     public List<JAXBElement<?>> getElektronskaPostaOrPostaOrFaks() {
         if (elektronskaPostaOrPostaOrFaks == null) {
@@ -80,18 +96,25 @@ public class NacinDostave {
 
     /**
      * Gets the value of the drugo property.
-     *
-     * <p>This accessor method returns a reference to the live list, not a snapshot. Therefore any
-     * modification you make to the returned list will be present inside the JAXB object. This is why
-     * there is not a <CODE>set</CODE> method for the drugo property.
-     *
-     * <p>For example, to add a new item, do as follows:
-     *
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the drugo property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
      *    getDrugo().add(newItem);
      * </pre>
-     *
-     * <p>Objects of the following type(s) are allowed in the list {@link Object }
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Object }
+     * 
+     * 
      */
     public List<Object> getDrugo() {
         if (drugo == null) {
@@ -100,11 +123,12 @@ public class NacinDostave {
         return this.drugo;
     }
 
+
     /**
-     * Java class for anonymous complex type.
-     *
+     * <p>Java class for anonymous complex type.
+     * 
      * <p>The following schema fragment specifies the expected content contained within this class.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -116,11 +140,13 @@ public class NacinDostave {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(
-            name = "",
-            propOrder = {"adresa"})
+    @XmlType(name = "", propOrder = {
+        "adresa"
+    })
     public static class Posta {
 
         @XmlElement(required = true)
@@ -128,8 +154,11 @@ public class NacinDostave {
 
         /**
          * Gets the value of the adresa property.
-         *
-         * @return possible object is {@link Adresa }
+         * 
+         * @return
+         *     possible object is
+         *     {@link Adresa }
+         *     
          */
         public Adresa getAdresa() {
             return adresa;
@@ -137,11 +166,16 @@ public class NacinDostave {
 
         /**
          * Sets the value of the adresa property.
-         *
-         * @param value allowed object is {@link Adresa }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Adresa }
+         *     
          */
         public void setAdresa(Adresa value) {
             this.adresa = value;
         }
+
     }
+
 }

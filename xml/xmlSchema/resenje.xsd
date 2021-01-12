@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     xmlns:resenje="http://www.ftn.uns.ac.rs/resenje">
-    <xs:include schemaLocation="poverenik.xsd"/>
+    <xs:include schemaLocation="docs.xsd"/>
     <xs:element name="resenje" type="Resenje"/>
     <xs:complexType name="Resenje">
         <xs:sequence>
+            <xs:element name="datum">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="predgovor" type="Predgovor"/>
             <xs:element name="telo" type="Telo"/>
             <xs:element name="obrazlozenje" type="Obrazlozenje"/>
@@ -17,7 +27,15 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="datum" type="xs:date" use="required"/>
+        <xs:attribute name="vocab" type="xs:anyURI" use="required"/>
+        <xs:attribute name="about" type="xs:anyURI" use="required"/>
+        <xs:attribute name="id" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
     </xs:complexType>
     <xs:complexType mixed="true" name="Telo">
         <xs:choice>
@@ -51,9 +69,9 @@
             <xs:element maxOccurs="unbounded" name="drugi-dogadjaj" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType mixed="true" name="IzjavaZalbe">
+    <xs:complexType name="IzjavaZalbe">
         <xs:sequence>
-            <xs:element name="zalilac" type="Lice"/>
+            <xs:element name="zalilac" type="Osoba"/>
             <xs:element name="uzrok" type="Uzrok"/>
         </xs:sequence>
         <xs:attribute form="unqualified" name="datum" type="xs:date" use="required"/>
@@ -67,16 +85,16 @@
     <xs:complexType mixed="true" name="DonosenjeOdluke">
         <xs:attribute name="datum" type="xs:date"/>
     </xs:complexType>
-    <xs:complexType name="Nalog" mixed="true">
+    <xs:complexType name="Nalog">
         <xs:sequence>
             <xs:element name="primalac" type="Organ"/>
             <xs:element name="akcija" type="Akcija"/>
-            <xs:element name="obavestiti" type="Obavestiti"/>
+            <xs:element name="obavestiti" type="Obavestiti" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="Obavestiti" mixed="true">
+    <xs:complexType name="Obavestiti">
         <xs:sequence>
-            <xs:element name="primalac" type="Organ"/>
+            <xs:element name="primalac" type="Organ" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="rok" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
@@ -88,10 +106,10 @@
     </xs:complexType>
     <xs:complexType mixed="true" name="Akcija">
         <xs:sequence>
-            <xs:element name="zalilac"/>
-            <xs:element ref="podneti-zahtev"/>
-            <xs:element name="nacin-dostave" type="NacinDostave"/>
-            <xs:element name="cenzura" type="Cenzura"/>
+            <xs:element name="zalilac" type="Osoba"/>
+            <xs:element minOccurs="0" name="podneti-zahtev" type="PodnetiZahtev"/>
+            <xs:element name="nacin-dostave" type="NacinDostave" minOccurs="0"/>
+            <xs:element name="cenzura" type="Cenzura" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="rok" type="xs:positiveInteger" use="required"/>
     </xs:complexType>
@@ -119,15 +137,11 @@
     <xs:simpleType name="Cenzura">
         <xs:list itemType="xs:string"/>
     </xs:simpleType>
-    <xs:complexType mixed="true" name="Predgovor">
+    <xs:complexType name="Predgovor">
         <xs:sequence>
-            <xs:element name="zalilac" type="Lice"/>
-            <xs:element name="uzrok" type="Uzrok">
-                <xs:key name="kljucProtiv">
-                    <xs:selector xpath="protiv"/>
-                    <xs:field xpath="@naziv"/>
-                </xs:key>
-            </xs:element>
+            <xs:element name="zalilac" type="Osoba"/>
+            <xs:element name="uzrok" type="Uzrok"> </xs:element>
+            <xs:element name="zahtev" type="PodnetiZahtev"/>
             <xs:element name="osnov" type="Osnov"/>
         </xs:sequence>
     </xs:complexType>
@@ -147,7 +161,7 @@
     </xs:complexType>
     <xs:complexType name="NegativnoObavestenje">
         <xs:sequence>
-            <xs:element ref="podneti-zahtev"/>
+            <xs:element name="podneti-zahtev" type="PodnetiZahtev"/>
         </xs:sequence>
         <xs:attribute name="broj" use="required">
             <xs:simpleType>
@@ -159,18 +173,9 @@
     </xs:complexType>
     <xs:complexType name="Nepostupanje">
         <xs:sequence>
-            <xs:element ref="podneti-zahtev"/>
+            <xs:element name="podneti-zahtev" type="PodnetiZahtev"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="podneti-zahtev">
-        <xs:complexType>
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="datum" type="xs:date" use="optional"/>
-                </xs:extension>
-            </xs:simpleContent>
-        </xs:complexType>
-    </xs:element>
     <xs:attribute name="vrsta-zalbe" type="VrstaZalbe"/>
     <xs:simpleType name="VrstaZalbe">
         <xs:restriction base="xs:string">

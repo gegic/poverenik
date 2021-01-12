@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           xmlns:zalba-cutanje="http://www.ftn.uns.ac.rs/zalba-cutanje">
+    <xs:include schemaLocation="docs.xsd"/>
+    <xs:element name="zalba-cutanje" type="Zalba"/>
+    <xs:complexType name="Zalba">
+        <xs:sequence>
+            <xs:element name="primalac" type="Organ"/>
+            <xs:element name="zakon" type="Akt"/>
+            <xs:element name="protiv" type="Organ"/>
+            <xs:element name="razlog" type="BiranjeRazloga"> </xs:element>
+            <xs:element name="zahtev" type="PodnetiZahtev"/>
+            <xs:element name="mesto">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="datum">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                            <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="podnosilac" type="Osoba"/>
+        </xs:sequence>
+        <xs:attribute name="vocab" type="xs:anyURI" use="required"/>
+        <xs:attribute name="about" type="xs:anyURI" use="required"/>
+        <xs:attribute name="id">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="IzborRazloga">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="naziv" type="xs:string" use="required"/>
+                <xs:attribute name="id" type="xs:ID" use="required"/>
+                <xs:attribute name="izabran" type="xs:boolean"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="BiranjeRazloga">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="izbor" type="IzborRazloga"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
