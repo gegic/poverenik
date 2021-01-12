@@ -45,6 +45,7 @@ public class ZahtevRepository implements XmlRepository<Zahtev> {
             String id = z.getId();
             if (id == null || id.isEmpty()) {
                 id = UUID.randomUUID().toString();
+                z.setId(id);
             }
             JAXBElement<Zahtev> element = new JAXBElement<Zahtev>(QName.valueOf("zahtev"), Zahtev.class, z);
             String rawXml = jaxB.marshall(element, Zahtev.class, ZahtevFactory.class);

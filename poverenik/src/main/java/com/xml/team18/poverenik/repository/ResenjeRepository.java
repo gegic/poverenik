@@ -45,6 +45,7 @@ public class ResenjeRepository implements XmlRepository<Resenje> {
             String id = z.getId();
             if (id == null || id.isEmpty()) {
                 id = UUID.randomUUID().toString();
+                z.setId(id);
             }
             JAXBElement<Resenje> element = new JAXBElement<Resenje>(QName.valueOf("resenje"), Resenje.class, z);
             String rawXml = jaxB.marshall(element, Resenje.class, ResenjeFactory.class);

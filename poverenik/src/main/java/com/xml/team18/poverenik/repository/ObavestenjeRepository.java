@@ -45,6 +45,7 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
             String id = o.getId();
             if (id == null || id.isEmpty()) {
                 id = UUID.randomUUID().toString();
+                o.setId(id);
             }
             JAXBElement<Obavestenje> element = new JAXBElement<Obavestenje>(QName
                     .valueOf("obavestenje"), Obavestenje.class, o);

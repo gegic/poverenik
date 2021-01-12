@@ -44,6 +44,7 @@ public class ZalbaCutanjeRepository implements XmlRepository<Zalba> {
             String id = z.getId();
             if (id == null || id.isEmpty()) {
                 id = UUID.randomUUID().toString();
+                z.setId(id);
             }
             JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba-cutanje"), Zalba.class, z);
             String rawXml = jaxB.marshall(element, Zalba.class, ZalbaCutanjeFactory.class);
