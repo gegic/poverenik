@@ -8,7 +8,7 @@
             <xs:element name="primalac" type="Organ"/>
             <xs:element name="zakon" type="Akt"/>
             <xs:element name="protiv" type="Organ"/>
-            <xs:element name="razlog" type="BiranjeRazloga"> </xs:element>
+            <xs:element name="razlog" type="BiranjeRazloga"></xs:element>
             <xs:element name="zahtev" type="PodnetiZahtev"/>
             <xs:element name="mesto">
                 <xs:complexType>

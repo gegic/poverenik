@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  * <p>Java class for PravnoSredstvo complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="PravnoSredstvo">
  *   &lt;complexContent>
@@ -27,12 +27,10 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PravnoSredstvo", propOrder = {
-    "content"
+        "content"
 })
 public class PravnoSredstvo {
 
@@ -48,26 +46,24 @@ public class PravnoSredstvo {
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
      * {@link JAXBElement }{@code <}{@link Organ }{@code >}
-     * 
-     * 
      */
     public List<Serializable> getContent() {
         if (content == null) {
@@ -78,11 +74,9 @@ public class PravnoSredstvo {
 
     /**
      * Gets the value of the rok property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getRok() {
         return rok;
@@ -90,11 +84,9 @@ public class PravnoSredstvo {
 
     /**
      * Sets the value of the rok property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setRok(BigInteger value) {
         this.rok = value;
@@ -102,11 +94,9 @@ public class PravnoSredstvo {
 
     /**
      * Gets the value of the taksa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getTaksa() {
         return taksa;
@@ -114,11 +104,9 @@ public class PravnoSredstvo {
 
     /**
      * Sets the value of the taksa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setTaksa(BigInteger value) {
         this.taksa = value;

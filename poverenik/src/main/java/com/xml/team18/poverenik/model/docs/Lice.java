@@ -6,9 +6,9 @@ import javax.xml.bind.annotation.*;
 
 /**
  * <p>Java class for Lice complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Lice">
  *   &lt;complexContent>
@@ -21,17 +21,15 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Lice", propOrder = {
-    "adresa",
-    "ostaliPodaci"
+        "adresa",
+        "ostaliPodaci"
 })
 @XmlSeeAlso({
-    Osoba.class,
-    Organ.class
+        Osoba.class,
+        Organ.class
 })
 public abstract class Lice {
 
@@ -41,11 +39,9 @@ public abstract class Lice {
 
     /**
      * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa }
-     *     
+     *
+     * @return possible object is
+     * {@link Adresa }
      */
     public Adresa getAdresa() {
         return adresa;
@@ -53,11 +49,9 @@ public abstract class Lice {
 
     /**
      * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Adresa }
      */
     public void setAdresa(Adresa value) {
         this.adresa = value;
@@ -65,11 +59,9 @@ public abstract class Lice {
 
     /**
      * Gets the value of the ostaliPodaci property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getOstaliPodaci() {
         return ostaliPodaci;
@@ -77,11 +69,9 @@ public abstract class Lice {
 
     /**
      * Sets the value of the ostaliPodaci property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setOstaliPodaci(String value) {
         this.ostaliPodaci = value;

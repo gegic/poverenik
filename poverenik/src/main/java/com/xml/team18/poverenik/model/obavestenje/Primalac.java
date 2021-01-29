@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.*;
 
 /**
  * <p>Java class for Primalac complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Primalac">
  *   &lt;complexContent>
@@ -37,12 +37,10 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Primalac", propOrder = {
-    "organ"
+        "organ"
 })
 public class Primalac {
 
@@ -57,11 +55,9 @@ public class Primalac {
 
     /**
      * Gets the value of the organ property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Organ }
-     *     
+     *
+     * @return possible object is
+     * {@link Organ }
      */
     public Organ getOrgan() {
         return organ;
@@ -69,11 +65,9 @@ public class Primalac {
 
     /**
      * Sets the value of the organ property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Organ }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Organ }
      */
     public void setOrgan(Organ value) {
         this.organ = value;
@@ -81,11 +75,9 @@ public class Primalac {
 
     /**
      * Gets the value of the brojRacuna property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBrojRacuna() {
         return brojRacuna;
@@ -93,11 +85,9 @@ public class Primalac {
 
     /**
      * Sets the value of the brojRacuna property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBrojRacuna(String value) {
         this.brojRacuna = value;
@@ -105,15 +95,13 @@ public class Primalac {
 
     /**
      * Gets the value of the model property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public int getModel() {
         if (model == null) {
-            return  97;
+            return 97;
         } else {
             return model;
         }
@@ -121,11 +109,9 @@ public class Primalac {
 
     /**
      * Sets the value of the model property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setModel(Integer value) {
         this.model = value;
@@ -133,11 +119,9 @@ public class Primalac {
 
     /**
      * Gets the value of the pozivNaBroj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPozivNaBroj() {
         return pozivNaBroj;
@@ -145,11 +129,9 @@ public class Primalac {
 
     /**
      * Sets the value of the pozivNaBroj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPozivNaBroj(String value) {
         this.pozivNaBroj = value;

@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Osoba complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Osoba">
  *   &lt;complexContent>
@@ -38,16 +38,13 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Osoba", propOrder = {
-    "imePrezime"
+        "imePrezime"
 })
 public class Osoba
-    extends Lice
-{
+        extends Lice {
 
     @XmlElement(name = "ime-prezime", required = true)
     protected Osoba.ImePrezime imePrezime;
@@ -56,11 +53,9 @@ public class Osoba
 
     /**
      * Gets the value of the imePrezime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Osoba.ImePrezime }
-     *     
+     *
+     * @return possible object is
+     * {@link Osoba.ImePrezime }
      */
     public Osoba.ImePrezime getImePrezime() {
         return imePrezime;
@@ -68,11 +63,9 @@ public class Osoba
 
     /**
      * Sets the value of the imePrezime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Osoba.ImePrezime }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Osoba.ImePrezime }
      */
     public void setImePrezime(Osoba.ImePrezime value) {
         this.imePrezime = value;
@@ -80,11 +73,9 @@ public class Osoba
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -92,11 +83,9 @@ public class Osoba
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -105,9 +94,9 @@ public class Osoba
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -118,12 +107,10 @@ public class Osoba
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class ImePrezime {
 
@@ -140,11 +127,9 @@ public class Osoba
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -152,11 +137,9 @@ public class Osoba
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -164,11 +147,9 @@ public class Osoba
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -176,11 +157,9 @@ public class Osoba
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -188,11 +167,9 @@ public class Osoba
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -200,11 +177,9 @@ public class Osoba
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;

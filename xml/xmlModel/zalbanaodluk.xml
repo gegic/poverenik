@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zalba  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../xmlSchema/zalbanaodluku.xsd" 
-    xmlns:zo="http://team14.xml.com/rdf/zalbenaodluku"
-    xmlns:pred="http://team14.xml.com/rdf/zalbenaodluku/predicate/"
-    vocab="http://team14.xml.com/rdf/zalbenaodluku/predicate/"
-    about="http://team14.xml.com/rdf/zalbenaodluku/806a5cbe-f52a-4f0e-9028-3f874cf0a8f8"
-    id="806a5cbe-f52a-4f0e-9028-3f874cf0a8f8"
-    >
+<zalba
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../xmlSchema/zalbanaodluku.xsd"
+        xmlns:zo="http://team14.xml.com/rdf/zalbenaodluku"
+        xmlns:pred="http://team14.xml.com/rdf/zalbenaodluku/predicate/"
+        vocab="http://team14.xml.com/rdf/zalbenaodluku/predicate/"
+        about="http://team14.xml.com/rdf/zalbenaodluku/806a5cbe-f52a-4f0e-9028-3f874cf0a8f8"
+        id="806a5cbe-f52a-4f0e-9028-3f874cf0a8f8"
+>
     <datum>2021-01-09</datum>
     <primalac>
         <adresa>
@@ -16,7 +16,7 @@
         </adresa>
         <naziv property="pred:naziv-poverenika" datatype="xs:string">Drzavni poverenik</naziv>
     </primalac>
-    
+
     <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
         <adresa>
             <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
@@ -36,12 +36,12 @@
             <naziv property="pred:naziv-ustanove" datatype="xs:string">Neka ustanova</naziv>
         </donosilac>
     </protiv>
-  
+
     <zahtev id="5fb41eaa-0cd6-48ae-97d6-b2f51799afe3">
         <datum property="pred:datum-zahteva" datatype="xs:date">2020-10-03</datum>
         <opis-zahteva property="pred:opis-zahteva" datatype="xs:string">O izvrsenom inspekcijskom nadzoru</opis-zahteva>
     </zahtev>
-    <deo-pobijanja></deo-pobijanja> 
+    <deo-pobijanja></deo-pobijanja>
     <zakon>
         <naziv>Zakon o slobodnom pristupu informacijama od javnog znacaja</naziv>
         <clan broj="22">
@@ -56,5 +56,5 @@
         </adresa>
         <ime-prezime property="pred:ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
     </podnosilac>
-    
+
 </zalba>

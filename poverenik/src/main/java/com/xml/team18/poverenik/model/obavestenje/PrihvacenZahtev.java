@@ -12,9 +12,9 @@ import java.math.BigInteger;
 
 /**
  * <p>Java class for PrihvacenZahtev complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="PrihvacenZahtev">
  *   &lt;complexContent>
@@ -47,8 +47,6 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PrihvacenZahtev", propOrder = {
@@ -67,11 +65,9 @@ public class PrihvacenZahtev {
 
     /**
      * Gets the value of the datum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PrihvacenZahtev.Datum }
-     *     
+     *
+     * @return possible object is
+     * {@link PrihvacenZahtev.Datum }
      */
     public PrihvacenZahtev.Datum getDatum() {
         return datum;
@@ -79,11 +75,9 @@ public class PrihvacenZahtev {
 
     /**
      * Sets the value of the datum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PrihvacenZahtev.Datum }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PrihvacenZahtev.Datum }
      */
     public void setDatum(PrihvacenZahtev.Datum value) {
         this.datum = value;
@@ -91,11 +85,9 @@ public class PrihvacenZahtev {
 
     /**
      * Gets the value of the vreme property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Vreme }
-     *     
+     *
+     * @return possible object is
+     * {@link Vreme }
      */
     public Vreme getVreme() {
         return vreme;
@@ -103,11 +95,9 @@ public class PrihvacenZahtev {
 
     /**
      * Sets the value of the vreme property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Vreme }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Vreme }
      */
     public void setVreme(Vreme value) {
         this.vreme = value;
@@ -115,11 +105,9 @@ public class PrihvacenZahtev {
 
     /**
      * Gets the value of the kancelarija property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PrihvacenZahtev.Kancelarija }
-     *     
+     *
+     * @return possible object is
+     * {@link PrihvacenZahtev.Kancelarija }
      */
     public PrihvacenZahtev.Kancelarija getKancelarija() {
         return kancelarija;
@@ -127,11 +115,9 @@ public class PrihvacenZahtev {
 
     /**
      * Sets the value of the kancelarija property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PrihvacenZahtev.Kancelarija }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PrihvacenZahtev.Kancelarija }
      */
     public void setKancelarija(PrihvacenZahtev.Kancelarija value) {
         this.kancelarija = value;
@@ -139,11 +125,9 @@ public class PrihvacenZahtev {
 
     /**
      * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa }
-     *     
+     *
+     * @return possible object is
+     * {@link Adresa }
      */
     public Adresa getAdresa() {
         return adresa;
@@ -151,11 +135,9 @@ public class PrihvacenZahtev {
 
     /**
      * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Adresa }
      */
     public void setAdresa(Adresa value) {
         this.adresa = value;
@@ -164,9 +146,9 @@ public class PrihvacenZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -177,12 +159,10 @@ public class PrihvacenZahtev {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Datum {
 
@@ -200,11 +180,9 @@ public class PrihvacenZahtev {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @return possible object is
+         * {@link XMLGregorianCalendar }
          */
         public XMLGregorianCalendar getValue() {
             return value;
@@ -212,11 +190,9 @@ public class PrihvacenZahtev {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link XMLGregorianCalendar }
          */
         public void setValue(XMLGregorianCalendar value) {
             this.value = value;
@@ -224,11 +200,9 @@ public class PrihvacenZahtev {
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -236,11 +210,9 @@ public class PrihvacenZahtev {
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -248,11 +220,9 @@ public class PrihvacenZahtev {
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -260,11 +230,9 @@ public class PrihvacenZahtev {
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;
@@ -275,9 +243,9 @@ public class PrihvacenZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -288,12 +256,10 @@ public class PrihvacenZahtev {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Kancelarija {
 
@@ -311,11 +277,9 @@ public class PrihvacenZahtev {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @return possible object is
+         * {@link BigInteger }
          */
         public BigInteger getValue() {
             return value;
@@ -323,11 +287,9 @@ public class PrihvacenZahtev {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link BigInteger }
          */
         public void setValue(BigInteger value) {
             this.value = value;
@@ -335,11 +297,9 @@ public class PrihvacenZahtev {
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -347,11 +307,9 @@ public class PrihvacenZahtev {
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -359,11 +317,9 @@ public class PrihvacenZahtev {
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -371,11 +327,9 @@ public class PrihvacenZahtev {
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;

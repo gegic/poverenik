@@ -6,7 +6,7 @@ import java.util.UUID;
 public interface XmlRepository<T> {
     T save(T object);
 
-    T findById(UUID uuid) throws Exception;
+    T findById(String id) throws Exception;
 
     List<T> getAll() throws Exception;
 

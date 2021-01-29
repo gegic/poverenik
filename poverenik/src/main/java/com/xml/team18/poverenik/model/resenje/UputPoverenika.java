@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  * <p>Java class for UputPoverenika complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="UputPoverenika">
  *   &lt;complexContent>
@@ -26,12 +26,10 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "UputPoverenika", propOrder = {
-    "content"
+        "content"
 })
 public class UputPoverenika {
 
@@ -44,26 +42,24 @@ public class UputPoverenika {
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link Osnov }{@code >}
      * {@link String }
-     * 
-     * 
      */
     public List<Serializable> getContent() {
         if (content == null) {
@@ -74,11 +70,9 @@ public class UputPoverenika {
 
     /**
      * Gets the value of the datum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getDatum() {
         return datum;
@@ -86,11 +80,9 @@ public class UputPoverenika {
 
     /**
      * Sets the value of the datum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setDatum(XMLGregorianCalendar value) {
         this.datum = value;

@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for VrstaZalbe.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -20,7 +20,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
  */
 @XmlType(name = "VrstaZalbe")
 @XmlEnum
@@ -43,7 +42,7 @@ public enum VrstaZalbe {
     }
 
     public static VrstaZalbe fromValue(String v) {
-        for (VrstaZalbe c: VrstaZalbe.values()) {
+        for (VrstaZalbe c : VrstaZalbe.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zahtev 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd"
-    xmlns:z="http://team14.xml.com/rdf/zahtevi"
-    xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
-    vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
-    about="http://team14.xml.com/rdf/zahtevi/5fb41eaa-0cd6-48ae-97d6-b2f51799afe3"
-    id="5fb41eaa-0cd6-48ae-97d6-b2f51799afe3">
+<zahtev
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd"
+        xmlns:z="http://team14.xml.com/rdf/zahtevi"
+        xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
+        vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
+        about="http://team14.xml.com/rdf/zahtevi/5fb41eaa-0cd6-48ae-97d6-b2f51799afe3"
+        id="5fb41eaa-0cd6-48ae-97d6-b2f51799afe3">
     <organ>
         <adresa>
             <mesto property="pred:mesto-ustanove" datatype="xs:string">Tutin</mesto>
@@ -14,7 +14,7 @@
         </adresa>
         <naziv property="pred:naziv-ustanove" datatype="xs:string">Prosvetna inspekcija</naziv>
     </organ>
-    
+
     <zakon>
         <naziv>Закон о слободном приступу информацијама од јавног значаја</naziv>
         <clan broj="15">

@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for IzborRazloga complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="IzborRazloga">
  *   &lt;simpleContent>
@@ -22,12 +22,10 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/simpleContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IzborRazloga", propOrder = {
-    "value"
+        "value"
 })
 public class IzborRazloga {
 
@@ -45,11 +43,9 @@ public class IzborRazloga {
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -57,11 +53,9 @@ public class IzborRazloga {
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;
@@ -69,11 +63,9 @@ public class IzborRazloga {
 
     /**
      * Gets the value of the naziv property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNaziv() {
         return naziv;
@@ -81,11 +73,9 @@ public class IzborRazloga {
 
     /**
      * Sets the value of the naziv property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNaziv(String value) {
         this.naziv = value;
@@ -93,11 +83,9 @@ public class IzborRazloga {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -105,11 +93,9 @@ public class IzborRazloga {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -117,11 +103,9 @@ public class IzborRazloga {
 
     /**
      * Gets the value of the izabran property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public Boolean isIzabran() {
         return izabran;
@@ -129,11 +113,9 @@ public class IzborRazloga {
 
     /**
      * Sets the value of the izabran property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setIzabran(Boolean value) {
         this.izabran = value;

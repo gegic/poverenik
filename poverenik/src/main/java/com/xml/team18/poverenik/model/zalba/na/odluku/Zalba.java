@@ -14,9 +14,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>Java class for Zalba complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Zalba">
  *   &lt;complexContent>
@@ -45,20 +45,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Zalba", propOrder = {
-    "datum",
-    "primalac",
-    "zalilac",
-    "protiv",
-    "zahtev",
-    "deoPobijanja",
-    "zakon",
-    "mesto",
-    "podnosilac"
+        "datum",
+        "primalac",
+        "zalilac",
+        "protiv",
+        "zahtev",
+        "deoPobijanja",
+        "zakon",
+        "mesto",
+        "podnosilac"
 })
 public class Zalba {
 
@@ -102,11 +100,9 @@ public class Zalba {
 
     /**
      * Gets the value of the datum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getDatum() {
         return datum;
@@ -114,11 +110,9 @@ public class Zalba {
 
     /**
      * Sets the value of the datum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setDatum(XMLGregorianCalendar value) {
         this.datum = value;
@@ -126,11 +120,9 @@ public class Zalba {
 
     /**
      * Gets the value of the primalac property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Organ }
-     *     
+     *
+     * @return possible object is
+     * {@link Organ }
      */
     public Organ getPrimalac() {
         return primalac;
@@ -138,11 +130,9 @@ public class Zalba {
 
     /**
      * Sets the value of the primalac property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Organ }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Organ }
      */
     public void setPrimalac(Organ value) {
         this.primalac = value;
@@ -150,11 +140,9 @@ public class Zalba {
 
     /**
      * Gets the value of the zalilac property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Osoba }
-     *     
+     *
+     * @return possible object is
+     * {@link Osoba }
      */
     public Osoba getZalilac() {
         return zalilac;
@@ -162,11 +150,9 @@ public class Zalba {
 
     /**
      * Sets the value of the zalilac property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Osoba }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Osoba }
      */
     public void setZalilac(Osoba value) {
         this.zalilac = value;
@@ -174,11 +160,9 @@ public class Zalba {
 
     /**
      * Gets the value of the protiv property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Odluka }
-     *     
+     *
+     * @return possible object is
+     * {@link Odluka }
      */
     public Odluka getProtiv() {
         return protiv;
@@ -186,11 +170,9 @@ public class Zalba {
 
     /**
      * Sets the value of the protiv property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Odluka }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Odluka }
      */
     public void setProtiv(Odluka value) {
         this.protiv = value;
@@ -198,11 +180,9 @@ public class Zalba {
 
     /**
      * Gets the value of the zahtev property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @return possible object is
+     * {@link PodnetiZahtev }
      */
     public PodnetiZahtev getZahtev() {
         return zahtev;
@@ -210,11 +190,9 @@ public class Zalba {
 
     /**
      * Sets the value of the zahtev property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PodnetiZahtev }
      */
     public void setZahtev(PodnetiZahtev value) {
         this.zahtev = value;
@@ -222,11 +200,9 @@ public class Zalba {
 
     /**
      * Gets the value of the deoPobijanja property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDeoPobijanja() {
         return deoPobijanja;
@@ -234,11 +210,9 @@ public class Zalba {
 
     /**
      * Sets the value of the deoPobijanja property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDeoPobijanja(String value) {
         this.deoPobijanja = value;
@@ -246,11 +220,9 @@ public class Zalba {
 
     /**
      * Gets the value of the zakon property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Akt }
-     *     
+     *
+     * @return possible object is
+     * {@link Akt }
      */
     public Akt getZakon() {
         return zakon;
@@ -258,11 +230,9 @@ public class Zalba {
 
     /**
      * Sets the value of the zakon property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Akt }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Akt }
      */
     public void setZakon(Akt value) {
         this.zakon = value;
@@ -270,11 +240,9 @@ public class Zalba {
 
     /**
      * Gets the value of the mesto property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMesto() {
         return mesto;
@@ -282,11 +250,9 @@ public class Zalba {
 
     /**
      * Sets the value of the mesto property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMesto(String value) {
         this.mesto = value;
@@ -294,11 +260,9 @@ public class Zalba {
 
     /**
      * Gets the value of the podnosilac property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Osoba }
-     *     
+     *
+     * @return possible object is
+     * {@link Osoba }
      */
     public Osoba getPodnosilac() {
         return podnosilac;
@@ -306,11 +270,9 @@ public class Zalba {
 
     /**
      * Sets the value of the podnosilac property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Osoba }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Osoba }
      */
     public void setPodnosilac(Osoba value) {
         this.podnosilac = value;
@@ -318,11 +280,9 @@ public class Zalba {
 
     /**
      * Gets the value of the vocab property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVocab() {
         return vocab;
@@ -330,11 +290,9 @@ public class Zalba {
 
     /**
      * Sets the value of the vocab property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVocab(String value) {
         this.vocab = value;
@@ -342,11 +300,9 @@ public class Zalba {
 
     /**
      * Gets the value of the about property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAbout() {
         return about;
@@ -354,11 +310,9 @@ public class Zalba {
 
     /**
      * Sets the value of the about property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAbout(String value) {
         this.about = value;
@@ -366,11 +320,9 @@ public class Zalba {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -378,11 +330,9 @@ public class Zalba {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;

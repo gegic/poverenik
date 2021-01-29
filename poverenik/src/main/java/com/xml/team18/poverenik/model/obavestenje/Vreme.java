@@ -7,9 +7,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>Java class for Vreme complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Vreme">
  *   &lt;complexContent>
@@ -19,13 +19,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Vreme")
 @XmlSeeAlso({
-    VremePeriod.class
+        VremePeriod.class
 })
 public class Vreme {
 
@@ -35,11 +33,9 @@ public class Vreme {
 
     /**
      * Gets the value of the pocetak property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getPocetak() {
         return pocetak;
@@ -47,11 +43,9 @@ public class Vreme {
 
     /**
      * Sets the value of the pocetak property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setPocetak(XMLGregorianCalendar value) {
         this.pocetak = value;

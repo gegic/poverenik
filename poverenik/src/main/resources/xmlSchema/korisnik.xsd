@@ -3,18 +3,39 @@
     <xs:element name="korisnik">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="korisnicko-ime" type="xs:string"/>
-                <xs:element name="lozinka" type="xs:string"/>
-                <xs:element name="email" type="xs:string"/>
-                <xs:element name="ime-prezime" type="xs:string"/>
+                <xs:element name="ime-prezime">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="email">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern
+                                    value="^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$"
+                            />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="lozinka">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="6"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="uloga">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="poverenik"/>
+                            <xs:enumeration value="gradjanin"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
             </xs:sequence>
-            <xs:attribute name="id">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:attribute>
+            <xs:attribute name="id" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>

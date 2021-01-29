@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    xmlns:zalba-cutanje="http://www.ftn.uns.ac.rs/zalba-cutanje">
+           xmlns:zalba-cutanje="http://www.ftn.uns.ac.rs/zalba-cutanje">
     <xs:include schemaLocation="docs.xsd"/>
     <xs:element name="zalba-cutanje" type="Zalba"/>
     <xs:complexType name="Zalba">
@@ -8,7 +8,7 @@
             <xs:element name="primalac" type="Organ"/>
             <xs:element name="zakon" type="Akt"/>
             <xs:element name="protiv" type="Organ"/>
-            <xs:element name="razlog" type="BiranjeRazloga"> </xs:element>
+            <xs:element name="razlog" type="BiranjeRazloga"></xs:element>
             <xs:element name="zahtev" type="PodnetiZahtev"/>
             <xs:element name="mesto">
                 <xs:complexType>

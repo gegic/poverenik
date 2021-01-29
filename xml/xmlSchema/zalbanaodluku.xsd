@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    xmlns:zno="http://www.ftn.uns.ac.rs/zabla-na-odluku">
+           xmlns:zno="http://www.ftn.uns.ac.rs/zabla-na-odluku">
     <xs:include schemaLocation="docs.xsd"/>
     <xs:element name="zalba" type="Zalba"/>
     <xs:complexType name="Zalba">

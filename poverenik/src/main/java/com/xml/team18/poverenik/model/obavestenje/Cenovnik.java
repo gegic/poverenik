@@ -9,9 +9,9 @@ import java.util.List;
 
 /**
  * <p>Java class for Cenovnik complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Cenovnik">
  *   &lt;complexContent>
@@ -33,12 +33,10 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Cenovnik", propOrder = {
-    "stavka"
+        "stavka"
 })
 public class Cenovnik {
 
@@ -47,25 +45,23 @@ public class Cenovnik {
 
     /**
      * Gets the value of the stavka property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the stavka property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getStavka().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Cenovnik.Stavka }
-     * 
-     * 
      */
     public List<Cenovnik.Stavka> getStavka() {
         if (stavka == null) {
@@ -77,9 +73,9 @@ public class Cenovnik {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -91,8 +87,6 @@ public class Cenovnik {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
@@ -108,11 +102,9 @@ public class Cenovnik {
 
         /**
          * Gets the value of the artikl property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getArtikl() {
             return artikl;
@@ -120,11 +112,9 @@ public class Cenovnik {
 
         /**
          * Sets the value of the artikl property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setArtikl(String value) {
             this.artikl = value;
@@ -132,11 +122,9 @@ public class Cenovnik {
 
         /**
          * Gets the value of the cena property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @return possible object is
+         * {@link BigInteger }
          */
         public BigInteger getCena() {
             return cena;
@@ -144,11 +132,9 @@ public class Cenovnik {
 
         /**
          * Sets the value of the cena property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link BigInteger }
          */
         public void setCena(BigInteger value) {
             this.cena = value;
@@ -156,11 +142,9 @@ public class Cenovnik {
 
         /**
          * Gets the value of the valuta property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValuta() {
             if (valuta == null) {
@@ -172,11 +156,9 @@ public class Cenovnik {
 
         /**
          * Sets the value of the valuta property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValuta(String value) {
             this.valuta = value;

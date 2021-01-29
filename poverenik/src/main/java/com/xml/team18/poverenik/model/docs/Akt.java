@@ -7,9 +7,9 @@ import java.math.BigInteger;
 
 /**
  * <p>Java class for Akt complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Akt">
  *   &lt;complexContent>
@@ -53,14 +53,12 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Akt", propOrder = {
-    "naziv",
-    "clan",
-    "sluzbeniGlasnik"
+        "naziv",
+        "clan",
+        "sluzbeniGlasnik"
 })
 public class Akt {
 
@@ -72,11 +70,9 @@ public class Akt {
 
     /**
      * Gets the value of the naziv property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNaziv() {
         return naziv;
@@ -84,11 +80,9 @@ public class Akt {
 
     /**
      * Sets the value of the naziv property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNaziv(String value) {
         this.naziv = value;
@@ -96,11 +90,9 @@ public class Akt {
 
     /**
      * Gets the value of the clan property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Akt.Clan }
-     *     
+     *
+     * @return possible object is
+     * {@link Akt.Clan }
      */
     public Akt.Clan getClan() {
         return clan;
@@ -108,11 +100,9 @@ public class Akt {
 
     /**
      * Sets the value of the clan property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Akt.Clan }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Akt.Clan }
      */
     public void setClan(Akt.Clan value) {
         this.clan = value;
@@ -120,11 +110,9 @@ public class Akt {
 
     /**
      * Gets the value of the sluzbeniGlasnik property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ListObjave }
-     *     
+     *
+     * @return possible object is
+     * {@link ListObjave }
      */
     public ListObjave getSluzbeniGlasnik() {
         return sluzbeniGlasnik;
@@ -132,11 +120,9 @@ public class Akt {
 
     /**
      * Sets the value of the sluzbeniGlasnik property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ListObjave }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ListObjave }
      */
     public void setSluzbeniGlasnik(ListObjave value) {
         this.sluzbeniGlasnik = value;
@@ -145,9 +131,9 @@ public class Akt {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -179,12 +165,10 @@ public class Akt {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "stav"
+            "stav"
     })
     public static class Clan {
 
@@ -195,11 +179,9 @@ public class Akt {
 
         /**
          * Gets the value of the stav property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Akt.Clan.Stav }
-         *     
+         *
+         * @return possible object is
+         * {@link Akt.Clan.Stav }
          */
         public Akt.Clan.Stav getStav() {
             return stav;
@@ -207,11 +189,9 @@ public class Akt {
 
         /**
          * Sets the value of the stav property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Akt.Clan.Stav }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Akt.Clan.Stav }
          */
         public void setStav(Akt.Clan.Stav value) {
             this.stav = value;
@@ -219,11 +199,9 @@ public class Akt {
 
         /**
          * Gets the value of the broj property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @return possible object is
+         * {@link BigInteger }
          */
         public BigInteger getBroj() {
             return broj;
@@ -231,11 +209,9 @@ public class Akt {
 
         /**
          * Sets the value of the broj property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link BigInteger }
          */
         public void setBroj(BigInteger value) {
             this.broj = value;
@@ -244,9 +220,9 @@ public class Akt {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -267,12 +243,10 @@ public class Akt {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "tacka"
+                "tacka"
         })
         public static class Stav {
 
@@ -283,11 +257,9 @@ public class Akt {
 
             /**
              * Gets the value of the tacka property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Akt.Clan.Stav.Tacka }
-             *     
+             *
+             * @return possible object is
+             * {@link Akt.Clan.Stav.Tacka }
              */
             public Akt.Clan.Stav.Tacka getTacka() {
                 return tacka;
@@ -295,11 +267,9 @@ public class Akt {
 
             /**
              * Sets the value of the tacka property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Akt.Clan.Stav.Tacka }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link Akt.Clan.Stav.Tacka }
              */
             public void setTacka(Akt.Clan.Stav.Tacka value) {
                 this.tacka = value;
@@ -307,11 +277,9 @@ public class Akt {
 
             /**
              * Gets the value of the broj property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link BigInteger }
-             *     
+             *
+             * @return possible object is
+             * {@link BigInteger }
              */
             public BigInteger getBroj() {
                 return broj;
@@ -319,11 +287,9 @@ public class Akt {
 
             /**
              * Sets the value of the broj property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link BigInteger }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link BigInteger }
              */
             public void setBroj(BigInteger value) {
                 this.broj = value;
@@ -332,9 +298,9 @@ public class Akt {
 
             /**
              * <p>Java class for anonymous complex type.
-             * 
+             *
              * <p>The following schema fragment specifies the expected content contained within this class.
-             * 
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -344,8 +310,6 @@ public class Akt {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "")
@@ -357,11 +321,9 @@ public class Akt {
 
                 /**
                  * Gets the value of the broj property.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link BigInteger }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link BigInteger }
                  */
                 public BigInteger getBroj() {
                     return broj;
@@ -369,11 +331,9 @@ public class Akt {
 
                 /**
                  * Sets the value of the broj property.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link BigInteger }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link BigInteger }
                  */
                 public void setBroj(BigInteger value) {
                     this.broj = value;

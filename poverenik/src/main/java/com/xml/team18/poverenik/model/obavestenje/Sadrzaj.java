@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Sadrzaj complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Sadrzaj">
  *   &lt;complexContent>
@@ -24,13 +24,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Sadrzaj", propOrder = {
-    "prihvacenZahtev",
-    "razlogOdbijanja"
+        "prihvacenZahtev",
+        "razlogOdbijanja"
 })
 public class Sadrzaj {
 
@@ -41,11 +39,9 @@ public class Sadrzaj {
 
     /**
      * Gets the value of the prihvacenZahtev property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PrihvacenZahtev }
-     *     
+     *
+     * @return possible object is
+     * {@link PrihvacenZahtev }
      */
     public PrihvacenZahtev getPrihvacenZahtev() {
         return prihvacenZahtev;
@@ -53,11 +49,9 @@ public class Sadrzaj {
 
     /**
      * Sets the value of the prihvacenZahtev property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PrihvacenZahtev }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PrihvacenZahtev }
      */
     public void setPrihvacenZahtev(PrihvacenZahtev value) {
         this.prihvacenZahtev = value;
@@ -65,11 +59,9 @@ public class Sadrzaj {
 
     /**
      * Gets the value of the razlogOdbijanja property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRazlogOdbijanja() {
         return razlogOdbijanja;
@@ -77,11 +69,9 @@ public class Sadrzaj {
 
     /**
      * Sets the value of the razlogOdbijanja property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRazlogOdbijanja(String value) {
         this.razlogOdbijanja = value;

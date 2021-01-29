@@ -67,9 +67,7 @@ public class ZahtevRepository implements XmlRepository<Zahtev> {
     }
 
 
-
-    public Zahtev findById(UUID uuid) throws ResourceNotFoundException {
-        String id = uuid.toString();
+    public Zahtev findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
         String contentFound = null;
         try {

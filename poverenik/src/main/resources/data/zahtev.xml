@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zahtev 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd"
-    xmlns:za="http://team14.xml.com/rdf/zahtevi"
-    xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
-    vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
-    about="http://team14.xml.com/rdf/zahtevi/5f9c00aa-a86c-4d26-8bc8-7021c086adb3"
-    id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+<zahtev
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd"
+        xmlns:za="http://team14.xml.com/rdf/zahtevi"
+        xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
+        vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
+        about="http://team14.xml.com/rdf/zahtevi/5f9c00aa-a86c-4d26-8bc8-7021c086adb3"
+        id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
     <organ>
         <adresa>
             <mesto property="pred:mesto-ustanove" datatype="xs:string">Tutin</mesto>

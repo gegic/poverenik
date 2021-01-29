@@ -13,9 +13,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>Java class for Resenje complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Resenje">
  *   &lt;complexContent>
@@ -56,16 +56,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Resenje", propOrder = {
-    "datum",
-    "predgovor",
-    "telo",
-    "obrazlozenje",
-    "poverenik"
+        "datum",
+        "predgovor",
+        "telo",
+        "obrazlozenje",
+        "poverenik"
 })
 public class Resenje {
 
@@ -102,11 +100,9 @@ public class Resenje {
 
     /**
      * Gets the value of the datum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Resenje.Datum }
-     *     
+     *
+     * @return possible object is
+     * {@link Resenje.Datum }
      */
     public Resenje.Datum getDatum() {
         return datum;
@@ -114,11 +110,9 @@ public class Resenje {
 
     /**
      * Sets the value of the datum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Resenje.Datum }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Resenje.Datum }
      */
     public void setDatum(Resenje.Datum value) {
         this.datum = value;
@@ -126,11 +120,9 @@ public class Resenje {
 
     /**
      * Gets the value of the predgovor property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Predgovor }
-     *     
+     *
+     * @return possible object is
+     * {@link Predgovor }
      */
     public Predgovor getPredgovor() {
         return predgovor;
@@ -138,11 +130,9 @@ public class Resenje {
 
     /**
      * Sets the value of the predgovor property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Predgovor }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Predgovor }
      */
     public void setPredgovor(Predgovor value) {
         this.predgovor = value;
@@ -150,11 +140,9 @@ public class Resenje {
 
     /**
      * Gets the value of the telo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Telo }
-     *     
+     *
+     * @return possible object is
+     * {@link Telo }
      */
     public Telo getTelo() {
         return telo;
@@ -162,11 +150,9 @@ public class Resenje {
 
     /**
      * Sets the value of the telo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Telo }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Telo }
      */
     public void setTelo(Telo value) {
         this.telo = value;
@@ -174,11 +160,9 @@ public class Resenje {
 
     /**
      * Gets the value of the obrazlozenje property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Obrazlozenje }
-     *     
+     *
+     * @return possible object is
+     * {@link Obrazlozenje }
      */
     public Obrazlozenje getObrazlozenje() {
         return obrazlozenje;
@@ -186,11 +170,9 @@ public class Resenje {
 
     /**
      * Sets the value of the obrazlozenje property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Obrazlozenje }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Obrazlozenje }
      */
     public void setObrazlozenje(Obrazlozenje value) {
         this.obrazlozenje = value;
@@ -198,11 +180,9 @@ public class Resenje {
 
     /**
      * Gets the value of the poverenik property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Osoba }
-     *     
+     *
+     * @return possible object is
+     * {@link Osoba }
      */
     public Osoba getPoverenik() {
         return poverenik;
@@ -210,11 +190,9 @@ public class Resenje {
 
     /**
      * Sets the value of the poverenik property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Osoba }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Osoba }
      */
     public void setPoverenik(Osoba value) {
         this.poverenik = value;
@@ -222,11 +200,9 @@ public class Resenje {
 
     /**
      * Gets the value of the broj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBroj() {
         return broj;
@@ -234,11 +210,9 @@ public class Resenje {
 
     /**
      * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBroj(String value) {
         this.broj = value;
@@ -246,11 +220,9 @@ public class Resenje {
 
     /**
      * Gets the value of the vocab property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVocab() {
         return vocab;
@@ -258,11 +230,9 @@ public class Resenje {
 
     /**
      * Sets the value of the vocab property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVocab(String value) {
         this.vocab = value;
@@ -270,11 +240,9 @@ public class Resenje {
 
     /**
      * Gets the value of the about property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAbout() {
         return about;
@@ -282,11 +250,9 @@ public class Resenje {
 
     /**
      * Sets the value of the about property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAbout(String value) {
         this.about = value;
@@ -294,11 +260,9 @@ public class Resenje {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -306,11 +270,9 @@ public class Resenje {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -319,9 +281,9 @@ public class Resenje {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -332,12 +294,10 @@ public class Resenje {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Datum {
 
@@ -355,11 +315,9 @@ public class Resenje {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @return possible object is
+         * {@link XMLGregorianCalendar }
          */
         public XMLGregorianCalendar getValue() {
             return value;
@@ -367,11 +325,9 @@ public class Resenje {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link XMLGregorianCalendar }
          */
         public void setValue(XMLGregorianCalendar value) {
             this.value = value;
@@ -379,11 +335,9 @@ public class Resenje {
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -391,11 +345,9 @@ public class Resenje {
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -403,11 +355,9 @@ public class Resenje {
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -415,11 +365,9 @@ public class Resenje {
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;

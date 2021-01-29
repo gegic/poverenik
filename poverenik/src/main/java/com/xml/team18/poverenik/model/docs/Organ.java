@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Organ complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Organ">
  *   &lt;complexContent>
@@ -31,27 +31,22 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Organ", propOrder = {
-    "naziv"
+        "naziv"
 })
 public class Organ
-    extends Lice
-{
+        extends Lice {
 
     @XmlElement(required = true)
     protected Organ.Naziv naziv;
 
     /**
      * Gets the value of the naziv property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Organ.Naziv }
-     *     
+     *
+     * @return possible object is
+     * {@link Organ.Naziv }
      */
     public Organ.Naziv getNaziv() {
         return naziv;
@@ -59,11 +54,9 @@ public class Organ
 
     /**
      * Sets the value of the naziv property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Organ.Naziv }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Organ.Naziv }
      */
     public void setNaziv(Organ.Naziv value) {
         this.naziv = value;
@@ -72,9 +65,9 @@ public class Organ
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -85,12 +78,10 @@ public class Organ
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Naziv {
 
@@ -107,11 +98,9 @@ public class Organ
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -119,11 +108,9 @@ public class Organ
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -131,11 +118,9 @@ public class Organ
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -143,11 +128,9 @@ public class Organ
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -155,11 +138,9 @@ public class Organ
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -167,11 +148,9 @@ public class Organ
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;

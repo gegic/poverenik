@@ -13,18 +13,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the mypackage package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the mypackage package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 @Component
@@ -34,14 +33,12 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
-     * 
      */
     public ZalbaNaOdlukuFactory() {
     }
 
     /**
      * Create an instance of {@link Organ }
-     * 
      */
     public Organ createOrgan() {
         return new Organ();
@@ -49,7 +46,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Akt }
-     * 
      */
     public Akt createAkt() {
         return new Akt();
@@ -57,7 +53,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Akt.Clan }
-     * 
      */
     public Akt.Clan createAktClan() {
         return new Akt.Clan();
@@ -65,7 +60,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Akt.Clan.Stav }
-     * 
      */
     public Akt.Clan.Stav createAktClanStav() {
         return new Akt.Clan.Stav();
@@ -73,7 +67,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev }
-     * 
      */
     public PodnetiZahtev createPodnetiZahtev() {
         return new PodnetiZahtev();
@@ -81,7 +74,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link ListObjave }
-     * 
      */
     public ListObjave createListObjave() {
         return new ListObjave();
@@ -89,7 +81,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Adresa }
-     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -97,7 +88,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Osoba }
-     * 
      */
     public Osoba createOsoba() {
         return new Osoba();
@@ -105,7 +95,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Zalba }
-     * 
      */
     public Zalba createZalba() {
         return new Zalba();
@@ -113,7 +102,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Odluka }
-     * 
      */
     public Odluka createOdluka() {
         return new Odluka();
@@ -121,7 +109,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Organ.Naziv }
-     * 
      */
     public Organ.Naziv createOrganNaziv() {
         return new Organ.Naziv();
@@ -129,7 +116,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Akt.Clan.Stav.Tacka }
-     * 
      */
     public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
         return new Akt.Clan.Stav.Tacka();
@@ -137,7 +123,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev.Datum }
-     * 
      */
     public PodnetiZahtev.Datum createPodnetiZahtevDatum() {
         return new PodnetiZahtev.Datum();
@@ -145,7 +130,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev.OpisZahteva }
-     * 
      */
     public PodnetiZahtev.OpisZahteva createPodnetiZahtevOpisZahteva() {
         return new PodnetiZahtev.OpisZahteva();
@@ -153,7 +137,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link ListObjave.Broj }
-     * 
      */
     public ListObjave.Broj createListObjaveBroj() {
         return new ListObjave.Broj();
@@ -161,7 +144,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Adresa.Mesto }
-     * 
      */
     public Adresa.Mesto createAdresaMesto() {
         return new Adresa.Mesto();
@@ -169,7 +151,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Adresa.Ulica }
-     * 
      */
     public Adresa.Ulica createAdresaUlica() {
         return new Adresa.Ulica();
@@ -177,7 +158,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link Osoba.ImePrezime }
-     * 
      */
     public Osoba.ImePrezime createOsobaImePrezime() {
         return new Osoba.ImePrezime();
@@ -185,7 +165,6 @@ public class ZalbaNaOdlukuFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Zalba }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "zalba")
     public JAXBElement<Zalba> createZalba(Zalba value) {

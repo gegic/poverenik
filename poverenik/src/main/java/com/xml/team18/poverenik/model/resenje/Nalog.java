@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Nalog complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Nalog">
  *   &lt;complexContent>
@@ -27,14 +27,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Nalog", propOrder = {
-    "primalac",
-    "akcija",
-    "obavestiti"
+        "primalac",
+        "akcija",
+        "obavestiti"
 })
 public class Nalog {
 
@@ -46,11 +44,9 @@ public class Nalog {
 
     /**
      * Gets the value of the primalac property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Organ }
-     *     
+     *
+     * @return possible object is
+     * {@link Organ }
      */
     public Organ getPrimalac() {
         return primalac;
@@ -58,11 +54,9 @@ public class Nalog {
 
     /**
      * Sets the value of the primalac property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Organ }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Organ }
      */
     public void setPrimalac(Organ value) {
         this.primalac = value;
@@ -70,11 +64,9 @@ public class Nalog {
 
     /**
      * Gets the value of the akcija property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Akcija }
-     *     
+     *
+     * @return possible object is
+     * {@link Akcija }
      */
     public Akcija getAkcija() {
         return akcija;
@@ -82,11 +74,9 @@ public class Nalog {
 
     /**
      * Sets the value of the akcija property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Akcija }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Akcija }
      */
     public void setAkcija(Akcija value) {
         this.akcija = value;
@@ -94,11 +84,9 @@ public class Nalog {
 
     /**
      * Gets the value of the obavestiti property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Obavestiti }
-     *     
+     *
+     * @return possible object is
+     * {@link Obavestiti }
      */
     public Obavestiti getObavestiti() {
         return obavestiti;
@@ -106,11 +94,9 @@ public class Nalog {
 
     /**
      * Sets the value of the obavestiti property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Obavestiti }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Obavestiti }
      */
     public void setObavestiti(Obavestiti value) {
         this.obavestiti = value;

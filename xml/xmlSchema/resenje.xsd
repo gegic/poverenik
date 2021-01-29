@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    xmlns:resenje="http://www.ftn.uns.ac.rs/resenje">
+           xmlns:resenje="http://www.ftn.uns.ac.rs/resenje">
     <xs:include schemaLocation="docs.xsd"/>
     <xs:element name="resenje" type="Resenje"/>
     <xs:complexType name="Resenje">
@@ -140,7 +140,7 @@
     <xs:complexType name="Predgovor">
         <xs:sequence>
             <xs:element name="zalilac" type="Osoba"/>
-            <xs:element name="uzrok" type="Uzrok"> </xs:element>
+            <xs:element name="uzrok" type="Uzrok"></xs:element>
             <xs:element name="zahtev" type="PodnetiZahtev"/>
             <xs:element name="osnov" type="Osnov"/>
         </xs:sequence>

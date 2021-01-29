@@ -90,14 +90,14 @@ public class ExistManager {
 
     public boolean containsCollection(String collectionId) throws Exception {
         this.createConnection();
-        try(Collection col = DatabaseManager.getCollection(existProperties.getUri() + collectionId,
+        try (Collection col = DatabaseManager.getCollection(existProperties.getUri() + collectionId,
                 existProperties.getUser(),
                 existProperties.getPassword())) {
             return col != null;
         }
     }
 
-    public void saveRaw(String collectionId, String documentId, String xmlString) throws Exception  {
+    public void saveRaw(String collectionId, String documentId, String xmlString) throws Exception {
         this.save(collectionId, documentId, xmlString);
     }
 
@@ -145,7 +145,7 @@ public class ExistManager {
         }
     }
 
-    public ResourceSet query(String collectionUri, String xpathExp) throws Exception  {
+    public ResourceSet query(String collectionUri, String xpathExp) throws Exception {
         createConnection();
         ResourceSet result;
         try (Collection col = DatabaseManager.getCollection(existProperties.getUri() + collectionUri,
@@ -159,7 +159,7 @@ public class ExistManager {
     }
 
     public void update(int template, String collectionUri, String document, String contextXPath, String patch)
-            throws Exception  {
+            throws Exception {
         createConnection();
         String chosenTemplate;
         switch (template) {

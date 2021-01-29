@@ -31,9 +31,9 @@ public class ZalbaNaOdlukuRepository implements XmlRepository<Zalba> {
 
     @Autowired
     public ZalbaNaOdlukuRepository(ExistManager existManager,
-                                  MetadataExtractor metadataExtractor,
-                                  FusekiWriter fusekiWriter,
-                                  JaxB jaxB) {
+                                   MetadataExtractor metadataExtractor,
+                                   FusekiWriter fusekiWriter,
+                                   JaxB jaxB) {
         this.existManager = existManager;
         this.metadataExtractor = metadataExtractor;
         this.fusekiWriter = fusekiWriter;
@@ -49,7 +49,7 @@ public class ZalbaNaOdlukuRepository implements XmlRepository<Zalba> {
             }
             JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba"), Zalba.class, z);
             String rawXml = jaxB.marshall(element, Zalba.class, ZalbaNaOdlukuFactory.class);
-             this.existManager.saveRaw(collectionId, id, rawXml);
+            this.existManager.saveRaw(collectionId, id, rawXml);
             String rdf = this.metadataExtractor.extractMetadata(rawXml);
             String graphUri = String.format("zalbenaodluku/%s", id);
             this.fusekiWriter.saveRDF(rdf, graphUri);
@@ -66,8 +66,7 @@ public class ZalbaNaOdlukuRepository implements XmlRepository<Zalba> {
         }
     }
 
-    public Zalba findById(UUID uuid) throws ResourceNotFoundException {
-        String id = uuid.toString();
+    public Zalba findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
         String contentFound = null;
         try {

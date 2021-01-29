@@ -13,18 +13,17 @@ import java.util.List;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the mypackage package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the mypackage package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 @Component
@@ -46,14 +45,12 @@ public class ResenjeFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
-     * 
      */
     public ResenjeFactory() {
     }
 
     /**
      * Create an instance of {@link Organ }
-     * 
      */
     public Organ createOrgan() {
         return new Organ();
@@ -61,7 +58,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev }
-     * 
      */
     public PodnetiZahtev createPodnetiZahtev() {
         return new PodnetiZahtev();
@@ -69,7 +65,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Akt }
-     * 
      */
     public Akt createAkt() {
         return new Akt();
@@ -77,7 +72,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Akt.Clan }
-     * 
      */
     public Akt.Clan createAktClan() {
         return new Akt.Clan();
@@ -85,7 +79,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Akt.Clan.Stav }
-     * 
      */
     public Akt.Clan.Stav createAktClanStav() {
         return new Akt.Clan.Stav();
@@ -93,7 +86,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link ListObjave }
-     * 
      */
     public ListObjave createListObjave() {
         return new ListObjave();
@@ -101,7 +93,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Adresa }
-     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -109,7 +100,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Osoba }
-     * 
      */
     public Osoba createOsoba() {
         return new Osoba();
@@ -117,7 +107,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link NacinDostave }
-     * 
      */
     public NacinDostave createNacinDostave() {
         return new NacinDostave();
@@ -125,7 +114,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Resenje }
-     * 
      */
     public Resenje createResenje() {
         return new Resenje();
@@ -133,7 +121,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Uzrok }
-     * 
      */
     public Uzrok createUzrok() {
         return new Uzrok();
@@ -141,7 +128,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Predgovor }
-     * 
      */
     public Predgovor createPredgovor() {
         return new Predgovor();
@@ -149,7 +135,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link IzjavaZalbe }
-     * 
      */
     public IzjavaZalbe createIzjavaZalbe() {
         return new IzjavaZalbe();
@@ -157,7 +142,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Akcija }
-     * 
      */
     public Akcija createAkcija() {
         return new Akcija();
@@ -165,7 +149,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link NegativnoObavestenje }
-     * 
      */
     public NegativnoObavestenje createNegativnoObavestenje() {
         return new NegativnoObavestenje();
@@ -173,7 +156,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Nepostupanje }
-     * 
      */
     public Nepostupanje createNepostupanje() {
         return new Nepostupanje();
@@ -181,7 +163,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Osnov }
-     * 
      */
     public Osnov createOsnov() {
         return new Osnov();
@@ -189,7 +170,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Obrazlozenje }
-     * 
      */
     public Obrazlozenje createObrazlozenje() {
         return new Obrazlozenje();
@@ -197,7 +177,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link PravnoSredstvo }
-     * 
      */
     public PravnoSredstvo createPravnoSredstvo() {
         return new PravnoSredstvo();
@@ -205,7 +184,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Nalog }
-     * 
      */
     public Nalog createNalog() {
         return new Nalog();
@@ -213,7 +191,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Odbijanje }
-     * 
      */
     public Odbijanje createOdbijanje() {
         return new Odbijanje();
@@ -221,7 +198,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Tok }
-     * 
      */
     public Tok createTok() {
         return new Tok();
@@ -229,7 +205,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Obavestiti }
-     * 
      */
     public Obavestiti createObavestiti() {
         return new Obavestiti();
@@ -237,7 +212,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Telo }
-     * 
      */
     public Telo createTelo() {
         return new Telo();
@@ -245,7 +219,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link DonosenjeOdluke }
-     * 
      */
     public DonosenjeOdluke createDonosenjeOdluke() {
         return new DonosenjeOdluke();
@@ -253,7 +226,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link UputPoverenika }
-     * 
      */
     public UputPoverenika createUputPoverenika() {
         return new UputPoverenika();
@@ -261,7 +233,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Organ.Naziv }
-     * 
      */
     public Organ.Naziv createOrganNaziv() {
         return new Organ.Naziv();
@@ -269,7 +240,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev.Datum }
-     * 
      */
     public PodnetiZahtev.Datum createPodnetiZahtevDatum() {
         return new PodnetiZahtev.Datum();
@@ -277,7 +247,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev.OpisZahteva }
-     * 
      */
     public PodnetiZahtev.OpisZahteva createPodnetiZahtevOpisZahteva() {
         return new PodnetiZahtev.OpisZahteva();
@@ -285,7 +254,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Akt.Clan.Stav.Tacka }
-     * 
      */
     public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
         return new Akt.Clan.Stav.Tacka();
@@ -293,7 +261,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link ListObjave.Broj }
-     * 
      */
     public ListObjave.Broj createListObjaveBroj() {
         return new ListObjave.Broj();
@@ -301,7 +268,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Adresa.Mesto }
-     * 
      */
     public Adresa.Mesto createAdresaMesto() {
         return new Adresa.Mesto();
@@ -309,7 +275,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Adresa.Ulica }
-     * 
      */
     public Adresa.Ulica createAdresaUlica() {
         return new Adresa.Ulica();
@@ -317,7 +282,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Osoba.ImePrezime }
-     * 
      */
     public Osoba.ImePrezime createOsobaImePrezime() {
         return new Osoba.ImePrezime();
@@ -325,7 +289,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link NacinDostave.Posta }
-     * 
      */
     public NacinDostave.Posta createNacinDostavePosta() {
         return new NacinDostave.Posta();
@@ -333,7 +296,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link Resenje.Datum }
-     * 
      */
     public Resenje.Datum createResenjeDatum() {
         return new Resenje.Datum();
@@ -341,7 +303,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Resenje }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "resenje")
     public JAXBElement<Resenje> createResenje(Resenje value) {
@@ -350,7 +311,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Organ }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "sud", scope = PravnoSredstvo.class)
     public JAXBElement<Organ> createPravnoSredstvoSud(Organ value) {
@@ -359,7 +319,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link NacinDostave }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "nacin-dostave", scope = Akcija.class)
     public JAXBElement<NacinDostave> createAkcijaNacinDostave(NacinDostave value) {
@@ -368,7 +327,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link PodnetiZahtev }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "podneti-zahtev", scope = Akcija.class)
     public JAXBElement<PodnetiZahtev> createAkcijaPodnetiZahtev(PodnetiZahtev value) {
@@ -377,7 +335,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Osoba }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "zalilac", scope = Akcija.class)
     public JAXBElement<Osoba> createAkcijaZalilac(Osoba value) {
@@ -386,16 +343,14 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link List }{@code <}{@link String }{@code >}{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "cenzura", scope = Akcija.class)
     public JAXBElement<List<String>> createAkcijaCenzura(List<String> value) {
-        return new JAXBElement<List<String>>(_AkcijaCenzura_QNAME, ((Class) List.class), Akcija.class, ((List<String> ) value));
+        return new JAXBElement<List<String>>(_AkcijaCenzura_QNAME, ((Class) List.class), Akcija.class, ((List<String>) value));
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Uzrok }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "uzrok", scope = Odbijanje.class)
     public JAXBElement<Uzrok> createOdbijanjeUzrok(Uzrok value) {
@@ -404,7 +359,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Lice }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "zalilac", scope = Odbijanje.class)
     public JAXBElement<Lice> createOdbijanjeZalilac(Lice value) {
@@ -413,7 +367,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Osnov }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "osnov", scope = UputPoverenika.class)
     public JAXBElement<Osnov> createUputPoverenikaOsnov(Osnov value) {
@@ -422,7 +375,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Odbijanje }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "odbijanje", scope = Telo.class)
     public JAXBElement<Odbijanje> createTeloOdbijanje(Odbijanje value) {
@@ -431,7 +383,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Nalog }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "nalog", scope = Telo.class)
     public JAXBElement<Nalog> createTeloNalog(Nalog value) {
@@ -440,7 +391,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "elektronska-posta", scope = NacinDostave.class)
     public JAXBElement<String> createNacinDostaveElektronskaPosta(String value) {
@@ -449,7 +399,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "faks", scope = NacinDostave.class)
     public JAXBElement<String> createNacinDostaveFaks(String value) {
@@ -458,7 +407,6 @@ public class ResenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link NacinDostave.Posta }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "posta", scope = NacinDostave.class)
     public JAXBElement<NacinDostave.Posta> createNacinDostavePosta(NacinDostave.Posta value) {

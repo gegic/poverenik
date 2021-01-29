@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resenje 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../xmlSchema/resenje.xsd"
-    xmlns:re="http://team14.xml.com/rdf/resenja"
-    xmlns:pred="http://team14.xml.com/rdf/resenja/predicate/"
-    vocab="http://team14.xml.com/rdf/resenja/predicate/"
-    about="http://team14.xml.com/rdf/resenja/fc0711f5-aa74-4e4d-99d9-6aedc6d19d3a"
-    broj="071-01-1114/2021-01"
-    id="fc0711f5-aa74-4e4d-99d9-6aedc6d19d3a"
-    >
+<resenje
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../xmlSchema/resenje.xsd"
+        xmlns:re="http://team14.xml.com/rdf/resenja"
+        xmlns:pred="http://team14.xml.com/rdf/resenja/predicate/"
+        vocab="http://team14.xml.com/rdf/resenja/predicate/"
+        about="http://team14.xml.com/rdf/resenja/fc0711f5-aa74-4e4d-99d9-6aedc6d19d3a"
+        broj="071-01-1114/2021-01"
+        id="fc0711f5-aa74-4e4d-99d9-6aedc6d19d3a"
+>
     <datum property="pred:datum-resenja" datatype="xs:date">2020-01-03</datum>
     <predgovor>
         <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
@@ -30,7 +30,7 @@
                     <ulica property="pred:ulica-protivnika" datatype="xs:string">Svetozara Markovica</ulica>
                 </adresa>
                 <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
-            </protiv> 
+            </protiv>
         </uzrok>
         <zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
             <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
@@ -73,10 +73,10 @@
                     <broj>18/2016</broj>
                     <broj autenticno-tumacenje="true">95/2018</broj>
                 </sluzbeni-glasnik>
-            </zakon>    
+            </zakon>
         </osnov>
     </predgovor>
-    
+
     <telo vrsta-zalbe="osnovana">
         <nalog>
             <primalac>
@@ -87,8 +87,12 @@
                 <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
             </primalac>
             <akcija rok="5">
-                да без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9"><ime-prezime property="ime-prezime-zalioca" datatype="xs:string">Haris Gegic</ime-prezime></zalilac>, да ли
-                поседује тражене информације односно документ у коме су исте садржане, и то: 
+                да без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести
+                <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
+                    <ime-prezime property="ime-prezime-zalioca" datatype="xs:string">Haris Gegic</ime-prezime>
+                </zalilac>
+                , да ли
+                поседује тражене информације односно документ у коме су исте садржане, и то:
                 <podneti-zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
                     <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
                 </podneti-zahtev>
@@ -105,7 +109,7 @@
                 </nacin-dostave>
                 с тим што ће пре достављања
                 заштитити и учинити недоступним податке о личности којима би се повредило право на приватност
-                лица на које се информације односе, као што су: 
+                лица на које се информације односе, као што су:
                 <cenzura>адреса-становања јмбг име-оца радни-стаж просечна-оцена</cenzura>
                 адреса становања, лични матични број грађана, име оца, радни стаж, просечна оцена студирања и сл.
                 уколико су такви подаци садржани у траженом документу.
@@ -118,9 +122,11 @@
                     </adresa>
                     <naziv property="pred:naziv-primaoca" datatype="xs:string">Neka ustanova</naziv>
                 </primalac>
-                <primalac><naziv property="pred:naziv-primaoca" datatype="xs:string">Poverenik</naziv></primalac>
+                <primalac>
+                    <naziv property="pred:naziv-primaoca" datatype="xs:string">Poverenik</naziv>
+                </primalac>
             </obavestiti>
-        </nalog>        
+        </nalog>
     </telo>
     <obrazlozenje>
         <tok>
@@ -144,7 +150,7 @@
                             <ulica property="pred:ulica-protivnika" datatype="xs:string">Svetozara Markovica</ulica>
                         </adresa>
                         <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
-                    </protiv> 
+                    </protiv>
                 </uzrok>
             </izjava-zalbe>
             <uput-poverenika datum="2020-05-11">
@@ -197,21 +203,21 @@
             </drugi-dogadjaj>
         </tok>
         <opis-zakljucka>
-           Имајући у виду да орган власти по захтеву жалиоца од 16.04.2020. године није поступио у
-           складу са наведеним одредбама Закона о слободном приступу информацијама од јавног значаја, а
-           да није оправдао разлоге непоступања по поднетом захтеву, Повереник је у поступку по жалби, на
-           основу члана 23. и члана 24. ст. 1. и 4. Закона о слободном приступу информацијама од јавног
-           значаја и члана 173. ст. 2. Закона о општем управном поступку, одлучио као у ставу I диспозитива
-           овог решења, нашавши да је жалба основана, односно да је неспорно право жалиоца на тражене
-           информације у смислу члана 5. Закона о слободном приступу информацијама од јавног значаја, по
-           коме свако има право да му буде саопштено да ли орган власти поседује или му је доступна одређена
-           информација од јавног значаја, као и да му се информација, уколико је у поседу органа, учини
-           доступном, на начин како је то наложено у ставу I диспозитива овог решења, што је у складу са
-           одредбом члана 12. Закона о слободном приступу информацијама од јавног значаја, која предвиђа
-           могућност издвајања тражене информације од јавног значаја од осталих информација садржаних у
-           документу у које орган власти није дужан да тражиоцу омогући увид, јер би се доступношћу тим
-           информацијама повредило право на приватност и заштиту података о личности лица на која се
-           тражене информације односе.
+            Имајући у виду да орган власти по захтеву жалиоца од 16.04.2020. године није поступио у
+            складу са наведеним одредбама Закона о слободном приступу информацијама од јавног значаја, а
+            да није оправдао разлоге непоступања по поднетом захтеву, Повереник је у поступку по жалби, на
+            основу члана 23. и члана 24. ст. 1. и 4. Закона о слободном приступу информацијама од јавног
+            значаја и члана 173. ст. 2. Закона о општем управном поступку, одлучио као у ставу I диспозитива
+            овог решења, нашавши да је жалба основана, односно да је неспорно право жалиоца на тражене
+            информације у смислу члана 5. Закона о слободном приступу информацијама од јавног значаја, по
+            коме свако има право да му буде саопштено да ли орган власти поседује или му је доступна одређена
+            информација од јавног значаја, као и да му се информација, уколико је у поседу органа, учини
+            доступном, на начин како је то наложено у ставу I диспозитива овог решења, што је у складу са
+            одредбом члана 12. Закона о слободном приступу информацијама од јавног значаја, која предвиђа
+            могућност издвајања тражене информације од јавног значаја од осталих информација садржаних у
+            документу у које орган власти није дужан да тражиоцу омогући увид, јер би се доступношћу тим
+            информацијама повредило право на приватност и заштиту података о личности лица на која се
+            тражене информације односе.
         </opis-zakljucka>
         <sazetak-resenja>
             Учитељски факултет у Призрену са привременим седиштем у Лепосавићу, је дужан да о
@@ -222,8 +228,12 @@
             Упутство о правном средству:
             Против овог решења није допуштена жалба већ се, у складу са Законом о управним
             споровима, може покренути управни спор тужбом Управном суду у Београду.
-            <sud><naziv property="pred:naziv-suda" datatype="xs:string">Osnovni sud u novom pazaru</naziv></sud>
+            <sud>
+                <naziv property="pred:naziv-suda" datatype="xs:string">Osnovni sud u novom pazaru</naziv>
+            </sud>
         </pravno-sredstvo>
     </obrazlozenje>
-    <poverenik><ime-prezime property="pred:ime-poverenika" datatype="xs:string">Milan Marinovic</ime-prezime></poverenik>
+    <poverenik>
+        <ime-prezime property="pred:ime-poverenika" datatype="xs:string">Milan Marinovic</ime-prezime>
+    </poverenik>
 </resenje>

@@ -9,9 +9,9 @@ import java.math.BigInteger;
 
 /**
  * <p>Java class for IzdanaDokumenta complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="IzdanaDokumenta">
  *   &lt;complexContent>
@@ -26,15 +26,13 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IzdanaDokumenta", propOrder = {
-    "uredba",
-    "cenovnik",
-    "cena",
-    "primalac"
+        "uredba",
+        "cenovnik",
+        "cena",
+        "primalac"
 })
 public class IzdanaDokumenta {
 
@@ -50,11 +48,9 @@ public class IzdanaDokumenta {
 
     /**
      * Gets the value of the uredba property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Akt }
-     *     
+     *
+     * @return possible object is
+     * {@link Akt }
      */
     public Akt getUredba() {
         return uredba;
@@ -62,11 +58,9 @@ public class IzdanaDokumenta {
 
     /**
      * Sets the value of the uredba property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Akt }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Akt }
      */
     public void setUredba(Akt value) {
         this.uredba = value;
@@ -74,11 +68,9 @@ public class IzdanaDokumenta {
 
     /**
      * Gets the value of the cenovnik property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Cenovnik }
-     *     
+     *
+     * @return possible object is
+     * {@link Cenovnik }
      */
     public Cenovnik getCenovnik() {
         return cenovnik;
@@ -86,11 +78,9 @@ public class IzdanaDokumenta {
 
     /**
      * Sets the value of the cenovnik property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Cenovnik }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Cenovnik }
      */
     public void setCenovnik(Cenovnik value) {
         this.cenovnik = value;
@@ -98,11 +88,9 @@ public class IzdanaDokumenta {
 
     /**
      * Gets the value of the cena property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getCena() {
         return cena;
@@ -110,11 +98,9 @@ public class IzdanaDokumenta {
 
     /**
      * Sets the value of the cena property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setCena(BigInteger value) {
         this.cena = value;
@@ -122,11 +108,9 @@ public class IzdanaDokumenta {
 
     /**
      * Gets the value of the primalac property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Primalac }
-     *     
+     *
+     * @return possible object is
+     * {@link Primalac }
      */
     public Primalac getPrimalac() {
         return primalac;
@@ -134,11 +118,9 @@ public class IzdanaDokumenta {
 
     /**
      * Sets the value of the primalac property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Primalac }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Primalac }
      */
     public void setPrimalac(Primalac value) {
         this.primalac = value;

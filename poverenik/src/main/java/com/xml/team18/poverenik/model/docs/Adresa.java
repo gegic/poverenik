@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for Adresa complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Adresa">
  *   &lt;complexContent>
@@ -41,13 +41,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Adresa", propOrder = {
-    "mesto",
-    "ulica"
+        "mesto",
+        "ulica"
 })
 public class Adresa {
 
@@ -57,11 +55,9 @@ public class Adresa {
 
     /**
      * Gets the value of the mesto property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa.Mesto }
-     *     
+     *
+     * @return possible object is
+     * {@link Adresa.Mesto }
      */
     public Adresa.Mesto getMesto() {
         return mesto;
@@ -69,11 +65,9 @@ public class Adresa {
 
     /**
      * Sets the value of the mesto property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa.Mesto }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Adresa.Mesto }
      */
     public void setMesto(Adresa.Mesto value) {
         this.mesto = value;
@@ -81,11 +75,9 @@ public class Adresa {
 
     /**
      * Gets the value of the ulica property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Adresa.Ulica }
-     *     
+     *
+     * @return possible object is
+     * {@link Adresa.Ulica }
      */
     public Adresa.Ulica getUlica() {
         return ulica;
@@ -93,11 +85,9 @@ public class Adresa {
 
     /**
      * Sets the value of the ulica property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Adresa.Ulica }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Adresa.Ulica }
      */
     public void setUlica(Adresa.Ulica value) {
         this.ulica = value;
@@ -106,9 +96,9 @@ public class Adresa {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -119,12 +109,10 @@ public class Adresa {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Mesto {
 
@@ -141,11 +129,9 @@ public class Adresa {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -153,11 +139,9 @@ public class Adresa {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -165,11 +149,9 @@ public class Adresa {
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -177,11 +159,9 @@ public class Adresa {
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -189,11 +169,9 @@ public class Adresa {
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -201,11 +179,9 @@ public class Adresa {
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;
@@ -216,9 +192,9 @@ public class Adresa {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -229,12 +205,10 @@ public class Adresa {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Ulica {
 
@@ -251,11 +225,9 @@ public class Adresa {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -263,11 +235,9 @@ public class Adresa {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -275,11 +245,9 @@ public class Adresa {
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -287,11 +255,9 @@ public class Adresa {
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -299,11 +265,9 @@ public class Adresa {
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -311,11 +275,9 @@ public class Adresa {
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;

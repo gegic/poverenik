@@ -31,9 +31,9 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
 
     @Autowired
     public ObavestenjeRepository(ExistManager existManager,
-                            MetadataExtractor metadataExtractor,
-                            FusekiWriter fusekiWriter,
-                            JaxB jaxB) {
+                                 MetadataExtractor metadataExtractor,
+                                 FusekiWriter fusekiWriter,
+                                 JaxB jaxB) {
         this.existManager = existManager;
         this.metadataExtractor = metadataExtractor;
         this.fusekiWriter = fusekiWriter;
@@ -84,10 +84,9 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
         }
     }
 
-    public Obavestenje findById(UUID uuid) throws ResourceNotFoundException {
-        String id = uuid.toString();
+    public Obavestenje findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
-        String contentFound = null;
+        String contentFound;
         try {
             contentFound = found.getContent().toString();
             return (Obavestenje) ((JAXBElement<?>) jaxB

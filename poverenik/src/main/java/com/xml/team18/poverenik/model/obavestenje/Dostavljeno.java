@@ -13,9 +13,9 @@ import java.util.List;
 
 /**
  * <p>Java class for Dostavljeno complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Dostavljeno">
  *   &lt;complexContent>
@@ -27,12 +27,10 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Dostavljeno", propOrder = {
-    "primalac"
+        "primalac"
 })
 public class Dostavljeno {
 
@@ -41,25 +39,23 @@ public class Dostavljeno {
 
     /**
      * Gets the value of the primalac property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the primalac property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPrimalac().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Organ }
-     * 
-     * 
      */
     public List<Organ> getPrimalac() {
         if (primalac == null) {

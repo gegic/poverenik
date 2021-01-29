@@ -9,9 +9,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>Java class for PodnetiZahtev complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="PodnetiZahtev">
  *   &lt;complexContent>
@@ -49,13 +49,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PodnetiZahtev", propOrder = {
-    "datum",
-    "opisZahteva"
+        "datum",
+        "opisZahteva"
 })
 public class PodnetiZahtev {
 
@@ -68,11 +66,9 @@ public class PodnetiZahtev {
 
     /**
      * Gets the value of the datum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PodnetiZahtev.Datum }
-     *     
+     *
+     * @return possible object is
+     * {@link PodnetiZahtev.Datum }
      */
     public PodnetiZahtev.Datum getDatum() {
         return datum;
@@ -80,11 +76,9 @@ public class PodnetiZahtev {
 
     /**
      * Sets the value of the datum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PodnetiZahtev.Datum }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PodnetiZahtev.Datum }
      */
     public void setDatum(PodnetiZahtev.Datum value) {
         this.datum = value;
@@ -92,11 +86,9 @@ public class PodnetiZahtev {
 
     /**
      * Gets the value of the opisZahteva property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PodnetiZahtev.OpisZahteva }
-     *     
+     *
+     * @return possible object is
+     * {@link PodnetiZahtev.OpisZahteva }
      */
     public PodnetiZahtev.OpisZahteva getOpisZahteva() {
         return opisZahteva;
@@ -104,11 +96,9 @@ public class PodnetiZahtev {
 
     /**
      * Sets the value of the opisZahteva property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PodnetiZahtev.OpisZahteva }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PodnetiZahtev.OpisZahteva }
      */
     public void setOpisZahteva(PodnetiZahtev.OpisZahteva value) {
         this.opisZahteva = value;
@@ -116,11 +106,9 @@ public class PodnetiZahtev {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -128,11 +116,9 @@ public class PodnetiZahtev {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -141,9 +127,9 @@ public class PodnetiZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -154,12 +140,10 @@ public class PodnetiZahtev {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Datum {
 
@@ -177,11 +161,9 @@ public class PodnetiZahtev {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @return possible object is
+         * {@link XMLGregorianCalendar }
          */
         public XMLGregorianCalendar getValue() {
             return value;
@@ -189,11 +171,9 @@ public class PodnetiZahtev {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link XMLGregorianCalendar }
          */
         public void setValue(XMLGregorianCalendar value) {
             this.value = value;
@@ -201,11 +181,9 @@ public class PodnetiZahtev {
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -213,11 +191,9 @@ public class PodnetiZahtev {
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -225,11 +201,9 @@ public class PodnetiZahtev {
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -237,11 +211,9 @@ public class PodnetiZahtev {
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;
@@ -252,9 +224,9 @@ public class PodnetiZahtev {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -265,12 +237,10 @@ public class PodnetiZahtev {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class OpisZahteva {
 
@@ -287,11 +257,9 @@ public class PodnetiZahtev {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -299,11 +267,9 @@ public class PodnetiZahtev {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -311,11 +277,9 @@ public class PodnetiZahtev {
 
         /**
          * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getProperty() {
             return property;
@@ -323,11 +287,9 @@ public class PodnetiZahtev {
 
         /**
          * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setProperty(String value) {
             this.property = value;
@@ -335,11 +297,9 @@ public class PodnetiZahtev {
 
         /**
          * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDatatype() {
             return datatype;
@@ -347,11 +307,9 @@ public class PodnetiZahtev {
 
         /**
          * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDatatype(String value) {
             this.datatype = value;

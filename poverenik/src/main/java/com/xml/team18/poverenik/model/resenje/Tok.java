@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  * <p>Java class for Tok complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Tok">
  *   &lt;complexContent>
@@ -28,15 +28,13 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Tok", propOrder = {
-    "izjavaZalbe",
-    "uputPoverenika",
-    "donosenjeOdluke",
-    "drugiDogadjaj"
+        "izjavaZalbe",
+        "uputPoverenika",
+        "donosenjeOdluke",
+        "drugiDogadjaj"
 })
 public class Tok {
 
@@ -51,11 +49,9 @@ public class Tok {
 
     /**
      * Gets the value of the izjavaZalbe property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link IzjavaZalbe }
-     *     
+     *
+     * @return possible object is
+     * {@link IzjavaZalbe }
      */
     public IzjavaZalbe getIzjavaZalbe() {
         return izjavaZalbe;
@@ -63,11 +59,9 @@ public class Tok {
 
     /**
      * Sets the value of the izjavaZalbe property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link IzjavaZalbe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link IzjavaZalbe }
      */
     public void setIzjavaZalbe(IzjavaZalbe value) {
         this.izjavaZalbe = value;
@@ -75,11 +69,9 @@ public class Tok {
 
     /**
      * Gets the value of the uputPoverenika property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link UputPoverenika }
-     *     
+     *
+     * @return possible object is
+     * {@link UputPoverenika }
      */
     public UputPoverenika getUputPoverenika() {
         return uputPoverenika;
@@ -87,11 +79,9 @@ public class Tok {
 
     /**
      * Sets the value of the uputPoverenika property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link UputPoverenika }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link UputPoverenika }
      */
     public void setUputPoverenika(UputPoverenika value) {
         this.uputPoverenika = value;
@@ -99,11 +89,9 @@ public class Tok {
 
     /**
      * Gets the value of the donosenjeOdluke property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DonosenjeOdluke }
-     *     
+     *
+     * @return possible object is
+     * {@link DonosenjeOdluke }
      */
     public DonosenjeOdluke getDonosenjeOdluke() {
         return donosenjeOdluke;
@@ -111,11 +99,9 @@ public class Tok {
 
     /**
      * Sets the value of the donosenjeOdluke property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DonosenjeOdluke }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DonosenjeOdluke }
      */
     public void setDonosenjeOdluke(DonosenjeOdluke value) {
         this.donosenjeOdluke = value;
@@ -123,25 +109,23 @@ public class Tok {
 
     /**
      * Gets the value of the drugiDogadjaj property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the drugiDogadjaj property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getDrugiDogadjaj().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getDrugiDogadjaj() {
         if (drugiDogadjaj == null) {

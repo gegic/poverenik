@@ -12,18 +12,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the mypackage package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the mypackage package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 @Component
@@ -33,14 +32,12 @@ public class ObavestenjeFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
-     * 
      */
     public ObavestenjeFactory() {
     }
 
     /**
      * Create an instance of {@link Organ }
-     * 
      */
     public Organ createOrgan() {
         return new Organ();
@@ -48,7 +45,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev }
-     * 
      */
     public PodnetiZahtev createPodnetiZahtev() {
         return new PodnetiZahtev();
@@ -56,7 +52,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link PrihvacenZahtev }
-     * 
      */
     public PrihvacenZahtev createPrihvacenZahtev() {
         return new PrihvacenZahtev();
@@ -64,7 +59,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Cenovnik }
-     * 
      */
     public Cenovnik createCenovnik() {
         return new Cenovnik();
@@ -72,7 +66,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Akt }
-     * 
      */
     public Akt createAkt() {
         return new Akt();
@@ -80,7 +73,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Akt.Clan }
-     * 
      */
     public Akt.Clan createAktClan() {
         return new Akt.Clan();
@@ -88,7 +80,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Akt.Clan.Stav }
-     * 
      */
     public Akt.Clan.Stav createAktClanStav() {
         return new Akt.Clan.Stav();
@@ -96,7 +87,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link ListObjave }
-     * 
      */
     public ListObjave createListObjave() {
         return new ListObjave();
@@ -104,7 +94,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Adresa }
-     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -112,7 +101,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Osoba }
-     * 
      */
     public Osoba createOsoba() {
         return new Osoba();
@@ -120,7 +108,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Obavestenje }
-     * 
      */
     public Obavestenje createObavestenje() {
         return new Obavestenje();
@@ -128,7 +115,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link VremePeriod }
-     * 
      */
     public VremePeriod createVremePeriod() {
         return new VremePeriod();
@@ -136,7 +122,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Sadrzaj }
-     * 
      */
     public Sadrzaj createSadrzaj() {
         return new Sadrzaj();
@@ -144,7 +129,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Primalac }
-     * 
      */
     public Primalac createPrimalac() {
         return new Primalac();
@@ -152,7 +136,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Vreme }
-     * 
      */
     public Vreme createVreme() {
         return new Vreme();
@@ -160,7 +143,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link IzdanaDokumenta }
-     * 
      */
     public IzdanaDokumenta createIzdanaDokumenta() {
         return new IzdanaDokumenta();
@@ -168,7 +150,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Dostavljeno }
-     * 
      */
     public Dostavljeno createDostavljeno() {
         return new Dostavljeno();
@@ -176,7 +157,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Organ.Naziv }
-     * 
      */
     public Organ.Naziv createOrganNaziv() {
         return new Organ.Naziv();
@@ -184,7 +164,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev.Datum }
-     * 
      */
     public PodnetiZahtev.Datum createPodnetiZahtevDatum() {
         return new PodnetiZahtev.Datum();
@@ -192,7 +171,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link PodnetiZahtev.OpisZahteva }
-     * 
      */
     public PodnetiZahtev.OpisZahteva createPodnetiZahtevOpisZahteva() {
         return new PodnetiZahtev.OpisZahteva();
@@ -200,7 +178,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link PrihvacenZahtev.Datum }
-     * 
      */
     public PrihvacenZahtev.Datum createPrihvacenZahtevDatum() {
         return new PrihvacenZahtev.Datum();
@@ -208,7 +185,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link PrihvacenZahtev.Kancelarija }
-     * 
      */
     public PrihvacenZahtev.Kancelarija createPrihvacenZahtevKancelarija() {
         return new PrihvacenZahtev.Kancelarija();
@@ -216,7 +192,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Cenovnik.Stavka }
-     * 
      */
     public Cenovnik.Stavka createCenovnikStavka() {
         return new Cenovnik.Stavka();
@@ -224,7 +199,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Akt.Clan.Stav.Tacka }
-     * 
      */
     public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
         return new Akt.Clan.Stav.Tacka();
@@ -232,7 +206,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link ListObjave.Broj }
-     * 
      */
     public ListObjave.Broj createListObjaveBroj() {
         return new ListObjave.Broj();
@@ -240,7 +213,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Adresa.Mesto }
-     * 
      */
     public Adresa.Mesto createAdresaMesto() {
         return new Adresa.Mesto();
@@ -248,7 +220,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Adresa.Ulica }
-     * 
      */
     public Adresa.Ulica createAdresaUlica() {
         return new Adresa.Ulica();
@@ -256,7 +227,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link Osoba.ImePrezime }
-     * 
      */
     public Osoba.ImePrezime createOsobaImePrezime() {
         return new Osoba.ImePrezime();
@@ -264,7 +234,6 @@ public class ObavestenjeFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "", name = "obavestenje")
     public JAXBElement<Obavestenje> createObavestenje(Obavestenje value) {

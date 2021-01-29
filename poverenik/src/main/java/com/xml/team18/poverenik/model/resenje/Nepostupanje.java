@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Nepostupanje complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Nepostupanje">
  *   &lt;complexContent>
@@ -25,12 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Nepostupanje", propOrder = {
-    "podnetiZahtev"
+        "podnetiZahtev"
 })
 public class Nepostupanje {
 
@@ -39,11 +37,9 @@ public class Nepostupanje {
 
     /**
      * Gets the value of the podnetiZahtev property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @return possible object is
+     * {@link PodnetiZahtev }
      */
     public PodnetiZahtev getPodnetiZahtev() {
         return podnetiZahtev;
@@ -51,11 +47,9 @@ public class Nepostupanje {
 
     /**
      * Sets the value of the podnetiZahtev property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PodnetiZahtev }
      */
     public void setPodnetiZahtev(PodnetiZahtev value) {
         this.podnetiZahtev = value;

@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  * <p>Java class for Obavestiti complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Obavestiti">
  *   &lt;complexContent>
@@ -26,12 +26,10 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Obavestiti", propOrder = {
-    "primalac"
+        "primalac"
 })
 public class Obavestiti {
 
@@ -43,25 +41,23 @@ public class Obavestiti {
 
     /**
      * Gets the value of the primalac property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the primalac property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPrimalac().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Organ }
-     * 
-     * 
      */
     public List<Organ> getPrimalac() {
         if (primalac == null) {
@@ -72,11 +68,9 @@ public class Obavestiti {
 
     /**
      * Gets the value of the rok property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getRok() {
         return rok;
@@ -84,11 +78,9 @@ public class Obavestiti {
 
     /**
      * Sets the value of the rok property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setRok(BigInteger value) {
         this.rok = value;

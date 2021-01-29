@@ -6,7 +6,7 @@
         <xs:sequence>
             <xs:element name="organ" type="Organ"/>
             <xs:element name="zakon" type="Akt"/>
-            <xs:element name="tip-zahteva" type="BiranjeZahteva"> </xs:element>
+            <xs:element name="tip-zahteva" type="BiranjeZahteva"></xs:element>
             <xs:element name="opis-zahteva">
                 <xs:complexType>
                     <xs:simpleContent>

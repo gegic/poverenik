@@ -1,6 +1,7 @@
 
 package com.xml.team18.poverenik.factory;
 
+
 import com.xml.team18.poverenik.model.korisnik.Korisnik;
 
 import javax.xml.bind.annotation.XmlRegistry;

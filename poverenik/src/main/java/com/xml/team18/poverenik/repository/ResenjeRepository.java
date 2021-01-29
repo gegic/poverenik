@@ -31,9 +31,9 @@ public class ResenjeRepository implements XmlRepository<Resenje> {
 
     @Autowired
     public ResenjeRepository(ExistManager existManager,
-                            MetadataExtractor metadataExtractor,
-                            FusekiWriter fusekiWriter,
-                            JaxB jaxB) {
+                             MetadataExtractor metadataExtractor,
+                             FusekiWriter fusekiWriter,
+                             JaxB jaxB) {
         this.existManager = existManager;
         this.metadataExtractor = metadataExtractor;
         this.fusekiWriter = fusekiWriter;
@@ -66,8 +66,7 @@ public class ResenjeRepository implements XmlRepository<Resenje> {
         }
     }
 
-    public Resenje findById(UUID uuid) throws ResourceNotFoundException {
-        String id = uuid.toString();
+    public Resenje findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
         String contentFound = null;
         try {

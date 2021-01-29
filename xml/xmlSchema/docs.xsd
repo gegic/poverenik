@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    xmlns:docs="http://team14.xml.com/docs">
+           xmlns:docs="http://team14.xml.com/docs">
     <xs:complexType name="Organ">
         <xs:complexContent>
             <xs:extension base="Lice">
@@ -86,7 +86,7 @@
                                     <xs:element minOccurs="0" name="tacka">
                                         <xs:complexType>
                                             <xs:attribute name="broj" type="xs:positiveInteger"
-                                                use="required"/>
+                                                          use="required"/>
                                         </xs:complexType>
                                     </xs:element>
                                 </xs:sequence>
@@ -107,7 +107,7 @@
                     <xs:simpleContent>
                         <xs:extension base="BrojObjave">
                             <xs:attribute default="false" name="autenticno-tumacenje"
-                                type="xs:boolean"/>
+                                          type="xs:boolean"/>
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>

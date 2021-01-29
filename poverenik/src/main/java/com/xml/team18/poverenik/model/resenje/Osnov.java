@@ -13,9 +13,9 @@ import java.util.List;
 
 /**
  * <p>Java class for Osnov complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Osnov">
  *   &lt;complexContent>
@@ -27,12 +27,10 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Osnov", propOrder = {
-    "zakon"
+        "zakon"
 })
 public class Osnov {
 
@@ -41,25 +39,23 @@ public class Osnov {
 
     /**
      * Gets the value of the zakon property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the zakon property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getZakon().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Akt }
-     * 
-     * 
      */
     public List<Akt> getZakon() {
         if (zakon == null) {

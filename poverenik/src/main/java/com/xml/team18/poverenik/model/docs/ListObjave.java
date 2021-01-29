@@ -8,9 +8,9 @@ import java.util.List;
 
 /**
  * <p>Java class for ListObjave complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ListObjave">
  *   &lt;complexContent>
@@ -30,12 +30,10 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ListObjave", propOrder = {
-    "broj"
+        "broj"
 })
 public class ListObjave {
 
@@ -44,25 +42,23 @@ public class ListObjave {
 
     /**
      * Gets the value of the broj property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the broj property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBroj().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ListObjave.Broj }
-     * 
-     * 
      */
     public List<ListObjave.Broj> getBroj() {
         if (broj == null) {
@@ -74,9 +70,9 @@ public class ListObjave {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
@@ -86,12 +82,10 @@ public class ListObjave {
      *   &lt;/simpleContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Broj {
 
@@ -102,11 +96,9 @@ public class ListObjave {
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -114,11 +106,9 @@ public class ListObjave {
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -126,11 +116,9 @@ public class ListObjave {
 
         /**
          * Gets the value of the autenticnoTumacenje property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Boolean }
-         *     
+         *
+         * @return possible object is
+         * {@link Boolean }
          */
         public boolean isAutenticnoTumacenje() {
             if (autenticnoTumacenje == null) {
@@ -142,11 +130,9 @@ public class ListObjave {
 
         /**
          * Sets the value of the autenticnoTumacenje property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Boolean }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Boolean }
          */
         public void setAutenticnoTumacenje(Boolean value) {
             this.autenticnoTumacenje = value;

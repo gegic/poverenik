@@ -10,9 +10,9 @@ import java.util.List;
 
 /**
  * <p>Java class for Telo complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Telo">
  *   &lt;complexContent>
@@ -28,18 +28,16 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Telo", propOrder = {
-    "content"
+        "content"
 })
 public class Telo {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "nalog", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "odbijanje", type = JAXBElement.class, required = false)
+            @XmlElementRef(name = "nalog", type = JAXBElement.class, required = false),
+            @XmlElementRef(name = "odbijanje", type = JAXBElement.class, required = false)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -48,27 +46,25 @@ public class Telo {
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link Odbijanje }{@code >}
      * {@link String }
      * {@link JAXBElement }{@code <}{@link Nalog }{@code >}
-     * 
-     * 
      */
     public List<Serializable> getContent() {
         if (content == null) {
@@ -79,11 +75,9 @@ public class Telo {
 
     /**
      * Gets the value of the vrstaZalbe property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link VrstaZalbe }
-     *     
+     *
+     * @return possible object is
+     * {@link VrstaZalbe }
      */
     public VrstaZalbe getVrstaZalbe() {
         return vrstaZalbe;
@@ -91,11 +85,9 @@ public class Telo {
 
     /**
      * Sets the value of the vrstaZalbe property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link VrstaZalbe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link VrstaZalbe }
      */
     public void setVrstaZalbe(VrstaZalbe value) {
         this.vrstaZalbe = value;

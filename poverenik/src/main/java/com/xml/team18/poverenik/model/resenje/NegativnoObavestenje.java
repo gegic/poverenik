@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.*;
 
 /**
  * <p>Java class for NegativnoObavestenje complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="NegativnoObavestenje">
  *   &lt;complexContent>
@@ -29,12 +29,10 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "NegativnoObavestenje", propOrder = {
-    "podnetiZahtev"
+        "podnetiZahtev"
 })
 public class NegativnoObavestenje {
 
@@ -45,11 +43,9 @@ public class NegativnoObavestenje {
 
     /**
      * Gets the value of the podnetiZahtev property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @return possible object is
+     * {@link PodnetiZahtev }
      */
     public PodnetiZahtev getPodnetiZahtev() {
         return podnetiZahtev;
@@ -57,11 +53,9 @@ public class NegativnoObavestenje {
 
     /**
      * Sets the value of the podnetiZahtev property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PodnetiZahtev }
      */
     public void setPodnetiZahtev(PodnetiZahtev value) {
         this.podnetiZahtev = value;
@@ -69,11 +63,9 @@ public class NegativnoObavestenje {
 
     /**
      * Gets the value of the broj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getBroj() {
         return broj;
@@ -81,11 +73,9 @@ public class NegativnoObavestenje {
 
     /**
      * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setBroj(String value) {
         this.broj = value;

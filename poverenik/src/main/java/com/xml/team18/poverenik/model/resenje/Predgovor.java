@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for Predgovor complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="Predgovor">
  *   &lt;complexContent>
@@ -29,15 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Predgovor", propOrder = {
-    "zalilac",
-    "uzrok",
-    "zahtev",
-    "osnov"
+        "zalilac",
+        "uzrok",
+        "zahtev",
+        "osnov"
 })
 public class Predgovor {
 
@@ -52,11 +50,9 @@ public class Predgovor {
 
     /**
      * Gets the value of the zalilac property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Osoba }
-     *     
+     *
+     * @return possible object is
+     * {@link Osoba }
      */
     public Osoba getZalilac() {
         return zalilac;
@@ -64,11 +60,9 @@ public class Predgovor {
 
     /**
      * Sets the value of the zalilac property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Osoba }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Osoba }
      */
     public void setZalilac(Osoba value) {
         this.zalilac = value;
@@ -76,11 +70,9 @@ public class Predgovor {
 
     /**
      * Gets the value of the uzrok property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Uzrok }
-     *     
+     *
+     * @return possible object is
+     * {@link Uzrok }
      */
     public Uzrok getUzrok() {
         return uzrok;
@@ -88,11 +80,9 @@ public class Predgovor {
 
     /**
      * Sets the value of the uzrok property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Uzrok }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Uzrok }
      */
     public void setUzrok(Uzrok value) {
         this.uzrok = value;
@@ -100,11 +90,9 @@ public class Predgovor {
 
     /**
      * Gets the value of the zahtev property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @return possible object is
+     * {@link PodnetiZahtev }
      */
     public PodnetiZahtev getZahtev() {
         return zahtev;
@@ -112,11 +100,9 @@ public class Predgovor {
 
     /**
      * Sets the value of the zahtev property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link PodnetiZahtev }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link PodnetiZahtev }
      */
     public void setZahtev(PodnetiZahtev value) {
         this.zahtev = value;
@@ -124,11 +110,9 @@ public class Predgovor {
 
     /**
      * Gets the value of the osnov property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Osnov }
-     *     
+     *
+     * @return possible object is
+     * {@link Osnov }
      */
     public Osnov getOsnov() {
         return osnov;
@@ -136,11 +120,9 @@ public class Predgovor {
 
     /**
      * Sets the value of the osnov property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Osnov }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Osnov }
      */
     public void setOsnov(Osnov value) {
         this.osnov = value;

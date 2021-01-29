@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Java class for IzborZahteva complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="IzborZahteva">
  *   &lt;complexContent>
@@ -26,13 +26,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "IzborZahteva", propOrder = {
-    "tipDostave",
-    "drugiNacin"
+        "tipDostave",
+        "drugiNacin"
 })
 public class IzborZahteva {
 
@@ -52,11 +50,9 @@ public class IzborZahteva {
 
     /**
      * Gets the value of the tipDostave property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BiranjeZahteva }
-     *     
+     *
+     * @return possible object is
+     * {@link BiranjeZahteva }
      */
     public BiranjeZahteva getTipDostave() {
         return tipDostave;
@@ -64,11 +60,9 @@ public class IzborZahteva {
 
     /**
      * Sets the value of the tipDostave property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BiranjeZahteva }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BiranjeZahteva }
      */
     public void setTipDostave(BiranjeZahteva value) {
         this.tipDostave = value;
@@ -76,11 +70,9 @@ public class IzborZahteva {
 
     /**
      * Gets the value of the drugiNacin property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDrugiNacin() {
         return drugiNacin;
@@ -88,11 +80,9 @@ public class IzborZahteva {
 
     /**
      * Sets the value of the drugiNacin property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDrugiNacin(String value) {
         this.drugiNacin = value;
@@ -100,11 +90,9 @@ public class IzborZahteva {
 
     /**
      * Gets the value of the nazivIzbora property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNazivIzbora() {
         return nazivIzbora;
@@ -112,11 +100,9 @@ public class IzborZahteva {
 
     /**
      * Sets the value of the nazivIzbora property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNazivIzbora(String value) {
         this.nazivIzbora = value;
@@ -124,11 +110,9 @@ public class IzborZahteva {
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -136,11 +120,9 @@ public class IzborZahteva {
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -148,11 +130,9 @@ public class IzborZahteva {
 
     /**
      * Gets the value of the izabran property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     *
+     * @return possible object is
+     * {@link Boolean }
      */
     public Boolean isIzabran() {
         return izabran;
@@ -160,11 +140,9 @@ public class IzborZahteva {
 
     /**
      * Sets the value of the izabran property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Boolean }
      */
     public void setIzabran(Boolean value) {
         this.izabran = value;

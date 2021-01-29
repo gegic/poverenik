@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zahtev 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd"
-    xmlns:z="http://team14.xml.com/rdf/zahtevi"
-    xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
-    vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
-    about="http://team14.xml.com/rdf/zahtevi/5f9c00aa-a86c-4d26-8bc8-7021c086adb3"
-    id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+<zahtev
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../xmlSchema/zahtev.xsd"
+        xmlns:z="http://team14.xml.com/rdf/zahtevi"
+        xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
+        vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
+        about="http://team14.xml.com/rdf/zahtevi/5f9c00aa-a86c-4d26-8bc8-7021c086adb3"
+        id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
     <organ>
         <adresa>
             <mesto property="pred:mesto-ustanove" datatype="xs:string">Tutin</mesto>
@@ -42,7 +42,7 @@
             </tip-dostave>
         </izbor>
     </tip-zahteva>
-    <opis-zahteva property="pred:-organa" datatype="xs:string">O necemu interesantnom</opis-zahteva>    
+    <opis-zahteva property="pred:-organa" datatype="xs:string">O necemu interesantnom</opis-zahteva>
     <mesto property="pred:mesto-zahteva" datatype="xs:string">Tutin</mesto>
     <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
     <trazilac-informacije id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
