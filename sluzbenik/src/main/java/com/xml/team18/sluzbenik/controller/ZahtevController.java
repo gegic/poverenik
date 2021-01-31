@@ -37,8 +37,8 @@ public class ZahtevController {
         return ResponseEntity.ok(service.getById(id));
     }
 
-    @GetMapping
-    ResponseEntity<EntityList<Zahtev>> getAll() throws Exception {
-        return ResponseEntity.ok(new EntityList<Zahtev>(service.getAll()));
+    @GetMapping(path = "/korisnik/{korisnikId}")
+    ResponseEntity<EntityList<Zahtev>> getAll(@PathVariable String korisnikId) throws Exception {
+        return ResponseEntity.ok(new EntityList<Zahtev>(service.getAll(korisnikId)));
     }
 }

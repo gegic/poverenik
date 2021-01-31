@@ -35,7 +35,7 @@ public class ZahtevService {
         return jaxB.marshall(found, Zahtev.class, ZahtevFactory.class);
     }
 
-    public List<Zahtev> getAll() throws Exception {
-        return repository.getAll();
+    public List<Zahtev> getAll(String id) throws Exception {
+        return repository.getAllByKorisnikId(id);
     }
 }

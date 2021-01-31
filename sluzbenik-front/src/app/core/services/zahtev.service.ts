@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Zahtev} from '../model/zahtev';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ZahtevService {
 
-  zahtevi: Zahtev[];
+  zahtevi: any[];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,8 +15,7 @@ export class ZahtevService {
     return this.httpClient.post('/api/zahtevi', body);
   }
 
-  getAll(): Observable<any> {
-    return this.httpClient.get('/api/zahtevi');
+  getAllByKorisnikId(korisnikId: string): Observable<any> {
+    return this.httpClient.get(`/api/zahtevi/korisnik/${korisnikId}`);
   }
-
 }

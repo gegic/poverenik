@@ -6,6 +6,7 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
 import { PregledZahtevaComponent } from './pregled-zahteva/pregled-zahteva.component';
 import {DataViewModule} from 'primeng/dataview';
 import {InputTextModule} from 'primeng/inputtext';
+import {TableModule} from 'primeng/table';
 
 
 
@@ -15,7 +16,7 @@ import {InputTextModule} from 'primeng/inputtext';
     CommonModule,
     ButtonModule,
     ScrollPanelModule,
-    DataViewModule,
+    TableModule,
     InputTextModule
   ]
 })

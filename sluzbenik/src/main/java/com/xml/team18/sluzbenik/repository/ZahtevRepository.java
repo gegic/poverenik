@@ -26,7 +26,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
-public class ZahtevRepository implements XmlRepository<Zahtev> {
+public class ZahtevRepository {
     private final String collectionId = "/db/zahtevi";
 
     private final ExistManager existManager;
@@ -107,9 +107,10 @@ public class ZahtevRepository implements XmlRepository<Zahtev> {
         }
     }
 
-    public List<Zahtev> getAll() throws Exception {
+    public List<Zahtev> getAllByKorisnikId(String id) throws Exception {
+        String query = String.format("/zahtev[trazilac-informacije/@id = '%s']", id);
         List<Zahtev> zahtevi = new ArrayList<>();
-        ResourceIterator iterator = this.existManager.query(collectionId, "nesto").getIterator();
+        ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();
 
         while(iterator.hasMoreResources()) {
             Resource r = iterator.nextResource();

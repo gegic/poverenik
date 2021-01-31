@@ -1,8 +1,18 @@
-<!--<p-dataView #dv [value]="cars" filterBy="brand">-->
-<!--  <ng-template let-car pTemplate="listItem">-->
-<!--    {{car.id}}-->
-<!--  </ng-template>-->
-<!--  <ng-template let-car pTemplate="gridItem">-->
-<!--    {{car.year}}-->
-<!--  </ng-template>-->
-<!--</p-dataView>-->
+<p-table [value]="zahtevService.zahtevi">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Ustanova</th>
+      <th>Opis</th>
+      <th>XHTML</th>
+      <th>PDF</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-zahtev>
+    <tr>
+      <td>{{zahtev.organ.naziv._text}}</td>
+      <td>{{zahtev['opis-zahteva']._text}}</td>
+      <td>xhtml</td>
+      <td>pdf</td>
+    </tr>
+  </ng-template>
+</p-table>
