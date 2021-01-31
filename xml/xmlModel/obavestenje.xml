@@ -82,10 +82,10 @@
 
     <dostavljeno>
         <primalac>
-            <naziv property="pred:naziv-primaoca" datatype="xs:string">Imenovani</naziv>
+            Imenovani
         </primalac>
         <primalac>
-            <naziv property="pred:naziv-primaoca" datatype="xs:string">Arhiva</naziv>
+            Arhiva
         </primalac>
     </dostavljeno>
 </obavestenje>

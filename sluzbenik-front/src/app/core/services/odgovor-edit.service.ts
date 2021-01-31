@@ -707,13 +707,6 @@ export class OdgovorEditService {
               }
             );
           }
-          if (!jsElement.hasChildElement('datum')) {
-            Xonomy.warnings.push({
-                htmlID: jsElement.htmlID,
-                text: 'This element needs to have element datum.'
-              }
-            );
-          }
           if (!jsElement.hasChildElement('vreme')) {
             Xonomy.warnings.push({
                 htmlID: jsElement.htmlID,
@@ -737,14 +730,6 @@ export class OdgovorEditService {
           }
         },
         menu: [
-          {
-            caption: 'Append an <datum>',
-            action: Xonomy.newElementChild,
-            actionParameter: '<datum></datum>',
-            hideIf(jsElement: any): boolean {
-              return jsElement.hasChildElement('datum');
-            }
-          },
           {
             caption: 'Append an <vreme>',
             action: Xonomy.newElementChild,
@@ -1192,7 +1177,6 @@ export class OdgovorEditService {
     </zahtev>
     <sadrzaj-obavestenja>
         <prihvacen-zahtev>
-            <datum></datum>
             <vreme/>
             <kancelarija></kancelarija>
             <adresa>

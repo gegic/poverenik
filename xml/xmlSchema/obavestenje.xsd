@@ -73,7 +73,7 @@
     </xs:complexType>
     <xs:complexType name="Dostavljeno">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="primalac" type="Organ"/>
+            <xs:element maxOccurs="unbounded" name="primalac" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="Primalac">

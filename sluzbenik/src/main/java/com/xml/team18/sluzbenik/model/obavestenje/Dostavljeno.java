@@ -35,7 +35,7 @@ import java.util.List;
 public class Dostavljeno {
 
     @XmlElement(required = true)
-    protected List<Organ> primalac;
+    protected List<String> primalac;
 
     /**
      * Gets the value of the primalac property.
@@ -57,9 +57,9 @@ public class Dostavljeno {
      * Objects of the following type(s) are allowed in the list
      * {@link Organ }
      */
-    public List<Organ> getPrimalac() {
+    public List<String> getPrimalac() {
         if (primalac == null) {
-            primalac = new ArrayList<Organ>();
+            primalac = new ArrayList<String>();
         }
         return this.primalac;
     }
