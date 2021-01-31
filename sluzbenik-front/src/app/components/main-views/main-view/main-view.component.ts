@@ -28,8 +28,8 @@ export class MainViewComponent implements OnInit {
           routerLink: '/podnosenje-zahteva'
         },
         {
-          label: 'Pregled dokumenata',
-          routerLink: '/pregled-dokumenata'
+          label: 'Pregled zahteva',
+          routerLink: '/pregled-zahteva'
         }
       ];
     }

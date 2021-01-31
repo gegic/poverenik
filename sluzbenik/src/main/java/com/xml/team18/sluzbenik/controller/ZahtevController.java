@@ -1,5 +1,6 @@
 package com.xml.team18.sluzbenik.controller;
 
+import com.xml.team18.sluzbenik.dto.EntityList;
 import com.xml.team18.sluzbenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import com.xml.team18.sluzbenik.service.ZahtevService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.JAXBException;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping(
@@ -33,5 +35,10 @@ public class ZahtevController {
     @GetMapping(path = "/{id}")
     ResponseEntity<String> getById(@PathVariable String id) throws ResourceNotFoundException, JAXBException {
         return ResponseEntity.ok(service.getById(id));
+    }
+
+    @GetMapping
+    ResponseEntity<EntityList<Zahtev>> getAll() throws Exception {
+        return ResponseEntity.ok(new EntityList<Zahtev>(service.getAll()));
     }
 }

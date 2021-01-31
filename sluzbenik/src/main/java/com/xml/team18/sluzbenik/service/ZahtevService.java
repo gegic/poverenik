@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
+import java.util.List;
 
 @Service
 public class ZahtevService {
@@ -32,5 +33,9 @@ public class ZahtevService {
     public String getById(String id) throws ResourceNotFoundException, JAXBException {
         Zahtev found = repository.findById(id);
         return jaxB.marshall(found, Zahtev.class, ZahtevFactory.class);
+    }
+
+    public List<Zahtev> getAll() throws Exception {
+        return repository.getAll();
     }
 }

@@ -7,13 +7,15 @@ import {Route, RouterModule} from '@angular/router';
 import {MainViewComponent} from './components/main-views/main-view/main-view.component';
 import {GradjaninViewComponent} from './components/main-views/gradjanin-view/gradjanin-view.component';
 import {PodnosenjeZahtevaComponent} from './components/zahtev/podnosenje-zahteva/podnosenje-zahteva.component';
+import {PregledZahtevaComponent} from './components/zahtev/pregled-zahteva/pregled-zahteva.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
   {path: 'registracija', component: RegistracijaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
   {path: '', component: MainViewComponent, children: [
       {path: '', component: GradjaninViewComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
-      {path: 'podnosenje-zahteva', component: PodnosenjeZahtevaComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]}
+      {path: 'podnosenje-zahteva', component: PodnosenjeZahtevaComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
+      {path: 'pregled-zahteva', component: PregledZahtevaComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]}
     ]
   }
 ];

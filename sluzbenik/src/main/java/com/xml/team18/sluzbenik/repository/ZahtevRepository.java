@@ -11,12 +11,15 @@ import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
+import org.xmldb.api.base.Resource;
+import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -105,16 +108,16 @@ public class ZahtevRepository implements XmlRepository<Zahtev> {
     }
 
     public List<Zahtev> getAll() throws Exception {
-        return this.existManager.readAll(collectionId).stream().map(con -> {
-            try {
-                return (Zahtev) ((JAXBElement<?>) jaxB
-                        .unmarshall(con, Zahtev.class, ZahtevFactory.class))
-                        .getValue();
-            } catch (JAXBException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }).collect(Collectors.toList());
+        List<Zahtev> zahtevi = new ArrayList<>();
+        ResourceIterator iterator = this.existManager.query(collectionId, "nesto").getIterator();
+
+        while(iterator.hasMoreResources()) {
+            Resource r = iterator.nextResource();
+            zahtevi.add((Zahtev) ((JAXBElement<?>) jaxB
+                    .unmarshall(r.getContent().toString(), Zahtev.class, ZahtevFactory.class))
+                    .getValue());
+        }
+        return zahtevi;
     }
 
     private String checkForId(String xmlZahtev) throws JAXBException {
