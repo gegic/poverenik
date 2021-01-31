@@ -11,10 +11,9 @@ import org.springframework.stereotype.Service;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
-import java.util.UUID;
 
 @Service
-public class ZahtevService implements SluzbenikService<Zahtev> {
+public class ZahtevService {
     private final ZahtevRepository repository;
     private final JaxB jaxB;
 
@@ -25,16 +24,13 @@ public class ZahtevService implements SluzbenikService<Zahtev> {
         this.jaxB = jaxB;
     }
 
-    public String save(String zahtevXml) throws JAXBException {
-        Zahtev z = (Zahtev) ((JAXBElement<?>) this.jaxB.unmarshall(zahtevXml, Zahtev.class, ZahtevFactory.class)).getValue();
+    public String save(Zahtev z) throws JAXBException {
         z = this.repository.save(z);
         return z.getId();
     }
 
-    @Override
     public String getById(String id) throws ResourceNotFoundException, JAXBException {
         Zahtev found = repository.findById(id);
-        JAXBElement<Zahtev> element = new JAXBElement<Zahtev>(QName.valueOf("zahtev"), Zahtev.class, found);
-        return jaxB.marshall(element, Zahtev.class, ZahtevFactory.class);
+        return jaxB.marshall(found, Zahtev.class, ZahtevFactory.class);
     }
 }

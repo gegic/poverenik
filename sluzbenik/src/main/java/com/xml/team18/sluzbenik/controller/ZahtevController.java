@@ -1,6 +1,7 @@
 package com.xml.team18.sluzbenik.controller;
 
 import com.xml.team18.sluzbenik.exceptions.ResourceNotFoundException;
+import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import com.xml.team18.sluzbenik.service.ZahtevService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,8 +26,8 @@ public class ZahtevController {
     }
 
     @PostMapping
-    ResponseEntity<String> addZahtev(@RequestBody String xmlZahtev) throws JAXBException {
-        return ResponseEntity.created(URI.create(this.service.save(xmlZahtev))).build();
+    ResponseEntity<String> addZahtev(@RequestBody Zahtev zahtev) throws JAXBException {
+        return ResponseEntity.created(URI.create(this.service.save(zahtev))).build();
     }
 
     @GetMapping(path = "/{id}")

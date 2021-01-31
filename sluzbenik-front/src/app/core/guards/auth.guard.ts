@@ -41,11 +41,11 @@ export class AuthGuard implements CanActivate {
     } else {
       const auth = this.authorize(accessRoles, korisnik) ?? false;
       if (!auth) {
-        if (korisnik.uloga._text === 'poverenik') {
-          this.router.navigate(['nedje']);
+        if (korisnik.uloga._text === 'gradjanin') {
+          this.router.navigate(['']);
           return false;
         } else {
-          this.router.navigate(['']);
+          this.router.navigate(['sluzbenik']);
           return false;
         }
       }
@@ -55,6 +55,8 @@ export class AuthGuard implements CanActivate {
   }
 
   private authorize(accessRoles: string[], korisnik: Korisnik | null): boolean {
+    console.log(accessRoles);
+    console.log(korisnik.uloga._text);
     if (!korisnik) {
       return false;
     }

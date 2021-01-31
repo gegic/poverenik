@@ -5,27 +5,35 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import {AuthModule} from './components/auth/auth.module';
-import { NavbarComponent } from './components/main-views/navbar/navbar.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {JwtInterceptor} from './core/interceptors/jwt.interceptor';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
+import {MenubarModule} from 'primeng/menubar';
+import { MainViewComponent } from './components/main-views/main-view/main-view.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import { GradjaninViewComponent } from './components/main-views/gradjanin-view/gradjanin-view.component';
+import {ZahtevModule} from './components/zahtev/zahtev.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    MainViewComponent,
+    GradjaninViewComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     RouterModule,
-    ToastModule
+    ToastModule,
+    MenubarModule,
+    ButtonModule,
+    ZahtevModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

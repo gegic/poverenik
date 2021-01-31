@@ -6,7 +6,58 @@
         <xs:sequence>
             <xs:element name="organ" type="Organ"/>
             <xs:element name="zakon" type="Akt"/>
-            <xs:element name="tip-zahteva" type="BiranjeZahteva"></xs:element>
+            <xs:element name="tip-zahteva">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="obavestenje-posedovanja">
+                            <xs:complexType>
+                                <xs:attribute name="izabran" type="xs:boolean"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="uvid-u-dokument">
+                            <xs:complexType>
+                                <xs:attribute name="izabran" type="xs:boolean"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="kopija-dokumenta">
+                            <xs:complexType>
+                                <xs:attribute name="izabran" type="xs:boolean"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="dostavljanje-kopije">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="posta">
+                                        <xs:complexType>
+                                            <xs:attribute name="izabran" type="xs:boolean"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="eposta">
+                                        <xs:complexType>
+                                            <xs:attribute name="izabran" type="xs:boolean"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="faks">
+                                        <xs:complexType>
+                                            <xs:attribute name="izabran" type="xs:boolean"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="drugi-nacin">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                  <xs:attribute name="izabran" type="xs:boolean"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="izabran" type="xs:boolean"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="opis-zahteva">
                 <xs:complexType>
                     <xs:simpleContent>
@@ -48,24 +99,5 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-    </xs:complexType>
-    <xs:complexType name="BiranjeZahteva">
-        <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="izbor" type="IzborZahteva"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="IzborZahteva">
-        <xs:choice minOccurs="0">
-            <xs:element name="tip-dostave" type="BiranjeZahteva">
-                <xs:key name="kljucDostave">
-                    <xs:selector xpath="izbor"/>
-                    <xs:field xpath="@id"/>
-                </xs:key>
-            </xs:element>
-            <xs:element name="drugi-nacin" type="xs:string"/>
-        </xs:choice>
-        <xs:attribute name="naziv-izbora" type="xs:string" use="required"/>
-        <xs:attribute name="id" type="xs:ID"/>
-        <xs:attribute name="izabran" type="xs:boolean"/>
     </xs:complexType>
 </xs:schema>

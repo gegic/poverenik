@@ -47,7 +47,8 @@ export class PrijavaComponent implements OnInit {
 
     this.authService.login(xmlPrijava).subscribe(val => {
       console.log(val);
-      const tokenOdgovor = JSON.parse(xml.xml2json(val));
+      const tokenOdgovor = xml.xml2js(val, {compact: true}) as TokenOdgovor;
+      console.log(tokenOdgovor);
       this.authService.loggedIn(tokenOdgovor.odgovor.token._text, tokenOdgovor.odgovor.korisnik);
       this.router.navigate(['']);
     });

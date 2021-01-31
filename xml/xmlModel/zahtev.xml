@@ -28,21 +28,9 @@
         </sluzbeni-glasnik>
     </zakon>
     <tip-zahteva>
-        <izbor izabran="true" id="Z1" naziv-izbora="обавештење да ли поседује тражену информацију"/>
-        <izbor id="Z2" naziv-izbora="увид у документ који садржи тражену информацију"/>
-        <izbor id="Z3" naziv-izbora="копију документа који садржи тражену информацију"/>
-        <izbor id="Z4" naziv-izbora="достављање копије документа који садржи тражену информацију">
-            <tip-dostave>
-                <izbor izabran="true" id="D1" naziv-izbora="поштом"/>
-                <izbor id="D2" naziv-izbora="електронском поштом"/>
-                <izbor id="D3" naziv-izbora="факсом"/>
-                <izbor id="D4" naziv-izbora="на други начин">
-                    <drugi-nacin></drugi-nacin>
-                </izbor>
-            </tip-dostave>
-        </izbor>
+        <obavestenje-posedovanja-informacije></obavestenje-posedovanja-informacije>
     </tip-zahteva>
-    <opis-zahteva property="pred:-organa" datatype="xs:string">O necemu interesantnom</opis-zahteva>
+    <opis-zahteva property="pred:opis-zahteva" datatype="xs:string">O necemu interesantnom</opis-zahteva>
     <mesto property="pred:mesto-zahteva" datatype="xs:string">Tutin</mesto>
     <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
     <trazilac-informacije id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
