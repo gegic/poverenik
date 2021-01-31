@@ -34,10 +34,12 @@ public class JaxB {
         marshaller.marshal(toMarshall, sw);
         Pattern p = Pattern.compile("rdfa_(.{1,6})=");
         Matcher m = p.matcher(sw.toString());
-        String marshalled = null;
+        String marshalled;
         if (m.find()) {
             marshalled = m.replaceAll("xmlns:$1=");
+            return marshalled;
+        } else {
+            return sw.toString();
         }
-        return marshalled;
     }
 }

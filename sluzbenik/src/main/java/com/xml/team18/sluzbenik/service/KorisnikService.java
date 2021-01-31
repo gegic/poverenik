@@ -32,6 +32,7 @@ public class KorisnikService implements UserDetailsService {
             throw new ResourceExistsException(korisnik.getClass().getName(), korisnik.getEmail());
         }
 
+        korisnik.setUloga("gradjanin");
         korisnik.setLozinka(passwordEncoder.encode(korisnik.getLozinka()));
 
         return this.korisnikRepository.save(korisnik);

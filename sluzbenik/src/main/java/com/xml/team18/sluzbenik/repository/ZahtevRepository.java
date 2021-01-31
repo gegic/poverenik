@@ -69,7 +69,7 @@ public class ZahtevRepository implements XmlRepository<Zahtev> {
 
     public Zahtev findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
-        String contentFound = null;
+        String contentFound;
         try {
             contentFound = found.getContent().toString();
             return (Zahtev) ((JAXBElement<?>) jaxB

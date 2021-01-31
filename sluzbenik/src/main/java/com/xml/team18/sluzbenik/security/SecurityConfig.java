@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
-                .authorizeRequests()
+                .authorizeRequests().antMatchers("/api/**").authenticated()
                 .antMatchers("/auth/**").permitAll().and()
                 .addFilterBefore(new TokenAuthenticationFilter(korisnikService), BasicAuthenticationFilter.class);
 

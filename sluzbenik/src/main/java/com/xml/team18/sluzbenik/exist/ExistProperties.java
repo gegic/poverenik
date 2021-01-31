@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "com/xml/team18/sluzbenik/exist")
+@ConfigurationProperties(prefix = "exist")
 @Data
 public class ExistProperties {
     private String user;

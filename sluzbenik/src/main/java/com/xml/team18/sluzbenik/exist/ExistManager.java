@@ -24,13 +24,13 @@ import java.util.stream.Collectors;
 @Service
 public class ExistManager {
 
-    private final static String TARGET_NAMESPACE = "http://team14.xml.com";
+    private final static String TARGET_NAMESPACE = "";
 
     public static final String UPDATE = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
-            + "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:update select=\"%1$s\">%2$s</xu:update>"
+            + ">" + "<xu:update select=\"%1$s\">%2$s</xu:update>"
             + "</xu:modifications>";
     public static final String APPEND = "<xu:modifications version=\"1.0\" xmlns:xu=\"" + XUpdateProcessor.XUPDATE_NS
-            + "\" xmlns=\"" + TARGET_NAMESPACE + "\">" + "<xu:append select=\"%1$s\" child=\"last()\">%2$s</xu:append>"
+            + ">" + "<xu:append select=\"%1$s\" child=\"last()\">%2$s</xu:append>"
             + "</xu:modifications>";
 
     private final ExistProperties existProperties;

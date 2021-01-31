@@ -13,6 +13,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +24,20 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = "/auth", produces = MediaType.APPLICATION_XML_VALUE)
 public class AuthController {
+
+    private final KorisnikService korisnikService;
+    private final AuthenticationManager authenticationManager;
+
     @Autowired
-    KorisnikService korisnikService;
-    @Autowired
-    AuthenticationManager authenticationManager;
+    private AuthController(KorisnikService korisnikService,
+                           AuthenticationManager authenticationManager) {
+        this.korisnikService = korisnikService;
+        this.authenticationManager = authenticationManager;
+    }
 
     @PostMapping(value = "/prijava", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody PrijavaDto authenticationRequest) {
-        Authentication authentication = null;
+        Authentication authentication;
         try {
             authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     authenticationRequest.getEmail(), authenticationRequest.getLozinka()));
@@ -50,9 +57,11 @@ public class AuthController {
 
     @PostMapping(value = "/registracija", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> addUser(@Valid @RequestBody Korisnik userRequest) throws Exception {
-        Korisnik existEmail = this.korisnikService.loadUserByUsername(userRequest.getEmail());
-        if (existEmail != null) {
-            return new ResponseEntity<>("Već postoji korisnik sa unetim e-mailom.", HttpStatus.CONFLICT);
+        Korisnik k;
+        try {
+            this.korisnikService.loadUserByUsername(userRequest.getEmail());
+            return new ResponseEntity<>("Korisnik sa emailom vec postoji", HttpStatus.CONFLICT);
+        } catch (UsernameNotFoundException ignored) {
         }
         Korisnik noviKorisnik;
         try {

@@ -45,9 +45,8 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
             this.existManager.saveRaw(collectionId, id, rawXml);
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
-            return (Korisnik) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class))
-                    .getValue();
+            return (Korisnik) jaxB
+                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class);
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -90,9 +89,8 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
         String contentFound;
         try {
             contentFound = this.existManager.query(collectionId, xPath).getResource(0).getContent().toString();
-            return (Korisnik) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class))
-                    .getValue();
+            return (Korisnik) jaxB
+                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class);
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
             return null;

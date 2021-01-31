@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "com/xml/team18/sluzbenik/fuseki")
+@ConfigurationProperties(prefix = "fuseki")
 @Data
 public class FusekiProperties {
     private String endpoint;
