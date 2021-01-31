@@ -32,6 +32,26 @@ export class MainViewComponent implements OnInit {
           routerLink: '/pregled-zahteva'
         }
       ];
+    } else {
+      this.items = [
+        {
+          label: 'Početna',
+          routerLink: '/sluzbenik',
+        },
+        {
+          label: 'Novi zahtevi',
+          routerLink: '/novi-zahtevi'
+        },
+        {
+          label: 'Pregled svih prethodnih dokumenata',
+          routerLink: '/pregled-dokumenata'
+        },
+        {
+          label: 'Izveštaj',
+          routerLink: '/izvestaj'
+        }
+
+      ];
     }
   }
 

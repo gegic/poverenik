@@ -12,6 +12,9 @@ import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [PodnosenjeZahtevaComponent, PregledZahtevaComponent],
+  exports: [
+    PregledZahtevaComponent
+  ],
   imports: [
     CommonModule,
     ButtonModule,

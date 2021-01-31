@@ -19,6 +19,10 @@ export class ZahtevService {
     return this.httpClient.get(`/api/zahtevi/korisnik/${korisnikId}`);
   }
 
+  getAllNeodgovoreni(): Observable<any> {
+    return this.httpClient.get('/api/zahtevi/neodgovoreni');
+  }
+
   generatePdf(id: string): Observable<any> {
     return this.httpClient.post(`/api/zahtevi/generate-pdf/${id}`, null);
   }

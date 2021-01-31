@@ -2,36 +2,42 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {ZahtevEditService} from '../../../core/services/zahtev-edit.service';
 import {MessageService} from 'primeng/api';
 import {ZahtevService} from '../../../core/services/zahtev.service';
-import {Router, RouterOutlet} from '@angular/router';
+import {Router} from '@angular/router';
+import {OdgovorEditService} from '../../../core/services/odgovor-edit.service';
+import {OdgovorService} from '../../../core/services/odgovor.service';
 
 @Component({
-  selector: 'app-podnosenje-zahteva',
-  templateUrl: './podnosenje-zahteva.component.html',
-  styleUrls: ['./podnosenje-zahteva.component.scss']
+  selector: 'app-slanje-odgovora',
+  templateUrl: './slanje-odgovora.component.html',
+  styleUrls: ['./slanje-odgovora.component.css']
 })
-export class PodnosenjeZahtevaComponent implements OnInit, AfterViewInit {
-  @ViewChild('zahtevXonomy', { static: false }) zahtevXonomy: ElementRef;
+export class SlanjeOdgovoraComponent implements OnInit, AfterViewInit {
 
-  constructor(private editService: ZahtevEditService,
+  @ViewChild('odgovorXonomy', { static: false }) odgovorXonomy: ElementRef;
+
+  constructor(public editService: OdgovorEditService,
               private messageService: MessageService,
-              private zahtevService: ZahtevService,
+              private odgovorService: OdgovorService,
               private router: Router) { }
 
   ngOnInit(): void {
+    if (!this.editService.zahtev.getValue()) {
+      this.router.navigate(['']);
+    }
   }
 
   ngAfterViewInit(): void {
-    this.editService.render(this.zahtevXonomy.nativeElement);
+    this.editService.render(this.odgovorXonomy.nativeElement);
   }
 
-  submitZahtev(): void {
+  submitOdgovor(): void {
     if (this.editService.warnings.length > 0) {
       this.messageService.add({severity: 'error', summary: 'Neuspešno podnošenje', detail: 'Prvo proverite sva upozorenja za zahtev.'})
     }
 
-    const zahtevString: string = this.editService.harvest();
+    const odgovorString: string = this.editService.harvest();
 
-    this.zahtevService.create(zahtevString).subscribe(() =>
+    this.odgovorService.send(odgovorString).subscribe(() =>
       {
         this.messageService.add({severity: 'success', summary: 'Uspešno podnet zahtev', detail: 'Vaš zahtev je uspešno podnet'});
         this.router.navigate(['']);

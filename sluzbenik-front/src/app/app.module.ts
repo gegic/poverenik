@@ -16,12 +16,15 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { GradjaninViewComponent } from './components/main-views/gradjanin-view/gradjanin-view.component';
 import {ZahtevModule} from './components/zahtev/zahtev.module';
+import { SluzbenikViewComponent } from './components/main-views/sluzbenik-view/sluzbenik-view.component';
+import {OdgovorModule} from './components/odgovor/odgovor.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainViewComponent,
-    GradjaninViewComponent
+    GradjaninViewComponent,
+    SluzbenikViewComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import {ZahtevModule} from './components/zahtev/zahtev.module';
     ToastModule,
     MenubarModule,
     ButtonModule,
-    ZahtevModule
+    ZahtevModule,
+    OdgovorModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

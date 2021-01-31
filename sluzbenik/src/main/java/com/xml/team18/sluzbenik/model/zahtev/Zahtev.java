@@ -4,6 +4,7 @@ package com.xml.team18.sluzbenik.model.zahtev;
 import com.xml.team18.sluzbenik.model.docs.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -56,6 +57,10 @@ public class Zahtev {
     @Getter
     @Setter
     protected String pred;
+    @XmlAttribute(name = "prihvatanje")
+    @Getter
+    @Setter
+    protected String prihvatanje;
 
     /**
      * Gets the value of the organ property.

@@ -41,6 +41,10 @@ public class ZahtevService {
         return repository.getAllByKorisnikId(id);
     }
 
+    public List<Zahtev> getAllNeodgovoreni() throws Exception {
+        return repository.getAllNeodgovoreni();
+    }
+
     public String generatePdfZahtev(String id) throws Exception {
         Zahtev z = repository.findById(id);
         return zahtevGenerator.generatePDF(z);

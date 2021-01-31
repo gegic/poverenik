@@ -106,8 +106,6 @@ public class Obavestenje {
     protected String about;
     @XmlAttribute(name = "id")
     protected String id;
-    @XmlAttribute(name = "zahtev-prihvacen", required = true)
-    protected boolean zahtevPrihvacen;
 
     /**
      * Gets the value of the broj property.
@@ -387,20 +385,6 @@ public class Obavestenje {
      */
     public void setId(String value) {
         this.id = value;
-    }
-
-    /**
-     * Gets the value of the zahtevPrihvacen property.
-     */
-    public boolean isZahtevPrihvacen() {
-        return zahtevPrihvacen;
-    }
-
-    /**
-     * Sets the value of the zahtevPrihvacen property.
-     */
-    public void setZahtevPrihvacen(boolean value) {
-        this.zahtevPrihvacen = value;
     }
 
 }

@@ -1,6 +1,7 @@
 package com.xml.team18.sluzbenik.controller;
 
 import com.xml.team18.sluzbenik.exceptions.ResourceNotFoundException;
+import com.xml.team18.sluzbenik.model.obavestenje.Obavestenje;
 import com.xml.team18.sluzbenik.service.ObavestenjeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,8 +26,8 @@ public class ObavestenjeController {
     }
 
     @PostMapping
-    ResponseEntity<String> addObavestenje(@RequestBody String xmlObavestenje) throws JAXBException {
-        return ResponseEntity.created(URI.create(this.service.save(xmlObavestenje))).build();
+    ResponseEntity<String> addObavestenje(@RequestBody Obavestenje obavestenje) throws JAXBException {
+        return ResponseEntity.created(URI.create(this.service.save(obavestenje))).build();
     }
 
     @GetMapping(path = "/{id}")

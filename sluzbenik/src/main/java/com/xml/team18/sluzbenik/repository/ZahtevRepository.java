@@ -72,6 +72,7 @@ public class ZahtevRepository {
             z.getTrazilacInformacije().getImePrezime().setProperty("pred:ime-prezime-trazioca");
             z.getTrazilacInformacije().getImePrezime().setDatatype("xs:string");
             z.getTrazilacInformacije().setId(k.getId());
+            z.setPrihvatanje("neodgovoren");
 
             JAXBElement<Zahtev> element = new JAXBElement<Zahtev>(QName.valueOf("zahtev"), Zahtev.class, z);
             String rawXml = jaxB.marshall(element, Zahtev.class, ZahtevFactory.class);
@@ -109,6 +110,20 @@ public class ZahtevRepository {
 
     public List<Zahtev> getAllByKorisnikId(String id) throws Exception {
         String query = String.format("/zahtev[trazilac-informacije/@id = '%s']", id);
+        List<Zahtev> zahtevi = new ArrayList<>();
+        ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();
+
+        while(iterator.hasMoreResources()) {
+            Resource r = iterator.nextResource();
+            zahtevi.add((Zahtev) ((JAXBElement<?>) jaxB
+                    .unmarshall(r.getContent().toString(), Zahtev.class, ZahtevFactory.class))
+                    .getValue());
+        }
+        return zahtevi;
+    }
+
+    public List<Zahtev> getAllNeodgovoreni() throws Exception {
+        String query = "/zahtev[@prihvatanje = 'neodgovoren']";
         List<Zahtev> zahtevi = new ArrayList<>();
         ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();
 
