@@ -39,6 +39,29 @@ public class ZahtevController {
 
     @GetMapping(path = "/korisnik/{korisnikId}")
     ResponseEntity<EntityList<Zahtev>> getAll(@PathVariable String korisnikId) throws Exception {
-        return ResponseEntity.ok(new EntityList<Zahtev>(service.getAll(korisnikId)));
+        return ResponseEntity.ok(
+                new EntityList<Zahtev>(service.getAll(korisnikId)));
+    }
+
+    @PostMapping(value = "/generate-pdf/{id}")
+    public ResponseEntity<String> generatePDFZahtev(@PathVariable String id) {
+        try {
+            String path = service.generatePdfZahtev(id);
+            return ResponseEntity.ok(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @PostMapping(value = "/generate-xhtml/{id}")
+    public ResponseEntity<String> generateXhtmlZahtev(@PathVariable String id) {
+        try {
+            String path = service.generateXhtmlZahtev(id);
+            return ResponseEntity.ok(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

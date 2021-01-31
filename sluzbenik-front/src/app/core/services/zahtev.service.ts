@@ -18,4 +18,12 @@ export class ZahtevService {
   getAllByKorisnikId(korisnikId: string): Observable<any> {
     return this.httpClient.get(`/api/zahtevi/korisnik/${korisnikId}`);
   }
+
+  generatePdf(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zahtevi/generate-pdf/${id}`, null);
+  }
+
+  generateXHTML(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zahtevi/generate-xhtml/${id}`, null);
+  }
 }

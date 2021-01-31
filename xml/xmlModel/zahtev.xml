@@ -33,8 +33,7 @@
     <opis-zahteva property="pred:opis-zahteva" datatype="xs:string">O necemu interesantnom</opis-zahteva>
     <mesto property="pred:mesto-zahteva" datatype="xs:string">Tutin</mesto>
     <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>
-    <trazilac-informacije>
-        <id>ad440aa9-b8ca-4e2c-8602-1c323bbf04a9</id>
+    <trazilac-informacije id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
         <adresa>
             <mesto property="pred:mesto-trazioca" datatype="xs:string">Tutin</mesto>
             <ulica property="pred:ulica-trazioca" datatype="xs:string">Svetozara Markovica bb</ulica>
