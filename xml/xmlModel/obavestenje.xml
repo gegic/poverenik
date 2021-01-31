@@ -7,7 +7,6 @@
         vocab="http://team14.xml.com/rdf/obavestenja/predicate/"
         about="http://team14.xml.com/rdf/obavestenja/3c3cd82a-0baa-4d65-8392-cde2e36a43c3"
         id="3c3cd82a-0baa-4d65-8392-cde2e36a43c3"
-        zahtev-prihvacen="true"
 >
     <broj>1/2021</broj>
     <datum>2021-01-04</datum>
@@ -43,7 +42,7 @@
     <sadrzaj-obavestenja>
         <prihvacen-zahtev>
             <datum property="pred:datum-obavestenja" datatype="xs:date">2019-04-18</datum>
-            <vreme pocetak="10:30:00" zavrsetak="10:45:00" xsi:type="VremePeriod"/>
+            <vreme pocetak="10:30:00" zavrsetak="10:40:00" xsi:type="VremePeriod"/>
             <kancelarija property="pred:kancelarija" datatype="xs:positiveInt">3</kancelarija>
             <adresa>
                 <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>

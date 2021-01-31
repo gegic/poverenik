@@ -6,6 +6,7 @@
         <th>Opis</th>
         <th>XHTML</th>
         <th>PDF</th>
+        <th>Odgovor</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-zahtev>
@@ -25,6 +26,18 @@
                   (click)="generatePdf(zahtev)"
                   pButton
           ></button>
+        </td>
+        <td>
+          <ng-container *ngIf="authService.getKorisnikRole() === 'gradjanin'; else prihvati" >
+            {{zahtev._attributes.prihvatanje}}
+          </ng-container>
+          <ng-template #prihvati>
+            <button class="p-button p-button-success"
+                    label="Odgovori"
+                    (click)="odgovori(zahtev)"
+                    pButton
+            ></button>
+          </ng-template>
         </td>
       </tr>
     </ng-template>

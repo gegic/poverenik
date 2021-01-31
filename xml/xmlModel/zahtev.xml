@@ -6,7 +6,9 @@
         xmlns:pred="http://team14.xml.com/rdf/zahtevi/predicate/"
         vocab="http://team14.xml.com/rdf/zahtevi/predicate/"
         about="http://team14.xml.com/rdf/zahtevi/5f9c00aa-a86c-4d26-8bc8-7021c086adb3"
-        id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
+        id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3"
+        prihvatanje="neodgovoren"
+    >
     <organ>
         <adresa>
             <mesto property="pred:mesto-ustanove" datatype="xs:string">Tutin</mesto>

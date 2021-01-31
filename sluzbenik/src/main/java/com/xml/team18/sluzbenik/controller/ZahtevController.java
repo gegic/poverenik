@@ -43,6 +43,12 @@ public class ZahtevController {
                 new EntityList<Zahtev>(service.getAll(korisnikId)));
     }
 
+    @GetMapping(path = "/neodgovoreni")
+    ResponseEntity<EntityList<Zahtev>> getAllNeodgovoreni() throws Exception {
+        return ResponseEntity.ok(
+                new EntityList<Zahtev>(service.getAllNeodgovoreni()));
+    }
+
     @PostMapping(value = "/generate-pdf/{id}")
     public ResponseEntity<String> generatePDFZahtev(@PathVariable String id) {
         try {

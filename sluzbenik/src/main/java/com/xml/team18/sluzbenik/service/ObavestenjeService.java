@@ -15,7 +15,7 @@ import javax.xml.namespace.QName;
 import java.util.UUID;
 
 @Service
-public class ObavestenjeService implements SluzbenikService<Obavestenje> {
+public class ObavestenjeService {
     private final ObavestenjeRepository repository;
     private final JaxB jaxB;
 
@@ -26,13 +26,11 @@ public class ObavestenjeService implements SluzbenikService<Obavestenje> {
         this.jaxB = jaxB;
     }
 
-    public String save(String obavestenjeXml) throws JAXBException {
-        Obavestenje r = (Obavestenje) ((JAXBElement<?>) this.jaxB.unmarshall(obavestenjeXml, Obavestenje.class, ObavestenjeFactory.class)).getValue();
-        r = this.repository.save(r);
-        return r.getId();
+    public String save(Obavestenje obavestenje) throws JAXBException {
+        Obavestenje o = this.repository.save(obavestenje);
+        return o.getId();
     }
 
-    @Override
     public String getById(String id) throws ResourceNotFoundException, JAXBException {
         Obavestenje found = repository.findById(id);
         JAXBElement<Obavestenje> element = new JAXBElement<Obavestenje>(QName.valueOf("obavestenje"), Obavestenje.class, found);

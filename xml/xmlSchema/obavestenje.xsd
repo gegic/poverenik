@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-           xmlns:obavestenje="http://www.ftn.uns.ac.rs/obavestenje">
+    xmlns:obavestenje="http://www.ftn.uns.ac.rs/obavestenje">
 
     <xs:include schemaLocation="docs.xsd"/>
     <xs:element name="obavestenje" type="Obavestenje"/>
@@ -27,7 +27,6 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="zahtev-prihvacen" type="xs:boolean" use="required"/>
     </xs:complexType>
     <xs:complexType name="Sadrzaj">
         <xs:choice>
@@ -88,7 +87,7 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="model" default="97" type="xs:int"></xs:attribute>
+        <xs:attribute name="model" default="97" type="xs:int"/>
         <xs:attribute name="poziv-na-broj" use="required">
             <xs:simpleType>
                 <xs:restriction base="xs:string">
