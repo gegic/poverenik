@@ -6,6 +6,8 @@
         <th>XHTML</th>
         <th>PDF</th>
         <th>Odgovor</th>
+        <th></th>
+        <th *ngIf="authService.getKorisnikRole() === 'sluzbenik'"></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-zahtev>
@@ -26,18 +28,24 @@
           ></button>
         </td>
         <td>
-          <ng-container *ngIf="tip === 'neodgovoreni-zahtevi'; else korisnikovi">
+          <ng-container *ngIf="tip === 'neodgovoreni-zahtevi'; else ostali">
             <button class="p-button p-button-success"
                     label="Odgovori"
                     (click)="odgovori(zahtev)"
                     pButton
             ></button>
           </ng-container>
-          <ng-template #korisnikovi>
+          <ng-template #ostali>
             {{zahtev._attributes.prihvatanje}}
           </ng-template>
-
         </td>
+        <td>
+          <button class="p-button-secondary" label="Detalji" (click)="detalji(zahtev)" pButton></button>
+        </td>
+        <td *ngIf="authService.getKorisnikRole() === 'sluzbenik'">
+          <button [disabled]="zahtev._attributes.prihvatanje !== 'neodgovoren'" class="p-button-danger" label="Odbij" (click)="odbij(zahtev._attributes.id)" pButton></button>
+        </td>
+
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">

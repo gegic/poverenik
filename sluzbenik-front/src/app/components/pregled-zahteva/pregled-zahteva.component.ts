@@ -24,40 +24,57 @@ export class PregledZahtevaComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.activatedRoute.data.subscribe(value => {
-      if (value.tip === 'korisnikovi-zahtevi') {
-        this.zahtevService.getAllByKorisnikId(this.authService.korisnik.getValue()._attributes.id).subscribe(val => {
-          const z = (xml.xml2js(val, {compact: true}) as any).entityList.zahtev;
-          if (Array.isArray(z)) {
-            this.zahtevService.zahtevi = z;
-          } else {
-            if (!z) {
-              this.zahtevService.zahtevi = [];
-            } else {
-              this.zahtevService.zahtevi = [z];
-            }
-          }
-          this.loading = false;
-        });
-      } else if (value.tip === 'neodgovoreni-zahtevi'){
-        this.zahtevService.getAllNeodgovoreni().subscribe(val => {
-          const z = (xml.xml2js(val, {compact: true}) as any).entityList.zahtev;
-          if (Array.isArray(z)) {
-            this.zahtevService.zahtevi = z;
-          } else {
-            if (!z) {
-              this.zahtevService.zahtevi = [];
-            } else {
-              this.zahtevService.zahtevi = [z];
-            }
-          }
-          this.loading = false;
-        });
-        this.tip = value.tip;
-      }
+      this.getZahtevi(value.tip);
+      this.tip = value.tip;
     });
 
   }
 
+  getZahtevi(tip: string): void {
+    if (tip === 'korisnikovi-zahtevi') {
+      this.zahtevService.getAllByKorisnikId(this.authService.korisnik.getValue()._attributes.id).subscribe(val => {
+        const z = (xml.xml2js(val, {compact: true}) as any).entityList.zahtev;
+        if (Array.isArray(z)) {
+          this.zahtevService.zahtevi = z;
+        } else {
+          if (!z) {
+            this.zahtevService.zahtevi = [];
+          } else {
+            this.zahtevService.zahtevi = [z];
+          }
+        }
+        this.loading = false;
+      });
+    } else if (tip === 'neodgovoreni-zahtevi'){
+      this.zahtevService.getAllNeodgovoreni().subscribe(val => {
+        const z = (xml.xml2js(val, {compact: true}) as any).entityList.zahtev;
+        if (Array.isArray(z)) {
+          this.zahtevService.zahtevi = z;
+        } else {
+          if (!z) {
+            this.zahtevService.zahtevi = [];
+          } else {
+            this.zahtevService.zahtevi = [z];
+          }
+        }
+        this.loading = false;
+      });
+    } else if (tip === 'svi-zahtevi') {
+      this.zahtevService.getAll().subscribe(val => {
+        const z = (xml.xml2js(val, {compact: true}) as any).entityList.zahtev;
+        if (Array.isArray(z)) {
+          this.zahtevService.zahtevi = z;
+        } else {
+          if (!z) {
+            this.zahtevService.zahtevi = [];
+          } else {
+            this.zahtevService.zahtevi = [z];
+          }
+        }
+        this.loading = false;
+      });
+    }
+  }
   odgovori(zahtev: any): void {
     this.odgovorEditService.zahtev.next(zahtev);
     this.router.navigate(['slanje-odgovora']);
@@ -72,6 +89,16 @@ export class PregledZahtevaComponent implements OnInit {
   generateXHTML(zahtev: any): void {
     this.zahtevService.generateXHTML(zahtev._attributes.id).subscribe(val => {
       window.location.href = `http://localhost:4200/${val}`;
+    });
+  }
+
+  detalji(zahtev: any): void {
+    this.router.navigate(['zahtev'], {queryParams: {zahtev: zahtev._attributes.id}});
+  }
+
+  odbij(id: any): void {
+    this.zahtevService.odbij(id).subscribe(() => {
+      this.getZahtevi(this.tip);
     });
   }
 

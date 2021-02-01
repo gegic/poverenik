@@ -22,6 +22,8 @@ import {SlanjeOdgovoraComponent} from './components/slanje-odgovora/slanje-odgov
 import {PodnosenjeZahtevaComponent} from './components/podnosenje-zahteva/podnosenje-zahteva.component';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
+import { ZahtevPrikazComponent } from './components/zahtev-prikaz/zahtev-prikaz.component';
+import { ObavestenjePrikazComponent } from './components/obavestenje-prikaz/obavestenje-prikaz.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {PregledObavestenjaComponent} from './components/pregled-obavestenja/preg
     PregledObavestenjaComponent,
     PregledZahtevaComponent,
     SlanjeOdgovoraComponent,
-    PodnosenjeZahtevaComponent
+    PodnosenjeZahtevaComponent,
+    ZahtevPrikazComponent,
+    ObavestenjePrikazComponent
   ],
   imports: [
     BrowserModule,

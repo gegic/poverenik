@@ -11,6 +11,8 @@ import {PregledZahtevaComponent} from './components/pregled-zahteva/pregled-zaht
 import {SluzbenikViewComponent} from './components/main-views/sluzbenik-view/sluzbenik-view.component';
 import {SlanjeOdgovoraComponent} from './components/slanje-odgovora/slanje-odgovora.component';
 import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
+import {ZahtevPrikazComponent} from './components/zahtev-prikaz/zahtev-prikaz.component';
+import {ObavestenjePrikazComponent} from './components/obavestenje-prikaz/obavestenje-prikaz.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
@@ -20,7 +22,11 @@ const routes: Route[] = [
       {path: 'podnosenje-zahteva', component: PodnosenjeZahtevaComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
       {path: 'pregled-zahteva', component: PregledZahtevaComponent, data: {roles: ['gradjanin'], tip: 'korisnikovi-zahtevi'}, canActivate: [AuthGuard]},
       {path: 'pregled-obavestenja', component: PregledObavestenjaComponent, data: {roles: ['gradjanin'], tip: 'korisnikova-obavestenja'}, canActivate: [AuthGuard]},
+      {path: 'sva-obavestenja', component: PregledObavestenjaComponent, data: {roles: ['sluzbenik'], tip: 'sva-obavestenja'}, canActivate: [AuthGuard]},
+      {path: 'zahtev', component: ZahtevPrikazComponent, data: {roles: ['gradjanin', 'sluzbenik']}, canActivate: [AuthGuard]},
+      {path: 'obavestenje', component: ObavestenjePrikazComponent, data: {roles: ['gradjanin', 'sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'novi-zahtevi', component: PregledZahtevaComponent, data: {roles: ['sluzbenik'], tip: 'neodgovoreni-zahtevi'}, canActivate: [AuthGuard]},
+      {path: 'svi-zahtevi', component: PregledZahtevaComponent, data: {roles: ['sluzbenik'], tip: 'svi-zahtevi'}, canActivate: [AuthGuard]},
       {path: 'slanje-odgovora', component: SlanjeOdgovoraComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'sluzbenik', component: SluzbenikViewComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]}
     ]

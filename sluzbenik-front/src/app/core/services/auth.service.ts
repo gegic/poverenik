@@ -34,7 +34,6 @@ export class AuthService {
   }
 
   logout(): void {
-    // remove korisnik from local storage and set current korisnik to null
     this.korisnik.next(null);
     this.token.next(null);
     localStorage.removeItem('korisnik');

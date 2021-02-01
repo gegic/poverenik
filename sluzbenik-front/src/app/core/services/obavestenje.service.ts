@@ -23,6 +23,10 @@ export class ObavestenjeService {
     return this.httpClient.get(`/api/obavestenja/`);
   }
 
+  getById(id: string): Observable<any> {
+    return this.httpClient.get(`/api/obavestenja/${id}`);
+  }
+
   generatePdf(id: string): Observable<any> {
     return this.httpClient.post(`/api/obavestenja/generate-pdf/${id}`, null);
   }

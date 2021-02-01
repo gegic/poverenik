@@ -1,0 +1,24 @@
+<div>
+  <p-scrollPanel [style]="{width: '100%', height: '80vh'}" styleClass="bluebar">
+    <div #zahtevPrikaz class="xonomyDiv"></div>
+  </p-scrollPanel>
+  <hr>
+  <div class="p-text-right p-mt-3">
+    <button *ngIf="authService.getKorisnikRole() === 'sluzbenik' && !!zahtev
+    && zahtev._attributes.prihvatanje === 'neodgovoren'"
+            class="p-button-success p-mr-5"
+            label="Odgovori"
+            (click)="odgovori()"
+            pButton
+    ></button>
+    <button *ngIf="authService.getKorisnikRole() === 'sluzbenik' && !!zahtev
+    && zahtev._attributes.prihvatanje === 'neodgovoren'"
+            class="p-button-danger p-mr-5"
+            label="Odbij"
+            (click)="odbij()"
+            pButton
+    ></button>
+    <button class="p-button p-mr-5" label="PDF" (click)="generatePdf()" pButton></button>
+    <button class="p-button p-mr-5" label="XHTML" (click)="generateXHTML()" pButton></button>
+  </div>
+</div>

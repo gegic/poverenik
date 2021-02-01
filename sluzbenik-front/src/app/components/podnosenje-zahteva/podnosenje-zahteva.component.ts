@@ -3,6 +3,7 @@ import {ZahtevEditService} from '../../core/services/zahtev-edit.service';
 import {MessageService} from 'primeng/api';
 import {ZahtevService} from '../../core/services/zahtev.service';
 import {Router, RouterOutlet} from '@angular/router';
+import {zahtevXmlString} from '../../utils/zahtevXml';
 
 @Component({
   selector: 'app-podnosenje-zahteva',
@@ -21,7 +22,7 @@ export class PodnosenjeZahtevaComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.editService.render(this.zahtevXonomy.nativeElement);
+    this.editService.render(this.zahtevXonomy.nativeElement, zahtevXmlString);
   }
 
   submitZahtev(): void {

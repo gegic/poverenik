@@ -46,10 +46,8 @@ public class ObavestenjeService {
         return o.getId();
     }
 
-    public String getById(String id) throws ResourceNotFoundException, JAXBException {
-        Obavestenje found = repository.findById(id);
-        JAXBElement<Obavestenje> element = new JAXBElement<Obavestenje>(QName.valueOf("obavestenje"), Obavestenje.class, found);
-        return jaxB.marshall(element, Obavestenje.class, ObavestenjeFactory.class);
+    public Obavestenje getById(String id) throws ResourceNotFoundException {
+        return repository.findById(id);
     }
 
     public List<Obavestenje> getAllByKorisnikId(String korisnikId) throws Exception {

@@ -5,6 +5,7 @@ import {ZahtevService} from '../../core/services/zahtev.service';
 import {Router} from '@angular/router';
 import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
 import {ObavestenjeService} from '../../core/services/obavestenje.service';
+import {xmlObavestenje} from '../../utils/obavestenjeXml';
 
 @Component({
   selector: 'app-slanje-odgovora',
@@ -27,7 +28,7 @@ export class SlanjeOdgovoraComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.editService.render(this.odgovorXonomy.nativeElement);
+    this.editService.render(this.odgovorXonomy.nativeElement, xmlObavestenje(this.editService.zahtev.getValue()));
   }
 
   submitOdgovor(): void {

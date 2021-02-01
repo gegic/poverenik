@@ -21,7 +21,8 @@ export class MainViewComponent implements OnInit {
       this.items = [
         {
           label: 'Početna',
-          routerLink: '/'
+          routerLink: '/',
+          routerLinkActiveOptions: {exact: true}
         },
         {
           label: 'Podnošenje zahteva',
@@ -47,8 +48,12 @@ export class MainViewComponent implements OnInit {
           routerLink: '/novi-zahtevi'
         },
         {
-          label: 'Pregled svih prethodnih dokumenata',
-          routerLink: '/pregled-dokumenata'
+          label: 'Pregled svih zahteva',
+          routerLink: '/svi-zahtevi'
+        },
+        {
+          label: 'Pregled svih obaveštenja',
+          routerLink: '/sva-obavestenja'
         },
         {
           label: 'Izveštaj',

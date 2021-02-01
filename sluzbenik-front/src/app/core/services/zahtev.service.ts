@@ -38,4 +38,8 @@ export class ZahtevService {
   generateXHTML(id: string): Observable<any> {
     return this.httpClient.post(`/api/zahtevi/generate-xhtml/${id}`, null);
   }
+
+  odbij(id: string): Observable<any> {
+    return this.httpClient.put(`/api/zahtevi/odbij/${id}`, null);
+  }
 }

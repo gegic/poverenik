@@ -17,6 +17,7 @@ import {Router} from '@angular/router';
 export class PrijavaComponent implements OnInit {
 
   loginForm: FormGroup;
+  loading = false;
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
@@ -45,12 +46,18 @@ export class PrijavaComponent implements OnInit {
     element.prijava = prijava;
     const xmlPrijava = xml.js2xml(element, {compact: true, ignoreComment: true, spaces: 2});
 
-    this.authService.login(xmlPrijava).subscribe(val => {
-      console.log(val);
-      const tokenOdgovor = xml.xml2js(val, {compact: true}) as TokenOdgovor;
-      this.authService.loggedIn(tokenOdgovor.odgovor.token._text, tokenOdgovor.odgovor.korisnik);
-      this.router.navigate(['']);
-    });
+    this.loading = true;
+    this.authService.login(xmlPrijava).subscribe(
+      val => {
+        const tokenOdgovor = xml.xml2js(val, {compact: true}) as TokenOdgovor;
+        this.authService.loggedIn(tokenOdgovor.odgovor.token._text, tokenOdgovor.odgovor.korisnik);
+        this.loading = false;
+        this.router.navigate(['']);
+      },
+      () => {
+        this.messageService.add({severity: 'error', summary: 'Neuspešna prijava', detail: 'Prijava nije bila uspešna'});
+        this.loading = false;
+      });
   }
 
 }

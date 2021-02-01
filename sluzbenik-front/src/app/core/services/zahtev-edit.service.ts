@@ -731,9 +731,9 @@ export class ZahtevEditService {
 
   constructor(private authService: AuthService) { }
 
-  render(element: any): void {
-    const xmlString = `
-<zahtev xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" rdfa_z="http://team14.xml.com/rdf/zahtevi" rdfa_pred="http://team14.xml.com/rdf/zahtevi/predicate/"><organ><adresa/><naziv></naziv></organ><zakon><naziv></naziv><sluzbeni-glasnik></sluzbeni-glasnik></zakon><tip-zahteva/><opis-zahteva></opis-zahteva><mesto></mesto><datum>${new Date().toISOString().slice(0, 10)}</datum><trazilac-informacije/></zahtev>`;
+  render(element: any, xmlString: string, readOnly?: boolean): void {
+    (this.specification.elements.zahtev as any).isReadOnly = !!readOnly;
+
     Xonomy.render(xmlString, element, {
       validate: this.specification.validate,
       elements: this.specification.elements

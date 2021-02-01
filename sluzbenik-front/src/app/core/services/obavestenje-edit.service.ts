@@ -1116,15 +1116,17 @@ export class ObavestenjeEditService {
 
   constructor() { }
 
-  render(element: any): void {
-    const zahtev = this.zahtev.getValue();
-
-    if (!zahtev) {
-      return;
+  render(element: any,  xmlString: string, readOnly?: boolean): void {
+    if (!!readOnly) {
+      (this.specification.elements.obavestenje as any).isReadOnly = true;
+    } else {
+      (this.specification.elements.obavestenje as any).isReadOnly = false;
+      const zahtev = this.zahtev.getValue();
+      if (!zahtev) {
+        return;
+      }
     }
-    const xmlObavestenje =
-      `<obavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" rdfa_ob="http://team14.xml.com/rdf/obavestenja" rdfa_pred="http://team14.xml.com/rdf/obavestenja/predicate/"><broj></broj><organ><adresa><mesto></mesto><ulica></ulica></adresa><naziv></naziv></organ><podnosilac id="${zahtev['trazilac-informacije']._attributes.id}"><adresa><mesto>${zahtev['trazilac-informacije'].adresa.mesto._text}</mesto><ulica>${zahtev['trazilac-informacije'].adresa.ulica._text}</ulica></adresa><ime-prezime>${zahtev['trazilac-informacije']['ime-prezime']._text}</ime-prezime></podnosilac><opis></opis><zakon><naziv></naziv><clan broj=""><stav broj=""/></clan></zakon><zahtev id="${zahtev._attributes.id}"><datum>${zahtev.datum._text}</datum><opis-zahteva>${zahtev['opis-zahteva']._text}</opis-zahteva></zahtev><sadrzaj-obavestenja><prihvacen-zahtev><vreme/><kancelarija></kancelarija><adresa><mesto></mesto><ulica></ulica></adresa></prihvacen-zahtev></sadrzaj-obavestenja><dodatna-odluka></dodatna-odluka><izdana-dokumenta><uredba><naziv>Uredba o troskovima</naziv><sluzbeni-glasnik><broj>8/06</broj></sluzbeni-glasnik></uredba><cenovnik></cenovnik></izdana-dokumenta><dostavljeno></dostavljeno></obavestenje>`;
-    Xonomy.render(xmlObavestenje, element, {
+    Xonomy.render(xmlString, element, {
       validate: this.specification.validate,
       elements: this.specification.elements
     });

@@ -33,7 +33,7 @@ public class ObavestenjeController {
     }
 
     @GetMapping(path = "/{id}")
-    ResponseEntity<String> getById(@PathVariable String id) throws ResourceNotFoundException, JAXBException {
+    ResponseEntity<Obavestenje> getById(@PathVariable String id) throws ResourceNotFoundException {
         return ResponseEntity.ok(service.getById(id));
     }
 

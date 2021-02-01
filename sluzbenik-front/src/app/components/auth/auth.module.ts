@@ -8,6 +8,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
@@ -21,7 +22,8 @@ import {PasswordModule} from 'primeng/password';
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    ProgressSpinnerModule
   ]
 })
 export class AuthModule { }

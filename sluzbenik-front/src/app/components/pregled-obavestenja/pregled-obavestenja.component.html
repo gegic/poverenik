@@ -6,6 +6,7 @@
         <th>XHTML</th>
         <th>PDF</th>
         <th>Zahtev</th>
+        <th></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-obavestenje>
@@ -29,6 +30,13 @@
           <button class="p-button-secondary"
                   label="Zahtev"
                   (click)="pregledajZahtev(obavestenje.zahtev._attributes.id)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button-secondary"
+                  label="Detaljno"
+                  (click)="pregledajObavestenje(obavestenje._attributes.id)"
                   pButton
           ></button>
         </td>

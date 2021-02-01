@@ -39,9 +39,8 @@ public class ZahtevService {
         return z.getId();
     }
 
-    public String getById(String id) throws ResourceNotFoundException, JAXBException {
-        Zahtev found = repository.findById(id);
-        return jaxB.marshall(found, Zahtev.class, ZahtevFactory.class);
+    public Zahtev getById(String id) throws ResourceNotFoundException {
+        return repository.findById(id);
     }
 
     public List<Zahtev> getAllByKorisnikId(String id) throws Exception {
@@ -64,5 +63,11 @@ public class ZahtevService {
     public String generateXhtmlZahtev(String id) throws Exception {
         Zahtev z = repository.findById(id);
         return zahtevGenerator.generateXhtml(z);
+    }
+
+    public Zahtev odbij(String id) throws ResourceNotFoundException {
+        Zahtev z = repository.findById(id);
+        z.setPrihvatanje("odbijen");
+        return repository.save(z);
     }
 }

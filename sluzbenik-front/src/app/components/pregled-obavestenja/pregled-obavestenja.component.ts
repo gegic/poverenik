@@ -63,6 +63,10 @@ export class PregledObavestenjaComponent implements OnInit {
     this.router.navigate(['zahtev'], {queryParams: {zahtev: idZahteva}});
   }
 
+  pregledajObavestenje(id: string): void {
+    this.router.navigate(['obavestenje'], {queryParams: {obavestenje: id}});
+  }
+
   generatePdf(zahtev: any): void {
     this.obavestenjeService.generatePdf(zahtev._attributes.id).subscribe(val => {
       window.location.href = `http://localhost:4200/${val}`;

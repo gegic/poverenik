@@ -32,7 +32,7 @@ public class ZahtevController {
     }
 
     @GetMapping(path = "/{id}")
-    ResponseEntity<String> getById(@PathVariable String id) throws ResourceNotFoundException, JAXBException {
+    ResponseEntity<Zahtev> getById(@PathVariable String id) throws ResourceNotFoundException {
         return ResponseEntity.ok(service.getById(id));
     }
 
@@ -73,5 +73,10 @@ public class ZahtevController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @PutMapping(value = "/odbij/{id}")
+    public ResponseEntity<Zahtev> odbij(@PathVariable String id) throws ResourceNotFoundException {
+        return ResponseEntity.ok(service.odbij(id));
     }
 }

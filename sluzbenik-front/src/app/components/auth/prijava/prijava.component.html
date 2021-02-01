@@ -1,5 +1,6 @@
 <div class="p-grid p-mx-0 p-justify-center centered-grid">
   <div class="p-col-12 p-sm-9 p-md-6 p-lg-4">
+    <div class="p-text-center"><h1>Organ vlasti</h1></div>
     <p-card class="login-card">
       <div class="p-card-header">
         <div class="p-d-flex p-justify-center">
@@ -45,10 +46,15 @@
                   pButton
           ></button>
           <button class="p-d-inline-block prijava-btn"
+                  *ngIf="!loading; else loadingSpinner"
                   type="submit"
                   label="Prijava"
                   pButton
           ></button>
+          <ng-template #loadingSpinner>
+            <p-progressSpinner class="p-d-inline-block prijava-btn" [style]="{width: '30px', height: '30px'}">
+            </p-progressSpinner>
+          </ng-template>
         </div>
       </form>
     </p-card>
