@@ -6,21 +6,25 @@ import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
 import com.xml.team18.poverenik.fuseki.FusekiWriter;
 import com.xml.team18.poverenik.fuseki.MetadataExtractor;
 import com.xml.team18.poverenik.jaxb.JaxB;
-import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import com.xml.team18.poverenik.model.zalba.na.odluku.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.xmldb.api.base.Resource;
+import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
-public class ZalbaCutanjeRepository implements XmlRepository<Zalba> {
+public class ZalbaCutanjeRepository {
     private final String collectionId = "/db/zalbecutanje";
 
     private final ExistManager existManager;
@@ -39,24 +43,50 @@ public class ZalbaCutanjeRepository implements XmlRepository<Zalba> {
         this.jaxB = jaxB;
     }
 
-    public Zalba save(Zalba z) {
+    public ZalbaCutanje save(ZalbaCutanje z) {
         try {
             String id = z.getId();
             if (id == null || id.isEmpty()) {
                 id = UUID.randomUUID().toString();
                 z.setId(id);
             }
-            JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba-cutanje"), Zalba.class, z);
-            String rawXml = jaxB.marshall(element, Zalba.class, ZalbaCutanjeFactory.class);
+            z.setVocab("http://team14.xml.com/rdf/zalbe-cutanje/predicate/");
+            z.setAbout("http://team14.xml.com/rdf/zalbe-cutanje/" + id);
+            z.getPrimalac().getAdresa().getMesto().setProperty("pred:mesto-poverenika");
+            z.getPrimalac().getAdresa().getMesto().setDatatype("xs:string");
+            z.getPrimalac().getAdresa().getUlica().setProperty("pred:ulica-poverenika");
+            z.getPrimalac().getAdresa().getUlica().setDatatype("xs:string");
+            z.getPrimalac().getNaziv().setProperty("pred:naziv-poverenika");
+            z.getPrimalac().getNaziv().setDatatype("xs:string");
+            z.getProtiv().getAdresa().getMesto().setProperty("pred:mesto-protivnika");
+            z.getProtiv().getAdresa().getMesto().setDatatype("xs:string");
+            z.getProtiv().getAdresa().getUlica().setProperty("pred:ulica-protivnika");
+            z.getProtiv().getAdresa().getUlica().setDatatype("xs:string");
+            z.getProtiv().getNaziv().setProperty("pred:naziv-protivnika");
+            z.getProtiv().getNaziv().setDatatype("xs:string");
+            z.getZahtev().getDatum().setProperty("pred:datum-zahteva");
+            z.getZahtev().getDatum().setDatatype("xs:date");
+            z.getZahtev().getOpisZahteva().setProperty("pred:opis-zahteva");
+            z.getZahtev().getOpisZahteva().setDatatype("xs:string");
+            z.getMesto().setProperty("pred:mesto-zalbe");
+            z.getMesto().setDatatype("xs:string");
+            z.getDatum().setProperty("pred:datum-zalbe");
+            z.getDatum().setDatatype("xs:date");
+            z.getPodnosilac().getAdresa().getMesto().setProperty("pred:mesto-podnosioca");
+            z.getPodnosilac().getAdresa().getMesto().setDatatype("xs:string");
+            z.getPodnosilac().getAdresa().getUlica().setProperty("pred:ulica-podnosioca");
+            z.getPodnosilac().getAdresa().getUlica().setDatatype("xs:string");
+            z.getPodnosilac().getImePrezime().setProperty("pred:ime-prezime-podnosioca");
+            z.getPodnosilac().getImePrezime().setDatatype("xs:string");
+            JAXBElement<ZalbaCutanje> element = new JAXBElement<>(QName.valueOf("zalba-cutanje"), ZalbaCutanje.class, z);
+            String rawXml = jaxB.marshall(element, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
             String rdf = this.metadataExtractor.extractMetadata(rawXml);
             String graphUri = String.format("zalbecutanje/%s", id);
             this.fusekiWriter.saveRDF(rdf, graphUri);
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
-            return (Zalba) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Zalba.class, com.xml.team18.poverenik.factory.ZalbaCutanjeFactory.class))
-                    .getValue();
+            return (ZalbaCutanje) jaxB.unmarshall(contentFound, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -65,30 +95,50 @@ public class ZalbaCutanjeRepository implements XmlRepository<Zalba> {
         }
     }
 
-    public Zalba findById(String id) throws ResourceNotFoundException {
+    public ZalbaCutanje findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
         String contentFound = null;
         try {
             contentFound = found.getContent().toString();
-            return (Zalba) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Zalba.class, com.xml.team18.poverenik.factory.ZalbaCutanjeFactory.class))
-                    .getValue();
+            return (ZalbaCutanje) jaxB
+                    .unmarshall(contentFound, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public List<Zalba> getAll() throws Exception {
+    public List<ZalbaCutanje> getAll() throws Exception {
         return this.existManager.readAll(collectionId).stream().map(con -> {
             try {
-                return (Zalba) ((JAXBElement<?>) jaxB
-                        .unmarshall(con, Zalba.class, com.xml.team18.poverenik.factory.ZalbaCutanjeFactory.class))
-                        .getValue();
+                return (ZalbaCutanje) jaxB
+                        .unmarshall(con, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
             } catch (JAXBException e) {
                 e.printStackTrace();
                 return null;
             }
         }).collect(Collectors.toList());
+    }
+
+    public List<ZalbaCutanje> getAllByKorisnikId(String id) throws Exception {
+        String query = String.format("/zalba-cutanje[podnosilac/@id = '%s']", id);
+        return this.getByQuery(query);
+    }
+
+    public List<ZalbaCutanje> getAllNeresene() throws Exception {
+        String query = "/zalba-cutanje[@tip-resenja = 'neresena']";
+        return this.getByQuery(query);
+    }
+
+    private List<ZalbaCutanje> getByQuery(String query) throws Exception {
+        List<ZalbaCutanje> zahtevi = new ArrayList<>();
+        ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();
+
+        while(iterator.hasMoreResources()) {
+            Resource r = iterator.nextResource();
+            zahtevi.add((ZalbaCutanje) jaxB
+                    .unmarshall(r.getContent().toString(), ZalbaCutanje.class, ZalbaCutanje.class));
+        }
+        return zahtevi;
     }
 }

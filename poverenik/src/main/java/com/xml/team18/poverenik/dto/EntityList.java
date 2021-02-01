@@ -1,5 +1,6 @@
 package com.xml.team18.poverenik.dto;
 
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
 import com.xml.team18.poverenik.model.zalba.na.odluku.Zalba;
 
 import javax.xml.bind.annotation.XmlAnyElement;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
-@XmlSeeAlso({Zalba.class})
+@XmlSeeAlso({ZalbaCutanje.class})
 public class EntityList<T> {
 
     private List<T> listOfEntityObjects;

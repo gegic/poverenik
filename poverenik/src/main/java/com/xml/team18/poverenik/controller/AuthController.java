@@ -46,20 +46,20 @@ public class AuthController {
     public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody PrijavaDto authenticationRequest) throws MalformedURLException, ResourceExistsException {
         Authentication authentication;
         try {
-            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    authenticationRequest.getEmail(), authenticationRequest.getLozinka()));
-        } catch (AuthenticationException e) {
-            Korisnik k = this.korisnikSoapService.korisnikById(authenticationRequest.getEmail());
+            korisnikService.loadUserByUsername(authenticationRequest.getEmail());
+        } catch (UsernameNotFoundException e) {
+            Korisnik k = this.korisnikSoapService.korisnikByEmail(authenticationRequest.getEmail());
             if (k == null) {
                 return new ResponseEntity<>("Korisnik ne postoji.", HttpStatus.UNAUTHORIZED);
             }
-            korisnikService.save(k);
-            try {
-                authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                        authenticationRequest.getEmail(), authenticationRequest.getLozinka()));
-            } catch (AuthenticationException ex) {
-                return new ResponseEntity<>("Kredencijali neispravni.", HttpStatus.UNAUTHORIZED);
-            }
+            korisnikService.save(k, false);
+        }
+
+        try {
+            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                    authenticationRequest.getEmail(), authenticationRequest.getLozinka()));
+        } catch (AuthenticationException e) {
+            return new ResponseEntity<>("Kredencijali neispravni.", HttpStatus.UNAUTHORIZED);
         }
 
         Korisnik korisnik = (Korisnik) authentication.getPrincipal();
@@ -78,7 +78,7 @@ public class AuthController {
             this.korisnikService.loadUserByUsername(userRequest.getEmail());
             return new ResponseEntity<>("Korisnik sa emailom vec postoji", HttpStatus.CONFLICT);
         } catch (UsernameNotFoundException ignored) {
-            Korisnik korisnik = this.korisnikSoapService.korisnikById(userRequest.getEmail());
+            Korisnik korisnik = this.korisnikSoapService.korisnikByEmail(userRequest.getEmail());
             if (korisnik != null) {
                 return new ResponseEntity<>("Korisnik vec postoji.", HttpStatus.UNAUTHORIZED);
             }

@@ -26,6 +26,10 @@ public class KorisnikService implements UserDetailsService {
     }
 
     public Korisnik save(Korisnik korisnik) throws ResourceExistsException {
+        return this.save(korisnik, true);
+    }
+
+    public Korisnik save(Korisnik korisnik, boolean useHash) throws ResourceExistsException {
         Korisnik k = korisnikRepository.findByEmail(korisnik.getEmail());
 
         if (k != null) {
@@ -33,7 +37,9 @@ public class KorisnikService implements UserDetailsService {
         }
 
         korisnik.setUloga("gradjanin");
-        korisnik.setLozinka(passwordEncoder.encode(korisnik.getLozinka()));
+        if (useHash) {
+            korisnik.setLozinka(passwordEncoder.encode(korisnik.getLozinka()));
+        }
 
         return this.korisnikRepository.save(korisnik);
     }

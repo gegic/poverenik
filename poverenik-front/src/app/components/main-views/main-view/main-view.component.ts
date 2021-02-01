@@ -26,7 +26,7 @@ export class MainViewComponent implements OnInit {
         },
         {
           label: 'Podnošenje žalbe na ćutanje',
-          routerLink: '/podnosenje-zalbe-cutanje'
+          routerLink: '/izbor-neodgovorenih-zahteva'
         },
         {
           label: 'Podnošenje žalbe na odluku',

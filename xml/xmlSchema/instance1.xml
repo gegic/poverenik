@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<korisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:noNamespaceSchemaLocation="file:/C:/Users/gh/Desktop/xmlProjekat/xml2020/xml/xmlSchema/korisnik.xsd">
-    <ime-prezime>ime-prezime0</ime-prezime>
-    <email>^-@-.--$</email>
-    <lozinka>lozinka0</lozinka>
-    <uloga>poverenik</uloga>
-</korisnik>
+<zalba-cutanje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <primalac>
+        <adresa>
+            <mesto></mesto>
+            <ulica></ulica>
+        </adresa>
+        <naziv></naziv>
+    </primalac>
+    <zakon>
+        <naziv>naziv1</naziv>
+        <clan broj=""></clan>
+        <sluzbeni-glasnik>
+        </sluzbeni-glasnik>
+    </zakon>
+    <protiv>
+        <adresa>
+            <mesto>stavi</mesto>
+            <ulica>stavi</ulica>
+        </adresa>
+        <naziv>stavi</naziv>
+    </protiv>
+    <razlog>
+        <nepostupanje-u-celosti/>
+    </razlog>
+    <zahtev id="stavi">
+        <datum>stavi</datum>
+        <opis-zahteva>stavi</opis-zahteva>
+    </zahtev>
+    <mesto></mesto>
+    <datum></datum>
+    <podnosilac>
+        <adresa>
+            <mesto>stavi</mesto>
+            <ulica>stavi</ulica>
+        </adresa>
+        <ime-prezime>stavi</ime-prezime>
+    </podnosilac>
+</zalba-cutanje>

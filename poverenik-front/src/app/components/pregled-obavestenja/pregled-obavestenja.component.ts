@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ObavestenjeService} from '../../core/services/obavestenje.service';
 import * as xml from 'xml-js';
-import {ZahtevService} from '../../core/services/zahtev.service';
+import {ZalbaCutanjeService} from '../../core/services/zalba-cutanje.service';
 import {AuthService} from '../../core/services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
@@ -21,7 +21,7 @@ export class PregledObavestenjaComponent implements OnInit {
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private obavestenjeEditService: ObavestenjeEditService,
-              private zahtevService: ZahtevService) { }
+              private zahtevService: ZalbaCutanjeService) { }
 
   ngOnInit(): void {
     this.loading = true;

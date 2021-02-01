@@ -2,79 +2,49 @@
 package com.xml.team18.poverenik.factory;
 
 import com.xml.team18.poverenik.model.docs.*;
-import com.xml.team18.poverenik.model.zalba.cutanje.BiranjeRazloga;
-import com.xml.team18.poverenik.model.zalba.cutanje.IzborRazloga;
-import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
 import org.springframework.stereotype.Component;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each
- * Java content interface and Java element interface
- * generated in the mypackage package.
- * <p>An ObjectFactory allows you to programatically
- * construct new instances of the Java representation
- * for XML content. The Java representation of XML
- * content can consist of schema derived interfaces
- * and classes representing the binding of schema
- * type definitions, element declarations and model
- * groups.  Factory methods for each of these are
+ * This object contains factory methods for each 
+ * Java content interface and Java element interface 
+ * generated in the mypackage package. 
+ * <p>An ObjectFactory allows you to programatically 
+ * construct new instances of the Java representation 
+ * for XML content. The Java representation of XML 
+ * content can consist of schema derived interfaces 
+ * and classes representing the binding of schema 
+ * type definitions, element declarations and model 
+ * groups.  Factory methods for each of these are 
  * provided in this class.
+ * 
  */
-@XmlRegistry
 @Component
+@XmlRegistry
 public class ZalbaCutanjeFactory {
 
-    private final static QName _ZalbaCutanje_QNAME = new QName("", "zalba-cutanje");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: mypackage
+     *
      */
     public ZalbaCutanjeFactory() {
     }
 
     /**
-     * Create an instance of {@link Organ }
+     * Create an instance of {@link ZalbaCutanje }
+     * 
      */
-    public Organ createOrgan() {
-        return new Organ();
-    }
-
-    /**
-     * Create an instance of {@link Akt }
-     */
-    public Akt createAkt() {
-        return new Akt();
-    }
-
-    /**
-     * Create an instance of {@link Akt.Clan }
-     */
-    public Akt.Clan createAktClan() {
-        return new Akt.Clan();
-    }
-
-    /**
-     * Create an instance of {@link Akt.Clan.Stav }
-     */
-    public Akt.Clan.Stav createAktClanStav() {
-        return new Akt.Clan.Stav();
-    }
-
-    /**
-     * Create an instance of {@link PodnetiZahtev }
-     */
-    public PodnetiZahtev createPodnetiZahtev() {
-        return new PodnetiZahtev();
+    public ZalbaCutanje createZalbaCutanje() {
+        return new ZalbaCutanje();
     }
 
     /**
      * Create an instance of {@link ListObjave }
+     * 
      */
     public ListObjave createListObjave() {
         return new ListObjave();
@@ -82,6 +52,7 @@ public class ZalbaCutanjeFactory {
 
     /**
      * Create an instance of {@link Adresa }
+     * 
      */
     public Adresa createAdresa() {
         return new Adresa();
@@ -89,62 +60,79 @@ public class ZalbaCutanjeFactory {
 
     /**
      * Create an instance of {@link Osoba }
+     * 
      */
     public Osoba createOsoba() {
         return new Osoba();
     }
 
     /**
-     * Create an instance of {@link Zalba }
+     * Create an instance of {@link PodnetiZahtev }
+     * 
      */
-    public Zalba createZalba() {
-        return new Zalba();
+    public PodnetiZahtev createPodnetiZahtev() {
+        return new PodnetiZahtev();
     }
 
     /**
-     * Create an instance of {@link IzborRazloga }
+     * Create an instance of {@link Akt }
+     * 
      */
-    public IzborRazloga createIzborRazloga() {
-        return new IzborRazloga();
+    public Akt createAkt() {
+        return new Akt();
     }
 
     /**
-     * Create an instance of {@link BiranjeRazloga }
+     * Create an instance of {@link Akt.Clan }
+     * 
      */
-    public BiranjeRazloga createBiranjeRazloga() {
-        return new BiranjeRazloga();
+    public Akt.Clan createAktClan() {
+        return new Akt.Clan();
     }
 
     /**
-     * Create an instance of {@link Organ.Naziv }
+     * Create an instance of {@link Akt.Clan.Stav }
+     * 
      */
-    public Organ.Naziv createOrganNaziv() {
-        return new Organ.Naziv();
+    public Akt.Clan.Stav createAktClanStav() {
+        return new Akt.Clan.Stav();
     }
 
     /**
-     * Create an instance of {@link Akt.Clan.Stav.Tacka }
+     * Create an instance of {@link Organ }
+     * 
      */
-    public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
-        return new Akt.Clan.Stav.Tacka();
+    public Organ createOrgan() {
+        return new Organ();
     }
 
     /**
-     * Create an instance of {@link PodnetiZahtev.Datum }
+     * Create an instance of {@link ZalbaCutanje.Razlog }
+     * 
      */
-    public PodnetiZahtev.Datum createPodnetiZahtevDatum() {
-        return new PodnetiZahtev.Datum();
+    public ZalbaCutanje.Razlog createZalbaCutanjeRazlog() {
+        return new ZalbaCutanje.Razlog();
     }
 
     /**
-     * Create an instance of {@link PodnetiZahtev.OpisZahteva }
+     * Create an instance of {@link ZalbaCutanje.Mesto }
+     * 
      */
-    public PodnetiZahtev.OpisZahteva createPodnetiZahtevOpisZahteva() {
-        return new PodnetiZahtev.OpisZahteva();
+    public ZalbaCutanje.Mesto createZalbaCutanjeMesto() {
+        return new ZalbaCutanje.Mesto();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Datum }
+     * 
+     */
+    public ZalbaCutanje.Datum createZalbaCutanjeDatum() {
+        return new ZalbaCutanje.Datum();
     }
 
     /**
      * Create an instance of {@link ListObjave.Broj }
+     * 
      */
     public ListObjave.Broj createListObjaveBroj() {
         return new ListObjave.Broj();
@@ -152,6 +140,7 @@ public class ZalbaCutanjeFactory {
 
     /**
      * Create an instance of {@link Adresa.Mesto }
+     * 
      */
     public Adresa.Mesto createAdresaMesto() {
         return new Adresa.Mesto();
@@ -159,6 +148,7 @@ public class ZalbaCutanjeFactory {
 
     /**
      * Create an instance of {@link Adresa.Ulica }
+     * 
      */
     public Adresa.Ulica createAdresaUlica() {
         return new Adresa.Ulica();
@@ -166,31 +156,42 @@ public class ZalbaCutanjeFactory {
 
     /**
      * Create an instance of {@link Osoba.ImePrezime }
+     * 
      */
     public Osoba.ImePrezime createOsobaImePrezime() {
         return new Osoba.ImePrezime();
     }
 
     /**
-     * Create an instance of {@link Zalba.Mesto }
+     * Create an instance of {@link PodnetiZahtev.Datum }
+     * 
      */
-    public Zalba.Mesto createZalbaMesto() {
-        return new Zalba.Mesto();
+    public PodnetiZahtev.Datum createPodnetiZahtevDatum() {
+        return new PodnetiZahtev.Datum();
     }
 
     /**
-     * Create an instance of {@link Zalba.Datum }
+     * Create an instance of {@link PodnetiZahtev.OpisZahteva }
+     * 
      */
-    public Zalba.Datum createZalbaDatum() {
-        return new Zalba.Datum();
+    public PodnetiZahtev.OpisZahteva createPodnetiZahtevOpisZahteva() {
+        return new PodnetiZahtev.OpisZahteva();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Zalba }{@code >}}
+     * Create an instance of {@link Akt.Clan.Stav.Tacka }
+     * 
      */
-    @XmlElementDecl(namespace = "", name = "zalba-cutanje")
-    public JAXBElement<Zalba> createZalbaCutanje(Zalba value) {
-        return new JAXBElement<Zalba>(_ZalbaCutanje_QNAME, Zalba.class, null, value);
+    public Akt.Clan.Stav.Tacka createAktClanStavTacka() {
+        return new Akt.Clan.Stav.Tacka();
+    }
+
+    /**
+     * Create an instance of {@link Organ.Naziv }
+     * 
+     */
+    public Organ.Naziv createOrganNaziv() {
+        return new Organ.Naziv();
     }
 
 }

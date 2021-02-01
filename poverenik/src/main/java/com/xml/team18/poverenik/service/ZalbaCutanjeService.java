@@ -2,8 +2,11 @@ package com.xml.team18.poverenik.service;
 
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
+import com.xml.team18.poverenik.generators.ZalbaCutanjeGenerator;
 import com.xml.team18.poverenik.jaxb.JaxB;
-import com.xml.team18.poverenik.model.zalba.cutanje.Zalba;
+import com.xml.team18.poverenik.model.zahtev.Zahtev;
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import com.xml.team18.poverenik.model.zalba.na.odluku.Zalba;
 import com.xml.team18.poverenik.repository.ZalbaCutanjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,31 +14,60 @@ import org.springframework.stereotype.Service;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
-import java.util.UUID;
+import java.util.List;
 
 @Service
-public class ZalbaCutanjeService implements PoverenikService<Zalba> {
+public class ZalbaCutanjeService {
 
     private final ZalbaCutanjeRepository repository;
     private final JaxB jaxB;
+    private final ZahtevSoapService zahtevSoapService;
+    private final ZalbaCutanjeGenerator generator;
 
     @Autowired
     public ZalbaCutanjeService(ZalbaCutanjeRepository zalbaCutanjeRepository,
-                               JaxB jaxB) {
+                               JaxB jaxB,
+                               ZahtevSoapService zahtevSoapService,
+                               ZalbaCutanjeGenerator generator) {
         this.repository = zalbaCutanjeRepository;
         this.jaxB = jaxB;
+        this.zahtevSoapService = zahtevSoapService;
+        this.generator = generator;
     }
 
-    public String save(String zalbaXml) throws JAXBException {
-        Zalba z = (Zalba) ((JAXBElement<?>) this.jaxB.unmarshall(zalbaXml, Zalba.class, ZalbaCutanjeFactory.class)).getValue();
-        z = this.repository.save(z);
-        return z.getId();
+    public String save(ZalbaCutanje zalbaCutanje) throws JAXBException {
+        zalbaCutanje.setProperty("pred:zahtev");
+        zalbaCutanje.setContent(zalbaCutanje.getZahtev().getId());
+        zalbaCutanje.setTipResenja("neresena");
+        ZalbaCutanje added = this.repository.save(zalbaCutanje);
+
+        Zahtev z = this.zahtevSoapService.getById(added.getZahtev().getId());
+        z.setPrihvatanje("zalba-cutanje");
+        this.zahtevSoapService.saveZahtev(z);
+
+        return added.getId();
     }
 
-    @Override
     public String getById(String id) throws ResourceNotFoundException, JAXBException {
-        Zalba found = repository.findById(id);
-        JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba-cutanje"), Zalba.class, found);
-        return jaxB.marshall(element, Zalba.class, ZalbaCutanjeFactory.class);
+        ZalbaCutanje found = repository.findById(id);
+        JAXBElement<ZalbaCutanje> element = new JAXBElement<>(QName.valueOf("zalba-cutanje"), ZalbaCutanje.class, found);
+        return jaxB.marshall(element, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
+    }
+
+    public List<ZalbaCutanje> getAll() throws Exception {
+        return repository.getAll();
+    }
+
+    public List<ZalbaCutanje> getAllByKorisnikId(String id) throws Exception {
+        return repository.getAllByKorisnikId(id);
+    }
+
+    public List<ZalbaCutanje> getAllNeresene() throws Exception {
+        return repository.getAllNeresene();
+    }
+
+    public String generatePdf(String id) throws Exception {
+        ZalbaCutanje z = repository.findById(id);
+        return generator.generatePDF(z);
     }
 }

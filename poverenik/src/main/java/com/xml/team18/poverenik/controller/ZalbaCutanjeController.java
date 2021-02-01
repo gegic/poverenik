@@ -1,6 +1,8 @@
 package com.xml.team18.poverenik.controller;
 
+import com.xml.team18.poverenik.dto.EntityList;
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
 import com.xml.team18.poverenik.service.ZalbaCutanjeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,13 +27,30 @@ public class ZalbaCutanjeController {
     }
 
     @PostMapping
-    ResponseEntity<String> addZalbaCutanje(@RequestBody String xmlZalbaCutanje) throws JAXBException {
-        return ResponseEntity.created(URI.create(this.service.save(xmlZalbaCutanje))).build();
+    ResponseEntity<String> addZalbaCutanje(@RequestBody ZalbaCutanje zalbaCutanje) throws JAXBException {
+        return ResponseEntity.created(URI.create(this.service.save(zalbaCutanje))).build();
     }
 
-    @GetMapping(path = "/{id}")
-    ResponseEntity<String> getById(@PathVariable String id) throws ResourceNotFoundException, JAXBException {
-        return ResponseEntity.ok(service.getById(id));
+    @GetMapping(path = "/korisnik/{korisnikId}")
+    ResponseEntity<EntityList<ZalbaCutanje>> getAllByKorisnikId(@PathVariable String korisnikId) throws Exception {
+        return ResponseEntity.ok(
+                new EntityList<>(service.getAllByKorisnikId(korisnikId)));
     }
 
+    @GetMapping(path = "/neresene")
+    ResponseEntity<EntityList<ZalbaCutanje>> getAllNeresene() throws Exception {
+        return ResponseEntity.ok(
+                new EntityList<ZalbaCutanje>(service.getAllNeresene()));
+    }
+
+    @PostMapping(value = "/generate-pdf/{id}")
+    public ResponseEntity<String> generatePDF(@PathVariable String id) {
+        try {
+            String path = service.generatePdf(id);
+            return ResponseEntity.ok(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

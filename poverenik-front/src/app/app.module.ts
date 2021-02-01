@@ -16,14 +16,18 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { GradjaninViewComponent } from './components/main-views/gradjanin-view/gradjanin-view.component';
 import {TableModule} from 'primeng/table';
-import {PregledZahtevaComponent} from './components/pregled-zahteva/pregled-zahteva.component';
-import {SlanjeOdgovoraComponent} from './components/slanje-odgovora/slanje-odgovora.component';
-import {PodnosenjeZahtevaComponent} from './components/podnosenje-zahteva/podnosenje-zahteva.component';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
 import { ZahtevPrikazComponent } from './components/zahtev-prikaz/zahtev-prikaz.component';
 import { ObavestenjePrikazComponent } from './components/obavestenje-prikaz/obavestenje-prikaz.component';
 import {PoverenikViewComponent} from './components/main-views/poverenik-view/poverenik-view.component';
+import {CardModule} from 'primeng/card';
+import {DropdownModule} from 'primeng/dropdown';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {IzborZahtevaComponent} from './components/izbor-zahteva/izbor-zahteva.component';
+import { PodnosenjeZalbeCutanjeComponent } from './components/podnosenje-zalbe-cutanje/podnosenje-zalbe-cutanje.component';
+import {PregledZalbiCutanjeComponent} from './components/pregled-zalbi-cutanje/pregled-zalbi-cutanje.component';
 
 @NgModule({
   declarations: [
@@ -32,17 +36,19 @@ import {PoverenikViewComponent} from './components/main-views/poverenik-view/pov
     GradjaninViewComponent,
     PoverenikViewComponent,
     PregledObavestenjaComponent,
-    PregledZahtevaComponent,
-    SlanjeOdgovoraComponent,
-    PodnosenjeZahtevaComponent,
+    PregledZalbiCutanjeComponent,
     ZahtevPrikazComponent,
-    ObavestenjePrikazComponent
+    ObavestenjePrikazComponent,
+    IzborZahtevaComponent,
+    PodnosenjeZalbeCutanjeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
     ToastModule,
@@ -50,7 +56,10 @@ import {PoverenikViewComponent} from './components/main-views/poverenik-view/pov
     ButtonModule,
     TableModule,
     InputTextModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    CardModule,
+    DropdownModule,
+    ProgressSpinnerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

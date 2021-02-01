@@ -10,7 +10,7 @@ import java.net.URL;
 
 @Service
 public class KorisnikSoapService {
-    public Korisnik korisnikById(String email) throws MalformedURLException {
+    public Korisnik korisnikByEmail(String email) throws MalformedURLException {
         URL wsdlLocation = new URL("http://localhost:8080/ws/korisnik?wsdl");
         QName serviceName = new QName("http://korisnik.soap.sluzbenik.team18.xml.com/", "KorisnikService");
         QName portName = new QName("http://korisnik.soap.sluzbenik.team18.xml.com/", "KorisnikServiceSoapBinding");

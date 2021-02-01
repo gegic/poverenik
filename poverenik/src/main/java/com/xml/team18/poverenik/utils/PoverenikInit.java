@@ -3,7 +3,6 @@ package com.xml.team18.poverenik.utils;
 import com.xml.team18.poverenik.model.korisnik.Korisnik;
 import com.xml.team18.poverenik.repository.KorisnikRepository;
 import com.xml.team18.poverenik.service.KorisnikService;
-import org.checkerframework.checker.units.qual.K;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

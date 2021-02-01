@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
                 .authorizeRequests().antMatchers("/api/**").authenticated()
-                .antMatchers("/auth/**").permitAll().and()
+                .antMatchers("/auth/**", "/ws/**").permitAll().and()
                 .addFilterBefore(new TokenAuthenticationFilter(korisnikService), BasicAuthenticationFilter.class);
 
         http.cors().and().csrf().disable();

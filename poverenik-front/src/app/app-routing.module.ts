@@ -6,28 +6,19 @@ import {RegistracijaComponent} from './components/auth/registracija/registracija
 import {Route, RouterModule} from '@angular/router';
 import {MainViewComponent} from './components/main-views/main-view/main-view.component';
 import {GradjaninViewComponent} from './components/main-views/gradjanin-view/gradjanin-view.component';
-import {PodnosenjeZahtevaComponent} from './components/podnosenje-zahteva/podnosenje-zahteva.component';
-import {PregledZahtevaComponent} from './components/pregled-zahteva/pregled-zahteva.component';
 import {PoverenikViewComponent} from './components/main-views/poverenik-view/poverenik-view.component';
-import {SlanjeOdgovoraComponent} from './components/slanje-odgovora/slanje-odgovora.component';
-import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
-import {ZahtevPrikazComponent} from './components/zahtev-prikaz/zahtev-prikaz.component';
-import {ObavestenjePrikazComponent} from './components/obavestenje-prikaz/obavestenje-prikaz.component';
+import {IzborZahtevaComponent} from './components/izbor-zahteva/izbor-zahteva.component';
+import {PodnosenjeZalbeCutanjeComponent} from './components/podnosenje-zalbe-cutanje/podnosenje-zalbe-cutanje.component';
+import {PregledZalbiCutanjeComponent} from './components/pregled-zalbi-cutanje/pregled-zalbi-cutanje.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
   {path: 'registracija', component: RegistracijaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
   {path: '', component: MainViewComponent, children: [
       {path: '', component: GradjaninViewComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
-      {path: 'podnosenje-zahteva', component: PodnosenjeZahtevaComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
-      {path: 'pregled-zahteva', component: PregledZahtevaComponent, data: {roles: ['gradjanin'], tip: 'korisnikovi-zahtevi'}, canActivate: [AuthGuard]},
-      {path: 'pregled-obavestenja', component: PregledObavestenjaComponent, data: {roles: ['gradjanin'], tip: 'korisnikova-obavestenja'}, canActivate: [AuthGuard]},
-      {path: 'sva-obavestenja', component: PregledObavestenjaComponent, data: {roles: ['poverenik'], tip: 'sva-obavestenja'}, canActivate: [AuthGuard]},
-      {path: 'zahtev', component: ZahtevPrikazComponent, data: {roles: ['gradjanin', 'poverenik']}, canActivate: [AuthGuard]},
-      {path: 'obavestenje', component: ObavestenjePrikazComponent, data: {roles: ['gradjanin', 'poverenik']}, canActivate: [AuthGuard]},
-      {path: 'novi-zahtevi', component: PregledZahtevaComponent, data: {roles: ['poverenik'], tip: 'neodgovoreni-zahtevi'}, canActivate: [AuthGuard]},
-      {path: 'svi-zahtevi', component: PregledZahtevaComponent, data: {roles: ['poverenik'], tip: 'svi-zahtevi'}, canActivate: [AuthGuard]},
-      {path: 'slanje-odgovora', component: SlanjeOdgovoraComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
+      {path: 'izbor-neodgovorenih-zahteva', component: IzborZahtevaComponent, data: {roles: ['gradjanin'], tip: 'neodgovoren'}, canActivate: [AuthGuard]},
+      {path: 'podnosenje-zalbe-cutanje', component: PodnosenjeZalbeCutanjeComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
+      {path: 'pregled-zalbi-cutanje', component: PregledZalbiCutanjeComponent, data: {roles: ['gradjanin'], tip: 'korisnikove-zalbe'}, canActivate: [AuthGuard]},
       {path: 'poverenik', component: PoverenikViewComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]}
     ]
   },

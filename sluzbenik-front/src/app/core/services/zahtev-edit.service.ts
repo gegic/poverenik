@@ -235,7 +235,8 @@ export class ZahtevEditService {
           }
         },
         mustBeBefore: ['ulica'],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
       },
       ulica: {
         validate(jsElement: any): void {
@@ -248,7 +249,9 @@ export class ZahtevEditService {
           }
         },
         menu: [],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
+
       },
       naziv: {
         validate(jsElement: any): void {
@@ -265,7 +268,9 @@ export class ZahtevEditService {
           action: Xonomy.deleteElement
         }
         ],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
+
       },
       zakon: {
         validate(jsElement: any): void {
@@ -499,7 +504,9 @@ export class ZahtevEditService {
           action: Xonomy.deleteElement
         }
         ],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
+
       },
       'tip-zahteva': {
         validate(jsElement: any): void {
@@ -641,7 +648,9 @@ export class ZahtevEditService {
             );
           }
         },
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
+
       },
       'opis-zahteva': {
         validate(jsElement: any): void {
@@ -654,7 +663,9 @@ export class ZahtevEditService {
           }
         },
         mustBeBefore: ['mesto', 'datum', 'trazilac-informacije'],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
+
       },
       datum: {
         validate(jsElement: any): void {
@@ -724,7 +735,8 @@ export class ZahtevEditService {
           }
         },
         isReadOnly: true,
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
       },
     },
   };

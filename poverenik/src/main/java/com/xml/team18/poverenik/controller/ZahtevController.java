@@ -1,6 +1,7 @@
 package com.xml.team18.poverenik.controller;
 
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
+import com.xml.team18.poverenik.model.ListaZahteva;
 import com.xml.team18.poverenik.model.zahtev.Zahtev;
 import com.xml.team18.poverenik.service.ZahtevSoapService;
 import com.xml.team18.poverenik.dto.EntityList;
@@ -16,7 +17,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 
 @RestController
-@RequestMapping(path = "/auth/zahtevi")
+@RequestMapping(path = "/api/zahtevi")
 public class ZahtevController {
 
     ZahtevSoapService zahtevSoapService;
@@ -26,9 +27,8 @@ public class ZahtevController {
         this.zahtevSoapService = zahtevSoapService;
     }
 
-    @GetMapping(path = "/neodgovoreniZahtevi/{idKorisnika}")
-    ResponseEntity<Zahtev> getById(@PathVariable String idKorisnika) throws ResourceNotFoundException, MalformedURLException {
-        this.zahtevSoapService.neodgovoreniZahtevi(idKorisnika);
-        return ResponseEntity.noContent().build();
+    @GetMapping(path = "/neodgovoreni/{idKorisnika}", produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<ListaZahteva> getById(@PathVariable String idKorisnika) throws ResourceNotFoundException, MalformedURLException {
+        return ResponseEntity.ok(this.zahtevSoapService.neodgovoreniZahtevi(idKorisnika));
     }
 }

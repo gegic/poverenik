@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import * as xml from 'xml-js';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ZahtevService} from '../../core/services/zahtev.service';
-import {ZahtevEditService} from '../../core/services/zahtev-edit.service';
+import {ZalbaCutanjeService} from '../../core/services/zalba-cutanje.service';
+import {ZalbaCutanjeEditService} from '../../core/services/zalba-cutanje-edit.service';
 import {ObavestenjeService} from '../../core/services/obavestenje.service';
 import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
 

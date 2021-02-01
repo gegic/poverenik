@@ -2,6 +2,8 @@ package com.xml.team18.poverenik.soap.incoming;
 
 import com.xml.team18.poverenik.factory.ListaZahtevaFactory;
 import com.xml.team18.poverenik.model.ListaZahteva;
+import com.xml.team18.poverenik.model.zahtev.Zahtev;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -28,9 +30,23 @@ public interface ZahtevServicePortType {
     );
 
     @WebMethod(action = "neodgovoreniZahtevi")
-    @WebResult(name = "zahtevi", targetNamespace = "http://zahtev.soap.poverenik.team18.xml.com/", partName = "zahtevi")
+    @WebResult(name = "zahtevi", targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", partName = "zahtevi")
     ListaZahteva neodgovoreniZahtevi(
             @WebParam(partName = "email", name = "email")
                     String email
+    );
+
+    @WebMethod(action = "updatePrihvatanje")
+    @WebResult(name = "uspesno", targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", partName = "uspesno")
+    boolean updatePrihvatanje(
+            @WebParam(partName = "zahtev", name = "zahtev")
+                    Zahtev zahtev
+    );
+
+    @WebMethod(action = "getById")
+    @WebResult(name = "zahtev", targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", partName = "zahtev")
+    Zahtev getById(
+            @WebParam(partName = "id", name = "id")
+                    String id
     );
 }

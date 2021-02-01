@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ZahtevService} from '../../core/services/zahtev.service';
-import {ZahtevEditService} from '../../core/services/zahtev-edit.service';
+import {ZalbaCutanjeService} from '../../core/services/zalba-cutanje.service';
+import {ZalbaCutanjeEditService} from '../../core/services/zalba-cutanje-edit.service';
 import * as xml from 'xml-js';
 import {AuthService} from '../../core/services/auth.service';
 import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
@@ -19,8 +19,8 @@ export class ZahtevPrikazComponent implements AfterViewInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              public zahtevService: ZahtevService,
-              public editService: ZahtevEditService,
+              public zahtevService: ZalbaCutanjeService,
+              public editService: ZalbaCutanjeEditService,
               public authService: AuthService,
               private obavestenjeEditService: ObavestenjeEditService) { }
 
@@ -56,10 +56,10 @@ export class ZahtevPrikazComponent implements AfterViewInit {
   }
 
   odbij(): void {
-    this.zahtevService.odbij(this.zahtev._attributes.id).subscribe(zahtev => {
-      this.zahtev = (xml.xml2js(zahtev, {compact: true}) as any).zahtev;
-      zahtev = zahtev.replace(/<\?.+\?>/, '');
-      this.editService.render(this.zahtevXonomy.nativeElement, zahtev, true);
-    });
+    // this.zahtevService.odbij(this.zahtev._attributes.id).subscribe(zahtev => {
+    //   this.zahtev = (xml.xml2js(zahtev, {compact: true}) as any).zahtev;
+    //   zahtev = zahtev.replace(/<\?.+\?>/, '');
+    //   this.editService.render(this.zahtevXonomy.nativeElement, zahtev, true);
+    // });
   }
 }

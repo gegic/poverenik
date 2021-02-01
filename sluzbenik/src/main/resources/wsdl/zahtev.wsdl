@@ -25,6 +25,20 @@
         <wsdl:part name="zahtevi" element="lista-zahteva" />
     </wsdl:message>
 
+    <wsdl:message name="updatePrihvatanjeRequest">
+        <wsdl:part name="zahtev" element="zahtev" />
+    </wsdl:message>
+    <wsdl:message name="updatePrihvatanjeResponse">
+        <wsdl:part name="uspesno" type="xsd:boolean" />
+    </wsdl:message>
+
+    <wsdl:message name="getByIdRequest">
+        <wsdl:part name="id" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getByIdResponse">
+        <wsdl:part name="zahtev" element="zahtev" />
+    </wsdl:message>
+
     <wsdl:portType name="ZahtevServicePortType">
         <wsdl:operation name="odbijeniZahtevi">
             <wsdl:input message="tns:odbijeniZahteviRequest" />
@@ -33,6 +47,14 @@
         <wsdl:operation name="neodgovoreniZahtevi">
             <wsdl:input message="tns:neodgovoreniZahteviRequest" />
             <wsdl:output message="tns:neodgovoreniZahteviResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="updatePrihvatanje">
+            <wsdl:input message="tns:updatePrihvatanjeRequest" />
+            <wsdl:output message="tns:updatePrihvatanjeResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="getById">
+            <wsdl:input message="tns:getByIdRequest" />
+            <wsdl:output message="tns:getByIdResponse" />
         </wsdl:operation>
     </wsdl:portType>
 
@@ -57,6 +79,27 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+
+        <wsdl:operation name="updatePrihvatanje">
+            <soap:operation soapAction="updatePrihvatanje" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getById">
+            <soap:operation soapAction="getById" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
     </wsdl:binding>
     <wsdl:service name="ZahtevService">
         <wsdl:port name="ZahtevServiceSoapBinding" binding="tns:ZahtevServiceSoapBinding">

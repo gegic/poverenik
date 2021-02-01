@@ -1,5 +1,5 @@
 <div class="p-mx-6">
-  <p-table [value]="zahtevService.zahtevi" [loading]="loading">
+  <p-table [value]="zalbaCutanjeService.zalbeCutanje" [loading]="loading">
     <ng-template pTemplate="header">
       <tr>
         <th>Opis</th>
@@ -10,40 +10,40 @@
         <th *ngIf="authService.getKorisnikRole() === 'poverenik'"></th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-zahtev>
+    <ng-template pTemplate="body" let-zalbaCutanje>
       <tr>
-        <td>{{zahtev['opis-zahteva']._text}}</td>
+        <td>Protiv {{zalbaCutanje.protiv.naziv._text}} od {{zalbaCutanje.datum._text}}</td>
         <td>
           <button class="p-button"
                     label="XHTML"
-                    (click)="generateXHTML(zahtev)"
+                    (click)="generateXHTML(zalbaCutanje)"
                     pButton
           ></button>
         </td>
         <td>
           <button class="p-button"
                   label="PDF"
-                  (click)="generatePdf(zahtev)"
+                  (click)="generatePdf(zalbaCutanje)"
                   pButton
           ></button>
         </td>
         <td>
-          <ng-container *ngIf="tip === 'neodgovoreni-zahtevi'; else ostali">
+          <ng-container *ngIf="tip === 'neresene-zalbe'; else ostali">
             <button class="p-button p-button-success"
-                    label="Odgovori"
-                    (click)="odgovori(zahtev)"
+                    label="Prihvati"
+                    (click)="resi(zalbaCutanje)"
                     pButton
             ></button>
           </ng-container>
           <ng-template #ostali>
-            {{zahtev._attributes.prihvatanje}}
+            {{zalbaCutanje._attributes['tip-resenja']}}
           </ng-template>
         </td>
         <td>
-          <button class="p-button-secondary" label="Detalji" (click)="detalji(zahtev)" pButton></button>
+          <button class="p-button-secondary" label="Detalji" (click)="detalji(zalbaCutanje)" pButton></button>
         </td>
-        <td *ngIf="authService.getKorisnikRole() === 'poverenik'">
-          <button [disabled]="zahtev._attributes.prihvatanje !== 'neodgovoren'" class="p-button-danger" label="Odbij" (click)="odbij(zahtev._attributes.id)" pButton></button>
+        <td *ngIf="tip === 'neresene-zalbe'">
+          <button class="p-button-danger" label="Odbij" (click)="odbij(zalbaCutanje._attributes.id)" pButton></button>
         </td>
 
       </tr>
@@ -51,7 +51,7 @@
     <ng-template pTemplate="emptymessage">
       <tr>
         <td [attr.colspan]="5">
-          Nema zahteva...
+          Nema zalbaCutanjea...
         </td>
       </tr>
     </ng-template>

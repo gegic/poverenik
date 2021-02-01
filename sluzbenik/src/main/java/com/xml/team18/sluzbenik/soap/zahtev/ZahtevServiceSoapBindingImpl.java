@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
                       serviceName = "ZahtevService",
                       portName = "ZahtevServiceSoapBinding",
                       targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/",
-                      wsdlLocation = "classpath:wsdl/zahtev.wsdl",
+                      wsdlLocation = "src/main/resources/wsdl/zahtev.wsdl",
                       endpointInterface = "com.xml.team18.sluzbenik.soap.zahtev.ZahtevServicePortType")
 
 @Service
@@ -35,9 +35,6 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
 
     private static final Logger LOG = Logger.getLogger(ZahtevServiceSoapBindingImpl.class.getName());
 
-    /* (non-Javadoc)
-     * @see com.xml.team18.sluzbenik.soap.zahtev.ZahtevServicePortType#odbijeniZahtevi(java.lang.String korisnikId)*
-     */
     public ListaZahteva odbijeniZahtevi(String korisnikId) {
         LOG.info("Executing operation odbijeniZahtevi");
         System.out.println(korisnikId);
@@ -50,9 +47,6 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
         }
     }
 
-    /* (non-Javadoc)
-     * @see com.xml.team18.sluzbenik.soap.zahtev.ZahtevServicePortType#neodgovoreniZahtevi(java.lang.String korisnikId)*
-     */
     public ListaZahteva neodgovoreniZahtevi(String korisnikId) {
         LOG.info("Executing operation neodgovoreniZahtevi");
         System.out.println(korisnikId);
@@ -60,6 +54,30 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
             List<Zahtev> zahtevi = this.zahtevRepository.getNeodgovoreniByKorisnikId(korisnikId);
             return new ListaZahteva(zahtevi);
         } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public boolean updatePrihvatanje(Zahtev zahtev) {
+        LOG.info("Executing operation saveZahtev");
+        System.out.println(zahtev);
+        try {
+            Zahtev z = this.zahtevRepository.findById(zahtev.getId());
+            z.setPrihvatanje(zahtev.getPrihvatanje());
+            return this.zahtevRepository.save(z) == null;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public Zahtev getById(String id) {
+        LOG.info("Executing operation getById");
+        System.out.println(id);
+        try {
+            return this.zahtevRepository.findById(id);
+        } catch (java.lang.Exception ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);
         }
