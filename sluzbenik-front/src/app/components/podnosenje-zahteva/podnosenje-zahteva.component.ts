@@ -10,17 +10,14 @@ import {zahtevXmlString} from '../../utils/zahtevXml';
   templateUrl: './podnosenje-zahteva.component.html',
   styleUrls: ['./podnosenje-zahteva.component.scss']
 })
-export class PodnosenjeZahtevaComponent implements OnInit, AfterViewInit {
+export class PodnosenjeZahtevaComponent implements AfterViewInit {
   @ViewChild('zahtevXonomy', { static: false }) zahtevXonomy: ElementRef;
 
   constructor(private editService: ZahtevEditService,
               private messageService: MessageService,
               private zahtevService: ZahtevService,
               private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
+              
   ngAfterViewInit(): void {
     this.editService.render(this.zahtevXonomy.nativeElement, zahtevXmlString);
   }
