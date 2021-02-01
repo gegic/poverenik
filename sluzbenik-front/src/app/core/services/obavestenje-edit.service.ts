@@ -6,7 +6,7 @@ declare const Xonomy: any;
 @Injectable({
   providedIn: 'root'
 })
-export class OdgovorEditService {
+export class ObavestenjeEditService {
 
   zahtev: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
@@ -105,6 +105,7 @@ export class OdgovorEditService {
             );
           }
         },
+        hasText: false,
         menu: [
           {
             caption: 'Append an <broj>',
@@ -792,16 +793,8 @@ export class OdgovorEditService {
               }
             );
           }
-          if (!jsElement.hasChildElement('primalac')) {
-            Xonomy.warnings.push({
-                htmlID: jsElement.htmlID,
-                text: 'This element needs to have element primalac.'
-              }
-            );
-          }
         },
-        hasText: true,
-        mustBeBefore: ['izdana-dokumenta', 'dostavljeno'],
+        mustBeBefore: ['dostavljeno'],
         menu: [
           {
             caption: 'Append an <uredba>',
@@ -817,14 +810,6 @@ export class OdgovorEditService {
             actionParameter: '<cenovnik></cenovnik>',
             hideIf(jsElement: any): boolean {
               return jsElement.hasChildElement('cenovnik');
-            }
-          },
-          {
-            caption: 'Append an <primalac>',
-            action: Xonomy.newElementChild,
-            actionParameter: '<primalac></primalac>',
-            hideIf(jsElement: any): boolean {
-              return jsElement.hasChildElement('kancelarija');
             }
           }
         ]
@@ -860,8 +845,7 @@ export class OdgovorEditService {
             );
           }
         },
-        mustBeBefore: ['zahtev', 'sadrzaj-obavestenja',
-          'dodatna-odluka', 'izdana-dokumenta', 'dostavljeno'],
+        hasText: false,
         menu: [
           {
             caption: 'Append an <clan>',
@@ -890,6 +874,7 @@ export class OdgovorEditService {
         ]
       },
       cenovnik: {
+        mustBeAfter: ['uredba'],
         menu: [
           {
             caption: 'Delete this <item>',
@@ -998,10 +983,7 @@ export class OdgovorEditService {
           {
             caption: 'Append an <primalac>',
             action: Xonomy.newElementChild,
-            actionParameter: '<primalac></primalac>',
-            hideIf(jsElement: any): boolean {
-              return jsElement.hasChildElement('primalac');
-            }
+            actionParameter: '<primalac></primalac>'
           }
         ]
       },
@@ -1019,21 +1001,21 @@ export class OdgovorEditService {
       },
       vreme: {
         validate(jsElement: any): void {
-          if (jsElement.hasAttribute('xsi:type') === '') {
+          if (!jsElement.hasAttribute('xsi:type')) {
             Xonomy.warnings.push({
                 htmlID: jsElement.htmlID,
                 text: 'This element needs to have attribute xsi:type.'
               }
             );
           }
-          if (jsElement.getAttributeValue('xsi:type', null) === 'Vreme' && (jsElement.hasAttribute('pocetak') === '' || jsElement.hasAttribute('zavrsetak') !== '')) {
+          if (jsElement.getAttributeValue('xsi:type', null) === 'Vreme' && (!jsElement.hasAttribute('pocetak') || jsElement.hasAttribute('zavrsetak'))) {
             Xonomy.warnings.push({
                 htmlID: jsElement.htmlID,
                 text: 'This element needs to have attribute pocetak and cannot contain attribute zavrsetak'
               }
             );
           }
-          if (jsElement.getAttributeValue('xsi:type', null) === 'VremePeriod' && (jsElement.hasAttribute('pocetak') === '' || jsElement.hasAttribute('zavrsetak') === '')) {
+          if (jsElement.getAttributeValue('xsi:type', null) === 'VremePeriod' && (!jsElement.hasAttribute('pocetak') || !jsElement.hasAttribute('zavrsetak'))) {
             Xonomy.warnings.push({
                 htmlID: jsElement.htmlID,
                 text: 'This element needs to have both attributes pocetak and zavrsetak'
@@ -1141,78 +1123,12 @@ export class OdgovorEditService {
       return;
     }
     const xmlObavestenje =
-      `<?xml version="1.0" encoding="UTF-8"?>
-<obavestenje
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        rdfa_ob="http://team14.xml.com/rdf/obavestenja"
-        rdfa_pred="http://team14.xml.com/rdf/obavestenja/predicate/"
->
-    <broj></broj>
-    <organ>
-        <adresa>
-            <mesto></mesto>
-            <ulica></ulica>
-        </adresa>
-        <naziv></naziv>
-    </organ>
-
-    <podnosilac id="${zahtev['trazilac-informacije']._attributes.id}">
-        <adresa>
-            <mesto>${zahtev['trazilac-informacije'].adresa.mesto._text}</mesto>
-            <ulica>${zahtev['trazilac-informacije'].adresa.ulica._text}</ulica>
-        </adresa>
-        <ime-prezime>${zahtev['trazilac-informacije']['ime-prezime']._text}</ime-prezime>
-    </podnosilac>
-
-    <opis></opis>
-    <zakon>
-        <naziv></naziv>
-        <clan broj="">
-            <stav broj=""/>
-        </clan>
-    </zakon>
-    <zahtev id="${zahtev._attributes.id}">
-        <datum>${zahtev.datum._text}</datum>
-        <opis-zahteva>${zahtev['opis-zahteva']._text}</opis-zahteva>
-    </zahtev>
-    <sadrzaj-obavestenja>
-        <prihvacen-zahtev>
-            <vreme/>
-            <kancelarija></kancelarija>
-            <adresa>
-                <mesto></mesto>
-                <ulica></ulica>
-            </adresa>
-        </prihvacen-zahtev>
-    </sadrzaj-obavestenja>
-
-    <dodatna-odluka></dodatna-odluka>
-    <izdana-dokumenta>
-        <uredba>
-            <naziv>Uredba o troskovima</naziv>
-            <sluzbeni-glasnik>
-                <broj>8/06</broj>
-            </sluzbeni-glasnik>
-        </uredba>
-        <cenovnik>
-            <stavka artikl="копија стране А4 формата" cena="3"/>
-            <stavka artikl="копија стране А3 формата" cena="6"/>
-            <stavka artikl="CD" cena="35"/>
-            <stavka artikl="DVD" cena="40"/>
-            <stavka artikl="аудио-касета" cena="150"/>
-            <stavka artikl="видео-касета" cena="300"/>
-            <stavka artikl="претварање једне  стране документа из физичког у електронски облик" cena="30"/>
-        </cenovnik>
-    </izdana-dokumenta>
-
-    <dostavljeno>
-    </dostavljeno>
-</obavestenje>
-      `;
+      `<obavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" rdfa_ob="http://team14.xml.com/rdf/obavestenja" rdfa_pred="http://team14.xml.com/rdf/obavestenja/predicate/"><broj></broj><organ><adresa><mesto></mesto><ulica></ulica></adresa><naziv></naziv></organ><podnosilac id="${zahtev['trazilac-informacije']._attributes.id}"><adresa><mesto>${zahtev['trazilac-informacije'].adresa.mesto._text}</mesto><ulica>${zahtev['trazilac-informacije'].adresa.ulica._text}</ulica></adresa><ime-prezime>${zahtev['trazilac-informacije']['ime-prezime']._text}</ime-prezime></podnosilac><opis></opis><zakon><naziv></naziv><clan broj=""><stav broj=""/></clan></zakon><zahtev id="${zahtev._attributes.id}"><datum>${zahtev.datum._text}</datum><opis-zahteva>${zahtev['opis-zahteva']._text}</opis-zahteva></zahtev><sadrzaj-obavestenja><prihvacen-zahtev><vreme/><kancelarija></kancelarija><adresa><mesto></mesto><ulica></ulica></adresa></prihvacen-zahtev></sadrzaj-obavestenja><dodatna-odluka></dodatna-odluka><izdana-dokumenta><uredba><naziv>Uredba o troskovima</naziv><sluzbeni-glasnik><broj>8/06</broj></sluzbeni-glasnik></uredba><cenovnik></cenovnik></izdana-dokumenta><dostavljeno></dostavljeno></obavestenje>`;
     Xonomy.render(xmlObavestenje, element, {
       validate: this.specification.validate,
       elements: this.specification.elements
     });
+    Xonomy.setMode('nerd');
   }
 
   harvest(): string {

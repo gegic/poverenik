@@ -52,7 +52,6 @@ public class ZahtevRepository {
                 id = UUID.randomUUID().toString();
                 z.setId(id);
             }
-            Korisnik k = (Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             z.setVocab("http://team14.xml.com/rdf/zahtevi/predicate/");
             z.setAbout("http://team14.xml.com/rdf/zahtevi/" + id);
             z.getOrgan().getAdresa().getMesto().setProperty("pred:mesto-ustanove");
@@ -71,8 +70,6 @@ public class ZahtevRepository {
             z.getTrazilacInformacije().getAdresa().getUlica().setDatatype("xs:string");
             z.getTrazilacInformacije().getImePrezime().setProperty("pred:ime-prezime-trazioca");
             z.getTrazilacInformacije().getImePrezime().setDatatype("xs:string");
-            z.getTrazilacInformacije().setId(k.getId());
-            z.setPrihvatanje("neodgovoren");
 
             JAXBElement<Zahtev> element = new JAXBElement<Zahtev>(QName.valueOf("zahtev"), Zahtev.class, z);
             String rawXml = jaxB.marshall(element, Zahtev.class, ZahtevFactory.class);
@@ -93,7 +90,6 @@ public class ZahtevRepository {
         }
     }
 
-
     public Zahtev findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
         String contentFound;
@@ -106,6 +102,21 @@ public class ZahtevRepository {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public List<Zahtev> getAll() throws Exception {
+        return this.existManager.readAll(collectionId).stream().map(str ->
+                {
+                    try {
+                        return (Zahtev) ((JAXBElement<?>) jaxB
+                                .unmarshall(str, Zahtev.class, ZahtevFactory.class))
+                                .getValue();
+                    } catch (JAXBException e) {
+                        e.printStackTrace();
+                        return null;
+                    }
+                }
+        ).collect(Collectors.toList());
     }
 
     public List<Zahtev> getAllByKorisnikId(String id) throws Exception {

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ZahtevEditService} from '../../../core/services/zahtev-edit.service';
+import {ZahtevEditService} from '../../core/services/zahtev-edit.service';
 import {MessageService} from 'primeng/api';
-import {ZahtevService} from '../../../core/services/zahtev.service';
+import {ZahtevService} from '../../core/services/zahtev.service';
 import {Router, RouterOutlet} from '@angular/router';
 
 @Component({

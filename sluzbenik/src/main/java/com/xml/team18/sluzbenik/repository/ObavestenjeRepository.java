@@ -4,25 +4,33 @@ import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl
 import com.xml.team18.sluzbenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.sluzbenik.exist.ExistManager;
 import com.xml.team18.sluzbenik.factory.ObavestenjeFactory;
+import com.xml.team18.sluzbenik.factory.ZahtevFactory;
 import com.xml.team18.sluzbenik.fuseki.FusekiWriter;
 import com.xml.team18.sluzbenik.fuseki.MetadataExtractor;
 import com.xml.team18.sluzbenik.jaxb.JaxB;
+import com.xml.team18.sluzbenik.model.obavestenje.Cenovnik;
 import com.xml.team18.sluzbenik.model.obavestenje.Obavestenje;
 import com.xml.team18.sluzbenik.model.obavestenje.PrihvacenZahtev;
 import com.xml.team18.sluzbenik.model.obavestenje.Primalac;
+import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.xmldb.api.base.Resource;
+import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
+import javax.validation.constraints.Null;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.namespace.QName;
+import java.math.BigInteger;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -55,6 +63,11 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
                 id = UUID.randomUUID().toString();
                 o.setId(id);
             }
+            long cijena = 0;
+            for (Cenovnik.Stavka s : o.getIzdanaDokumenta().getCenovnik().getStavka()) {
+                cijena += s.getCena().longValue();
+            }
+            o.getIzdanaDokumenta().setCena(BigInteger.valueOf(cijena));
             o.setVocab("http://team14.xml.com/rdf/obavestenja/predicate/");
             o.setAbout("http://team14.xml.com/rdf/obavestenja/" + id);
             LocalDate now = LocalDate.now();
@@ -138,6 +151,25 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
             System.err.println(Arrays.toString(e.getStackTrace()));
             return null;
         }
+    }
+
+    public List<Obavestenje> getAllByKorisnikId(String id) throws Exception {
+        String query = String.format("/obavestenje[podnosilac/@id = '%s']", id);
+        List<Obavestenje> zahtevi = new ArrayList<>();
+        ResourceIterator iterator;
+        try {
+            iterator = this.existManager.query(collectionId, query).getIterator();
+        } catch(NullPointerException e) {
+            return new ArrayList<>();
+        }
+
+        while(iterator.hasMoreResources()) {
+            Resource r = iterator.nextResource();
+            zahtevi.add((Obavestenje) ((JAXBElement<?>) jaxB
+                    .unmarshall(r.getContent().toString(), Obavestenje.class, ObavestenjeFactory.class))
+                    .getValue());
+        }
+        return zahtevi;
     }
 
     public Obavestenje findById(String id) throws ResourceNotFoundException {

@@ -1,5 +1,6 @@
 package com.xml.team18.sluzbenik.dto;
 
+import com.xml.team18.sluzbenik.model.obavestenje.Obavestenje;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
-@XmlSeeAlso({Zahtev.class})
+@XmlSeeAlso({Zahtev.class, Obavestenje.class})
 public class EntityList<T> {
 
     private List<T> listOfEntityObjects;

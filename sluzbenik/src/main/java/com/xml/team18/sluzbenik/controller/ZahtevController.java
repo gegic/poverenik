@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.JAXBException;
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping(
@@ -37,10 +36,15 @@ public class ZahtevController {
         return ResponseEntity.ok(service.getById(id));
     }
 
+    @GetMapping
+    ResponseEntity<EntityList<Zahtev>> getAll() throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.getAll()));
+    }
+
     @GetMapping(path = "/korisnik/{korisnikId}")
-    ResponseEntity<EntityList<Zahtev>> getAll(@PathVariable String korisnikId) throws Exception {
+    ResponseEntity<EntityList<Zahtev>> getAllByKorisnikId(@PathVariable String korisnikId) throws Exception {
         return ResponseEntity.ok(
-                new EntityList<Zahtev>(service.getAll(korisnikId)));
+                new EntityList<Zahtev>(service.getAllByKorisnikId(korisnikId)));
     }
 
     @GetMapping(path = "/neodgovoreni")

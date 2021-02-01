@@ -1,8 +1,7 @@
 <div class="p-mx-6">
-  <p-table [value]="zahtevService.zahtevi">
+  <p-table [value]="zahtevService.zahtevi" [loading]="loading">
     <ng-template pTemplate="header">
       <tr>
-        <th>Ustanova</th>
         <th>Opis</th>
         <th>XHTML</th>
         <th>PDF</th>
@@ -11,7 +10,6 @@
     </ng-template>
     <ng-template pTemplate="body" let-zahtev>
       <tr>
-        <td>{{zahtev.organ.naziv._text}}</td>
         <td>{{zahtev['opis-zahteva']._text}}</td>
         <td>
           <button class="p-button"
@@ -28,16 +26,24 @@
           ></button>
         </td>
         <td>
-          <ng-container *ngIf="authService.getKorisnikRole() === 'gradjanin'; else prihvati" >
-            {{zahtev._attributes.prihvatanje}}
-          </ng-container>
-          <ng-template #prihvati>
+          <ng-container *ngIf="tip === 'neodgovoreni-zahtevi'; else korisnikovi">
             <button class="p-button p-button-success"
                     label="Odgovori"
                     (click)="odgovori(zahtev)"
                     pButton
             ></button>
+          </ng-container>
+          <ng-template #korisnikovi>
+            {{zahtev._attributes.prihvatanje}}
           </ng-template>
+
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="5">
+          Nema zahteva...
         </td>
       </tr>
     </ng-template>

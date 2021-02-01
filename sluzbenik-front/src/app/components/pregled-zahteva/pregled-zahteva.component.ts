@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ZahtevService} from '../../../core/services/zahtev.service';
+import {ZahtevService} from '../../core/services/zahtev.service';
 import * as xml from 'xml-js';
-import {AuthService} from '../../../core/services/auth.service';
+import {AuthService} from '../../core/services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {OdgovorEditService} from '../../../core/services/odgovor-edit.service';
+import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
 
 @Component({
   selector: 'app-pregled-zahteva',
@@ -12,33 +12,47 @@ import {OdgovorEditService} from '../../../core/services/odgovor-edit.service';
 })
 export class PregledZahtevaComponent implements OnInit {
 
+  loading = false;
+  tip: string;
+
   constructor(public zahtevService: ZahtevService,
-              private authService: AuthService,
+              public authService: AuthService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private odgovorEditService: OdgovorEditService) { }
+              private odgovorEditService: ObavestenjeEditService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.activatedRoute.data.subscribe(value => {
-      if (!value.neodgovoreni) {
+      if (value.tip === 'korisnikovi-zahtevi') {
         this.zahtevService.getAllByKorisnikId(this.authService.korisnik.getValue()._attributes.id).subscribe(val => {
           const z = (xml.xml2js(val, {compact: true}) as any).entityList.zahtev;
           if (Array.isArray(z)) {
             this.zahtevService.zahtevi = z;
           } else {
-            this.zahtevService.zahtevi = [z];
+            if (!z) {
+              this.zahtevService.zahtevi = [];
+            } else {
+              this.zahtevService.zahtevi = [z];
+            }
           }
+          this.loading = false;
         });
-      } else {
+      } else if (value.tip === 'neodgovoreni-zahtevi'){
         this.zahtevService.getAllNeodgovoreni().subscribe(val => {
           const z = (xml.xml2js(val, {compact: true}) as any).entityList.zahtev;
-          console.log(z);
           if (Array.isArray(z)) {
             this.zahtevService.zahtevi = z;
           } else {
-            this.zahtevService.zahtevi = [z];
+            if (!z) {
+              this.zahtevService.zahtevi = [];
+            } else {
+              this.zahtevService.zahtevi = [z];
+            }
           }
+          this.loading = false;
         });
+        this.tip = value.tip;
       }
     });
 

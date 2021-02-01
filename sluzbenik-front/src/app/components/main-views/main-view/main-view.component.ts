@@ -30,6 +30,10 @@ export class MainViewComponent implements OnInit {
         {
           label: 'Pregled zahteva',
           routerLink: '/pregled-zahteva'
+        },
+        {
+          label: 'Pregled obaveštenja',
+          routerLink: '/pregled-obavestenja'
         }
       ];
     } else {

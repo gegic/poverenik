@@ -1,10 +1,10 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ZahtevEditService} from '../../../core/services/zahtev-edit.service';
+import {ZahtevEditService} from '../../core/services/zahtev-edit.service';
 import {MessageService} from 'primeng/api';
-import {ZahtevService} from '../../../core/services/zahtev.service';
+import {ZahtevService} from '../../core/services/zahtev.service';
 import {Router} from '@angular/router';
-import {OdgovorEditService} from '../../../core/services/odgovor-edit.service';
-import {OdgovorService} from '../../../core/services/odgovor.service';
+import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
+import {ObavestenjeService} from '../../core/services/obavestenje.service';
 
 @Component({
   selector: 'app-slanje-odgovora',
@@ -15,9 +15,9 @@ export class SlanjeOdgovoraComponent implements OnInit, AfterViewInit {
 
   @ViewChild('odgovorXonomy', { static: false }) odgovorXonomy: ElementRef;
 
-  constructor(public editService: OdgovorEditService,
+  constructor(public editService: ObavestenjeEditService,
               private messageService: MessageService,
-              private odgovorService: OdgovorService,
+              private odgovorService: ObavestenjeService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -32,18 +32,19 @@ export class SlanjeOdgovoraComponent implements OnInit, AfterViewInit {
 
   submitOdgovor(): void {
     if (this.editService.warnings.length > 0) {
-      this.messageService.add({severity: 'error', summary: 'Neuspešno podnošenje', detail: 'Prvo proverite sva upozorenja za zahtev.'})
+      this.messageService.add({severity: 'error', summary: 'Neuspešno slanje', detail: 'Prvo proverite sva upozorenja za obaveštenje.'})
+      return;
     }
 
     const odgovorString: string = this.editService.harvest();
 
     this.odgovorService.send(odgovorString).subscribe(() =>
       {
-        this.messageService.add({severity: 'success', summary: 'Uspešno podnet zahtev', detail: 'Vaš zahtev je uspešno podnet'});
+        this.messageService.add({severity: 'success', summary: 'Uspešno poslan odgovor', detail: 'Vaše obaveštenje je uspešno poslano'});
         this.router.navigate(['']);
       },
       () => {
-        this.messageService.add({severity: 'error', summary: 'Neuspešno podnošenje'});
+        this.messageService.add({severity: 'error', summary: 'Neuspešno slanje'});
       }
     );
   }

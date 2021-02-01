@@ -63,6 +63,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
         "izdanaDokumenta",
         "dostavljeno"
 })
+@XmlRootElement(name = "obavestenje")
 public class Obavestenje {
 
     @XmlElement(required = true)
@@ -106,6 +107,10 @@ public class Obavestenje {
     protected String about;
     @XmlAttribute(name = "id")
     protected String id;
+    @XmlAttribute(name = "property", required = false)
+    protected String property;
+    @XmlAttribute(name = "content", required = false)
+    protected String content;
 
     /**
      * Gets the value of the broj property.
@@ -387,4 +392,31 @@ public class Obavestenje {
         this.id = value;
     }
 
+    public String getProperty() {
+        return this.property;
+    }
+
+    public void setProperty(String val) {
+        this.property = val;
+    }
+
+    /**
+     * Gets the value of the datatype property.
+     *
+     * @return possible object is {@link String }
+     *
+     */
+    public String getContent() {
+        return content;
+    }
+
+    /**
+     * Sets the value of the datatype property.
+     *
+     * @param value allowed object is {@link String }
+     *
+     */
+    public void setContent(String value) {
+        this.content = value;
+    }
 }

@@ -48,7 +48,7 @@ public class Primalac {
     protected Organ organ;
     @XmlAttribute(name = "broj-racuna", required = true)
     protected String brojRacuna;
-    @XmlAttribute(name = "com/xml/team18/sluzbenik/model")
+    @XmlAttribute(name = "model")
     protected Integer model;
     @XmlAttribute(name = "poziv-na-broj", required = true)
     protected String pozivNaBroj;

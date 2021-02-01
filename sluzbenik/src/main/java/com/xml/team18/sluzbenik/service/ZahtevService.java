@@ -4,9 +4,11 @@ import com.xml.team18.sluzbenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.sluzbenik.factory.ZahtevFactory;
 import com.xml.team18.sluzbenik.generators.ZahtevGenerator;
 import com.xml.team18.sluzbenik.jaxb.JaxB;
+import com.xml.team18.sluzbenik.model.korisnik.Korisnik;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import com.xml.team18.sluzbenik.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
@@ -28,6 +30,11 @@ public class ZahtevService {
     }
 
     public String save(Zahtev z) throws JAXBException {
+        z.setPrihvatanje("neodgovoren");
+        Korisnik k = (Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        z.getTrazilacInformacije().setId(k.getId());
+        z.setProperty("pred:trazilac");
+        z.setContent(k.getId());
         z = this.repository.save(z);
         return z.getId();
     }
@@ -37,8 +44,12 @@ public class ZahtevService {
         return jaxB.marshall(found, Zahtev.class, ZahtevFactory.class);
     }
 
-    public List<Zahtev> getAll(String id) throws Exception {
+    public List<Zahtev> getAllByKorisnikId(String id) throws Exception {
         return repository.getAllByKorisnikId(id);
+    }
+
+    public List<Zahtev> getAll() throws Exception {
+        return repository.getAll();
     }
 
     public List<Zahtev> getAllNeodgovoreni() throws Exception {

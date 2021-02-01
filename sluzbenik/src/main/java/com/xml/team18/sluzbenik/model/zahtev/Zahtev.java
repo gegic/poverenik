@@ -61,6 +61,14 @@ public class Zahtev {
     @Getter
     @Setter
     protected String prihvatanje;
+    @Getter
+    @Setter
+    @XmlAttribute(name = "property")
+    protected String property;
+    @Getter
+    @Setter
+    @XmlAttribute(name = "content")
+    protected String content;
 
     /**
      * Gets the value of the organ property.

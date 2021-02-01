@@ -54,8 +54,8 @@
                             („Службени гласник РС“, бр.
                             <xsl:for-each select="/zahtev/zakon/sluzbeni-glasnik">
                                <xsl:value-of select="broj"/> 
-                            </xsl:for-each>), од горе наведеног органа захтевам:*
-                        </xsl:for-each>
+                            </xsl:for-each>)
+                        </xsl:for-each>, од горе наведеног органа захтевам:*
 
                     </fo:block>
                     <fo:block text-indent="4em" font-size="12pt"

@@ -15,16 +15,24 @@ import { MainViewComponent } from './components/main-views/main-view/main-view.c
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { GradjaninViewComponent } from './components/main-views/gradjanin-view/gradjanin-view.component';
-import {ZahtevModule} from './components/zahtev/zahtev.module';
 import { SluzbenikViewComponent } from './components/main-views/sluzbenik-view/sluzbenik-view.component';
-import {OdgovorModule} from './components/odgovor/odgovor.module';
+import {TableModule} from 'primeng/table';
+import {PregledZahtevaComponent} from './components/pregled-zahteva/pregled-zahteva.component';
+import {SlanjeOdgovoraComponent} from './components/slanje-odgovora/slanje-odgovora.component';
+import {PodnosenjeZahtevaComponent} from './components/podnosenje-zahteva/podnosenje-zahteva.component';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainViewComponent,
     GradjaninViewComponent,
-    SluzbenikViewComponent
+    SluzbenikViewComponent,
+    PregledObavestenjaComponent,
+    PregledZahtevaComponent,
+    SlanjeOdgovoraComponent,
+    PodnosenjeZahtevaComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +44,9 @@ import {OdgovorModule} from './components/odgovor/odgovor.module';
     ToastModule,
     MenubarModule,
     ButtonModule,
-    ZahtevModule,
-    OdgovorModule
+    TableModule,
+    InputTextModule,
+    ScrollPanelModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
