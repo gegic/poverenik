@@ -1,0 +1,59 @@
+<div class="p-mx-6">
+  <p-table [value]="zahtevService.zahtevi" [loading]="loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Opis</th>
+        <th>XHTML</th>
+        <th>PDF</th>
+        <th>Odgovor</th>
+        <th></th>
+        <th *ngIf="authService.getKorisnikRole() === 'poverenik'"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-zahtev>
+      <tr>
+        <td>{{zahtev['opis-zahteva']._text}}</td>
+        <td>
+          <button class="p-button"
+                    label="XHTML"
+                    (click)="generateXHTML(zahtev)"
+                    pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button"
+                  label="PDF"
+                  (click)="generatePdf(zahtev)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <ng-container *ngIf="tip === 'neodgovoreni-zahtevi'; else ostali">
+            <button class="p-button p-button-success"
+                    label="Odgovori"
+                    (click)="odgovori(zahtev)"
+                    pButton
+            ></button>
+          </ng-container>
+          <ng-template #ostali>
+            {{zahtev._attributes.prihvatanje}}
+          </ng-template>
+        </td>
+        <td>
+          <button class="p-button-secondary" label="Detalji" (click)="detalji(zahtev)" pButton></button>
+        </td>
+        <td *ngIf="authService.getKorisnikRole() === 'poverenik'">
+          <button [disabled]="zahtev._attributes.prihvatanje !== 'neodgovoren'" class="p-button-danger" label="Odbij" (click)="odbij(zahtev._attributes.id)" pButton></button>
+        </td>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="5">
+          Nema zahteva...
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

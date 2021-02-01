@@ -7,6 +7,8 @@
         vocab="http://team14.xml.com/rdf/zalbecutanje/predicate/"
         about="http://team14.xml.com/rdf/zalbecutanje/6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
         id="6b6ed3d6-c4cd-4d63-bda3-d446e0dd4257"
+        property="pred:zahtev-zalbe"
+        content="5f9c00aa-a86c-4d26-8bc8-7021c086adb3"
 >
 
     <primalac>
@@ -29,9 +31,7 @@
         <naziv property="pred:naziv-pritivnika" datatype="xs:string">Neka ustanova</naziv>
     </protiv>
     <razlog>
-        <izbor izabran="true" naziv="није поступио" id="R1"/>
-        <izbor naziv="није поступио у целости" id="R2"/>
-        <izbor naziv="у законском року" id="R3"/>
+        <nepostupanje></nepostupanje>
     </razlog>
     <zahtev id="5f9c00aa-a86c-4d26-8bc8-7021c086adb3">
         <datum property="pred:datum-zahteva" datatype="xs:date">2020-12-05</datum>

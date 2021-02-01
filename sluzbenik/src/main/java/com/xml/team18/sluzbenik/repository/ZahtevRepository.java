@@ -121,20 +121,20 @@ public class ZahtevRepository {
 
     public List<Zahtev> getAllByKorisnikId(String id) throws Exception {
         String query = String.format("/zahtev[trazilac-informacije/@id = '%s']", id);
-        List<Zahtev> zahtevi = new ArrayList<>();
-        ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();
+        return this.getByQuery(query);
+    }
 
-        while(iterator.hasMoreResources()) {
-            Resource r = iterator.nextResource();
-            zahtevi.add((Zahtev) ((JAXBElement<?>) jaxB
-                    .unmarshall(r.getContent().toString(), Zahtev.class, ZahtevFactory.class))
-                    .getValue());
-        }
-        return zahtevi;
+    public List<Zahtev> getNeodgovoreniByKorisnikId(String id) throws Exception {
+        String query = String.format("/zahtev[trazilac-informacije/@id = '%s' and @prihvatanje = 'neodgovoren']", id);
+        return this.getByQuery(query);
     }
 
     public List<Zahtev> getAllNeodgovoreni() throws Exception {
         String query = "/zahtev[@prihvatanje = 'neodgovoren']";
+        return this.getByQuery(query);
+    }
+
+    private List<Zahtev> getByQuery(String query) throws Exception {
         List<Zahtev> zahtevi = new ArrayList<>();
         ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();
 
@@ -145,12 +145,5 @@ public class ZahtevRepository {
                     .getValue());
         }
         return zahtevi;
-    }
-
-    private String checkForId(String xmlZahtev) throws JAXBException {
-        Zahtev z = (Zahtev) ((JAXBElement<?>) jaxB
-                .unmarshall(xmlZahtev, Zahtev.class, ZahtevFactory.class))
-                .getValue();
-        return z.getId();
     }
 }

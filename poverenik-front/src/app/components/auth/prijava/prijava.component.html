@@ -1,0 +1,62 @@
+<div class="p-grid p-mx-0 p-justify-center centered-grid">
+  <div class="p-col-12 p-sm-9 p-md-6 p-lg-4">
+    <div class="p-text-center"><h1>Poverenik</h1></div>
+    <p-card class="login-card">
+      <div class="p-card-header">
+        <div class="p-d-flex p-justify-center">
+          <h1 class="p-mt-1 p-mb-3 p-text-light">Prijava</h1>
+        </div>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+        <div class="p-card-content">
+          <div class="p-grid p-px-5">
+            <div class="p-col-12 p-mt-2">
+              <span class="p-float-label">
+                <input type="text"
+                       id="email"
+                       name="email"
+                       autocomplete="off"
+                       autofocus
+                       formControlName="email"
+                       pInputText
+                >
+                <label for="email">Email</label>
+              </span>
+            </div>
+            <div class="p-col-12 p-mt-2">
+            <span class="p-float-label">
+              <input type="password"
+                     id="password"
+                     name="password"
+                     autocomplete="off"
+                     [feedback]="false"
+                     formControlName="lozinka"
+                     pPassword
+              >
+              <label for="password">Lozinka</label>
+            </span>
+            </div>
+          </div>
+        </div>
+        <div class="p-card-footer p-px-5">
+          <button class="p-button-secondary p-d-inline-block p-mr-auto"
+                  type="button"
+                  label="Registracija"
+                  [routerLink]="'/registracija'"
+                  pButton
+          ></button>
+          <button class="p-d-inline-block prijava-btn"
+                  *ngIf="!loading; else loadingSpinner"
+                  type="submit"
+                  label="Prijava"
+                  pButton
+          ></button>
+          <ng-template #loadingSpinner>
+            <p-progressSpinner class="p-d-inline-block prijava-btn" [style]="{width: '30px', height: '30px'}">
+            </p-progressSpinner>
+          </ng-template>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</div>

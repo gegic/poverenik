@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://zahtev.soap.sluzbenik.team18.xml.com/"
+                  xmlns:tns="http://zahtev.soap.sluzbenik.team18.xml.com/"
+                  name="ZahtevService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:include schemaLocation="../xsd/lista_zahteva.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="odbijeniZahteviRequest">
+        <wsdl:part name="korisnikId" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="odbijeniZahteviResponse">
+        <wsdl:part name="zahtevi" element="lista-zahteva" />
+    </wsdl:message>
+
+    <wsdl:message name="neodgovoreniZahteviRequest">
+        <wsdl:part name="korisnikId" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="neodgovoreniZahteviResponse">
+        <wsdl:part name="zahtevi" element="lista-zahteva" />
+    </wsdl:message>
+
+    <wsdl:portType name="ZahtevServicePortType">
+        <wsdl:operation name="odbijeniZahtevi">
+            <wsdl:input message="tns:odbijeniZahteviRequest" />
+            <wsdl:output message="tns:odbijeniZahteviResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="neodgovoreniZahtevi">
+            <wsdl:input message="tns:neodgovoreniZahteviRequest" />
+            <wsdl:output message="tns:neodgovoreniZahteviResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="ZahtevServiceSoapBinding" type="tns:ZahtevServicePortType">
+        <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="odbijeniZahtevi">
+            <soap:operation soapAction="odbijeniZahtevi" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="neodgovoreniZahtevi">
+            <soap:operation soapAction="neodgovoreniZahtevi" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ZahtevService">
+        <wsdl:port name="ZahtevServiceSoapBinding" binding="tns:ZahtevServiceSoapBinding">
+            <soap:address location="http://localhost:8080/zahtevPort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

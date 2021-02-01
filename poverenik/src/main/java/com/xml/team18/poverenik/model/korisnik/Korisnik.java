@@ -1,6 +1,8 @@
 
 package com.xml.team18.poverenik.model.korisnik;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,13 +10,14 @@ import javax.xml.bind.annotation.*;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "imePrezime",
-    "email",
-    "lozinka",
-    "uloga"
+        "imePrezime",
+        "email",
+        "lozinka",
+        "uloga"
 })
 @XmlRootElement(name = "korisnik")
 public class Korisnik implements UserDetails {
@@ -32,11 +35,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Gets the value of the imePrezime property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getImePrezime() {
         return imePrezime;
@@ -44,11 +47,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Sets the value of the imePrezime property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setImePrezime(String value) {
         this.imePrezime = value;
@@ -56,11 +59,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Gets the value of the email property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getEmail() {
         return email;
@@ -68,11 +71,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Sets the value of the email property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setEmail(String value) {
         this.email = value;
@@ -80,11 +83,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Gets the value of the lozinka property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getLozinka() {
         return lozinka;
@@ -92,11 +95,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Sets the value of the lozinka property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setLozinka(String value) {
         this.lozinka = value;
@@ -104,11 +107,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Gets the value of the uloga property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getUloga() {
         return uloga;
@@ -116,11 +119,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Sets the value of the uloga property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setUloga(String value) {
         this.uloga = value;
@@ -128,11 +131,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Gets the value of the id property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getId() {
         return id;
@@ -140,11 +143,11 @@ public class Korisnik implements UserDetails {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setId(String value) {
         this.id = value;

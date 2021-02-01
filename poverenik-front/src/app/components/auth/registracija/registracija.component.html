@@ -1,0 +1,80 @@
+<div class="p-grid p-mx-0 p-justify-center centered-grid">
+  <div class="p-col-12 p-sm-9 p-md-6 p-lg-4">
+    <p-card class="login-card">
+      <div class="p-card-header">
+        <div class="p-d-flex p-justify-center">
+          <h1 class="p-mt-1 p-mb-3 p-text-light">Registracija</h1>
+        </div>
+      </div>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmitRegister()">
+        <div class="p-card-content">
+          <div class="p-grid p-px-5">
+            <div class="p-col-12 p-mt-2">
+              <span class="p-float-label">
+                <input type="text"
+                       id="ime-prezime"
+                       name="ime-prezime"
+                       autocomplete="off"
+                       autofocus
+                       formControlName="imePrezime"
+                       pInputText
+                >
+                <label for="ime-prezime">Ime i prezime</label>
+              </span>
+            </div>
+            <div class="p-col-12 p-mt-2">
+              <span class="p-float-label">
+                <input type="text"
+                       id="email"
+                       name="email"
+                       autocomplete="off"
+                       formControlName="email"
+                       pInputText
+                >
+                <label for="email">Email</label>
+              </span>
+            </div>
+            <div class="p-col-12 p-mt-2">
+              <span class="p-float-label">
+                <input type="password"
+                       id="password"
+                       name="password"
+                       autocomplete="off"
+                       formControlName="lozinka"
+                       pPassword
+                >
+                <label for="password">Lozinka</label>
+              </span>
+            </div>
+            <div class="p-col-12 p-mt-2">
+              <span class="p-float-label">
+                <input type="password"
+                       id="repeat"
+                       name="repeat"
+                       [feedback]="false"
+                       autocomplete="off"
+                       formControlName="potvrda"
+                       pPassword
+                >
+                <label for="repeat">Potvrda lozinke</label>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="p-card-footer p-px-5">
+          <button class="p-button-secondary p-d-inline-block p-mr-auto"
+                  type="button"
+                  label="Prijava"
+                  [routerLink]="'/prijava'"
+                  pButton
+          ></button>
+          <button type="submit"
+                  class="p-d-inline-block registracija-btn"
+                  label="Registracija"
+                  pButton
+          ></button>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</div>

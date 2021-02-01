@@ -33,7 +33,7 @@ public class ResenjeService implements PoverenikService<Resenje> {
 
     @Override
     public String getById(String id) throws ResourceNotFoundException, JAXBException {
-        Resenje found = repository.findById(UUID.fromString(id));
+        Resenje found = repository.findById(id);
         JAXBElement<Resenje> element = new JAXBElement<Resenje>(QName.valueOf("resenje"), Resenje.class, found);
         return jaxB.marshall(element, Resenje.class, ResenjeFactory.class);
     }

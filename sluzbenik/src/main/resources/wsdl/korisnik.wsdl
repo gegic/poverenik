@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://korisnik.soap.sluzbenik.team18.xml.com/"
+                  xmlns:tns="http://korisnik.soap.sluzbenik.team18.xml.com/"
+                  name="KorisnikService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:include schemaLocation="../xsd/korisnik.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="korisnikByEmailRequest">
+        <wsdl:part name="email" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="korisnikByEmailResponse">
+        <wsdl:part name="korisnik" element="korisnik" />
+    </wsdl:message>
+
+    <wsdl:portType name="KorisnikServicePortType">
+        <wsdl:operation name="korisnikByEmail">
+            <wsdl:input message="tns:korisnikByEmailRequest" />
+            <wsdl:output message="tns:korisnikByEmailResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="KorisnikServiceSoapBinding" type="tns:KorisnikServicePortType">
+        <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="korisnikByEmail">
+            <soap:operation soapAction="korisnikByEmail" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="KorisnikService">
+        <wsdl:port name="KorisnikServiceSoapBinding" binding="tns:KorisnikServiceSoapBinding">
+            <soap:address location="http://localhost:8080/korisnikPort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -17,7 +17,7 @@ export class PodnosenjeZahtevaComponent implements AfterViewInit {
               private messageService: MessageService,
               private zahtevService: ZahtevService,
               private router: Router) { }
-              
+
   ngAfterViewInit(): void {
     this.editService.render(this.zahtevXonomy.nativeElement, zahtevXmlString);
   }

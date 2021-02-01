@@ -34,7 +34,7 @@ public class ZalbaCutanjeService implements PoverenikService<Zalba> {
 
     @Override
     public String getById(String id) throws ResourceNotFoundException, JAXBException {
-        Zalba found = repository.findById(UUID.fromString(id));
+        Zalba found = repository.findById(id);
         JAXBElement<Zalba> element = new JAXBElement<Zalba>(QName.valueOf("zalba-cutanje"), Zalba.class, found);
         return jaxB.marshall(element, Zalba.class, ZalbaCutanjeFactory.class);
     }

@@ -3,12 +3,8 @@ package com.xml.team18.poverenik.repository;
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.exist.ExistManager;
 import com.xml.team18.poverenik.factory.KorisnikFactory;
-import com.xml.team18.poverenik.factory.ObavestenjeFactory;
-import com.xml.team18.poverenik.fuseki.FusekiWriter;
-import com.xml.team18.poverenik.fuseki.MetadataExtractor;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.korisnik.Korisnik;
-import com.xml.team18.poverenik.model.obavestenje.Obavestenje;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.XMLDBException;
@@ -49,9 +45,8 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
             this.existManager.saveRaw(collectionId, id, rawXml);
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
-            return (Korisnik) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Korisnik.class, com.xml.team18.poverenik.factory.KorisnikFactory.class))
-                    .getValue();
+            return (Korisnik) jaxB
+                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class);
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -89,19 +84,18 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
         }).collect(Collectors.toList());
     }
 
-    public Korisnik findByEmail(String email) throws ResourceNotFoundException {
+    public Korisnik findByEmail(String email) {
         String xPath = String.format("/korisnik[email = '%s']", email);
         String contentFound;
         try {
             contentFound = this.existManager.query(collectionId, xPath).getResource(0).getContent().toString();
-            return (Korisnik) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class))
-                    .getValue();
+            return (Korisnik) jaxB
+                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class);
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
             return null;
         } catch (Exception e) {
-            throw new ResourceNotFoundException(collectionId, email);
+            return null;
         }
 
     }

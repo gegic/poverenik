@@ -1,0 +1,27 @@
+<div class="p-flex-row p-justify-center p-text-center p-pt-6">
+  <h3>
+    Kao Poverenik, na ovom portalu možete izvršiti odgovaranje na zahteve, podnošenje izveštaja i pregled dokumenata
+  </h3>
+  <h4 class="p-mt-5 p-mb-6">Izaberite jednu od željenih opcija</h4>
+  <button class="p-button-text"
+          label="Odgovor na zahteve"
+          [routerLink]="'/novi-zahtevi'"
+          pButton
+  ></button>
+  <button class="p-button-text"
+          label="Pregled svih zahteva"
+          [routerLink]="'/svi-zahtevi'"
+          pButton
+  ></button>
+  <button class="p-button-text"
+          label="Pregled svih obaveštenja"
+          [routerLink]="'/sva-obavestenja'"
+          pButton
+  ></button>
+  <button class="p-button-text"
+          label="Podnošenje izveštaja"
+          [routerLink]="'/izvestaj'"
+          pButton
+  ></button>
+  <h6 class="p-mt-4">Ove opcije možete birati i iz navigacionog menija</h6>
+</div>
