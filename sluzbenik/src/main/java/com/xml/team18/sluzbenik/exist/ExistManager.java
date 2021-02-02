@@ -6,10 +6,7 @@ import org.exist.xupdate.XUpdateProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.DatabaseManager;
-import org.xmldb.api.base.Collection;
-import org.xmldb.api.base.Database;
-import org.xmldb.api.base.ResourceSet;
-import org.xmldb.api.base.XMLDBException;
+import org.xmldb.api.base.*;
 import org.xmldb.api.modules.CollectionManagementService;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XPathQueryService;
@@ -115,6 +112,27 @@ public class ExistManager {
         }
     }
 
+    public void deleteById(String collectionId, String documentId) throws Exception {
+        createConnection();
+        Resource r = null;
+        try (Collection col = getOrCreateCollection(collectionId, 0)) {
+            r = col.getResource(documentId);
+            col.removeResource(r);
+        } finally {
+            if (r != null) {
+                ((EXistResource) r).freeResources();
+            }
+        }
+    }
+
+    public void delete(String collectionId, Resource r) throws Exception {
+        createConnection();
+        try (Collection col = getOrCreateCollection(collectionId, 0)) {
+            col.removeResource(r);
+        } finally {
+            ((EXistResource) r).freeResources();
+        }
+    }
     public XMLResource read(String collectionId, String documentId) throws ResourceNotFoundException {
         try (Collection col = DatabaseManager.getCollection(existProperties.getUri() + collectionId,
                 existProperties.getUser(), existProperties.getPassword())) {

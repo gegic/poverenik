@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://zalba.soap.poverenik.team18.xml.com/"
+                  xmlns:tns="http://zalba.soap.poverenik.team18.xml.com/"
+                  name="ZalbaService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:include schemaLocation="../xsd/zalbacutanje.xsd"/>
+            <xsd:include schemaLocation="../xsd/zalbanaodluku.xsd"/>
+            <xsd:include schemaLocation="../xsd/odgovor_izjasnjenje.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="odgovoriRequest">
+        <wsdl:part name="odgovor" element="odgovor-izjasnjenje" />
+    </wsdl:message>
+    <wsdl:message name="odgovoriResponse">
+        <wsdl:part name="uspesno" type="xsd:boolean" />
+    </wsdl:message>
+
+    <wsdl:portType name="ZalbaServicePortType">
+
+        <wsdl:operation name="odgovori">
+            <wsdl:input message="tns:odgovoriRequest" />
+            <wsdl:output message="tns:odgovoriResponse" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="ZalbaServiceSoapBinding" type="tns:ZalbaServicePortType">
+        <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="odgovori">
+            <soap:operation soapAction="odgovori" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ZalbaService">
+        <wsdl:port name="ZalbaServiceSoapBinding" binding="tns:ZalbaServiceSoapBinding">
+            <soap:address location="http://localhost:8079/zalba" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

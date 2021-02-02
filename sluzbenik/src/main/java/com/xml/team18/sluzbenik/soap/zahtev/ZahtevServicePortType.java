@@ -1,7 +1,10 @@
 package com.xml.team18.sluzbenik.soap.zahtev;
 
+import com.xml.team18.sluzbenik.factory.IzjasnjenjeFactory;
 import com.xml.team18.sluzbenik.factory.ListaZahtevaFactory;
+import com.xml.team18.sluzbenik.factory.ZahtevFactory;
 import com.xml.team18.sluzbenik.model.ListaZahteva;
+import com.xml.team18.sluzbenik.model.izjasnjenje.Izjasnjenje;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 
 import javax.jws.WebMethod;
@@ -12,7 +15,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
 @WebService(targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", name = "ZahtevServicePortType")
-@XmlSeeAlso({ListaZahtevaFactory.class})
+@XmlSeeAlso({ListaZahtevaFactory.class, ZahtevFactory.class, IzjasnjenjeFactory.class})
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface ZahtevServicePortType {
 
@@ -42,5 +45,13 @@ public interface ZahtevServicePortType {
     Zahtev getById(
             @WebParam(partName = "id", name = "id")
                     String id
+    );
+
+
+    @WebMethod(action = "zahtevajIzjasnjenje")
+    @WebResult(name = "uspesno", targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", partName = "uspesno")
+    boolean zahtevajIzjasnjenje(
+            @WebParam(partName = "izjasnjenje", name = "izjasnjenje")
+                    Izjasnjenje izjasnjenje
     );
 }

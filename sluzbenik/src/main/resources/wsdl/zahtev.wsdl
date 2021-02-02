@@ -8,6 +8,7 @@
     <wsdl:types>
         <xsd:schema>
             <xsd:include schemaLocation="../xsd/lista_zahteva.xsd"/>
+            <xsd:include schemaLocation="../xsd/izjasnjenje.xsd"/>
         </xsd:schema>
     </wsdl:types>
 
@@ -39,6 +40,13 @@
         <wsdl:part name="zahtev" element="zahtev" />
     </wsdl:message>
 
+    <wsdl:message name="zahtevajIzjasnjenjeRequest">
+        <wsdl:part name="izjasnjenje" element="izjasnjenje" />
+    </wsdl:message>
+    <wsdl:message name="zahtevajIzjasnjenjeResponse">
+        <wsdl:part name="uspesno" type="xsd:boolean" />
+    </wsdl:message>
+
     <wsdl:portType name="ZahtevServicePortType">
         <wsdl:operation name="odbijeniZahtevi">
             <wsdl:input message="tns:odbijeniZahteviRequest" />
@@ -56,6 +64,11 @@
             <wsdl:input message="tns:getByIdRequest" />
             <wsdl:output message="tns:getByIdResponse" />
         </wsdl:operation>
+        <wsdl:operation name="zahtevajIzjasnjenje">
+            <wsdl:input message="tns:zahtevajIzjasnjenjeRequest" />
+            <wsdl:output message="tns:zahtevajIzjasnjenjeResponse" />
+        </wsdl:operation>
+
     </wsdl:portType>
 
     <wsdl:binding name="ZahtevServiceSoapBinding" type="tns:ZahtevServicePortType">
@@ -92,6 +105,16 @@
 
         <wsdl:operation name="getById">
             <soap:operation soapAction="getById" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="zahtevajIzjasnjenje">
+            <soap:operation soapAction="zahtevajIzjasnjenje" />
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

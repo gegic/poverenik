@@ -7,7 +7,9 @@
 package com.xml.team18.sluzbenik.soap.zahtev;
 
 import com.xml.team18.sluzbenik.model.ListaZahteva;
+import com.xml.team18.sluzbenik.model.izjasnjenje.Izjasnjenje;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
+import com.xml.team18.sluzbenik.repository.IzjasnjenjeRepository;
 import com.xml.team18.sluzbenik.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
 
     private ZahtevRepository zahtevRepository;
+    private IzjasnjenjeRepository izjasnjenjeRepository;
 
     private static final Logger LOG = Logger.getLogger(ZahtevServiceSoapBindingImpl.class.getName());
 
@@ -83,9 +86,27 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
         }
     }
 
+    @Override
+    public boolean zahtevajIzjasnjenje(Izjasnjenje izjasnjenje) {
+        LOG.info("Executing operation zahtevajIzjasnjenje");
+        System.out.println(izjasnjenje.getId());
+        try {
+            return this.izjasnjenjeRepository.save(izjasnjenje) != null;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
     @Autowired
     public void setZahtevRepository(ZahtevRepository zahtevRepository) {
         this.zahtevRepository = zahtevRepository;
+    }
+
+
+    @Autowired
+    public void setIzjasnjenjeRepository(IzjasnjenjeRepository izjasnjenjeRepository) {
+        this.izjasnjenjeRepository = izjasnjenjeRepository;
     }
 
 }

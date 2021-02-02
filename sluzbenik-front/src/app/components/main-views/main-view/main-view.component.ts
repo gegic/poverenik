@@ -44,22 +44,35 @@ export class MainViewComponent implements OnInit {
           routerLink: '/sluzbenik',
         },
         {
-          label: 'Novi zahtevi',
-          routerLink: '/novi-zahtevi'
+          label: 'Zahtevi',
+          items: [
+            {
+              label: 'Neodgovoreni zahtevi',
+              routerLink: '/novi-zahtevi'
+            },
+            {
+              label: 'Svi zahtevi',
+              routerLink: '/svi-zahtevi'
+            },
+          ]
         },
         {
-          label: 'Pregled svih zahteva',
-          routerLink: '/svi-zahtevi'
+          label: 'Dokumenta',
+          items: [
+            {
+              label: 'Pregled svih obaveštenja',
+              routerLink: '/sva-obavestenja'
+            },
+            {
+              label: 'Izveštaj',
+              routerLink: '/izvestaj'
+            }
+          ]
         },
         {
-          label: 'Pregled svih obaveštenja',
-          routerLink: '/sva-obavestenja'
-        },
-        {
-          label: 'Izveštaj',
-          routerLink: '/izvestaj'
+          label: 'Izjašnjenja',
+          routerLink: '/izjasnjenja'
         }
-
       ];
     }
   }

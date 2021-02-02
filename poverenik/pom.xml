@@ -106,7 +106,24 @@
         </dependency>
 
     </dependencies>
+    <profiles>
+        <profile>
+            <id>noGenerate</id>
 
+            <properties>
+                <xjc.generate>none</xjc.generate>
+            </properties>
+        </profile>
+        <profile>
+            <id>generate</id>
+            <activation> <!-- Ovo treba promeniti za generisanje -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <xjc.generate>generate-sources</xjc.generate>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
@@ -120,6 +137,37 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <version>${cxf.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>${xjc.generate}</phase>
+                        <configuration>
+                            <sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
+
+                            <wsdlOptions>
+
+                                <wsdlOption>
+                                    <wsdl>${basedir}/src/main/resources/wsdl/zalba.wsdl</wsdl>
+                                    <extraargs>
+                                        <extraarg>-impl</extraarg>
+                                        <extraarg>-verbose</extraarg>
+                                    </extraargs>
+                                    <wsdlLocation>classpath:wsdl/zalba.wsdl</wsdlLocation>
+                                </wsdlOption>
+
+                            </wsdlOptions>
+                        </configuration>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

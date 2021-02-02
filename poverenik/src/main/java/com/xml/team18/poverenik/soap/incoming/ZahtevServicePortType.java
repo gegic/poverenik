@@ -2,6 +2,7 @@ package com.xml.team18.poverenik.soap.incoming;
 
 import com.xml.team18.poverenik.factory.ListaZahtevaFactory;
 import com.xml.team18.poverenik.model.ListaZahteva;
+import com.xml.team18.poverenik.model.izjasnjenje.Izjasnjenje;
 import com.xml.team18.poverenik.model.zahtev.Zahtev;
 
 import javax.jws.WebMethod;
@@ -48,5 +49,12 @@ public interface ZahtevServicePortType {
     Zahtev getById(
             @WebParam(partName = "id", name = "id")
                     String id
+    );
+
+    @WebMethod(action = "zahtevajIzjasnjenje")
+    @WebResult(name = "uspesno", targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", partName = "uspesno")
+    boolean zahtevajIzjasnjenje(
+            @WebParam(partName = "izjasnjenje", name = "izjasnjenje")
+                    Izjasnjenje izjasnjenje
     );
 }

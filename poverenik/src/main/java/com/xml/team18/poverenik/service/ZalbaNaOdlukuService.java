@@ -40,6 +40,7 @@ public class ZalbaNaOdlukuService {
         Zahtev z = this.zahtevSoapService.getById(added.getZahtev().getId());
         z.setPrihvatanje("zalba-na-odluku");
         this.zahtevSoapService.saveZahtev(z);
+        this.zahtevSoapService.zahtevajIzjasnjenje(added);
 
         return added.getId();
     }

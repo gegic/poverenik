@@ -24,6 +24,10 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
 import { ZahtevPrikazComponent } from './components/zahtev-prikaz/zahtev-prikaz.component';
 import { ObavestenjePrikazComponent } from './components/obavestenje-prikaz/obavestenje-prikaz.component';
+import { IzjasnjenjaComponent } from './components/izjasnjenja/izjasnjenja.component';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import { ObavestenjePrikazComponent } from './components/obavestenje-prikaz/obav
     SlanjeOdgovoraComponent,
     PodnosenjeZahtevaComponent,
     ZahtevPrikazComponent,
-    ObavestenjePrikazComponent
+    ObavestenjePrikazComponent,
+    IzjasnjenjaComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,11 @@ import { ObavestenjePrikazComponent } from './components/obavestenje-prikaz/obav
     ButtonModule,
     TableModule,
     InputTextModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    OverlayPanelModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InputTextareaModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

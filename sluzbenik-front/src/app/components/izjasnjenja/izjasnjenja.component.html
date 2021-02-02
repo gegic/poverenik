@@ -1,0 +1,48 @@
+<div class="p-mx-6">
+  <p-table [value]="izjasnjenjeService.izjasnjenja" [loading]="loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>#</th>
+        <th>Link do zahteva</th>
+        <th>Odgovor</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-izjasnjenje let-index="rowIndex">
+      <tr>
+        <td>
+          {{index + 1}}
+        </td>
+        <td>
+          <button class="p-button"
+                  label="Zahtev"
+                  (click)="vidiZahtev(izjasnjenje)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button"
+                  label="Odgovori"
+                  (click)="otvoriPanel($event, izjasnjenje)"
+                  pButton
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="2">
+          Nema zahteva za izjašnjenje...
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-overlayPanel [showCloseIcon]="true" (onHide)="tekstOdgovora = ''" #op>
+    <ng-template pTemplate>
+      <textarea [(ngModel)]="tekstOdgovora" placeholder="Odgovor">
+      </textarea>
+      <div class="p-text-right p-mt-3 p-mr-2">
+        <button label="Pošalji" (click)="odgovori()" pButton></button>
+      </div>
+    </ng-template>
+  </p-overlayPanel>
+</div>

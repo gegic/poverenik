@@ -40,7 +40,7 @@ public class ZalbaCutanjeService {
         Zahtev z = this.zahtevSoapService.getById(added.getZahtev().getId());
         z.setPrihvatanje("zalba-cutanje");
         this.zahtevSoapService.saveZahtev(z);
-
+        this.zahtevSoapService.zahtevajIzjasnjenje(added);
         return added.getId();
     }
 

@@ -1,7 +1,10 @@
 package com.xml.team18.poverenik.service;
 
 import com.xml.team18.poverenik.model.ListaZahteva;
+import com.xml.team18.poverenik.model.izjasnjenje.Izjasnjenje;
 import com.xml.team18.poverenik.model.zahtev.Zahtev;
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import com.xml.team18.poverenik.soap.incoming.ZahtevServicePortType;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +36,24 @@ public class ZahtevSoapService {
         endpoint.updatePrihvatanje(z);
     }
 
+    public void zahtevajIzjasnjenje(ZalbaNaOdluku zalbaNaOdluku) {
+        this.setupService();
+        Izjasnjenje i = new Izjasnjenje();
+        i.setIdObavestenja(zalbaNaOdluku.getProtiv().getId());
+        i.setIdZahteva(zalbaNaOdluku.getZahtev().getId());
+        i.setIdZalbe(zalbaNaOdluku.getId());
+        i.setTipZalbe("na-odluku");
+        endpoint.zahtevajIzjasnjenje(i);
+    }
+
+    public void zahtevajIzjasnjenje(ZalbaCutanje zalbaCutanje) {
+        Izjasnjenje i = new Izjasnjenje();
+        i.setIdZahteva(zalbaCutanje.getZahtev().getId());
+        i.setIdZalbe(zalbaCutanje.getId());
+        i.setTipZalbe("cutanje");
+        endpoint.zahtevajIzjasnjenje(i);
+    }
+
     private void setupService() {
         try {
             if (endpoint != null) {
@@ -47,5 +68,6 @@ public class ZahtevSoapService {
             e.printStackTrace();
         }
     }
+
 
 }
