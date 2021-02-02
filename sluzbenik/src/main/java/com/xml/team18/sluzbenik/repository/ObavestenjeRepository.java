@@ -37,7 +37,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
-public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
+public class ObavestenjeRepository {
     private final String collectionId = "/db/obavestenja";
 
     private final ExistManager existManager;

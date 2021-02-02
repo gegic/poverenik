@@ -119,6 +119,15 @@ public class ZahtevRepository {
         ).collect(Collectors.toList());
     }
 
+    public int count() {
+        try {
+            return existManager.count(collectionId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
     public List<Zahtev> getAllByKorisnikId(String id) throws Exception {
         String query = String.format("/zahtev[trazilac-informacije/@id = '%s']", id);
         return this.getByQuery(query);
@@ -137,6 +146,15 @@ public class ZahtevRepository {
     public List<Zahtev> getAllNeodgovoreni() throws Exception {
         String query = "/zahtev[@prihvatanje = 'neodgovoren']";
         return this.getByQuery(query);
+    }
+
+    public int count(String prihvatanje) {
+        String query = String.format("/zahtev[@prihvatanje = '%s']", prihvatanje);
+        try {
+            return this.getByQuery(query).size();
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     private List<Zahtev> getByQuery(String query) throws Exception {

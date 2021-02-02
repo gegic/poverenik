@@ -28,9 +28,9 @@
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="neresena"/>
-                        <xs:enumeration value="osnovana"/>
-                        <xs:enumeration value="neosnovana"/>
-                        <xs:enumeration value="odbijen-zahtev"/>
+                        <xs:enumeration value="prihvatanje"/>
+                        <xs:enumeration value="odbijanje-zalbe"/>
+                        <xs:enumeration value="odbijanje-zahteva"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:attribute>

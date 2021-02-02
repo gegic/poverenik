@@ -28,6 +28,9 @@ import { IzjasnjenjaComponent } from './components/izjasnjenja/izjasnjenja.compo
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PodnosenjeIzvestajaComponent } from './components/podnosenje-izvestaja/podnosenje-izvestaja.component';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {ToolbarModule} from 'primeng/toolbar';
 
 @NgModule({
   declarations: [
@@ -41,26 +44,29 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     PodnosenjeZahtevaComponent,
     ZahtevPrikazComponent,
     ObavestenjePrikazComponent,
-    IzjasnjenjaComponent
+    IzjasnjenjaComponent,
+    PodnosenjeIzvestajaComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    AuthModule,
-    HttpClientModule,
-    RouterModule,
-    ToastModule,
-    MenubarModule,
-    ButtonModule,
-    TableModule,
-    InputTextModule,
-    ScrollPanelModule,
-    OverlayPanelModule,
-    FormsModule,
-    ReactiveFormsModule,
-    InputTextareaModule,
-  ],
+    imports: [
+      BrowserModule,
+      BrowserAnimationsModule,
+      AppRoutingModule,
+      AuthModule,
+      HttpClientModule,
+      RouterModule,
+      ToastModule,
+      MenubarModule,
+      ButtonModule,
+      TableModule,
+      InputTextModule,
+      ScrollPanelModule,
+      OverlayPanelModule,
+      FormsModule,
+      ReactiveFormsModule,
+      InputTextareaModule,
+      InputNumberModule,
+      ToolbarModule
+    ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     MessageService

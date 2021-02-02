@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zalba-cutanje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <primalac>
-        <adresa>
-            <mesto></mesto>
-            <ulica></ulica>
-        </adresa>
-        <naziv></naziv>
-    </primalac>
-    <zakon>
-        <naziv>naziv1</naziv>
-        <clan broj=""></clan>
-        <sluzbeni-glasnik>
-        </sluzbeni-glasnik>
-    </zakon>
+<resenje xmlns:docs="http://team14.xml.com/docs"
+ xmlns:resenje="http://www.ftn.uns.ac.rs/resenje"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="file:/C:/Users/gh/Desktop/xmlProjekat/xml2020/xml/xmlSchema/resenje.xsd" vocab="http://www.oxygenxml.com/" about="http://www.oxygenxml.com/" id="00000000-0000-0000-0000-000000000000">
+    <broj>broj0</broj>
+    <datum property="property1" datatype="datatype0">2006-05-04</datum>
+    <zalilac>
+        <ime-prezime property="property2" datatype="datatype1">ime-prezime0</ime-prezime>
+    </zalilac>
     <protiv>
-        <adresa>
-            <mesto>stavi</mesto>
-            <ulica>stavi</ulica>
-        </adresa>
-        <naziv>stavi</naziv>
+        <naziv property="property3" datatype="datatype2">naziv0</naziv>
     </protiv>
-    <razlog>
-        <nepostupanje-u-celosti/>
-    </razlog>
-    <zahtev id="stavi">
-        <datum>stavi</datum>
-        <opis-zahteva>stavi</opis-zahteva>
+    <zalba>
+        <obavestenje/>
+    </zalba>
+    <zahtev id="00000000-0000-0000-0000-000000000000">
+        <datum property="property4" datatype="datatype3">2006-05-04</datum>
     </zahtev>
-    <mesto></mesto>
-    <datum></datum>
-    <podnosilac>
-        <adresa>
-            <mesto>stavi</mesto>
-            <ulica>stavi</ulica>
-        </adresa>
-        <ime-prezime>stavi</ime-prezime>
-    </podnosilac>
-</zalba-cutanje>
+    <osnov>
+        <zakon>
+            <naziv>naziv1</naziv>
+        </zakon>
+        <zakon>
+            <naziv>naziv2</naziv>
+        </zakon>
+    </osnov>
+    <telo>
+        <nalog>
+        </nalog>
+    </telo>
+    <obrazlozenje>
+        <izjasnjenje/>
+        <pravno-sredstvo rok="50" taksa="50">
+            <sud>
+                <naziv property="property5" datatype="datatype4">naziv3</naziv>
+            </sud>
+        </pravno-sredstvo>
+    </obrazlozenje>
+    <poverenik>
+        <ime-prezime property="property6" datatype="datatype5">ime-prezime1</ime-prezime>
+    </poverenik>
+</resenje>

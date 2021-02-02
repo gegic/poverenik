@@ -31,7 +31,7 @@ public class ZahtevSoapService {
         return endpoint.getById(id);
     }
     
-    public void saveZahtev(Zahtev z) {
+    public void updatePrihvatanje(Zahtev z) {
         this.setupService();
         endpoint.updatePrihvatanje(z);
     }

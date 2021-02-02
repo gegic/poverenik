@@ -23,8 +23,8 @@ public class ZalbaSoapService {
                 return;
             }
             URL wsdlLocation = new URL("http://localhost:8079/ws/zalba?wsdl");
-            QName serviceName = new QName("http://zalba.soap.sluzbenik.team18.xml.com/", "ZalbaService");
-            QName portName = new QName("http://zalba.soap.sluzbenik.team18.xml.com/", "ZalbaServiceSoapBinding");
+            QName serviceName = new QName("http://zalba.soap.poverenik.team18.xml.com/", "ZalbaService");
+            QName portName = new QName("http://zalba.soap.poverenik.team18.xml.com/", "ZalbaServiceSoapBinding");
             javax.xml.ws.Service service = javax.xml.ws.Service.create(wsdlLocation, serviceName);
             endpoint = service.getPort(portName, ZalbaServicePortType.class);
         } catch (MalformedURLException e) {

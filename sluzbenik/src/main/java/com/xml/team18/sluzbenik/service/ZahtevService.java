@@ -6,6 +6,7 @@ import com.xml.team18.sluzbenik.generators.ZahtevGenerator;
 import com.xml.team18.sluzbenik.jaxb.JaxB;
 import com.xml.team18.sluzbenik.model.korisnik.Korisnik;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
+import com.xml.team18.sluzbenik.repository.IzvestajRepository;
 import com.xml.team18.sluzbenik.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,7 +20,6 @@ public class ZahtevService {
     private final ZahtevRepository repository;
     private final JaxB jaxB;
     private final ZahtevGenerator zahtevGenerator;
-
     @Autowired
     public ZahtevService(ZahtevRepository zahtevRepository,
                          JaxB jaxB,
@@ -41,6 +41,10 @@ public class ZahtevService {
 
     public Zahtev getById(String id) throws ResourceNotFoundException {
         return repository.findById(id);
+    }
+
+    public int count(String prihvatanje) {
+        return repository.count(prihvatanje);
     }
 
     public List<Zahtev> getAllByKorisnikId(String id) throws Exception {

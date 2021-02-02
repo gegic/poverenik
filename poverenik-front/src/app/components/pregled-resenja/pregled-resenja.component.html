@@ -1,0 +1,53 @@
+<div class="p-mx-6">
+  <p-table [value]="resenjeService.resenja" [loading]="loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Broj</th>
+        <th>XHTML</th>
+        <th>PDF</th>
+        <th>Žalba</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-resenje>
+      <tr>
+        <td>{{resenje.broj._text}}</td>
+        <td>
+          <button class="p-button"
+                  label="XHTML"
+                  (click)="generateXHTML(resenje)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button"
+                  label="PDF"
+                  (click)="generatePdf(resenje)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button-secondary"
+                  label="Žalba"
+                  (click)="pregledajZalbu(resenje.zalba._attributes.id, resenje.zalba._attributes.tip)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button-secondary"
+                  label="Detaljno"
+                  (click)="pregledajResenje(resenje._attributes.id)"
+                  pButton
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="5">
+          Nema obaveštenja...
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

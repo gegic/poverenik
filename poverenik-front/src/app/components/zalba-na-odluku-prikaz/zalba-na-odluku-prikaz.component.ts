@@ -4,7 +4,7 @@ import {ZalbaNaOdlukuService} from '../../core/services/zalba-na-odluku.service'
 import {ZalbaNaOdlukuEditService} from '../../core/services/zalba-na-odluku-edit.service';
 import * as xml from 'xml-js';
 import {AuthService} from '../../core/services/auth.service';
-import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
+import {ResenjeEditService} from '../../core/services/resenje-edit.service';
 
 @Component({
   selector: 'app-zalba-na-odluku-prikaz',

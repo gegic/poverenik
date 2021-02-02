@@ -28,7 +28,7 @@ public class ObavestenjeController {
     }
 
     @PostMapping
-    ResponseEntity<String> addObavestenje(@RequestBody Obavestenje obavestenje) throws ResourceNotFoundException {
+    ResponseEntity<String> addObavestenje(@RequestBody Obavestenje obavestenje) throws Exception {
         return ResponseEntity.created(URI.create(this.service.save(obavestenje))).build();
     }
 

@@ -8,8 +8,10 @@ package com.xml.team18.sluzbenik.soap.zahtev;
 
 import com.xml.team18.sluzbenik.model.ListaZahteva;
 import com.xml.team18.sluzbenik.model.izjasnjenje.Izjasnjenje;
+import com.xml.team18.sluzbenik.model.izvestaj.Izvestaj;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import com.xml.team18.sluzbenik.repository.IzjasnjenjeRepository;
+import com.xml.team18.sluzbenik.repository.IzvestajRepository;
 import com.xml.team18.sluzbenik.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +37,7 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
 
     private ZahtevRepository zahtevRepository;
     private IzjasnjenjeRepository izjasnjenjeRepository;
+    private IzvestajRepository izvestajRepository;
 
     private static final Logger LOG = Logger.getLogger(ZahtevServiceSoapBindingImpl.class.getName());
 
@@ -68,6 +71,11 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
         try {
             Zahtev z = this.zahtevRepository.findById(zahtev.getId());
             z.setPrihvatanje(zahtev.getPrihvatanje());
+            if (z.getPrihvatanje().equalsIgnoreCase("zalba-na-odluku")) {
+                this.izvestajRepository.zalbaNaOdlukuPodneta();
+            } else if (z.getPrihvatanje().equalsIgnoreCase("zalba-cutanje")) {
+                this.izvestajRepository.zalbaCutanjePodneta();
+            }
             return this.zahtevRepository.save(z) == null;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -107,6 +115,11 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
     @Autowired
     public void setIzjasnjenjeRepository(IzjasnjenjeRepository izjasnjenjeRepository) {
         this.izjasnjenjeRepository = izjasnjenjeRepository;
+    }
+
+    @Autowired
+    public void setIzvestajRepository(IzvestajRepository izvestajRepository) {
+        this.izvestajRepository = izvestajRepository;
     }
 
 }

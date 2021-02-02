@@ -9,11 +9,13 @@ import {GradjaninViewComponent} from './components/main-views/gradjanin-view/gra
 import {PoverenikViewComponent} from './components/main-views/poverenik-view/poverenik-view.component';
 import {IzborZahtevaComponent} from './components/izbor-zahteva/izbor-zahteva.component';
 import {PodnosenjeZalbeCutanjeComponent} from './components/podnosenje-zalbe-cutanje/podnosenje-zalbe-cutanje.component';
-import {PregledZalbiCutanjeComponent} from './components/pregled-zalbi-cutanje/pregled-zalbi-cutanje.component';
 import {ZalbaCutanjePrikazComponent} from './components/zalba-cutanje-prikaz/zalba-cutanje-prikaz.component';
 import {PodnosenjeZalbeNaOdlukuComponent} from './components/podnosenje-zalbe-na-odluku/podnosenje-zalbe-na-odluku.component';
-import {PregledZalbiNaOdlukuComponent} from './components/pregled-zalbi-na-odluku/pregled-zalbi-na-odluku.component';
 import {ZalbaNaOdlukuPrikazComponent} from './components/zalba-na-odluku-prikaz/zalba-na-odluku-prikaz.component';
+import {PregledZalbiComponent} from './components/pregled-zalbi/pregled-zalbi.component';
+import {SlanjeResenjaComponent} from './components/slanje-resenja/slanje-resenja.component';
+import {PregledResenjaComponent} from './components/pregled-resenja/pregled-resenja.component';
+import {ResenjePrikazComponent} from './components/resenje-prikaz/resenje-prikaz.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
@@ -22,12 +24,18 @@ const routes: Route[] = [
       {path: '', component: GradjaninViewComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
       {path: 'izbor-neodgovorenih-zahteva', component: IzborZahtevaComponent, data: {roles: ['gradjanin'], tip: 'neodgovoren'}, canActivate: [AuthGuard]},
       {path: 'podnosenje-zalbe-cutanje', component: PodnosenjeZalbeCutanjeComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
-      {path: 'pregled-zalbi-cutanje', component: PregledZalbiCutanjeComponent, data: {roles: ['gradjanin'], tip: 'korisnikove-zalbe'}, canActivate: [AuthGuard]},
       {path: 'zalba-cutanje', component: ZalbaCutanjePrikazComponent, data: {roles: ['gradjanin', 'poverenik']}, canActivate: [AuthGuard]},
       {path: 'izbor-odbijenih-zahteva', component: IzborZahtevaComponent, data: {roles: ['gradjanin'], tip: 'odbijen'}, canActivate: [AuthGuard]},
       {path: 'zalba-na-odluku', component: ZalbaNaOdlukuPrikazComponent, data: {roles: ['gradjanin', 'poverenik']}, canActivate: [AuthGuard]},
       {path: 'podnosenje-zalbe-na-odluku', component: PodnosenjeZalbeNaOdlukuComponent, data: {roles: ['gradjanin']}, canActivate: [AuthGuard]},
-      {path: 'pregled-zalbi-na-odluku', component: PregledZalbiNaOdlukuComponent, data: {roles: ['gradjanin'], tip: 'korisnikove-zalbe'}, canActivate: [AuthGuard]},
+      {path: 'pregled-zalbi', component: PregledZalbiComponent, data: {roles: ['gradjanin'], tip: 'korisnikove-zalbe'}, canActivate: [AuthGuard]},
+      {path: 'resavanje-zalbi', component: PregledZalbiComponent, data: {roles: ['poverenik'], tip: 'neresene-zalbe'}, canActivate: [AuthGuard]},
+      {path: 'sve-zalbe', component: PregledZalbiComponent, data: {roles: ['poverenik'], tip: 'sve-zalbe'}, canActivate: [AuthGuard]},
+      {path: 'prihvatanje', component: SlanjeResenjaComponent, data: {roles: ['poverenik'], tip: 'prihvatanje'}, canActivate: [AuthGuard]},
+      {path: 'odbijanje', component: SlanjeResenjaComponent, data: {roles: ['poverenik'], tip: 'odbijanje'}, canActivate: [AuthGuard]},
+      {path: 'pregled-resenja', component: PregledResenjaComponent, data: {roles: ['gradjanin'], tip: 'korisnikova-resenja'}, canActivate: [AuthGuard]},
+      {path: 'sva-resenja', component: PregledResenjaComponent, data: {roles: ['poverenik'], tip: 'sva-resenja'}, canActivate: [AuthGuard]},
+      {path: 'resenje', component: ResenjePrikazComponent, data: {roles: ['gradjanin', 'poverenik']}, canActivate: [AuthGuard]},
       {path: 'poverenik', component: PoverenikViewComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]}
     ]
   },

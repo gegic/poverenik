@@ -25,7 +25,6 @@ public class IzjasnjenjeService {
     }
 
     public void odgovori(OdgovorIzjasnjenje o, String id) throws Exception {
-
         this.izjasnjenjeRepository.deleteById(id);
         this.zalbaSoapService.odgovori(o);
     }

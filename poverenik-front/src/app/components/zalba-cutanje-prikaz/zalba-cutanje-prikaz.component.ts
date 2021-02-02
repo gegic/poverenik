@@ -4,7 +4,7 @@ import {ZalbaCutanjeService} from '../../core/services/zalba-cutanje.service';
 import {ZalbaCutanjeEditService} from '../../core/services/zalba-cutanje-edit.service';
 import * as xml from 'xml-js';
 import {AuthService} from '../../core/services/auth.service';
-import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
+import {ResenjeEditService} from '../../core/services/resenje-edit.service';
 
 @Component({
   selector: 'app-zalba-cutanje-prikaz',

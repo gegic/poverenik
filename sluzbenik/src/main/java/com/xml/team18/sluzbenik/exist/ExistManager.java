@@ -133,6 +133,13 @@ public class ExistManager {
             ((EXistResource) r).freeResources();
         }
     }
+
+    public int count(String collectionId) throws Exception {
+        createConnection();
+        Collection col = getOrCreateCollection(collectionId, 0);
+        return col.getResourceCount();
+    }
+
     public XMLResource read(String collectionId, String documentId) throws ResourceNotFoundException {
         try (Collection col = DatabaseManager.getCollection(existProperties.getUri() + collectionId,
                 existProperties.getUser(), existProperties.getPassword())) {

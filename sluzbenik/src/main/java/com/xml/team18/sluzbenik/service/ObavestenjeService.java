@@ -7,6 +7,7 @@ import com.xml.team18.sluzbenik.generators.ObavestenjeGenerator;
 import com.xml.team18.sluzbenik.jaxb.JaxB;
 import com.xml.team18.sluzbenik.model.obavestenje.Obavestenje;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
+import com.xml.team18.sluzbenik.repository.IzvestajRepository;
 import com.xml.team18.sluzbenik.repository.ObavestenjeRepository;
 import com.xml.team18.sluzbenik.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,27 +25,32 @@ public class ObavestenjeService {
     private final ZahtevRepository zahtevRepository;
     private final JaxB jaxB;
     private final ObavestenjeGenerator obavestenjeGenerator;
+    private final IzvestajRepository izvestajRepository;
 
     @Autowired
     public ObavestenjeService(ObavestenjeRepository obavestenjeRepository,
                               JaxB jaxB,
                               ZahtevRepository zahtevRepository,
-                              ObavestenjeGenerator obavestenjeGenerator) {
+                              ObavestenjeGenerator obavestenjeGenerator,
+                              IzvestajRepository izvestajRepository) {
         this.repository = obavestenjeRepository;
         this.jaxB = jaxB;
         this.zahtevRepository = zahtevRepository;
         this.obavestenjeGenerator = obavestenjeGenerator;
+        this.izvestajRepository = izvestajRepository;
     }
 
-    public String save(Obavestenje obavestenje) throws ResourceNotFoundException {
+    public String save(Obavestenje obavestenje) throws Exception {
         Zahtev z = zahtevRepository.findById(obavestenje.getZahtev().getId());
         obavestenje.setProperty("pred:zahtev-obavestenja");
         obavestenje.setContent(obavestenje.getZahtev().getId());
         Obavestenje o = this.repository.save(obavestenje);
         if (o.getTip().equalsIgnoreCase("prihvatanje")) {
             z.setPrihvatanje("prihvacen");
+            this.izvestajRepository.zahtevPrihvacen();
         } else {
             z.setPrihvatanje("odbijen");
+            this.izvestajRepository.zahtevOdbijen();
         }
         zahtevRepository.save(z);
         return o.getId();

@@ -29,12 +29,8 @@ export class MainViewComponent implements OnInit {
           icon: 'pi pi-align-justify',
           items: [
             {
-              label: 'Žalbe zbog ćutanja',
-              routerLink: '/pregled-zalbi-cutanje'
-            },
-            {
-              label: 'Žalbe na odluku',
-              routerLink: '/pregled-zalbi-na-odluku'
+              label: 'Žalbe',
+              routerLink: '/pregled-zalbi'
             },
             {
               label: 'Rešenja',
@@ -64,21 +60,34 @@ export class MainViewComponent implements OnInit {
           routerLink: '/poverenik',
         },
         {
-          label: 'Novi zahtevi',
-          routerLink: '/novi-zahtevi'
+          label: 'Žalbe',
+          icon: 'pi pi-align-justify',
+          items: [
+            {
+              label: 'Nerešene žalbe',
+              routerLink: '/resavanje-zalbi'
+            },
+            {
+              label: 'Sve žalbe',
+              routerLink: '/sve-zalbe'
+            },
+          ]
         },
         {
-          label: 'Pregled svih zahteva',
-          routerLink: '/svi-zahtevi'
+          label: 'Dokumenta',
+          icon: 'pi pi-align-justify',
+          items: [
+            {
+              label: 'Pregled svih rešenja',
+              routerLink: '/sva-resenja'
+            },
+            {
+              label: 'Pretraga',
+              routerLink: '/pretraga'
+            }
+          ]
         },
-        {
-          label: 'Pregled svih obaveštenja',
-          routerLink: '/sva-obavestenja'
-        },
-        {
-          label: 'Izveštaj',
-          routerLink: '/izvestaj'
-        }
+
 
       ];
     }

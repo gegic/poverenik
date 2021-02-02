@@ -1,6 +1,8 @@
 package com.xml.team18.poverenik.soap.zalba;
 
 import com.xml.team18.poverenik.model.izjasnjenje.OdgovorIzjasnjenje;
+import com.xml.team18.poverenik.repository.OdgovorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
@@ -20,19 +22,25 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @Service
 public class ZalbaServiceSoapBindingImpl implements ZalbaServicePortType {
 
+    private OdgovorRepository odgovorRepository;
+
     private static final Logger LOG = Logger.getLogger(ZalbaServiceSoapBindingImpl.class.getName());
 
     public boolean odgovori(OdgovorIzjasnjenje odgovor) {
         LOG.info("Executing operation odgovori");
         System.out.println(odgovor);
         try {
-            System.out.println("odgovaramo");
-            System.out.println(odgovor.getValue());
+            this.odgovorRepository.save(odgovor);
             return true;
         } catch (java.lang.Exception ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);
         }
+    }
+
+    @Autowired
+    public void setOdgovorRepository(OdgovorRepository odgovorRepository) {
+        this.odgovorRepository = odgovorRepository;
     }
 
 }

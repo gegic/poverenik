@@ -1,6 +1,7 @@
 package com.xml.team18.sluzbenik.utils;
 
 import com.xml.team18.sluzbenik.model.korisnik.Korisnik;
+import com.xml.team18.sluzbenik.repository.IzvestajRepository;
 import com.xml.team18.sluzbenik.repository.KorisnikRepository;
 import com.xml.team18.sluzbenik.service.KorisnikService;
 import org.checkerframework.checker.units.qual.K;
@@ -17,13 +18,14 @@ public class SluzbenikInit {
     private KorisnikRepository korisnikRepository;
 
     @Autowired
-    private KorisnikService korisnikService;
+    private IzvestajRepository izvestajRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @PostConstruct
     private void postConstruct() {
+        izvestajRepository.createGodisnjaStatistika();
         Korisnik found = korisnikRepository.findByEmail("sluzbenik@mail.com");
         if (found != null) {
             return;

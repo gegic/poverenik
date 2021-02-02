@@ -48,6 +48,11 @@ public class ZalbaNaOdlukuController {
                 new EntityList<>(service.getAllNeresene()));
     }
 
+    @GetMapping
+    ResponseEntity<EntityList<ZalbaNaOdluku>> getAll() throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.getAll()));
+    }
+
     @PostMapping(value = "/generate-pdf/{id}")
     public ResponseEntity<String> generatePDF(@PathVariable String id) {
         try {

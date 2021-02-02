@@ -1,0 +1,13 @@
+<div>
+  <h2>{{tip === 'prihvatanje' ? 'Prihvatanje zalbe' : 'Odbijanje zalbe'}}:
+    Protiv {{!resenjeService.zalba.protiv.donosilac ? resenjeService.zalba.protiv.naziv._text : resenjeService.zalba.protiv.donosilac.naziv._text}}
+    od {{resenjeService.zalba.datum._text}}</h2>
+  <hr>
+  <p-scrollPanel [style]="{width: '100%', height: '65vh'}" styleClass="bluebar">
+    <div #resenjeXonomy></div>
+  </p-scrollPanel>
+  <hr>
+  <div class="p-text-right">
+    <button class="p-button p-mr-5 p-mt-5" label="Slanje" (click)="submitResenje()" pButton></button>
+  </div>
+</div>

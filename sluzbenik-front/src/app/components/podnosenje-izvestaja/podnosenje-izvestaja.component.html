@@ -1,0 +1,81 @@
+<div>
+  <p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+      <button pButton label="Novi" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="op.toggle($event)"></button>
+    </ng-template>
+    <ng-template pTemplate="right">
+      <button pButton label="Podnesi" icon="pi pi-plus" class="p-button p-mr-2" (click)="podnesi()"></button>
+    </ng-template>
+  </p-toolbar>
+  <p-table [value]="traziociInformacija" dataKey="naziv" (onEditComplete)="cellEdited($event)">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Naziv</th>
+        <th>Prihvaceni zahtevi (max. {{!izvestajService.godisnjaStatistika ? '0' : izvestajService.godisnjaStatistika._attributes['prihvaceni-zahtevi']}})</th>
+        <th>Odbijeni zahtevi (max. {{!izvestajService.godisnjaStatistika ? '0' : izvestajService.godisnjaStatistika._attributes['odbijeni-zahtevi']}})</th>
+        <th>Žalbe zbog ćutanja (max. {{!izvestajService.godisnjaStatistika ? '0' : izvestajService.godisnjaStatistika._attributes['zalbe-cutanje']}})</th>
+        <th>Žalbe na odluku (max. {{!izvestajService.godisnjaStatistika ? '0' : izvestajService.godisnjaStatistika._attributes['zalbe-na-odluku']}})</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-trazilac let-index>
+      <tr>
+        <td>
+          {{trazilac.naziv}}
+        </td>
+        <td pEditableColumn [pEditableColumn]="trazilac" [pEditableColumnField]="'prihvaceniZahtevi'" [pEditableColumnRowIndex]="index">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-inputNumber [(ngModel)]="trazilac.prihvaceniZahtevi"></p-inputNumber>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{trazilac.prihvaceniZahtevi}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn [pEditableColumn]="trazilac" [pEditableColumnField]="'odbijeniZahtevi'" [pEditableColumnRowIndex]="index">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-inputNumber [(ngModel)]="trazilac.odbijeniZahtevi"></p-inputNumber>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{trazilac.odbijeniZahtevi}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn [pEditableColumn]="trazilac" [pEditableColumnField]="'zalbeCutanje'" [pEditableColumnRowIndex]="index">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-inputNumber [(ngModel)]="trazilac.zalbeCutanje"></p-inputNumber>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{trazilac.zalbeCutanje}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td pEditableColumn [pEditableColumn]="trazilac" [pEditableColumnField]="'zalbeNaOdluku'" [pEditableColumnRowIndex]="index">
+          <p-cellEditor>
+            <ng-template pTemplate="input">
+              <p-inputNumber [(ngModel)]="trazilac.zalbeNaOdluku"></p-inputNumber>
+            </ng-template>
+            <ng-template pTemplate="output">
+              {{trazilac.zalbeNaOdluku}}
+            </ng-template>
+          </p-cellEditor>
+        </td>
+        <td>
+          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="obrisiTrazioca(trazilac)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-overlayPanel (onHide)="dodavanjeTrazioca = ''" #op>
+    <ng-template pTemplate>
+      <input type="text" placeholder="Naziv" [(ngModel)]="dodavanjeTrazioca" pInputText>
+      <div class="p-text-right p-mt-3">
+        <button label="Dodaj" (click)="dodajTrazioca(op)" pButton></button>
+      </div>
+    </ng-template>
+  </p-overlayPanel>
+</div>

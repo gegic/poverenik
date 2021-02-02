@@ -87,8 +87,9 @@
                     <xs:enumeration value="odbijen"/>
                     <xs:enumeration value="zalba-na-odluku"/>
                     <xs:enumeration value="zalba-cutanje"/>
-                    <xs:enumeration value="resenje-prihvacen"/>
-                    <xs:enumeration value="resenje-odbijen"/>
+                    <xs:enumeration value="prihvatanje"/>
+                    <xs:enumeration value="odbijanje-zalbe"/>
+                    <xs:enumeration value="odbijanje-zahteva"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>

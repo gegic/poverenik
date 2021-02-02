@@ -19,7 +19,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
-public class KorisnikRepository implements XmlRepository<Korisnik> {
+public class KorisnikRepository {
     private final String collectionId = "/db/korisnici";
 
     private final ExistManager existManager;
@@ -31,7 +31,6 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
         this.jaxB = jaxB;
     }
 
-    @Override
     public Korisnik save(Korisnik o) {
         try {
             String id = o.getId();
@@ -55,7 +54,6 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
         }
     }
 
-    @Override
     public Korisnik findById(String id) throws Exception {
         XMLResource found = this.existManager.read(collectionId, id);
         String contentFound;
@@ -70,7 +68,6 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
         }
     }
 
-    @Override
     public List<Korisnik> getAll() throws Exception {
         return this.existManager.readAll(collectionId).stream().map(con -> {
             try {

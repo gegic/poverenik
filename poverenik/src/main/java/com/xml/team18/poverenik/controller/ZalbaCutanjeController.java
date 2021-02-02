@@ -3,6 +3,7 @@ package com.xml.team18.poverenik.controller;
 import com.xml.team18.poverenik.dto.EntityList;
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import com.xml.team18.poverenik.service.ZalbaCutanjeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -46,6 +47,12 @@ public class ZalbaCutanjeController {
     ResponseEntity<EntityList<ZalbaCutanje>> getAllNeresene() throws Exception {
         return ResponseEntity.ok(
                 new EntityList<ZalbaCutanje>(service.getAllNeresene()));
+    }
+
+
+    @GetMapping
+    ResponseEntity<EntityList<ZalbaCutanje>> getAll() throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.getAll()));
     }
 
     @PostMapping(value = "/generate-pdf/{id}")

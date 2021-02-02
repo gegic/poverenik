@@ -66,6 +66,10 @@ export class MainViewComponent implements OnInit {
             {
               label: 'Izveštaj',
               routerLink: '/izvestaj'
+            },
+            {
+              label: 'Pretraga',
+              routerLink: '/pretraga'
             }
           ]
         },

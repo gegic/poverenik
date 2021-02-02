@@ -1,0 +1,65 @@
+<div class="p-mx-6">
+  <p-table [value]="zalbe" [loading]="loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Opis
+        <th>Tip</th>
+        <th>XHTML</th>
+        <th>PDF</th>
+        <th>Odgovor</th>
+        <th></th>
+        <th *ngIf="tip === 'neresene-zalbe'"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-zalba>
+      <tr>
+        <td>Protiv {{!zalba.protiv.donosilac ? zalba.protiv.naziv._text : zalba.protiv.donosilac.naziv._text}}
+          od {{zalba.datum._text}}
+        </td>
+        <td>
+          {{!zalba.protiv.donosilac ? 'Zbog ćutanja' : 'Na odluku'}}
+        </td>
+        <td>
+          <button class="p-button"
+                    label="XHTML"
+                    (click)="generateXHTML(zalba)"
+                    pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button"
+                  label="PDF"
+                  (click)="generatePdf(zalba)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button-secondary" label="Detalji" (click)="detalji(zalba)" pButton></button>
+        </td>
+        <td>
+          <ng-container *ngIf="tip === 'neresene-zalbe'; else ostali">
+            <button class="p-button p-button-success"
+                    label="Prihvati"
+                    (click)="prihvati(zalba)"
+                    pButton
+            ></button>
+          </ng-container>
+          <ng-template #ostali>
+            {{zalba._attributes['tip-resenja']}}
+          </ng-template>
+        </td>
+        <td *ngIf="tip === 'neresene-zalbe'">
+          <button class="p-button-danger" label="Odbij" (click)="odbij(zalba)" pButton></button>
+        </td>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="5">
+          Nema žalbi za prikaz...
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

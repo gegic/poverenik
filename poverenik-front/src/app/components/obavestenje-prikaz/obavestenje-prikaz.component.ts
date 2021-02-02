@@ -3,8 +3,8 @@ import * as xml from 'xml-js';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ZalbaCutanjeService} from '../../core/services/zalba-cutanje.service';
 import {ZalbaCutanjeEditService} from '../../core/services/zalba-cutanje-edit.service';
-import {ObavestenjeService} from '../../core/services/obavestenje.service';
-import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
+import {ResenjeService} from '../../core/services/resenje.service';
+import {ResenjeEditService} from '../../core/services/resenje-edit.service';
 
 @Component({
   selector: 'app-obavestenje-prikaz',
@@ -19,8 +19,8 @@ export class ObavestenjePrikazComponent implements AfterViewInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              public obavestenjeService: ObavestenjeService,
-              public editService: ObavestenjeEditService) { }
+              public obavestenjeService: ResenjeService,
+              public editService: ResenjeEditService) { }
 
   ngAfterViewInit(): void {
     this.activatedRoute.queryParams.subscribe(val => {
