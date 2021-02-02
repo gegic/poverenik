@@ -1,3 +1,7 @@
 ::ng-deep .p-menuitem-link-active {
   font-weight: bold;
 }
+
+::ng-deep .p-menubar .p-submenu-list {
+  z-index: 5 !important;
+}

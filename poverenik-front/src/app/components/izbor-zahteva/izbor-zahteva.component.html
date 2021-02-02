@@ -1,6 +1,9 @@
 <div class="p-grid p-mx-0 p-justify-center centered-grid">
   <div class="p-col-12 p-sm-9 p-md-6 p-lg-4">
-    <div class="p-text-center"><h1>Žalba na ćutanje</h1></div>
+    <div class="p-text-center">
+      <h1 *ngIf="tip === 'neodgovoren'; else odbijen">Žalba zbog ćutanja</h1>
+      <ng-template #odbijen><h1>Žalba na odluku</h1></ng-template>
+    </div>
     <p-card class="login-card">
       <div class="p-card-header">
         <div class="p-d-flex p-justify-center">

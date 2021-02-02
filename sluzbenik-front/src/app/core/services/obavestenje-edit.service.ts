@@ -8,8 +8,6 @@ declare const Xonomy: any;
 })
 export class ObavestenjeEditService {
 
-  zahtev: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-
   specification = {
     validate(jsElement: any): void {
       const elementSpec = this.elements[jsElement.name];
@@ -192,6 +190,7 @@ export class ObavestenjeEditService {
           }
         },
         hasText: true,
+        asker: Xonomy.askString,
         mustBeBefore: ['organ', 'podnosilac', 'opis', 'zakon', 'zahtev', 'sadrzaj-obavestenja',
           'dodatna-odluka', 'izdana-dokumenta', 'dostavljeno']
       },
@@ -309,7 +308,8 @@ export class ObavestenjeEditService {
           }
         },
         mustBeBefore: ['ulica'],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
       },
       ulica: {
         validate(jsElement: any): void {
@@ -322,7 +322,8 @@ export class ObavestenjeEditService {
           }
         },
         menu: [],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
       },
       naziv: {
         validate(jsElement: any): void {
@@ -339,7 +340,8 @@ export class ObavestenjeEditService {
           action: Xonomy.deleteElement
         }
         ],
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
       },
       podnosilac: {
         validate(jsElement: any): void {
@@ -380,7 +382,8 @@ export class ObavestenjeEditService {
           }
         },
         isReadOnly: true,
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
       },
       opis: {
         validate(jsElement: any): void {
@@ -393,6 +396,7 @@ export class ObavestenjeEditService {
           }
         },
         hasText: true,
+        asker: Xonomy.askString,
         mustBeBefore: ['zakon', 'zahtev', 'sadrzaj-obavestenja',
           'dodatna-odluka', 'izdana-dokumenta', 'dostavljeno']
       },
@@ -678,6 +682,7 @@ export class ObavestenjeEditService {
           }
         },
         hasText: true,
+        asker: Xonomy.askString,
         isReadOnly: true,
         mustBeAfter: ['datum']
       },
@@ -690,10 +695,10 @@ export class ObavestenjeEditService {
               }
             );
           }
-          if (!jsElement.hasChildElement('prihvacen-zahtev')) {
+          if (!jsElement.hasChildElement('prihvacen-zahtev') && !jsElement.hasChildElement('razlog-odbijanja')) {
             Xonomy.warnings.push({
                 htmlID: jsElement.htmlID,
-                text: 'This element needs to have element prihvacen-zahtev.'
+                text: 'This element needs to have element prihvacen-zahtev or razlog-odbijanja.'
               }
             );
           }
@@ -768,6 +773,7 @@ export class ObavestenjeEditService {
           }
         },
         hasText: true,
+        asker: Xonomy.askString,
         mustBeBefore: ['izdana-dokumenta', 'dostavljeno']
       },
       'izdana-dokumenta': {
@@ -997,7 +1003,8 @@ export class ObavestenjeEditService {
             );
           }
         },
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
       },
       vreme: {
         validate(jsElement: any): void {
@@ -1108,7 +1115,20 @@ export class ObavestenjeEditService {
             );
           }
         },
-        hasText: true
+        hasText: true,
+        asker: Xonomy.askString,
+      },
+      'razlog-odbijanja': {
+        validate(jsElement: any): void {
+          if (jsElement.getText() === '') {
+            Xonomy.warnings.push({
+                htmlID: jsElement.htmlID,
+                text: 'This element must not be empty.'
+              }
+            );
+          }
+        },
+        hasText: true,
       }
     }
   };
@@ -1117,20 +1137,12 @@ export class ObavestenjeEditService {
   constructor() { }
 
   render(element: any,  xmlString: string, readOnly?: boolean): void {
-    if (!!readOnly) {
-      (this.specification.elements.obavestenje as any).isReadOnly = true;
-    } else {
-      (this.specification.elements.obavestenje as any).isReadOnly = false;
-      const zahtev = this.zahtev.getValue();
-      if (!zahtev) {
-        return;
-      }
-    }
+    (this.specification.elements.obavestenje as any).isReadOnly = !!readOnly;
+    Xonomy.setMode('nerd');
     Xonomy.render(xmlString, element, {
       validate: this.specification.validate,
       elements: this.specification.elements
     });
-    Xonomy.setMode('nerd');
   }
 
   harvest(): string {

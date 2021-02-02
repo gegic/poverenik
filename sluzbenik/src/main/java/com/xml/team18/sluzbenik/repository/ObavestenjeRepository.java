@@ -93,29 +93,29 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
             o.getZahtev().getOpisZahteva().setProperty("pred:opis-zahteva");
             o.getZahtev().getOpisZahteva().setDatatype("xs:string");
 
-            PrihvacenZahtev.Datum d = new PrihvacenZahtev.Datum();
-            d.setValue(DatatypeFactory.newInstance().newXMLGregorianCalendar(i.toString()));
-            d.setProperty("pred:datum-obavestenja");
-            d.setDatatype("xs:date");
-            o.getSadrzajObavestenja().getPrihvacenZahtev().setDatum(d);
+            if (o.getTip().equalsIgnoreCase("prihvatanje")) {
+                PrihvacenZahtev.Datum d = new PrihvacenZahtev.Datum();
+                d.setValue(DatatypeFactory.newInstance().newXMLGregorianCalendar(i.toString()));
+                d.setProperty("pred:datum-obavestenja");
+                d.setDatatype("xs:date");
+                o.getSadrzajObavestenja().getPrihvacenZahtev().setDatum(d);
 
-            o.getSadrzajObavestenja().getPrihvacenZahtev().getKancelarija().setProperty("pred:kancelarija");
-            o.getSadrzajObavestenja().getPrihvacenZahtev().getKancelarija().setDatatype("xs:positiveInt");
+                o.getSadrzajObavestenja().getPrihvacenZahtev().getKancelarija().setProperty("pred:kancelarija");
+                o.getSadrzajObavestenja().getPrihvacenZahtev().getKancelarija().setDatatype("xs:positiveInt");
 
-            o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getMesto().setProperty("pred:mesto-uvida");
-            o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getMesto().setDatatype("xs:string");
+                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getMesto().setProperty("pred:mesto-uvida");
+                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getMesto().setDatatype("xs:string");
 
-            o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getUlica().setProperty("pred:ulica-uvida");
-            o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getUlica().setDatatype("xs:string");
+                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getUlica().setProperty("pred:ulica-uvida");
+                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getUlica().setDatatype("xs:string");
+                Primalac p = new Primalac();
+                p.setBrojRacuna("840-742328-843-30");
+                p.setModel(97);
+                p.setPozivNaBroj("12312");
+                p.setOrgan(o.getOrgan());
 
-            Primalac p = new Primalac();
-            p.setBrojRacuna("840-742328-843-30");
-            p.setModel(97);
-            p.setPozivNaBroj("12312");
-            p.setOrgan(o.getOrgan());
-
-            o.getIzdanaDokumenta().setPrimalac(p);
-
+                o.getIzdanaDokumenta().setPrimalac(p);
+            }
             JAXBElement<Obavestenje> element = new JAXBElement<Obavestenje>(QName
                     .valueOf("obavestenje"), Obavestenje.class, o);
             String rawXml = jaxB.marshall(element, Obavestenje.class, ObavestenjeFactory.class);
@@ -125,9 +125,8 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
             this.fusekiWriter.saveRDF(rdf, graphUri);
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
-            return (Obavestenje) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Obavestenje.class, ObavestenjeFactory.class))
-                    .getValue();
+            return (Obavestenje) jaxB
+                    .unmarshall(contentFound, Obavestenje.class, ObavestenjeFactory.class);
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -142,9 +141,8 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
             this.existManager.saveFile(collectionId, id, path);
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
-            return (Obavestenje) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Obavestenje.class, ObavestenjeFactory.class))
-                    .getValue();
+            return (Obavestenje) jaxB
+                    .unmarshall(contentFound, Obavestenje.class, ObavestenjeFactory.class);
         } catch (Exception e) {
             System.out.println("Not saved due to");
             System.err.println(e.getMessage());
@@ -155,21 +153,12 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
 
     public List<Obavestenje> getAllByKorisnikId(String id) throws Exception {
         String query = String.format("/obavestenje[podnosilac/@id = '%s']", id);
-        List<Obavestenje> zahtevi = new ArrayList<>();
-        ResourceIterator iterator;
-        try {
-            iterator = this.existManager.query(collectionId, query).getIterator();
-        } catch(NullPointerException e) {
-            return new ArrayList<>();
-        }
+        return this.getByQuery(query);
+    }
 
-        while(iterator.hasMoreResources()) {
-            Resource r = iterator.nextResource();
-            zahtevi.add((Obavestenje) ((JAXBElement<?>) jaxB
-                    .unmarshall(r.getContent().toString(), Obavestenje.class, ObavestenjeFactory.class))
-                    .getValue());
-        }
-        return zahtevi;
+    public Obavestenje getByZahtevId(String zahtevId) throws Exception {
+        String query = String.format("/obavestenje[zahtev/@id = '%s']", zahtevId);
+        return this.getByQuery(query).get(0);
     }
 
     public Obavestenje findById(String id) throws ResourceNotFoundException {
@@ -177,9 +166,8 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
         String contentFound;
         try {
             contentFound = found.getContent().toString();
-            return (Obavestenje) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Obavestenje.class, ObavestenjeFactory.class))
-                    .getValue();
+            return (Obavestenje) jaxB
+                    .unmarshall(contentFound, Obavestenje.class, ObavestenjeFactory.class);
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
             return null;
@@ -189,13 +177,24 @@ public class ObavestenjeRepository implements XmlRepository<Obavestenje> {
     public List<Obavestenje> getAll() throws Exception {
         return this.existManager.readAll(collectionId).stream().map(con -> {
             try {
-                return (Obavestenje) ((JAXBElement<?>) jaxB
-                        .unmarshall(con, Obavestenje.class, ObavestenjeFactory.class))
-                        .getValue();
+                return (Obavestenje) jaxB
+                        .unmarshall(con, Obavestenje.class, ObavestenjeFactory.class);
             } catch (JAXBException e) {
                 e.printStackTrace();
                 return null;
             }
         }).collect(Collectors.toList());
+    }
+
+    private List<Obavestenje> getByQuery(String query) throws Exception {
+        List<Obavestenje> zahtevi = new ArrayList<>();
+        ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();
+
+        while(iterator.hasMoreResources()) {
+            Resource r = iterator.nextResource();
+            zahtevi.add((Obavestenje) jaxB
+                    .unmarshall(r.getContent().toString(), Obavestenje.class, ObavestenjeFactory.class));
+        }
+        return zahtevi;
     }
 }

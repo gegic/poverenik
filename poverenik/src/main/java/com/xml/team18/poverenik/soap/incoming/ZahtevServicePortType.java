@@ -22,18 +22,18 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface ZahtevServicePortType {
 
-    @WebMethod
+    @WebMethod(action = "odbijeniZahtevi")
     @WebResult(name = "zahtevi", targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", partName = "zahtevi")
     ListaZahteva odbijeniZahtevi(
-            @WebParam(partName = "email", name = "email")
-                    String email
+            @WebParam(partName = "korisnikId", name = "korisnikId")
+                    String korisnikId
     );
 
     @WebMethod(action = "neodgovoreniZahtevi")
     @WebResult(name = "zahtevi", targetNamespace = "http://zahtev.soap.sluzbenik.team18.xml.com/", partName = "zahtevi")
     ListaZahteva neodgovoreniZahtevi(
-            @WebParam(partName = "email", name = "email")
-                    String email
+            @WebParam(partName = "korisnikId", name = "korisnikId")
+                    String idKorisnika
     );
 
     @WebMethod(action = "updatePrihvatanje")

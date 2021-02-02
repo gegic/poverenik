@@ -1,19 +1,15 @@
 package com.xml.team18.poverenik.service;
 
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
-import com.xml.team18.poverenik.factory.ZalbaCutanjeFactory;
 import com.xml.team18.poverenik.generators.ZalbaCutanjeGenerator;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.zahtev.Zahtev;
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
-import com.xml.team18.poverenik.model.zalba.na.odluku.Zalba;
 import com.xml.team18.poverenik.repository.ZalbaCutanjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
-import javax.xml.namespace.QName;
 import java.util.List;
 
 @Service
@@ -48,10 +44,8 @@ public class ZalbaCutanjeService {
         return added.getId();
     }
 
-    public String getById(String id) throws ResourceNotFoundException, JAXBException {
-        ZalbaCutanje found = repository.findById(id);
-        JAXBElement<ZalbaCutanje> element = new JAXBElement<>(QName.valueOf("zalba-cutanje"), ZalbaCutanje.class, found);
-        return jaxB.marshall(element, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
+    public ZalbaCutanje getById(String id) throws ResourceNotFoundException {
+        return repository.findById(id);
     }
 
     public List<ZalbaCutanje> getAll() throws Exception {
@@ -69,5 +63,10 @@ public class ZalbaCutanjeService {
     public String generatePdf(String id) throws Exception {
         ZalbaCutanje z = repository.findById(id);
         return generator.generatePDF(z);
+    }
+
+    public String generateXhtml(String id) throws Exception {
+        ZalbaCutanje z = repository.findById(id);
+        return generator.generateXhtml(z);
     }
 }

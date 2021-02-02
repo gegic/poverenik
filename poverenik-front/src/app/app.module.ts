@@ -18,7 +18,6 @@ import { GradjaninViewComponent } from './components/main-views/gradjanin-view/g
 import {TableModule} from 'primeng/table';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
-import { ZahtevPrikazComponent } from './components/zahtev-prikaz/zahtev-prikaz.component';
 import { ObavestenjePrikazComponent } from './components/obavestenje-prikaz/obavestenje-prikaz.component';
 import {PoverenikViewComponent} from './components/main-views/poverenik-view/poverenik-view.component';
 import {CardModule} from 'primeng/card';
@@ -28,6 +27,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IzborZahtevaComponent} from './components/izbor-zahteva/izbor-zahteva.component';
 import { PodnosenjeZalbeCutanjeComponent } from './components/podnosenje-zalbe-cutanje/podnosenje-zalbe-cutanje.component';
 import {PregledZalbiCutanjeComponent} from './components/pregled-zalbi-cutanje/pregled-zalbi-cutanje.component';
+import {ZalbaCutanjePrikazComponent} from './components/zalba-cutanje-prikaz/zalba-cutanje-prikaz.component';
+import {PodnosenjeZalbeNaOdlukuComponent} from './components/podnosenje-zalbe-na-odluku/podnosenje-zalbe-na-odluku.component';
+import {PregledZalbiNaOdlukuComponent} from './components/pregled-zalbi-na-odluku/pregled-zalbi-na-odluku.component';
+import {ZalbaNaOdlukuPrikazComponent} from './components/zalba-na-odluku-prikaz/zalba-na-odluku-prikaz.component';
 
 @NgModule({
   declarations: [
@@ -37,10 +40,13 @@ import {PregledZalbiCutanjeComponent} from './components/pregled-zalbi-cutanje/p
     PoverenikViewComponent,
     PregledObavestenjaComponent,
     PregledZalbiCutanjeComponent,
-    ZahtevPrikazComponent,
     ObavestenjePrikazComponent,
     IzborZahtevaComponent,
-    PodnosenjeZalbeCutanjeComponent
+    PodnosenjeZalbeCutanjeComponent,
+    ZalbaCutanjePrikazComponent,
+    PodnosenjeZalbeNaOdlukuComponent,
+    PregledZalbiNaOdlukuComponent,
+    ZalbaNaOdlukuPrikazComponent
   ],
   imports: [
     BrowserModule,

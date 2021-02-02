@@ -93,7 +93,7 @@ export class PregledZalbiCutanjeComponent implements OnInit {
   }
 
   detalji(zalbaCutanje: any): void {
-    this.router.navigate(['zalbaCutanje'], {queryParams: {zalbaCutanje: zalbaCutanje._attributes.id}});
+    this.router.navigate(['zalba-cutanje'], {queryParams: {zalbaCutanje: zalbaCutanje._attributes.id}});
   }
 
   odbij(id: any): void {

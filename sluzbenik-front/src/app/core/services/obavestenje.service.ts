@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 export class ObavestenjeService {
 
   obavestenja: any[];
+  zahtev: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(private httpClient: HttpClient) { }
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://obavestenje.soap.sluzbenik.team18.xml.com/"
+                  xmlns:tns="http://obavestenje.soap.sluzbenik.team18.xml.com/"
+                  name="ObavestenjeService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:include schemaLocation="../xsd/lista_obavestenja.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="getByZahtevIdRequest">
+        <wsdl:part name="zahtevId" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getByZahtevIdResponse">
+        <wsdl:part name="obavestenje" element="obavestenje" />
+    </wsdl:message>
+
+    <wsdl:message name="getByIdRequest">
+        <wsdl:part name="id" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getByIdResponse">
+        <wsdl:part name="obavestenje" element="obavestenje" />
+    </wsdl:message>
+
+    <wsdl:portType name="ObavestenjeServicePortType">
+        <wsdl:operation name="getByZahtevId">
+            <wsdl:input message="tns:getByZahtevIdRequest" />
+            <wsdl:output message="tns:getByZahtevIdResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="getById">
+            <wsdl:input message="tns:getByIdRequest" />
+            <wsdl:output message="tns:getByIdResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="ObavestenjeServiceSoapBinding" type="tns:ObavestenjeServicePortType">
+        <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getByZahtevId">
+            <soap:operation soapAction="getByZahtevId" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getById">
+            <soap:operation soapAction="getById" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ObavestenjeService">
+        <wsdl:port name="ObavestenjeServiceSoapBinding" binding="tns:ObavestenjeServiceSoapBinding">
+            <soap:address location="http://localhost:8080/obavestenjePort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

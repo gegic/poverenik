@@ -1,6 +1,7 @@
 package com.xml.team18.sluzbenik.soap;
 
 import com.xml.team18.sluzbenik.soap.korisnik.KorisnikServiceSoapBindingImpl;
+import com.xml.team18.sluzbenik.soap.obavestenje.ObavestenjeServiceSoapBindingImpl;
 import com.xml.team18.sluzbenik.soap.zahtev.ZahtevServiceSoapBindingImpl;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
@@ -22,6 +23,9 @@ public class EndpointConfig {
     @Autowired
     KorisnikServiceSoapBindingImpl korisnikServiceSoapBindingImpl;
 
+    @Autowired
+    ObavestenjeServiceSoapBindingImpl obavestenjeServiceSoapBindingImpl;
+
     @Bean(name="zahtevEndpointBean")
     public Endpoint zahtevEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, zahtevServiceSoapBindingImpl);
@@ -33,6 +37,13 @@ public class EndpointConfig {
     public Endpoint korisnikEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, korisnikServiceSoapBindingImpl);
         endpoint.publish("/korisnik");
+        return endpoint;
+    }
+
+    @Bean(name="obavestenjeEndpointBean")
+    public Endpoint obavestenjeEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, obavestenjeServiceSoapBindingImpl);
+        endpoint.publish("/obavestenje");
         return endpoint;
     }
 }

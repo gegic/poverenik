@@ -7,8 +7,8 @@
     <button *ngIf="authService.getKorisnikRole() === 'sluzbenik' && !!zahtev
     && zahtev._attributes.prihvatanje === 'neodgovoren'"
             class="p-button-success p-mr-5"
-            label="Odgovori"
-            (click)="odgovori()"
+            label="Prihvati"
+            (click)="prihvati()"
             pButton
     ></button>
     <button *ngIf="authService.getKorisnikRole() === 'sluzbenik' && !!zahtev

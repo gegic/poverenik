@@ -25,24 +25,36 @@ export class MainViewComponent implements OnInit {
           routerLinkActiveOptions: {exact: true}
         },
         {
-          label: 'Podnošenje žalbe na ćutanje',
-          routerLink: '/izbor-neodgovorenih-zahteva'
+          label: 'Pregled',
+          icon: 'pi pi-align-justify',
+          items: [
+            {
+              label: 'Žalbe zbog ćutanja',
+              routerLink: '/pregled-zalbi-cutanje'
+            },
+            {
+              label: 'Žalbe na odluku',
+              routerLink: '/pregled-zalbi-na-odluku'
+            },
+            {
+              label: 'Rešenja',
+              routerLink: '/pregled-resenja'
+            }
+          ]
         },
         {
-          label: 'Podnošenje žalbe na odluku',
-          routerLink: '/podnosenje-zalbe-na-odluku'
-        },
-        {
-          label: 'Pregled podnetih žalbi na ćutanje',
-          routerLink: '/pregled-zalbi-cutanje'
-        },
-        {
-          label: 'Pregled podnetih žalbi na odluku',
-          routerLink: '/pregled-zalbi-na-odluku'
-        },
-        {
-          label: 'Pregled donetih rešenja',
-          routerLink: '/pregled-resenja'
+          label: 'Podnošenje',
+          icon: 'pi pi-pencil',
+          items: [
+            {
+              label: 'Žalba na ćutanje',
+              routerLink: '/izbor-neodgovorenih-zahteva'
+            },
+            {
+              label: 'Žalba na odluku',
+              routerLink: '/izbor-odbijenih-zahteva'
+            },
+          ]
         }
       ];
     } else {

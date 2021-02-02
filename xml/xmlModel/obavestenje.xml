@@ -1,57 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<obavestenje
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../xmlSchema/obavestenje.xsd"
-        xmlns:ob="http://team14.xml.com/rdf/obavestenja"
-        xmlns:pred="http://team14.xml.com/rdf/obavestenja/predicate/"
-        vocab="http://team14.xml.com/rdf/obavestenja/predicate/"
-        about="http://team14.xml.com/rdf/obavestenja/3c3cd82a-0baa-4d65-8392-cde2e36a43c3"
-        id="3c3cd82a-0baa-4d65-8392-cde2e36a43c3"
->
-    <broj>1/2021</broj>
-    <datum>2021-01-04</datum>
+<obavestenje vocab="nesto" about="nesto" id="nesto" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xmlSchema/obavestenje.xsd">
+    <broj></broj>
+    <!-- datum ne mora -->
+    <datum>2000-12-12</datum>
     <organ>
         <adresa>
-            <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
-            <ulica property="pred:ulica-podnosioca" datatype="xs:string">7. jula</ulica>
+            <mesto></mesto>
+            <ulica></ulica>
         </adresa>
-        <naziv property="pred:naziv-ustanove" datatype="xs:string">Prosvetna inspekcija</naziv>
+        <naziv></naziv>
     </organ>
-
-    <podnosilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
+    <podnosilac id="${zahtev['trazilac-informacije']._attributes.id}">
         <adresa>
-            <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
-            <ulica property="pred:ulica-podnosioca" datatype="xs:string">Svetozara Markovica bb</ulica>
+            <mesto>${zahtev['trazilac-informacije'].adresa.mesto._text}</mesto>
+            <ulica>${zahtev['trazilac-informacije'].adresa.ulica._text}</ulica>
         </adresa>
-        <ime-prezime property="pred:ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
+        <ime-prezime>${zahtev['trazilac-informacije']['ime-prezime']._text}</ime-prezime>
     </podnosilac>
-
-    <opis>stavljanje na uvid</opis>
-
-
+    <opis></opis>
     <zakon>
-        <naziv>Zakon o slobodnom pristupu informacijama od javnog znacaja</naziv>
-        <clan broj="16">
-            <stav broj="1"/>
+        <naziv></naziv>
+        <clan broj="">
+            <stav broj=""/>
         </clan>
     </zakon>
-    <zahtev id="5fb41eaa-0cd6-48ae-97d6-b2f51799afe3">
-        <datum property="pred:datum-zahteva" datatype="xs:date">2020-10-03</datum>
-        <opis-zahteva property="pred:opis-zahteva" datatype="xs:string">O izvrsenom inspekcijskom nadzoru</opis-zahteva>
+    <zahtev id="${zahtev._attributes.id}">
+        <datum>${zahtev.datum._text}</datum>
+        <opis-zahteva>${zahtev['opis-zahteva']._text}</opis-zahteva>
     </zahtev>
     <sadrzaj-obavestenja>
-        <prihvacen-zahtev>
-            <datum property="pred:datum-obavestenja" datatype="xs:date">2019-04-18</datum>
-            <vreme pocetak="10:30:00" zavrsetak="10:40:00" xsi:type="VremePeriod"/>
-            <kancelarija property="pred:kancelarija" datatype="xs:positiveInt">3</kancelarija>
-            <adresa>
-                <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
-                <ulica property="pred:ulica-podnosioca" datatype="xs:string">7. jula</ulica>
-            </adresa>
-        </prihvacen-zahtev>
+        <razlog-odbijanja></razlog-odbijanja>
     </sadrzaj-obavestenja>
-
-    <dodatna-odluka>moze se izdati i kopija.</dodatna-odluka>
+    <dodatna-odluka></dodatna-odluka>
     <izdana-dokumenta>
         <uredba>
             <naziv>Uredba o troskovima</naziv>
@@ -59,33 +38,7 @@
                 <broj>8/06</broj>
             </sluzbeni-glasnik>
         </uredba>
-        <cenovnik>
-            <stavka artikl="копија стране А4 формата" cena="3"/>
-            <stavka artikl="копија стране А3 формата" cena="6"/>
-            <stavka artikl="CD" cena="35"/>
-            <stavka artikl="DVD" cena="40"/>
-            <stavka artikl="аудио-касета" cena="150"/>
-            <stavka artikl="видео-касета" cena="300"/>
-            <stavka artikl="претварање једне  стране документа из физичког у електронски облик" cena="30"/>
-        </cenovnik>
-        <cena>30</cena>
-        <primalac broj-racuna="840-742328-843-30" model="97" poziv-na-broj="12312">
-            <organ>
-                <adresa>
-                    <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
-                    <ulica property="pred:ulica-podnosioca" datatype="xs:string">7. jula</ulica>
-                </adresa>
-                <naziv property="pred:naziv-ustanove" datatype="xs:string">Prosvetna inspekcija</naziv>
-            </organ>
-        </primalac>
+        <cenovnik></cenovnik>
     </izdana-dokumenta>
-
-    <dostavljeno>
-        <primalac>
-            Imenovani
-        </primalac>
-        <primalac>
-            Arhiva
-        </primalac>
-    </dostavljeno>
+    <dostavljeno></dostavljeno>
 </obavestenje>

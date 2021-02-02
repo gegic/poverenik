@@ -25,6 +25,7 @@ export class PodnosenjeZahtevaComponent implements AfterViewInit {
   submitZahtev(): void {
     if (this.editService.warnings.length > 0) {
       this.messageService.add({severity: 'error', summary: 'Neuspešno podnošenje', detail: 'Prvo proverite sva upozorenja za zahtev.'})
+      return;
     }
 
     const zahtevString: string = this.editService.harvest();

@@ -438,6 +438,10 @@ export class ZalbaCutanjeEditService {
           }
         }
       },
+      'opis-zahteva': {
+        hasText: true,
+        isReadOnly: true
+      },
       datum: {
         hasText: true,
         isReadOnly: true

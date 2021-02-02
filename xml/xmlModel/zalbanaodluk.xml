@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zalba
+<zalba-na-odluku
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../xmlSchema/zalbanaodluku.xsd"
         xmlns:zo="http://team14.xml.com/rdf/zalbenaodluku"
@@ -17,16 +17,16 @@
         <naziv property="pred:naziv-poverenika" datatype="xs:string">Drzavni poverenik</naziv>
     </primalac>
 
-    <zalilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
+    <podnosilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
         <adresa>
             <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
             <ulica property="pred:ulica-podnosioca" datatype="xs:string">Svetozara Markovica bb</ulica>
         </adresa>
         <ostali-podaci></ostali-podaci>
         <ime-prezime property="ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
-    </zalilac>
+    </podnosilac>
     <protiv id="081c6f67-2cc8-40ca-b057-b5a4c2896d3f">
-        <broj>2/2021</broj>
+        <broj-obavestenja>2/2021</broj-obavestenja>
         <datum>2021-01-06</datum>
         <donosilac>
             <adresa>
@@ -49,12 +49,5 @@
         </clan>
     </zakon>
     <mesto>Tutin</mesto>
-    <podnosilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
-        <adresa>
-            <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
-            <ulica property="pred:ulica-podnosioca" datatype="xs:string">Svetozara Markovica bb</ulica>
-        </adresa>
-        <ime-prezime property="pred:ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
-    </podnosilac>
 
-</zalba>
+</zalba-na-odluku>

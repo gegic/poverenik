@@ -129,6 +129,11 @@ public class ZahtevRepository {
         return this.getByQuery(query);
     }
 
+    public List<Zahtev> getOdbijeniByKorisnikId(String id) throws Exception {
+        String query = String.format("/zahtev[trazilac-informacije/@id = '%s' and @prihvatanje = 'odbijen']", id);
+        return this.getByQuery(query);
+    }
+
     public List<Zahtev> getAllNeodgovoreni() throws Exception {
         String query = "/zahtev[@prihvatanje = 'neodgovoren']";
         return this.getByQuery(query);

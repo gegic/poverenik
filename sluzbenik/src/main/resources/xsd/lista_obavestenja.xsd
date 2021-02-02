@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="obavestenje.xsd"/>
+    <xs:element name="lista-zahteva">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="obavestenje"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

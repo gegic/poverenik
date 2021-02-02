@@ -1,53 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<obavestenje
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../xmlSchema/obavestenje.xsd"
-        xmlns:ob="http://team14.xml.com/rdf/obavestenja"
-        xmlns:pred="http://team14.xml.com/rdf/obavestenja/predicate/"
-        vocab="http://team14.xml.com/rdf/obavestenja/predicate/"
-        about="http://team14.xml.com/rdf/obavestenja/081c6f67-2cc8-40ca-b057-b5a4c2896d3f"
-        id="081c6f67-2cc8-40ca-b057-b5a4c2896d3f"
-        zahtev-prihvacen="false"
->
-    <broj>2/2021</broj>
-    <datum>2021-01-06</datum>
+<obavestenje rdfa_ob="http://team14.xml.com/rdf/obavestenja"
+             rdfa_pred="http://team14.xml.com/rdf/obavestenja/predicate/">
+    <broj></broj>
     <organ>
         <adresa>
-            <mesto property="pred:mesto-ustanove" datatype="xs:string">Novi Sad</mesto>
-            <ulica property="pred:ulica-ustanove" datatype="xs:string">Cara Lazara 12</ulica>
+            <mesto></mesto>
+            <ulica></ulica>
         </adresa>
-        <naziv property="pred:naziv-ustanove" datatype="xs:string">Neka ustanova</naziv>
+        <naziv></naziv>
     </organ>
-
-    <podnosilac id="ad440aa9-b8ca-4e2c-8602-1c323bbf04a9">
+    <podnosilac id="${zahtev['trazilac-informacije']._attributes.id}">
         <adresa>
-            <mesto property="pred:mesto-podnosioca" datatype="xs:string">Tutin</mesto>
-            <ulica property="pred:ulica-podnosioca" datatype="xs:string">Svetozara Markovica bb</ulica>
+            <mesto>${zahtev['trazilac-informacije'].adresa.mesto._text}</mesto>
+            <ulica>${zahtev['trazilac-informacije'].adresa.ulica._text}</ulica>
         </adresa>
-        <ime-prezime property="pred:ime-prezime-podnosioca" datatype="xs:string">Haris Gegic</ime-prezime>
+        <ime-prezime>${zahtev['trazilac-informacije']['ime-prezime']._text}</ime-prezime>
     </podnosilac>
-
-    <opis>odbija se navedeni zahtev.</opis>
-
+    <opis></opis>
     <zakon>
-        <naziv>Zakon o slobodnom pristupu informacijama od javnog znacaja</naziv>
-        <clan broj="16">
-            <stav broj="1"/>
+        <naziv></naziv>
+        <clan broj="">
+            <stav broj=""/>
         </clan>
     </zakon>
-    <zahtev id="5fb41eaa-0cd6-48ae-97d6-b2f51799afe3">
-        <datum property="pred:datum-zahteva" datatype="xs:date">2020-10-03</datum>
-        <opis-zahteva property="pred:opis-zahteva" datatype="xs:string">O izvrsenom inspekcijskom nadzoru</opis-zahteva>
+    <zahtev id="${zahtev._attributes.id}">
+        <datum>${zahtev.datum._text}</datum>
+        <opis-zahteva>${zahtev['opis-zahteva']._text}</opis-zahteva>
     </zahtev>
     <sadrzaj-obavestenja>
-        <razlog-odbijanja>Neki je razlog.</razlog-odbijanja>
+        <prihvacen-zahtev>
+            <vreme/>
+            <kancelarija></kancelarija>
+            <adresa>
+                <mesto></mesto>
+                <ulica></ulica>
+            </adresa>
+        </prihvacen-zahtev>
     </sadrzaj-obavestenja>
-    <dostavljeno>
-        <primalac>
-            <naziv property="pred:naziv-primaoca" datatype="xs:string">Imenovani</naziv>
-        </primalac>
-        <primalac>
-            <naziv property="pred:naziv-primaoca" datatype="xs:string">Arhiva</naziv>
-        </primalac>
-    </dostavljeno>
+    <dodatna-odluka></dodatna-odluka>
+    <izdana-dokumenta>
+        <uredba>
+            <naziv>Uredba o troskovima</naziv>
+            <sluzbeni-glasnik>
+                <broj>8/06</broj>
+            </sluzbeni-glasnik>
+        </uredba>
+        <cenovnik></cenovnik>
+    </izdana-dokumenta>
+    <dostavljeno></dostavljeno>
 </obavestenje>

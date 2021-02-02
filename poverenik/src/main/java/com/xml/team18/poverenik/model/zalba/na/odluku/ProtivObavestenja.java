@@ -3,17 +3,22 @@ package com.xml.team18.poverenik.model.zalba.na.odluku;
 
 import com.xml.team18.poverenik.model.docs.Organ;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for Odluka complex type.
- *
+ * <p>Java class for ProtivObavestenja complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
- * &lt;complexType name="Odluka">
+ * &lt;complexType name="ProtivObavestenja">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -32,17 +37,19 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Odluka", propOrder = {
-        "broj",
-        "datum",
-        "donosilac"
+@XmlType(name = "ProtivObavestenja", propOrder = {
+        "brojObavestenja",
+    "datum",
+    "donosilac"
 })
-public class Odluka {
+public class ProtivObavestenja {
 
-    @XmlElement(required = true)
-    protected String broj;
+    @XmlElement(name = "broj-obavestenja", required = true)
+    protected String brojObavestenja;
     @XmlElement(required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datum;
@@ -53,29 +60,35 @@ public class Odluka {
 
     /**
      * Gets the value of the broj property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public String getBroj() {
-        return broj;
+    public String getBrojObavestenja() {
+        return brojObavestenja;
     }
 
     /**
      * Sets the value of the broj property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setBroj(String value) {
-        this.broj = value;
+    public void setBrojObavestenja(String value) {
+        this.brojObavestenja = value;
     }
 
     /**
      * Gets the value of the datum property.
-     *
-     * @return possible object is
-     * {@link XMLGregorianCalendar }
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public XMLGregorianCalendar getDatum() {
         return datum;
@@ -83,9 +96,11 @@ public class Odluka {
 
     /**
      * Sets the value of the datum property.
-     *
-     * @param value allowed object is
-     *              {@link XMLGregorianCalendar }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
     public void setDatum(XMLGregorianCalendar value) {
         this.datum = value;
@@ -93,9 +108,11 @@ public class Odluka {
 
     /**
      * Gets the value of the donosilac property.
-     *
-     * @return possible object is
-     * {@link Organ }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Organ }
+     *     
      */
     public Organ getDonosilac() {
         return donosilac;
@@ -103,9 +120,11 @@ public class Odluka {
 
     /**
      * Sets the value of the donosilac property.
-     *
-     * @param value allowed object is
-     *              {@link Organ }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Organ }
+     *     
      */
     public void setDonosilac(Organ value) {
         this.donosilac = value;
@@ -113,9 +132,11 @@ public class Odluka {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getId() {
         return id;
@@ -123,9 +144,11 @@ public class Odluka {
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setId(String value) {
         this.id = value;

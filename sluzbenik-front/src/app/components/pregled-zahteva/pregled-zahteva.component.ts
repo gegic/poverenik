@@ -4,6 +4,7 @@ import * as xml from 'xml-js';
 import {AuthService} from '../../core/services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
+import {ObavestenjeService} from '../../core/services/obavestenje.service';
 
 @Component({
   selector: 'app-pregled-zahteva',
@@ -19,7 +20,7 @@ export class PregledZahtevaComponent implements OnInit {
               public authService: AuthService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private odgovorEditService: ObavestenjeEditService) { }
+              private obavestenjeService: ObavestenjeService) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -75,9 +76,9 @@ export class PregledZahtevaComponent implements OnInit {
       });
     }
   }
-  odgovori(zahtev: any): void {
-    this.odgovorEditService.zahtev.next(zahtev);
-    this.router.navigate(['slanje-odgovora']);
+  prihvati(zahtev: any): void {
+    this.obavestenjeService.zahtev.next(zahtev);
+    this.router.navigate(['prihvatanje']);
   }
 
   generatePdf(zahtev: any): void {
@@ -96,10 +97,9 @@ export class PregledZahtevaComponent implements OnInit {
     this.router.navigate(['zahtev'], {queryParams: {zahtev: zahtev._attributes.id}});
   }
 
-  odbij(id: any): void {
-    this.zahtevService.odbij(id).subscribe(() => {
-      this.getZahtevi(this.tip);
-    });
+  odbij(zahtev: any): void {
+    this.obavestenjeService.zahtev.next(zahtev);
+    this.router.navigate(['odbijanje']);
   }
 
 }

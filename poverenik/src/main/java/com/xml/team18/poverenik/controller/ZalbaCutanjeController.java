@@ -31,6 +31,11 @@ public class ZalbaCutanjeController {
         return ResponseEntity.created(URI.create(this.service.save(zalbaCutanje))).build();
     }
 
+    @GetMapping(path = "/{id}")
+    ResponseEntity<ZalbaCutanje> getById(@PathVariable String id) throws ResourceNotFoundException {
+        return ResponseEntity.ok(service.getById(id));
+    }
+
     @GetMapping(path = "/korisnik/{korisnikId}")
     ResponseEntity<EntityList<ZalbaCutanje>> getAllByKorisnikId(@PathVariable String korisnikId) throws Exception {
         return ResponseEntity.ok(
@@ -47,6 +52,17 @@ public class ZalbaCutanjeController {
     public ResponseEntity<String> generatePDF(@PathVariable String id) {
         try {
             String path = service.generatePdf(id);
+            return ResponseEntity.ok(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @PostMapping(value = "/generate-xhtml/{id}")
+    public ResponseEntity<String> generateXhtml(@PathVariable String id) {
+        try {
+            String path = service.generateXhtml(id);
             return ResponseEntity.ok(path);
         } catch (Exception e) {
             e.printStackTrace();

@@ -21,7 +21,19 @@
                         ЖАЛБА КАДА ОРГАН ВЛАСТИ
                         <fo:inline  font-family="Times New Roman" font-size="10pt"
                                     font-weight="bold" text-align="center" margin-top="48pt" border-after-style="solid">
-                            НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ
+                            НИЈЕ ПОСТУПИО/
+                            <xsl:choose>
+                                <xsl:when test="/zalba-cutanje/razlog/nepostupanje">
+                                    није поступио
+                                </xsl:when>
+                                <xsl:when test="/zalba-cutanje/razlog/nepostupanje-u-celosti">
+                                    није поступио у целости
+                                </xsl:when>
+                                <xsl:when test="/zalba-cutanje/razlog/nepostupanje-u-roku">
+                                    у законском року
+                                </xsl:when>
+                            </xsl:choose>
+                            / ПО ЗАХТЕВУ
                         </fo:inline>
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="10pt"
@@ -40,9 +52,10 @@
                     </fo:block>
                     <fo:block font-family="Times New Roman" font-size="11pt"
                               text-align="justify">
+                        У складу са чланом
                         <xsl:for-each select="/zalba-cutanje/zakon/clan">
                             <xsl:variable name="brojClana" select="@broj"/>
-                            У складу са чланом <xsl:value-of select="$brojClana"/>.
+                            <xsl:value-of select="$brojClana"/>.
                             <xsl:for-each select="stav">
                                 <xsl:variable name="brojStava" select="@broj"/>
                                 ст. <xsl:value-of select="$brojStava"/>.

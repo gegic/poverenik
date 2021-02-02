@@ -28,7 +28,13 @@ public class ZahtevController {
     }
 
     @GetMapping(path = "/neodgovoreni/{idKorisnika}", produces = MediaType.APPLICATION_XML_VALUE)
-    ResponseEntity<ListaZahteva> getById(@PathVariable String idKorisnika) throws ResourceNotFoundException, MalformedURLException {
+    ResponseEntity<ListaZahteva> getNeodgovoreniById(@PathVariable String idKorisnika) {
         return ResponseEntity.ok(this.zahtevSoapService.neodgovoreniZahtevi(idKorisnika));
     }
+
+    @GetMapping(path = "/odbijeni/{idKorisnika}", produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<ListaZahteva> getOdbijeniById(@PathVariable String idKorisnika) {
+        return ResponseEntity.ok(this.zahtevSoapService.odbijeniZahtevi(idKorisnika));
+    }
+
 }

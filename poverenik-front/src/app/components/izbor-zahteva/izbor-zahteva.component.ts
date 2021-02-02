@@ -4,6 +4,7 @@ import {AuthService} from '../../core/services/auth.service';
 import * as xml from 'xml-js';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MessageService} from 'primeng/api';
+import {ZalbaNaOdlukuService} from '../../core/services/zalba-na-odluku.service';
 
 @Component({
   selector: 'app-izbor-zahteva',
@@ -22,7 +23,8 @@ export class IzborZahtevaComponent implements OnInit {
               public authService: AuthService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private messageService: MessageService) { }
+              private messageService: MessageService,
+              private zalbaNaOdlukuService: ZalbaNaOdlukuService) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -58,7 +60,21 @@ export class IzborZahtevaComponent implements OnInit {
   }
 
   getOdbijeniZahtevi(): void {
+    this.zalbaNaOdlukuService.getAllOdbijeniZahtevi(this.authService.korisnik.getValue()._attributes.id).subscribe(val => {
+      const element = (xml.xml2js(val, {compact: true}) as any);
 
+      if (!element['lista-zahteva'].zahtev) {
+        this.neodgovoreniZahtevi = [];
+      } else {
+        const zahtev = element['lista-zahteva'].zahtev;
+        if (Array.isArray(zahtev)) {
+          this.neodgovoreniZahtevi = zahtev;
+        } else {
+          this.neodgovoreniZahtevi = [zahtev];
+        }
+      }
+      this.loading = false;
+    });
   }
 
   zahtevIzabran(): void {
@@ -68,6 +84,14 @@ export class IzborZahtevaComponent implements OnInit {
     if (this.tip === 'neodgovoren') {
       this.zalbaCutanjeService.zahtev = this.izabranZahtev;
       this.router.navigate(['podnosenje-zalbe-cutanje']);
+    } else if (this.tip === 'odbijen') {
+      this.zalbaNaOdlukuService.zahtev = this.izabranZahtev;
+      this.loading = true;
+      this.zalbaNaOdlukuService.getObavestenjeByZahtevId(this.zalbaNaOdlukuService.zahtev._attributes.id).subscribe(val => {
+        this.zalbaNaOdlukuService.obavestenje = (xml.xml2js(val, {compact: true}) as any).obavestenje;
+        this.loading = false;
+        this.router.navigate(['podnosenje-zalbe-na-odluku']);
+      });
     }
   }
 

@@ -7,7 +7,6 @@ import com.xml.team18.poverenik.fuseki.FusekiWriter;
 import com.xml.team18.poverenik.fuseki.MetadataExtractor;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
-import com.xml.team18.poverenik.model.zalba.na.odluku.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.Resource;
@@ -97,7 +96,7 @@ public class ZalbaCutanjeRepository {
 
     public ZalbaCutanje findById(String id) throws ResourceNotFoundException {
         XMLResource found = this.existManager.read(collectionId, id);
-        String contentFound = null;
+        String contentFound;
         try {
             contentFound = found.getContent().toString();
             return (ZalbaCutanje) jaxB

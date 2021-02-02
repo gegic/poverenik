@@ -5,6 +5,7 @@ import {ZahtevEditService} from '../../core/services/zahtev-edit.service';
 import * as xml from 'xml-js';
 import {AuthService} from '../../core/services/auth.service';
 import {ObavestenjeEditService} from '../../core/services/obavestenje-edit.service';
+import {ObavestenjeService} from '../../core/services/obavestenje.service';
 
 @Component({
   selector: 'app-zahtev-prikaz',
@@ -22,7 +23,7 @@ export class ZahtevPrikazComponent implements AfterViewInit {
               public zahtevService: ZahtevService,
               public editService: ZahtevEditService,
               public authService: AuthService,
-              private obavestenjeEditService: ObavestenjeEditService) { }
+              private obavestenjeService: ObavestenjeService) { }
 
   ngAfterViewInit(): void {
     this.activatedRoute.queryParams.subscribe(val => {
@@ -50,16 +51,13 @@ export class ZahtevPrikazComponent implements AfterViewInit {
     });
   }
 
-  odgovori(): void {
-    this.obavestenjeEditService.zahtev.next(this.zahtev);
-    this.router.navigate(['slanje-odgovora']);
+  prihvati(): void {
+    this.obavestenjeService.zahtev.next(this.zahtev);
+    this.router.navigate(['prihvatanje']);
   }
 
   odbij(): void {
-    this.zahtevService.odbij(this.zahtev._attributes.id).subscribe(zahtev => {
-      this.zahtev = (xml.xml2js(zahtev, {compact: true}) as any).zahtev;
-      zahtev = zahtev.replace(/<\?.+\?>/, '');
-      this.editService.render(this.zahtevXonomy.nativeElement, zahtev, true);
-    });
+    this.obavestenjeService.zahtev.next(this.zahtev);
+    this.router.navigate(['odbijanje']);
   }
 }

@@ -23,8 +23,9 @@
 					padding-top: 60pt;
 					padding-bottom: 60pt;
 					box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-					margin-left:265pt;
-					margin-right:265pt;
+					margin-left:auto;
+					margin-right:auto;
+					width: 169mm;
 					position: sticky;
 					top: 25pt;
                     min-height: 240mm;">
@@ -131,109 +132,138 @@
 					font-size:11pt;">
                         (опис тражене информације)
                     </p>
-                    <p style="font-family:'Times New Roman';
+                    <xsl:choose>
+                        <xsl:when test="/obavestenje/sadrzaj-obavestenja/razlog-odbijanja">
+                            <p style="font-family:'Times New Roman';
+                                text-align:justify;
+                                font-size:11pt;
+                                text-indent:4em;
+                                margin-top:11pt;">
+                                Oбавештавамо вас да је Ваш захтев одбијен из следећег разлога:
+                            </p>
+                            <p style="font-family:'Times New Roman';
+                                text-align:justify;
+                                font-size:11pt;
+                                text-indent:4em;
+                                margin-top:11pt;">
+                                <u><xsl:value-of select="/obavestenje/sadrzaj-obavestenja/razlog-odbijanja"/></u>
+                            </p>
+
+                        </xsl:when>
+                        <xsl:when test="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev">
+                            <p style="font-family:'Times New Roman';
 					text-align:justify;
 					font-size:11pt;
 					text-indent:4em;
 					margin-top:11pt;">
-                        Oбавештавамо вас да дана
-                        <span style="text-decoration:underline;">
-                            <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/datum"/>,
-                        </span>
-                        у
-                        <xsl:choose>
-                            <xsl:when test="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@zavrsetak">
-                                /
-                            </xsl:when>
-                            <xsl:otherwise>
+                                Oбавештавамо вас да дана
                                 <span style="text-decoration:underline;">
-                                    <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@pocetak"/>
+                                    <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/datum"/>,
                                 </span>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                        часова,
-                        односно у времену
-                        <xsl:choose>
-                            <xsl:when test="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@zavrsetak">
-                                од
+                                у
+                                <xsl:choose>
+                                    <xsl:when test="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@zavrsetak">
+                                        /
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <span style="text-decoration:underline;">
+                                            <xsl:value-of
+                                                    select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@pocetak"/>
+                                        </span>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                часова,
+                                односно у времену
+                                <xsl:choose>
+                                    <xsl:when test="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@zavrsetak">
+                                        од
+                                        <span style="text-decoration:underline;">
+                                            <xsl:value-of
+                                                    select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@pocetak"/>
+                                        </span>
+                                        до
+                                        <span style="text-decoration:underline;">
+                                            <xsl:value-of
+                                                    select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@zavrsetak"/>
+                                        </span>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        од / до /
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                часова, у просторијама органа у
                                 <span style="text-decoration:underline;">
-                                    <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@pocetak"/>
+                                    <xsl:value-of
+                                            select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/adresa/mesto"/>
                                 </span>
-                                до
+                                ул.
                                 <span style="text-decoration:underline;">
-                                    <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/vreme/@zavrsetak"/>
+                                    <xsl:value-of
+                                            select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/adresa/ulica"/>,
                                 </span>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                од / до /
-                            </xsl:otherwise>
-                        </xsl:choose>
-                        часова, у просторијама органа у
-                        <span style="text-decoration:underline;">
-                            <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/adresa/mesto"/>
-                        </span>
-                        ул.
-                        <span style="text-decoration:underline;">
-                            <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/adresa/ulica"/>,
-                        </span>
-                        канцеларија бр.
-                        <span style="text-decoration:underline;">
-                            <xsl:value-of select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/kancelarija"/>
-                        </span>
-                        можете
-                        <span style="font-weight:bold;">извршити увид</span>
-                        у документ/е у коме је садржана тражена
-                        информација.
-                    </p>
-                    <p style="font-family:'Times New Roman';
+                                канцеларија бр.
+                                <span style="text-decoration:underline;">
+                                    <xsl:value-of
+                                            select="/obavestenje/sadrzaj-obavestenja/prihvacen-zahtev/kancelarija"/>
+                                </span>
+                                можете
+                                <span style="font-weight:bold;">извршити увид</span>
+                                у документ/е у коме је садржана тражена
+                                информација.
+                            </p>
+                            <p style="font-family:'Times New Roman';
 					text-align:justify;
 					font-size:11pt;
 					margin-top:11pt;">
-                        Трошкови су утврђени
-                        <xsl:value-of select="/obavestenje/izdana-dokumenta/uredba/naziv"/>
-                        („Сл. гласник
-                        РС“, бр.
-                        <xsl:for-each select="/obavestenje/izdana-dokumenta/uredba/sluzbeni-glasnik">
-                            <xsl:value-of select="broj"/>
-                        </xsl:for-each>).
-                        <xsl:if test="count(/obavestenje/izdana-dokumenta/cenovnik/stavka) > 0">
-                            И то:
-                            <xsl:for-each select="/obavestenje/izdana-dokumenta/cenovnik/stavka">
-                                <xsl:value-of select="@artikl"/> износи
-                                <xsl:value-of select="@cena"/>
-                                динара,
-                            </xsl:for-each>.
-                        </xsl:if>
-                    </p>
-                    <p style="font-family:'Times New Roman';
+                                Трошкови су утврђени
+                                <xsl:value-of select="/obavestenje/izdana-dokumenta/uredba/naziv"/>
+                                („Сл. гласник
+                                РС“, бр.
+                                <xsl:for-each select="/obavestenje/izdana-dokumenta/uredba/sluzbeni-glasnik">
+                                    <xsl:value-of select="broj"/>
+                                </xsl:for-each>
+                                ).
+                                <xsl:if test="count(/obavestenje/izdana-dokumenta/cenovnik/stavka) > 0">
+                                    И то:
+                                    <xsl:for-each select="/obavestenje/izdana-dokumenta/cenovnik/stavka">
+                                        <xsl:value-of select="@artikl"/> износи
+                                        <xsl:value-of select="@cena"/>
+                                        динара,
+                                    </xsl:for-each>
+                                    .
+                                </xsl:if>
+                            </p>
+                            <p style="font-family:'Times New Roman';
 					text-align:justify;
 					font-size:11pt;
 					text-indent:4em;
 					margin-top:11pt;">
-                        <xsl:if test="/obavestenje/izdana-dokumenta/cena > 0">
-                            Износ укупних трошкова износи
-                            <span style="text-decoration:underline;">
-                                <xsl:value-of select="/obavestenje/izdana-dokumenta/cena"/>
-                            </span>
-                            динара
-                            и уплаћује се на жиро-рачун
-                            <span style="text-decoration:underline;">
-                                <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/naziv"/>
-                            </span>
-                            бр.
-                            <span style="text-decoration:underline;">
-                                <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/@broj-racuna"/>
-                            </span>, с позивом на број
-                            <span style="text-decoration:underline;">
-                                <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/@model"/>
-                                <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/@poziv-na-broj"/>
-                            </span>
-                            (из
-                            Правилника о условима и начину вођења рачуна – „Сл. гласник
-                            РС“,
-                            20/07... 40/10).
-                        </xsl:if>
-                    </p>
+                                <xsl:if test="/obavestenje/izdana-dokumenta/cena > 0">
+                                    Износ укупних трошкова износи
+                                    <span style="text-decoration:underline;">
+                                        <xsl:value-of select="/obavestenje/izdana-dokumenta/cena"/>
+                                    </span>
+                                    динара
+                                    и уплаћује се на жиро-рачун
+                                    <span style="text-decoration:underline;">
+                                        <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/naziv"/>
+                                    </span>
+                                    бр.
+                                    <span style="text-decoration:underline;">
+                                        <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/@broj-racuna"/>
+                                    </span>
+                                    , с позивом на број
+                                    <span style="text-decoration:underline;">
+                                        <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/@model"/>
+                                        <xsl:value-of select="/obavestenje/izdana-dokumenta/primalac/@poziv-na-broj"/>
+                                    </span>
+                                    (из
+                                    Правилника о условима и начину вођења рачуна – „Сл. гласник
+                                    РС“,
+                                    20/07... 40/10).
+                                </xsl:if>
+                            </p>
+                        </xsl:when></xsl:choose>
                     <p style="font-family:'Times New Roman';
 					text-align:left;
 					font-size:11pt;

@@ -27,7 +27,8 @@ const routes: Route[] = [
       {path: 'obavestenje', component: ObavestenjePrikazComponent, data: {roles: ['gradjanin', 'sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'novi-zahtevi', component: PregledZahtevaComponent, data: {roles: ['sluzbenik'], tip: 'neodgovoreni-zahtevi'}, canActivate: [AuthGuard]},
       {path: 'svi-zahtevi', component: PregledZahtevaComponent, data: {roles: ['sluzbenik'], tip: 'svi-zahtevi'}, canActivate: [AuthGuard]},
-      {path: 'slanje-odgovora', component: SlanjeOdgovoraComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
+      {path: 'prihvatanje', component: SlanjeOdgovoraComponent, data: {roles: ['sluzbenik'], tip: 'prihvatanje'}, canActivate: [AuthGuard]},
+      {path: 'odbijanje', component: SlanjeOdgovoraComponent, data: {roles: ['sluzbenik'], tip: 'odbijanje'}, canActivate: [AuthGuard]},
       {path: 'sluzbenik', component: SluzbenikViewComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]}
     ]
   },

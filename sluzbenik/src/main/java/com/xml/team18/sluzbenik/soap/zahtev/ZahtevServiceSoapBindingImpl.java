@@ -39,8 +39,8 @@ public class ZahtevServiceSoapBindingImpl implements ZahtevServicePortType {
         LOG.info("Executing operation odbijeniZahtevi");
         System.out.println(korisnikId);
         try {
-            ListaZahteva _return = null;
-            return _return;
+            List<Zahtev> zahtevi = this.zahtevRepository.getOdbijeniByKorisnikId(korisnikId);
+            return new ListaZahteva(zahtevi);
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);

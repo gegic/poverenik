@@ -30,8 +30,8 @@
         <td>
           <ng-container *ngIf="tip === 'neodgovoreni-zahtevi'; else ostali">
             <button class="p-button p-button-success"
-                    label="Odgovori"
-                    (click)="odgovori(zahtev)"
+                    label="Prihvati"
+                    (click)="prihvati(zahtev)"
                     pButton
             ></button>
           </ng-container>
@@ -43,7 +43,7 @@
           <button class="p-button-secondary" label="Detalji" (click)="detalji(zahtev)" pButton></button>
         </td>
         <td *ngIf="authService.getKorisnikRole() === 'sluzbenik'">
-          <button [disabled]="zahtev._attributes.prihvatanje !== 'neodgovoren'" class="p-button-danger" label="Odbij" (click)="odbij(zahtev._attributes.id)" pButton></button>
+          <button [disabled]="zahtev._attributes.prihvatanje !== 'neodgovoren'" class="p-button-danger" label="Odbij" (click)="odbij(zahtev)" pButton></button>
         </td>
 
       </tr>

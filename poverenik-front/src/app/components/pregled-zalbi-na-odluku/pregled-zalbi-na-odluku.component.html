@@ -1,0 +1,59 @@
+<div class="p-mx-6">
+  <p-table [value]="zalbaNaOdlukuService.zalbeNaOdluku" [loading]="loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Opis</th>
+        <th>XHTML</th>
+        <th>PDF</th>
+        <th>Odgovor</th>
+        <th></th>
+        <th *ngIf="authService.getKorisnikRole() === 'poverenik'"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-zalbaNaOdluku>
+      <tr>
+        <td>Protiv {{zalbaNaOdluku.protiv.donosilac.naziv._text}} od {{zalbaNaOdluku.datum._text}}</td>
+        <td>
+          <button class="p-button"
+                    label="XHTML"
+                    (click)="generateXHTML(zalbaNaOdluku)"
+                    pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button"
+                  label="PDF"
+                  (click)="generatePdf(zalbaNaOdluku)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <ng-container *ngIf="tip === 'neresene-zalbe'; else ostali">
+            <button class="p-button p-button-success"
+                    label="Prihvati"
+                    (click)="resi(zalbaNaOdluku)"
+                    pButton
+            ></button>
+          </ng-container>
+          <ng-template #ostali>
+            {{zalbaNaOdluku._attributes['tip-resenja']}}
+          </ng-template>
+        </td>
+        <td>
+          <button class="p-button-secondary" label="Detalji" (click)="detalji(zalbaNaOdluku)" pButton></button>
+        </td>
+        <td *ngIf="tip === 'neresene-zalbe'">
+          <button class="p-button-danger" label="Odbij" (click)="odbij(zalbaNaOdluku._attributes.id)" pButton></button>
+        </td>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="5">
+          Nema zalbi na odluku...
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

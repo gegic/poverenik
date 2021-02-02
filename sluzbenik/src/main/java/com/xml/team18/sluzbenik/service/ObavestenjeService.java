@@ -36,12 +36,16 @@ public class ObavestenjeService {
         this.obavestenjeGenerator = obavestenjeGenerator;
     }
 
-    public String save(Obavestenje obavestenje) throws JAXBException, ResourceNotFoundException {
+    public String save(Obavestenje obavestenje) throws ResourceNotFoundException {
         Zahtev z = zahtevRepository.findById(obavestenje.getZahtev().getId());
         obavestenje.setProperty("pred:zahtev-obavestenja");
         obavestenje.setContent(obavestenje.getZahtev().getId());
         Obavestenje o = this.repository.save(obavestenje);
-        z.setPrihvatanje("prihvacen");
+        if (o.getTip().equalsIgnoreCase("prihvatanje")) {
+            z.setPrihvatanje("prihvacen");
+        } else {
+            z.setPrihvatanje("odbijen");
+        }
         zahtevRepository.save(z);
         return o.getId();
     }
