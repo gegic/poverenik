@@ -17,10 +17,22 @@ public class SparqlUtil {
     /* Insert RDF data to an arbitrary named graph */
     private static final String UPDATE_TEMPLATE_NAMED_GRAPH = "INSERT DATA { GRAPH <%1$s> { %2$s } }";
 
+    /***
+     *
+     * PREFIX pred: <http://team14.xml.com/rdf/zahtevi/predicate/>
+     * SELECT *
+     * FROM <http://localhost:8082/fuseki/Sluzbenik/data/zahtevi>
+     * WHERE {?s ?p ?o . filter(?p=pred:mesto-trazioca && str(?o)="mesto")}
+     */
+
+    private static final String SELECT_DISTINCT_NAMED_GRAPH_TEMPLATE =
+            "PREFIX pred: <http://team14.xml.com/rdf/%1$s/predicate/> " +
+            "SELECT DISTINCT ?s " +
+            "FROM <%2$s> " +
+            "WHERE { %3$s }";
 
     /* Simple SPARQL query on a named graph */
     private static final String SELECT_NAMED_GRAPH_TEMPLATE = "SELECT * FROM <%1$s> WHERE { %2$s }";
-
 
     /* Plain text RDF serialization format */
     public static final String NTRIPLES = "N-TRIPLES";
@@ -47,5 +59,9 @@ public class SparqlUtil {
 
     public static String selectData(String graphURI, String sparqlCondition) {
         return String.format(SELECT_NAMED_GRAPH_TEMPLATE, graphURI, sparqlCondition);
+    }
+
+    public static String selectDistinctIdsForData(String type, String location, String condition) {
+        return String.format(SELECT_DISTINCT_NAMED_GRAPH_TEMPLATE, type, location, condition);
     }
 }

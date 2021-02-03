@@ -43,10 +43,16 @@ public class ResenjeService {
         Resenje added = this.repository.save(resenje);
         if (added.getZalba().getTip().equalsIgnoreCase("cutanje")) {
             ZalbaCutanje zc = this.zalbaCutanjeRepository.findById(added.getZalba().getId());
+            added.getZalba().setProperty("pred:zalba");
+            added.getZalba().setContent(added.getZalba().getId());
             zc.setTipResenja(added.getTip());
             this.zalbaCutanjeRepository.save(zc);
         } else {
             ZalbaNaOdluku zno = this.zalbaNaOdlukuRepository.findById(added.getZalba().getId());
+            added.getZalba().setProperty("pred:zalba");
+            added.getZalba().setContent(added.getZalba().getId());
+            added.getZalba().getObavestenje().setProperty("pred:obavestenje");
+            added.getZalba().getObavestenje().setContent(added.getZalba().getObavestenje().getId());
             zno.setTipResenja(added.getTip());
             this.zalbaNaOdlukuRepository.save(zno);
         }
@@ -67,7 +73,6 @@ public class ResenjeService {
     public List<Resenje> getByKorisnikId(String korisnikId) throws Exception {
         return repository.getByKorisnikId(korisnikId);
     }
-
 
     public String generatePdf(String id) throws Exception {
         Resenje z = repository.findById(id);

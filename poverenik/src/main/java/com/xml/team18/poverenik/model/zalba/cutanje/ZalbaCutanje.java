@@ -48,10 +48,6 @@ public class ZalbaCutanje {
     protected String about;
     @XmlAttribute(name = "id")
     protected String id;
-    @XmlAttribute(name = "property")
-    protected String property;
-    @XmlAttribute(name = "content")
-    protected String content;
     @XmlAttribute(name = "rdfa_zc", required = true)
     @XmlSchemaType(name = "anyURI")
     @Getter
@@ -330,55 +326,6 @@ public class ZalbaCutanje {
     public void setId(String value) {
         this.id = value;
     }
-
-    /**
-     * Gets the value of the property property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getProperty() {
-        return property;
-    }
-
-    /**
-     * Sets the value of the property property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setProperty(String value) {
-        this.property = value;
-    }
-
-    /**
-     * Gets the value of the content property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getContent() {
-        return content;
-    }
-
-    /**
-     * Sets the value of the content property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setContent(String value) {
-        this.content = value;
-    }
-
 
     /**
      * <p>Java class for anonymous complex type.

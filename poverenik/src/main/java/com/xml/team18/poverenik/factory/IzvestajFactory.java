@@ -1,5 +1,9 @@
 
-package mypackage;
+package com.xml.team18.poverenik.factory;
+
+import com.xml.team18.poverenik.model.izvestaj.GodisnjaStatistika;
+import com.xml.team18.poverenik.model.izvestaj.Izvestaj;
+import org.springframework.stereotype.Component;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -18,6 +22,7 @@ import javax.xml.bind.annotation.XmlRegistry;
  * provided in this class.
  * 
  */
+@Component
 @XmlRegistry
 public class IzvestajFactory {
 
@@ -31,7 +36,7 @@ public class IzvestajFactory {
 
     /**
      * Create an instance of {@link Izvestaj }
-     * 
+     *
      */
     public Izvestaj createIzvestaj() {
         return new Izvestaj();
@@ -39,15 +44,23 @@ public class IzvestajFactory {
 
     /**
      * Create an instance of {@link Izvestaj.TrazilacInformacije }
-     * 
+     *
      */
     public Izvestaj.TrazilacInformacije createIzvestajTrazilacInformacije() {
         return new Izvestaj.TrazilacInformacije();
     }
 
     /**
+     * Create an instance of {@link GodisnjaStatistika }
+     *
+     */
+    public GodisnjaStatistika createGodisnjaStatistika() {
+        return new GodisnjaStatistika();
+    }
+
+    /**
      * Create an instance of {@link Izvestaj.TrazilacInformacije.Zahtevi }
-     * 
+     *
      */
     public Izvestaj.TrazilacInformacije.Zahtevi createIzvestajTrazilacInformacijeZahtevi() {
         return new Izvestaj.TrazilacInformacije.Zahtevi();
@@ -55,7 +68,7 @@ public class IzvestajFactory {
 
     /**
      * Create an instance of {@link Izvestaj.TrazilacInformacije.Zalbe }
-     * 
+     *
      */
     public Izvestaj.TrazilacInformacije.Zalbe createIzvestajTrazilacInformacijeZalbe() {
         return new Izvestaj.TrazilacInformacije.Zalbe();

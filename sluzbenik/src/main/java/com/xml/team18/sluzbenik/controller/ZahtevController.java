@@ -41,6 +41,16 @@ public class ZahtevController {
         return ResponseEntity.ok(new EntityList<>(service.getAll()));
     }
 
+    @GetMapping(path = "/pretraga")
+    ResponseEntity<EntityList<Zahtev>> pretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.pretraga(upit)));
+    }
+
+    @GetMapping(path = "/napredna-pretraga")
+    ResponseEntity<EntityList<Zahtev>> naprednaPretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.naprednaPretraga(upit)));
+    }
+
     @GetMapping(path = "/korisnik/{korisnikId}")
     ResponseEntity<EntityList<Zahtev>> getAllByKorisnikId(@PathVariable String korisnikId) throws Exception {
         return ResponseEntity.ok(

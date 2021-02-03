@@ -81,8 +81,7 @@ public class ZalbaCutanjeRepository {
             String rawXml = jaxB.marshall(element, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
             String rdf = this.metadataExtractor.extractMetadata(rawXml);
-            String graphUri = String.format("zalbecutanje/%s", id);
-            this.fusekiWriter.saveRDF(rdf, graphUri);
+            this.fusekiWriter.saveRDF(rdf, "zalbecutanje");
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
             return (ZalbaCutanje) jaxB.unmarshall(contentFound, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
@@ -107,16 +106,21 @@ public class ZalbaCutanjeRepository {
         }
     }
 
-    public List<ZalbaCutanje> getAll() throws Exception {
-        return this.existManager.readAll(collectionId).stream().map(con -> {
-            try {
-                return (ZalbaCutanje) jaxB
-                        .unmarshall(con, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
-            } catch (JAXBException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }).collect(Collectors.toList());
+    public List<ZalbaCutanje> getAll() {
+        try {
+            return this.existManager.readAll(collectionId).stream().map(con -> {
+                try {
+                    return (ZalbaCutanje) jaxB
+                            .unmarshall(con, ZalbaCutanje.class, ZalbaCutanjeFactory.class);
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }).collect(Collectors.toList());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     public List<ZalbaCutanje> getAllByKorisnikId(String id) throws Exception {

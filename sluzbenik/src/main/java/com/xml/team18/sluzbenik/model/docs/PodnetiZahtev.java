@@ -1,6 +1,9 @@
 
 package com.xml.team18.sluzbenik.model.docs;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -63,6 +66,14 @@ public class PodnetiZahtev {
     protected OpisZahteva opisZahteva;
     @XmlAttribute(name = "id", required = true)
     protected String id;
+    @Getter
+    @Setter
+    @XmlAttribute(name = "property")
+    protected String property;
+    @Getter
+    @Setter
+    @XmlAttribute(name = "content")
+    protected String content;
 
     /**
      * Gets the value of the datum property.

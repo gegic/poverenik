@@ -1,16 +1,20 @@
 <div class="p-mx-6">
-  <p-table [value]="obavestenjeService.obavestenja" [loading]="loading">
+  <p-table [value]="izvestajService.izvestaji" [loading]="loading">
     <ng-template pTemplate="header">
       <tr>
         <th>Godina</th>
         <th>Zahtevi</th>
         <th>Žalbe</th>
+        <th>XHTML</th>
+        <th>PDF</th>
         <th></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-izvestaj>
       <tr>
-        <td>{{izvestaj['opis']._text}}</td>
+        <td>{{izvestaj['godisnja-statistika']._attributes.godina}}</td>
+        <td>{{getBrojZahteva(izvestaj)}}</td>
+        <td>{{getBrojZalbi(izvestaj)}}</td>
         <td>
           <button class="p-button"
                   label="XHTML"
@@ -27,15 +31,8 @@
         </td>
         <td>
           <button class="p-button-secondary"
-                  label="Zahtev"
-                  (click)="pregledajZahtev(izvestaj.zahtev._attributes.id)"
-                  pButton
-          ></button>
-        </td>
-        <td>
-          <button class="p-button-secondary"
                   label="Detaljno"
-                  (click)="pregledajObavestenje(izvestaj._attributes.id)"
+                  (click)="pregledajIzvestaj(izvestaj._attributes.id)"
                   pButton
           ></button>
         </td>
@@ -44,7 +41,7 @@
     <ng-template pTemplate="emptymessage">
       <tr>
         <td [attr.colspan]="5">
-          Nema obaveštenja...
+          Nema izveštaja...
         </td>
       </tr>
     </ng-template>

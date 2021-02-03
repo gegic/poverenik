@@ -32,8 +32,10 @@ public class ZalbaNaOdlukuService {
     }
 
     public String save(ZalbaNaOdluku zalbaNaOdluku) throws JAXBException {
-        zalbaNaOdluku.setProperty("pred:zahtev");
-        zalbaNaOdluku.setContent(zalbaNaOdluku.getZahtev().getId());
+        zalbaNaOdluku.getProtiv().setProperty("pred:obavestenje");
+        zalbaNaOdluku.getProtiv().setContent(zalbaNaOdluku.getProtiv().getId());
+        zalbaNaOdluku.getZahtev().setProperty("pred:zahtev");
+        zalbaNaOdluku.getZahtev().setContent(zalbaNaOdluku.getZahtev().getId());
         zalbaNaOdluku.setTipResenja("neresena");
         ZalbaNaOdluku added = this.repository.save(zalbaNaOdluku);
 

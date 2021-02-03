@@ -34,6 +34,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Repository
@@ -74,40 +76,40 @@ public class ObavestenjeRepository {
             Instant i = now.atStartOfDay(ZoneId.systemDefault()).toInstant();
             o.setDatum(DatatypeFactory.newInstance().newXMLGregorianCalendar(i.toString()));
             o.getOrgan().getAdresa().getMesto().setProperty("pred:mesto-ustanove");
-            o.getOrgan().getAdresa().getMesto().setDatatype("xs:string");
+//            o.getOrgan().getAdresa().getMesto().setDatatype("xs:string");
 
             o.getOrgan().getAdresa().getUlica().setProperty("pred:ulica-ustanove");
             o.getOrgan().getAdresa().getUlica().setDatatype("xs:string");
             o.getOrgan().getNaziv().setProperty("pred:naziv-ustanove");
-            o.getOrgan().getNaziv().setDatatype("xs:string");
+//            o.getOrgan().getNaziv().setDatatype("xs:string");
 
             o.getPodnosilac().getAdresa().getMesto().setProperty("pred:mesto-podnosioca");
-            o.getPodnosilac().getAdresa().getMesto().setDatatype("xs:string");
+//            o.getPodnosilac().getAdresa().getMesto().setDatatype("xs:string");
             o.getPodnosilac().getAdresa().getUlica().setProperty("pred:ulica-podnosioca");
-            o.getPodnosilac().getAdresa().getUlica().setDatatype("xs:string");
+//            o.getPodnosilac().getAdresa().getUlica().setDatatype("xs:string");
             o.getPodnosilac().getImePrezime().setProperty("pred:ime-prezime-podnosioca");
-            o.getPodnosilac().getImePrezime().setDatatype("xs:string");
+//            o.getPodnosilac().getImePrezime().setDatatype("xs:string");
 
             o.getZahtev().getDatum().setProperty("pred:datum-zahteva");
-            o.getZahtev().getDatum().setDatatype("xs:date");
+//            o.getZahtev().getDatum().setDatatype("xs:date");
             o.getZahtev().getOpisZahteva().setProperty("pred:opis-zahteva");
-            o.getZahtev().getOpisZahteva().setDatatype("xs:string");
+//            o.getZahtev().getOpisZahteva().setDatatype("xs:string");
 
             if (o.getTip().equalsIgnoreCase("prihvatanje")) {
                 PrihvacenZahtev.Datum d = new PrihvacenZahtev.Datum();
                 d.setValue(DatatypeFactory.newInstance().newXMLGregorianCalendar(i.toString()));
                 d.setProperty("pred:datum-obavestenja");
-                d.setDatatype("xs:date");
+//                d.setDatatype("xs:date");
                 o.getSadrzajObavestenja().getPrihvacenZahtev().setDatum(d);
 
                 o.getSadrzajObavestenja().getPrihvacenZahtev().getKancelarija().setProperty("pred:kancelarija");
-                o.getSadrzajObavestenja().getPrihvacenZahtev().getKancelarija().setDatatype("xs:positiveInt");
+//                o.getSadrzajObavestenja().getPrihvacenZahtev().getKancelarija().setDatatype("xs:positiveInt");
 
                 o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getMesto().setProperty("pred:mesto-uvida");
-                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getMesto().setDatatype("xs:string");
+//                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getMesto().setDatatype("xs:string");
 
                 o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getUlica().setProperty("pred:ulica-uvida");
-                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getUlica().setDatatype("xs:string");
+//                o.getSadrzajObavestenja().getPrihvacenZahtev().getAdresa().getUlica().setDatatype("xs:string");
                 Primalac p = new Primalac();
                 p.setBrojRacuna("840-742328-843-30");
                 p.setModel(97);
@@ -121,8 +123,7 @@ public class ObavestenjeRepository {
             String rawXml = jaxB.marshall(element, Obavestenje.class, ObavestenjeFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
             String rdf = this.metadataExtractor.extractMetadata(rawXml);
-            String graphUri = String.format("obavestenja/%s", id);
-            this.fusekiWriter.saveRDF(rdf, graphUri);
+            this.fusekiWriter.saveRDF(rdf, "obavestenja");
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
             return (Obavestenje) jaxB
@@ -184,6 +185,38 @@ public class ObavestenjeRepository {
                 return null;
             }
         }).collect(Collectors.toList());
+    }
+
+    public List<Obavestenje> pretraga(String tekst) throws Exception {
+        String query = String.format("/obavestenje[descendant::*[text()[contains(lower-case(.), '%s')]]]", tekst.toLowerCase());
+        return this.getByQuery(query);
+    }
+
+    public List<Obavestenje> naprednaPretraga(String upit) {
+        Pattern p = Pattern.compile("([\\w:\\-]+)\\s+eq\\s+\"([\\w\\d \\-]+)\"");
+        Matcher m = p.matcher(upit);
+        String prvaZamena = null;
+        if (m.find()) {
+            prvaZamena = m.replaceAll("$1 \"$2\"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");  // number 46
+        } else {
+            return new ArrayList<>();
+        }
+        String filterQuery = prvaZamena.replaceAll(" and ", "; ").replaceAll(" or ", "} union { ?s ");
+        String whereQuery = String.format("{?s %s }", filterQuery);
+        List<String> ids = this.fusekiWriter.getIdsForString("obavestenje", whereQuery);
+        try {
+            return this.getByIds(ids);
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
+    public List<Obavestenje> getByIds(List<String> ids) throws Exception {
+        String idsJoined = ids.stream()
+                .map(id -> id.replace("http://team14.xml.com/rdf/obavestenja/", ""))
+                .collect(Collectors.joining(" "));
+        String query = String.format("/obavestenje[contains('%s', @id)]", idsJoined);
+        return this.getByQuery(query);
     }
 
     private List<Obavestenje> getByQuery(String query) throws Exception {

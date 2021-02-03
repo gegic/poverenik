@@ -71,16 +71,21 @@ public class OdgovorRepository {
         }
     }
 
-    public List<OdgovorIzjasnjenje> getAll() throws Exception {
-        return this.existManager.readAll(collectionId).stream().map(con -> {
-            try {
-                return (OdgovorIzjasnjenje) jaxB
-                        .unmarshall(con, OdgovorIzjasnjenje.class, OdgovorFactory.class);
-            } catch (JAXBException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }).collect(Collectors.toList());
+    public List<OdgovorIzjasnjenje> getAll() {
+        try {
+            return this.existManager.readAll(collectionId).stream().map(con -> {
+                try {
+                    return (OdgovorIzjasnjenje) jaxB
+                            .unmarshall(con, OdgovorIzjasnjenje.class, OdgovorFactory.class);
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }).collect(Collectors.toList());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     public OdgovorIzjasnjenje getByIdZalbe(String idZalbe) {

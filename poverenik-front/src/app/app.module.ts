@@ -17,8 +17,6 @@ import {ButtonModule} from 'primeng/button';
 import { GradjaninViewComponent } from './components/main-views/gradjanin-view/gradjanin-view.component';
 import {TableModule} from 'primeng/table';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
-import {PregledObavestenjaComponent} from './components/pregled-obavestenja/pregled-obavestenja.component';
-import { ObavestenjePrikazComponent } from './components/obavestenje-prikaz/obavestenje-prikaz.component';
 import {PoverenikViewComponent} from './components/main-views/poverenik-view/poverenik-view.component';
 import {CardModule} from 'primeng/card';
 import {DropdownModule} from 'primeng/dropdown';
@@ -34,6 +32,8 @@ import { SlanjeResenjaComponent } from './components/slanje-resenja/slanje-resen
 import { PregledResenjaComponent } from './components/pregled-resenja/pregled-resenja.component';
 import { ResenjePrikazComponent } from './components/resenje-prikaz/resenje-prikaz.component';
 import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregled-izvestaja.component';
+import {PrikazIzvestajaComponent} from './components/prikaz-izvestaja/prikaz-izvestaja.component';
+import {ToolbarModule} from 'primeng/toolbar';
 
 @NgModule({
   declarations: [
@@ -41,8 +41,6 @@ import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregle
     MainViewComponent,
     GradjaninViewComponent,
     PoverenikViewComponent,
-    PregledObavestenjaComponent,
-    ObavestenjePrikazComponent,
     IzborZahtevaComponent,
     PodnosenjeZalbeCutanjeComponent,
     ZalbaCutanjePrikazComponent,
@@ -52,7 +50,8 @@ import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregle
     SlanjeResenjaComponent,
     PregledResenjaComponent,
     ResenjePrikazComponent,
-    PregledIzvestajaComponent
+    PregledIzvestajaComponent,
+    PrikazIzvestajaComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +70,8 @@ import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregle
     ScrollPanelModule,
     CardModule,
     DropdownModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ToolbarModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

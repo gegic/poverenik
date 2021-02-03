@@ -158,10 +158,6 @@ public class Resenje {
     protected String about;
     @XmlAttribute(name = "id", required = true)
     protected String id;
-    @XmlAttribute(name = "property")
-    protected String property;
-    @XmlAttribute(name = "content")
-    protected String content;
     @XmlAttribute(name = "tip")
     protected String tip;
     @XmlAttribute(name = "rdfa_r", required = true)
@@ -488,54 +484,6 @@ public class Resenje {
     }
 
     /**
-     * Gets the value of the property property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getProperty() {
-        return property;
-    }
-
-    /**
-     * Sets the value of the property property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setProperty(String value) {
-        this.property = value;
-    }
-
-    /**
-     * Gets the value of the content property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getContent() {
-        return content;
-    }
-
-    /**
-     * Sets the value of the content property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setContent(String value) {
-        this.content = value;
-    }
-
-    /**
      * Gets the value of the tip property.
      * 
      * @return
@@ -787,6 +735,14 @@ public class Resenje {
         @Getter
         @Setter
         protected XMLGregorianCalendar datum;
+        @Getter
+        @Setter
+        @XmlAttribute(name = "property")
+        protected String property;
+        @Getter
+        @Setter
+        @XmlAttribute(name = "content")
+        protected String content;
 
         /**
          * Gets the value of the obavestenje property.
@@ -903,6 +859,14 @@ public class Resenje {
             protected XMLGregorianCalendar datumObavestenja;
             @XmlAttribute(name = "id")
             protected String id;
+            @Getter
+            @Setter
+            @XmlAttribute(name = "property")
+            protected String property;
+            @Getter
+            @Setter
+            @XmlAttribute(name = "content")
+            protected String content;
 
 
             /**

@@ -1,6 +1,8 @@
 package com.xml.team18.poverenik.soap;
 
+import com.xml.team18.poverenik.soap.izvestaj.IzvestajServiceSoapBindingImpl;
 import com.xml.team18.poverenik.soap.korisnik.KorisnikServiceSoapBindingImpl;
+import com.xml.team18.poverenik.soap.resenje.ResenjeServiceSoapBindingImpl;
 import com.xml.team18.poverenik.soap.zalba.ZalbaServiceSoapBindingImpl;
 import org.apache.cxf.Bus;
 import org.apache.cxf.jaxws.EndpointImpl;
@@ -22,6 +24,12 @@ public class EndpointConfig {
     @Autowired
     ZalbaServiceSoapBindingImpl zalbaServiceSoapBindingImpl;
 
+    @Autowired
+    IzvestajServiceSoapBindingImpl izvestajServiceSoapBindingImpl;
+    
+    @Autowired
+    ResenjeServiceSoapBindingImpl resenjeServiceSoapBindingImpl;
+
     @Bean(name="korisnikEndpointBean")
     public Endpoint korisnikEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, korisnikServiceSoapBindingImpl);
@@ -36,4 +44,19 @@ public class EndpointConfig {
         endpoint.publish("/zalba");
         return endpoint;
     }
+
+    @Bean(name="resenjeEndpointBean")
+    public Endpoint resenjeEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, resenjeServiceSoapBindingImpl);
+        endpoint.publish("/resenje");
+        return endpoint;
+    }
+
+    @Bean(name="izvestajEndpointBean")
+    public Endpoint izvestajEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, izvestajServiceSoapBindingImpl);
+        endpoint.publish("/izvestaj");
+        return endpoint;
+    }
+    
 }

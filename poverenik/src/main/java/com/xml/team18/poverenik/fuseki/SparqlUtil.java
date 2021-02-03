@@ -17,6 +17,9 @@ public class SparqlUtil {
     /* Insert RDF data to an arbitrary named graph */
     private static final String UPDATE_TEMPLATE_NAMED_GRAPH = "INSERT DATA { GRAPH <%1$s> { %2$s } }";
 
+    private static final String SELECT_DISTINCT_NAMED_GRAPH_TEMPLATE = "PREFIX pred: <http://team14.xml.com/rdf/%1$S/predicate/> SELECT DISTINCT ?s FROM <%2$s> WHERE { %3$s }";
+
+
 
     /* Simple SPARQL query on a named graph */
     private static final String SELECT_NAMED_GRAPH_TEMPLATE = "SELECT * FROM <%1$s> WHERE { %2$s }";
@@ -47,5 +50,9 @@ public class SparqlUtil {
 
     public static String selectData(String graphURI, String sparqlCondition) {
         return String.format(SELECT_NAMED_GRAPH_TEMPLATE, graphURI, sparqlCondition);
+    }
+
+    public static String selectDistinct(String type, String location, String condition) {
+        return String.format(SELECT_DISTINCT_NAMED_GRAPH_TEMPLATE, type, location, condition);
     }
 }

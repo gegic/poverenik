@@ -17,6 +17,7 @@ import {IzjasnjenjaComponent} from './components/izjasnjenja/izjasnjenja.compone
 import {PodnosenjeIzvestajaComponent} from './components/podnosenje-izvestaja/podnosenje-izvestaja.component';
 import {PregledIzvestajaComponent} from './components/pregled-izvestaja/pregled-izvestaja.component';
 import {PrikazIzvestajaComponent} from './components/prikaz-izvestaja/prikaz-izvestaja.component';
+import {PregledPretragaComponent} from './components/pregled-pretraga/pregled-pretraga.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
@@ -37,6 +38,7 @@ const routes: Route[] = [
       {path: 'izvestaj', component: PodnosenjeIzvestajaComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'pregled-izvestaja', component: PregledIzvestajaComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'prikaz-izvestaja', component: PrikazIzvestajaComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
+      {path: 'pregled-pretraga', component: PregledPretragaComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'sluzbenik', component: SluzbenikViewComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]}
     ]
   },

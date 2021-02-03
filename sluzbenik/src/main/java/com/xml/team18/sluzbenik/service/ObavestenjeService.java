@@ -42,8 +42,8 @@ public class ObavestenjeService {
 
     public String save(Obavestenje obavestenje) throws Exception {
         Zahtev z = zahtevRepository.findById(obavestenje.getZahtev().getId());
-        obavestenje.setProperty("pred:zahtev-obavestenja");
-        obavestenje.setContent(obavestenje.getZahtev().getId());
+        obavestenje.getZahtev().setProperty("pred:zahtev");
+        obavestenje.getZahtev().setContent(obavestenje.getZahtev().getId());
         Obavestenje o = this.repository.save(obavestenje);
         if (o.getTip().equalsIgnoreCase("prihvatanje")) {
             z.setPrihvatanje("prihvacen");
@@ -68,6 +68,9 @@ public class ObavestenjeService {
         return repository.getAll();
     }
 
+    public List<Obavestenje> pretraga(String query) throws Exception {
+        return repository.pretraga(query);
+    }
 
     public String generatePdf(String id) throws Exception {
         Obavestenje o = repository.findById(id);

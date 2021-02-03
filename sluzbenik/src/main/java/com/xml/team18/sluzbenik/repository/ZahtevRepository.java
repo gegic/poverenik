@@ -5,6 +5,7 @@ import com.xml.team18.sluzbenik.exist.ExistManager;
 import com.xml.team18.sluzbenik.factory.ZahtevFactory;
 import com.xml.team18.sluzbenik.fuseki.FusekiWriter;
 import com.xml.team18.sluzbenik.fuseki.MetadataExtractor;
+import com.xml.team18.sluzbenik.fuseki.SparqlUtil;
 import com.xml.team18.sluzbenik.jaxb.JaxB;
 import com.xml.team18.sluzbenik.model.korisnik.Korisnik;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Repository
@@ -55,28 +58,27 @@ public class ZahtevRepository {
             z.setVocab("http://team14.xml.com/rdf/zahtevi/predicate/");
             z.setAbout("http://team14.xml.com/rdf/zahtevi/" + id);
             z.getOrgan().getAdresa().getMesto().setProperty("pred:mesto-ustanove");
-            z.getOrgan().getAdresa().getMesto().setDatatype("xs:string");
+//            z.getOrgan().getAdresa().getMesto().setDatatype("xs:string");
             z.getOrgan().getNaziv().setProperty("pred:naziv-ustanove");
-            z.getOrgan().getNaziv().setDatatype("xs:string");
+//            z.getOrgan().getNaziv().setDatatype("xs:string");
             z.getOpisZahteva().setProperty("pred:opis-zahteva");
-            z.getOpisZahteva().setDatatype("xs:string");
+//            z.getOpisZahteva().setDatatype("xs:string");
             z.getMesto().setProperty("pred:mesto-zahteva");
-            z.getMesto().setDatatype("xs:string");
+//            z.getMesto().setDatatype("xs:string");
             z.getDatum().setProperty("pred:datum-zahteva");
-            z.getMesto().setDatatype("xs:date");
+//            z.getMesto().setDatatype("xs:date");
             z.getTrazilacInformacije().getAdresa().getMesto().setProperty("pred:mesto-trazioca");
-            z.getTrazilacInformacije().getAdresa().getMesto().setDatatype("xs:string");
+//            z.getTrazilacInformacije().getAdresa().getMesto().setDatatype("xs:string");
             z.getTrazilacInformacije().getAdresa().getUlica().setProperty("pred:ulica-trazioca");
-            z.getTrazilacInformacije().getAdresa().getUlica().setDatatype("xs:string");
+//            z.getTrazilacInformacije().getAdresa().getUlica().setDatatype("xs:string");
             z.getTrazilacInformacije().getImePrezime().setProperty("pred:ime-prezime-trazioca");
-            z.getTrazilacInformacije().getImePrezime().setDatatype("xs:string");
+//            z.getTrazilacInformacije().getImePrezime().setDatatype("xs:string");
 
             JAXBElement<Zahtev> element = new JAXBElement<Zahtev>(QName.valueOf("zahtev"), Zahtev.class, z);
             String rawXml = jaxB.marshall(element, Zahtev.class, ZahtevFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
             String rdf = this.metadataExtractor.extractMetadata(rawXml);
-            String graphUri = String.format("zahtevi/%s", id);
-            this.fusekiWriter.saveRDF(rdf, graphUri);
+            this.fusekiWriter.saveRDF(rdf, "zahtevi");
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
             return (Zahtev) ((JAXBElement<?>) jaxB
@@ -155,6 +157,38 @@ public class ZahtevRepository {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    public List<Zahtev> pretraga(String tekst) throws Exception {
+        String query = String.format("/zahtev[descendant::*[text()[contains(lower-case(.), '%s')]]]", tekst.toLowerCase());
+        return this.getByQuery(query);
+    }
+
+    public List<Zahtev> naprednaPretraga(String upit) {
+        Pattern p = Pattern.compile("([\\w:\\-]+)\\s+eq\\s+\"([\\w\\d \\-]+)\"");
+        Matcher m = p.matcher(upit);
+        String prvaZamena = null;
+        if (m.find()) {
+            prvaZamena = m.replaceAll("$1 \"$2\"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");  // number 46
+        } else {
+            return new ArrayList<>();
+        }
+        String filterQuery = prvaZamena.replaceAll(" and ", "; ").replaceAll(" or ", "} union { ?s ");
+        String whereQuery = String.format("{?s %s }", filterQuery);
+        List<String> ids = this.fusekiWriter.getIdsForString("zahtevi", whereQuery);
+        try {
+            return this.getByIds(ids);
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
+    public List<Zahtev> getByIds(List<String> ids) throws Exception {
+        String idsJoined = ids.stream()
+                .map(id -> id.replace("http://team14.xml.com/rdf/zahtevi/", ""))
+                .collect(Collectors.joining(" "));
+        String query = String.format("/zahtev[contains('%s', @id)]", idsJoined);
+        return this.getByQuery(query);
     }
 
     private List<Zahtev> getByQuery(String query) throws Exception {

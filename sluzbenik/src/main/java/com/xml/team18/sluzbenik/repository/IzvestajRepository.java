@@ -162,6 +162,11 @@ public class IzvestajRepository {
         ).collect(Collectors.toList());
     }
 
+    public List<Izvestaj> pretraga(String tekst) throws Exception {
+        String query = String.format("/izvestaj[descendant::*[text()[contains(lower-case(.), '%s')]]]", tekst.toLowerCase());
+        return this.getByQuery(query);
+    }
+
     private List<Izvestaj> getByQuery(String query) throws Exception {
         List<Izvestaj> izvestaji = new ArrayList<>();
         ResourceIterator iterator = this.existManager.query(collectionId, query).getIterator();

@@ -33,6 +33,9 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import {ToolbarModule} from 'primeng/toolbar';
 import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregled-izvestaja.component';
 import { PrikazIzvestajaComponent } from './components/prikaz-izvestaja/prikaz-izvestaja.component';
+import { PregledPretragaComponent } from './components/pregled-pretraga/pregled-pretraga.component';
+import {MenuModule} from 'primeng/menu';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { PrikazIzvestajaComponent } from './components/prikaz-izvestaja/prikaz-i
     IzjasnjenjaComponent,
     PodnosenjeIzvestajaComponent,
     PregledIzvestajaComponent,
-    PrikazIzvestajaComponent
+    PrikazIzvestajaComponent,
+    PregledPretragaComponent,
   ],
     imports: [
       BrowserModule,
@@ -69,7 +73,9 @@ import { PrikazIzvestajaComponent } from './components/prikaz-izvestaja/prikaz-i
       ReactiveFormsModule,
       InputTextareaModule,
       InputNumberModule,
-      ToolbarModule
+      ToolbarModule,
+      MenuModule,
+      CheckboxModule
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

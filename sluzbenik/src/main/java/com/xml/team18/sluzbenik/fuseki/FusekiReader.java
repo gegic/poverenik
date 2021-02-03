@@ -23,35 +23,11 @@ public class FusekiReader {
         this.fusekiProperties = fusekiProperties;
     }
 
-    public ArrayList<String> executeQuery(Map<String, String> params, String sparqlQueryTemplate) throws IOException {
-        String sparqlQuery = StringSubstitutor.replace(sparqlQueryTemplate, params, "{{", "}}");
-        QueryExecution query = QueryExecutionFactory.sparqlService(this.fusekiProperties.getQueryEndpoint(), sparqlQuery);
-        ResultSet results = query.execSelect();
-
-        String varName;
-        RDFNode varValue;
-        ArrayList<String> foundElements = new ArrayList<>();
-        while (results.hasNext()) {
-            QuerySolution querySolution = results.next();
-            Iterator<String> variableBindings = querySolution.varNames();
-            // Retrieve variable bindings
-            while (variableBindings.hasNext()) {
-                varName = variableBindings.next();
-                varValue = querySolution.get(varName);
-                System.out.println(varName + ": " + varValue);
-                if (varName.contains("naziv")) {
-                    String value = varValue.toString();
-                    foundElements.add(value);
-                }
-            }
-        }
-        ResultSetFormatter.outputAsXML(System.out, results);
-        query.close();
-        return foundElements;
-    }
-
-    public static String readFile(String path, Charset encoding) throws IOException {
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        return new String(encoded, encoding);
+    public ResultSet getDocumentMetaDataById(String sparqlQuery) {
+        QueryExecution queryExecution = QueryExecutionFactory
+                .sparqlService(String.join("/", fusekiProperties.getEndpoint(),
+                        fusekiProperties.getDataset(),
+                        fusekiProperties.getQuery()), sparqlQuery);
+        return queryExecution.execSelect();
     }
 }

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="godisnja_statistika.xsd"/>
     <xs:element name="izvestaj">
         <xs:complexType>
             <xs:sequence>
+                <xs:element ref="godisnja-statistika"/>
                 <xs:element maxOccurs="unbounded" name="trazilac-informacije">
                     <xs:complexType>
                         <xs:sequence>
@@ -23,11 +25,6 @@
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <xs:attribute name="odbijeni-zahtevi" type="xs:positiveInteger"/>
-            <xs:attribute name="prihvaceni-zahtevi" type="xs:positiveInteger"/>
-            <xs:attribute name="zalbe-cutanje" type="xs:positiveInteger"/>
-            <xs:attribute name="zalbe-na-odluku" type="xs:positiveInteger"/>
-            <xs:attribute name="godina" type="xs:int"/>
             <xs:attribute name="id" type="xs:string"/>
         </xs:complexType>
     </xs:element>

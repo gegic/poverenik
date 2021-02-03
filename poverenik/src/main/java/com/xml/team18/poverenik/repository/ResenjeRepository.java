@@ -54,8 +54,6 @@ public class ResenjeRepository {
             }
             z.setVocab("http://team14.xml.com/rdf/resenja/predicate/");
             z.setAbout("http://team14.xml.com/rdf/resenja/" + id);
-            z.setProperty("pred:zalba");
-            z.setContent(z.getZalba().getId());
             z.getDatum().setProperty("pred:datum-resenja");
             z.getDatum().setDatatype("xs:date");
             z.getPoverenik().getImePrezime().setProperty("pred:ime-prezime-poverenika");
@@ -68,8 +66,7 @@ public class ResenjeRepository {
             String rawXml = jaxB.marshall(z, Resenje.class, ResenjeFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
             String rdf = this.metadataExtractor.extractMetadata(rawXml);
-            String graphUri = String.format("resenja/%s", id);
-            this.fusekiWriter.saveRDF(rdf, graphUri);
+            this.fusekiWriter.saveRDF(rdf, "resenja");
             XMLResource found = this.existManager.read(collectionId, id);
             String contentFound = found.getContent().toString();
             return (Resenje) jaxB.unmarshall(contentFound, Resenje.class, ResenjeFactory.class);
@@ -94,15 +91,20 @@ public class ResenjeRepository {
         }
     }
 
-    public List<Resenje> getAll() throws Exception {
-        return this.existManager.readAll(collectionId).stream().map(con -> {
-            try {
-                return (Resenje) jaxB.unmarshall(con, Resenje.class, ResenjeFactory.class);
-            } catch (JAXBException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }).collect(Collectors.toList());
+    public List<Resenje> getAll() {
+        try {
+            return this.existManager.readAll(collectionId).stream().map(con -> {
+                try {
+                    return (Resenje) jaxB.unmarshall(con, Resenje.class, ResenjeFactory.class);
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }).collect(Collectors.toList());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     public List<Resenje> getByKorisnikId(String idZalbe) throws Exception {

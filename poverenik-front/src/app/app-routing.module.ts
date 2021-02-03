@@ -16,6 +16,8 @@ import {PregledZalbiComponent} from './components/pregled-zalbi/pregled-zalbi.co
 import {SlanjeResenjaComponent} from './components/slanje-resenja/slanje-resenja.component';
 import {PregledResenjaComponent} from './components/pregled-resenja/pregled-resenja.component';
 import {ResenjePrikazComponent} from './components/resenje-prikaz/resenje-prikaz.component';
+import {PregledIzvestajaComponent} from './components/pregled-izvestaja/pregled-izvestaja.component';
+import {PrikazIzvestajaComponent} from './components/prikaz-izvestaja/prikaz-izvestaja.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
@@ -36,6 +38,8 @@ const routes: Route[] = [
       {path: 'pregled-resenja', component: PregledResenjaComponent, data: {roles: ['gradjanin'], tip: 'korisnikova-resenja'}, canActivate: [AuthGuard]},
       {path: 'sva-resenja', component: PregledResenjaComponent, data: {roles: ['poverenik'], tip: 'sva-resenja'}, canActivate: [AuthGuard]},
       {path: 'resenje', component: ResenjePrikazComponent, data: {roles: ['gradjanin', 'poverenik']}, canActivate: [AuthGuard]},
+      {path: 'pregled-izvestaja', component: PregledIzvestajaComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
+      {path: 'prikaz-izvestaja', component: PrikazIzvestajaComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
       {path: 'poverenik', component: PoverenikViewComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]}
     ]
   },

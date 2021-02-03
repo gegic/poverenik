@@ -13,6 +13,7 @@ import org.xmldb.api.modules.XMLResource;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -71,17 +72,21 @@ public class KorisnikRepository implements XmlRepository<Korisnik> {
     }
 
     @Override
-    public List<Korisnik> getAll() throws Exception {
-        return this.existManager.readAll(collectionId).stream().map(con -> {
-            try {
-                return (Korisnik) ((JAXBElement<?>) jaxB
-                        .unmarshall(con, Korisnik.class, KorisnikFactory.class))
-                        .getValue();
-            } catch (JAXBException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }).collect(Collectors.toList());
+    public List<Korisnik> getAll() {
+        try {
+            return this.existManager.readAll(collectionId).stream().map(con -> {
+                try {
+                    return (Korisnik) ((JAXBElement<?>) jaxB
+                            .unmarshall(con, Korisnik.class, KorisnikFactory.class))
+                            .getValue();
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }).collect(Collectors.toList());
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
     }
 
     public Korisnik findByEmail(String email) {

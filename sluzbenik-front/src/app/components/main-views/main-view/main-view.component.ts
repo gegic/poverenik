@@ -77,7 +77,7 @@ export class MainViewComponent implements OnInit {
             },
             {
               label: 'Pretraga',
-              routerLink: '/pretraga'
+              routerLink: '/pregled-pretraga'
             }
           ]
         }

@@ -6,6 +6,7 @@ import com.xml.team18.sluzbenik.jaxb.JaxB;
 import com.xml.team18.sluzbenik.model.izvestaj.GodisnjaStatistika;
 import com.xml.team18.sluzbenik.model.korisnik.Korisnik;
 import com.xml.team18.sluzbenik.model.izvestaj.Izvestaj;
+import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import com.xml.team18.sluzbenik.repository.IzvestajRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,18 +20,22 @@ public class IzvestajService {
     private final IzvestajRepository repository;
     private final JaxB jaxB;
     private final IzvestajGenerator izvestajGenerator;
+    private final IzvestajSoapService izvestajSoapService;
 
     @Autowired
     public IzvestajService(IzvestajRepository izvestajRepository,
                            JaxB jaxB,
-                           IzvestajGenerator generator) {
+                           IzvestajGenerator generator,
+                           IzvestajSoapService izvestajSoapService) {
         this.repository = izvestajRepository;
         this.jaxB = jaxB;
         this.izvestajGenerator = generator;
+        this.izvestajSoapService = izvestajSoapService;
     }
 
     public String save(Izvestaj z) throws Exception {
         z = this.repository.save(z);
+        this.izvestajSoapService.podnesiIzvestaj(z);
         this.repository.resetGodisnjaStatistika();
         return z.getId();
     }
@@ -41,6 +46,10 @@ public class IzvestajService {
 
     public List<Izvestaj> getAll() throws Exception {
         return repository.getAll();
+    }
+
+    public List<Izvestaj> pretraga(String query) throws Exception {
+        return repository.pretraga(query);
     }
 
     public GodisnjaStatistika getStatistika() throws Exception {

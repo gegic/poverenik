@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://resenje.soap.poverenik.team18.xml.com/"
+                  xmlns:tns="http://resenje.soap.poverenik.team18.xml.com/"
+                  name="ResenjeService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:include schemaLocation="../xsd/lista_resenja.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="getByIdRequest">
+        <wsdl:part name="idResenja" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getByIdResponse">
+        <wsdl:part name="resenje" element="resenje" />
+    </wsdl:message>
+
+    <wsdl:message name="pretragaRequest">
+        <wsdl:part name="upit" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="pretragaResponse">
+        <wsdl:part name="resenja" element="lista-resenja" />
+    </wsdl:message>
+
+    <wsdl:portType name="ResenjeServicePortType">
+
+        <wsdl:operation name="getById">
+            <wsdl:input message="tns:getByIdRequest" />
+            <wsdl:output message="tns:getByIdResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="pretraga">
+            <wsdl:input message="tns:pretragaRequest" />
+            <wsdl:output message="tns:pretragaResponse" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="ResenjeServiceSoapBinding" type="tns:ResenjeServicePortType">
+        <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getById">
+            <soap:operation soapAction="getById" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pretraga">
+            <soap:operation soapAction="pretraga" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="ResenjeService">
+        <wsdl:port name="ResenjeServiceSoapBinding" binding="tns:ResenjeServiceSoapBinding">
+            <soap:address location="http://localhost:8079/resenje" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

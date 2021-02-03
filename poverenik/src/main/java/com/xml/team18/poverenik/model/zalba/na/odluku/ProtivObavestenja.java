@@ -2,6 +2,8 @@
 package com.xml.team18.poverenik.model.zalba.na.odluku;
 
 import com.xml.team18.poverenik.model.docs.Organ;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -57,6 +59,14 @@ public class ProtivObavestenja {
     protected Organ donosilac;
     @XmlAttribute(name = "id", required = true)
     protected String id;
+    @Getter
+    @Setter
+    @XmlAttribute(name = "property")
+    protected String property;
+    @Getter
+    @Setter
+    @XmlAttribute(name = "content")
+    protected String content;
 
     /**
      * Gets the value of the broj property.

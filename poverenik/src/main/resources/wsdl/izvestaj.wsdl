@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://izvestaj.soap.poverenik.team18.xml.com/"
+                  xmlns:tns="http://izvestaj.soap.poverenik.team18.xml.com/"
+                  name="IzvestajService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:include schemaLocation="../xsd/izvestaj.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="podnesiIzvestajRequest">
+        <wsdl:part name="izvestaj" element="izvestaj" />
+    </wsdl:message>
+    <wsdl:message name="podnesiIzvestajResponse">
+        <wsdl:part name="uspesno" type="xsd:boolean" />
+    </wsdl:message>
+
+    <wsdl:portType name="IzvestajServicePortType">
+
+        <wsdl:operation name="podnesiIzvestaj">
+            <wsdl:input message="tns:podnesiIzvestajRequest" />
+            <wsdl:output message="tns:podnesiIzvestajResponse" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="IzvestajServiceSoapBinding" type="tns:IzvestajServicePortType">
+        <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="podnesiIzvestaj">
+            <soap:operation soapAction="podnesiIzvestaj" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="IzvestajService">
+        <wsdl:port name="IzvestajServiceSoapBinding" binding="tns:IzvestajServiceSoapBinding">
+            <soap:address location="http://localhost:8079/izvestaj" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

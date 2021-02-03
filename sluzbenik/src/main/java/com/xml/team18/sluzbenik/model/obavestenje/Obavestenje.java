@@ -111,10 +111,6 @@ public class Obavestenje {
     protected String about;
     @XmlAttribute(name = "id", required = true)
     protected String id;
-    @XmlAttribute(name = "property")
-    protected String property;
-    @XmlAttribute(name = "content")
-    protected String content;
     @XmlAttribute(name = "tip")
     protected String tip;
     @XmlAttribute(name = "rdfa_ob", required = true)
@@ -461,54 +457,6 @@ public class Obavestenje {
      */
     public void setId(String value) {
         this.id = value;
-    }
-
-    /**
-     * Gets the value of the property property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getProperty() {
-        return property;
-    }
-
-    /**
-     * Sets the value of the property property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setProperty(String value) {
-        this.property = value;
-    }
-
-    /**
-     * Gets the value of the content property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getContent() {
-        return content;
-    }
-
-    /**
-     * Sets the value of the content property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setContent(String value) {
-        this.content = value;
     }
 
     /**

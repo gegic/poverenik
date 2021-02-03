@@ -1,28 +1,23 @@
 
-package mypackage;
+package com.xml.team18.poverenik.model.izvestaj;
 
+import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element ref="{}godisnja-statistika"/>
  *         &lt;element name="trazilac-informacije" maxOccurs="unbounded">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -55,201 +50,89 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;/complexType>
  *         &lt;/element>
  *       &lt;/sequence>
- *       &lt;attribute name="odbijeni-zahtevi" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
- *       &lt;attribute name="prihvaceni-zahtevi" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
- *       &lt;attribute name="zalbe-cutanje" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
- *       &lt;attribute name="zalbe-na-odluku" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
- *       &lt;attribute name="godina" type="{http://www.w3.org/2001/XMLSchema}int" />
  *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "trazilacInformacije"
+        "godisnjaStatistika",
+        "trazilacInformacije"
 })
 @XmlRootElement(name = "izvestaj")
 public class Izvestaj {
 
+    @XmlElement(name = "godisnja-statistika", required = true)
+    protected com.xml.team18.poverenik.model.izvestaj.GodisnjaStatistika godisnjaStatistika;
     @XmlElement(name = "trazilac-informacije", required = true)
-    protected List<Izvestaj.TrazilacInformacije> trazilacInformacije;
-    @XmlAttribute(name = "odbijeni-zahtevi")
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger odbijeniZahtevi;
-    @XmlAttribute(name = "prihvaceni-zahtevi")
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger prihvaceniZahtevi;
-    @XmlAttribute(name = "zalbe-cutanje")
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger zalbeCutanje;
-    @XmlAttribute(name = "zalbe-na-odluku")
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger zalbeNaOdluku;
-    @XmlAttribute(name = "godina")
-    protected Integer godina;
+    protected List<TrazilacInformacije> trazilacInformacije;
     @XmlAttribute(name = "id")
     protected String id;
 
     /**
+     * Gets the value of the godisnjaStatistika property.
+     *
+     * @return
+     *     possible object is
+     *     {@link com.xml.team18.poverenik.model.izvestaj.GodisnjaStatistika }
+     *
+     */
+    public com.xml.team18.poverenik.model.izvestaj.GodisnjaStatistika getGodisnjaStatistika() {
+        return godisnjaStatistika;
+    }
+
+    /**
+     * Sets the value of the godisnjaStatistika property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link com.xml.team18.poverenik.model.izvestaj.GodisnjaStatistika }
+     *
+     */
+    public void setGodisnjaStatistika(com.xml.team18.poverenik.model.izvestaj.GodisnjaStatistika value) {
+        this.godisnjaStatistika = value;
+    }
+
+    /**
      * Gets the value of the trazilacInformacije property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the trazilacInformacije property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getTrazilacInformacije().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Izvestaj.TrazilacInformacije }
-     * 
-     * 
+     * {@link TrazilacInformacije }
+     *
+     *
      */
-    public List<Izvestaj.TrazilacInformacije> getTrazilacInformacije() {
+    public List<TrazilacInformacije> getTrazilacInformacije() {
         if (trazilacInformacije == null) {
-            trazilacInformacije = new ArrayList<Izvestaj.TrazilacInformacije>();
+            trazilacInformacije = new ArrayList<TrazilacInformacije>();
         }
         return this.trazilacInformacije;
     }
 
     /**
-     * Gets the value of the odbijeniZahtevi property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getOdbijeniZahtevi() {
-        return odbijeniZahtevi;
-    }
-
-    /**
-     * Sets the value of the odbijeniZahtevi property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setOdbijeniZahtevi(BigInteger value) {
-        this.odbijeniZahtevi = value;
-    }
-
-    /**
-     * Gets the value of the prihvaceniZahtevi property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getPrihvaceniZahtevi() {
-        return prihvaceniZahtevi;
-    }
-
-    /**
-     * Sets the value of the prihvaceniZahtevi property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setPrihvaceniZahtevi(BigInteger value) {
-        this.prihvaceniZahtevi = value;
-    }
-
-    /**
-     * Gets the value of the zalbeCutanje property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getZalbeCutanje() {
-        return zalbeCutanje;
-    }
-
-    /**
-     * Sets the value of the zalbeCutanje property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setZalbeCutanje(BigInteger value) {
-        this.zalbeCutanje = value;
-    }
-
-    /**
-     * Gets the value of the zalbeNaOdluku property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getZalbeNaOdluku() {
-        return zalbeNaOdluku;
-    }
-
-    /**
-     * Sets the value of the zalbeNaOdluku property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setZalbeNaOdluku(BigInteger value) {
-        this.zalbeNaOdluku = value;
-    }
-
-    /**
-     * Gets the value of the godina property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
-     */
-    public Integer getGodina() {
-        return godina;
-    }
-
-    /**
-     * Sets the value of the godina property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
-     */
-    public void setGodina(Integer value) {
-        this.godina = value;
-    }
-
-    /**
      * Gets the value of the id property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getId() {
         return id;
@@ -257,11 +140,11 @@ public class Izvestaj {
 
     /**
      * Sets the value of the id property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setId(String value) {
         this.id = value;
@@ -270,9 +153,9 @@ public class Izvestaj {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -304,31 +187,31 @@ public class Izvestaj {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "naziv",
-        "zahtevi",
-        "zalbe"
+            "naziv",
+            "zahtevi",
+            "zalbe"
     })
     public static class TrazilacInformacije {
 
         @XmlElement(required = true)
         protected String naziv;
         @XmlElement(required = true)
-        protected Izvestaj.TrazilacInformacije.Zahtevi zahtevi;
+        protected Zahtevi zahtevi;
         @XmlElement(required = true)
-        protected Izvestaj.TrazilacInformacije.Zalbe zalbe;
+        protected Zalbe zalbe;
 
         /**
          * Gets the value of the naziv property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getNaziv() {
             return naziv;
@@ -336,11 +219,11 @@ public class Izvestaj {
 
         /**
          * Sets the value of the naziv property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setNaziv(String value) {
             this.naziv = value;
@@ -348,58 +231,58 @@ public class Izvestaj {
 
         /**
          * Gets the value of the zahtevi property.
-         * 
+         *
          * @return
          *     possible object is
-         *     {@link Izvestaj.TrazilacInformacije.Zahtevi }
-         *     
+         *     {@link Zahtevi }
+         *
          */
-        public Izvestaj.TrazilacInformacije.Zahtevi getZahtevi() {
+        public Zahtevi getZahtevi() {
             return zahtevi;
         }
 
         /**
          * Sets the value of the zahtevi property.
-         * 
+         *
          * @param value
          *     allowed object is
-         *     {@link Izvestaj.TrazilacInformacije.Zahtevi }
-         *     
+         *     {@link Zahtevi }
+         *
          */
-        public void setZahtevi(Izvestaj.TrazilacInformacije.Zahtevi value) {
+        public void setZahtevi(Zahtevi value) {
             this.zahtevi = value;
         }
 
         /**
          * Gets the value of the zalbe property.
-         * 
+         *
          * @return
          *     possible object is
-         *     {@link Izvestaj.TrazilacInformacije.Zalbe }
-         *     
+         *     {@link Zalbe }
+         *
          */
-        public Izvestaj.TrazilacInformacije.Zalbe getZalbe() {
+        public Zalbe getZalbe() {
             return zalbe;
         }
 
         /**
          * Sets the value of the zalbe property.
-         * 
+         *
          * @param value
          *     allowed object is
-         *     {@link Izvestaj.TrazilacInformacije.Zalbe }
-         *     
+         *     {@link Zalbe }
+         *
          */
-        public void setZalbe(Izvestaj.TrazilacInformacije.Zalbe value) {
+        public void setZalbe(Zalbe value) {
             this.zalbe = value;
         }
 
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -410,8 +293,8 @@ public class Izvestaj {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
@@ -426,11 +309,11 @@ public class Izvestaj {
 
             /**
              * Gets the value of the odbijeni property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public BigInteger getOdbijeni() {
                 return odbijeni;
@@ -438,11 +321,11 @@ public class Izvestaj {
 
             /**
              * Sets the value of the odbijeni property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public void setOdbijeni(BigInteger value) {
                 this.odbijeni = value;
@@ -450,11 +333,11 @@ public class Izvestaj {
 
             /**
              * Gets the value of the prihvaceni property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public BigInteger getPrihvaceni() {
                 return prihvaceni;
@@ -462,11 +345,11 @@ public class Izvestaj {
 
             /**
              * Sets the value of the prihvaceni property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public void setPrihvaceni(BigInteger value) {
                 this.prihvaceni = value;
@@ -477,9 +360,9 @@ public class Izvestaj {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -490,8 +373,8 @@ public class Izvestaj {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
@@ -506,11 +389,11 @@ public class Izvestaj {
 
             /**
              * Gets the value of the cutanje property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public BigInteger getCutanje() {
                 return cutanje;
@@ -518,11 +401,11 @@ public class Izvestaj {
 
             /**
              * Sets the value of the cutanje property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public void setCutanje(BigInteger value) {
                 this.cutanje = value;
@@ -530,11 +413,11 @@ public class Izvestaj {
 
             /**
              * Gets the value of the naOdluku property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public BigInteger getNaOdluku() {
                 return naOdluku;
@@ -542,11 +425,11 @@ public class Izvestaj {
 
             /**
              * Sets the value of the naOdluku property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link BigInteger }
-             *     
+             *
              */
             public void setNaOdluku(BigInteger value) {
                 this.naOdluku = value;

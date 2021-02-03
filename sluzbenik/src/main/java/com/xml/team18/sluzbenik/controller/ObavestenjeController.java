@@ -43,6 +43,11 @@ public class ObavestenjeController {
                 new EntityList<>(service.getAllByKorisnikId(korisnikId)));
     }
 
+    @GetMapping(path = "/pretraga")
+    ResponseEntity<EntityList<Obavestenje>> pretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.pretraga(upit)));
+    }
+
     @GetMapping
     ResponseEntity<EntityList<Obavestenje>> getAll() throws Exception {
         return ResponseEntity.ok(new EntityList<>(service.getAll()));

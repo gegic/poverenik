@@ -32,8 +32,8 @@ public class ZalbaCutanjeService {
     }
 
     public String save(ZalbaCutanje zalbaCutanje) throws JAXBException {
-        zalbaCutanje.setProperty("pred:zahtev");
-        zalbaCutanje.setContent(zalbaCutanje.getZahtev().getId());
+        zalbaCutanje.getZahtev().setProperty("pred:zahtev");
+        zalbaCutanje.getZahtev().setContent(zalbaCutanje.getZahtev().getId());
         zalbaCutanje.setTipResenja("neresena");
         ZalbaCutanje added = this.repository.save(zalbaCutanje);
 

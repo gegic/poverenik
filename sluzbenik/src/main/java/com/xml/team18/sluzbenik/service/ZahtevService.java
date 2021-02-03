@@ -59,6 +59,10 @@ public class ZahtevService {
         return repository.getAllNeodgovoreni();
     }
 
+    public List<Zahtev> pretraga(String query) throws Exception {
+        return repository.pretraga(query);
+    }
+
     public String generatePdfZahtev(String id) throws Exception {
         Zahtev z = repository.findById(id);
         return zahtevGenerator.generatePDF(z);
@@ -73,5 +77,9 @@ public class ZahtevService {
         Zahtev z = repository.findById(id);
         z.setPrihvatanje("odbijen");
         return repository.save(z);
+    }
+
+    public List<Zahtev> naprednaPretraga(String upit) {
+        return repository.naprednaPretraga(upit);
     }
 }

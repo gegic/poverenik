@@ -5,6 +5,7 @@ import com.xml.team18.sluzbenik.dto.EntityList;
 import com.xml.team18.sluzbenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.sluzbenik.model.izvestaj.GodisnjaStatistika;
 import com.xml.team18.sluzbenik.model.izvestaj.Izvestaj;
+import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import com.xml.team18.sluzbenik.service.IzvestajService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -36,6 +37,11 @@ public class IzvestajController {
     @PostMapping
     ResponseEntity<String> addIzvestaj(@RequestBody Izvestaj izvestaj) throws Exception {
         return ResponseEntity.created(URI.create(this.service.save(izvestaj))).build();
+    }
+
+    @GetMapping(path = "/pretraga")
+    ResponseEntity<EntityList<Izvestaj>> pretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.pretraga(upit)));
     }
 
     @GetMapping(path = "/{id}")
