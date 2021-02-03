@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 export class IzvestajService {
 
   godisnjaStatistika: any;
+  izvestaji: any[];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,5 +18,21 @@ export class IzvestajService {
 
   post(izvestaj: any): Observable<any> {
     return this.httpClient.post('/api/izvestaji', izvestaj);
+  }
+
+  getAll(): Observable<any> {
+    return this.httpClient.get('/api/izvestaji');
+  }
+
+  generatePdf(id: string): Observable<any> {
+    return this.httpClient.post(`/api/izvestaji/generate-pdf/${id}`, null);
+  }
+
+  generateXHTML(id: string): Observable<any> {
+    return this.httpClient.post(`/api/izvestaji/generate-xhtml/${id}`, null);
+  }
+
+  getById(id: string): Observable<any> {
+    return this.httpClient.get(`/api/izvestaji/${id}`);
   }
 }

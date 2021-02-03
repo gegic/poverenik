@@ -31,6 +31,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PodnosenjeIzvestajaComponent } from './components/podnosenje-izvestaja/podnosenje-izvestaja.component';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {ToolbarModule} from 'primeng/toolbar';
+import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregled-izvestaja.component';
+import { PrikazIzvestajaComponent } from './components/prikaz-izvestaja/prikaz-izvestaja.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {ToolbarModule} from 'primeng/toolbar';
     ZahtevPrikazComponent,
     ObavestenjePrikazComponent,
     IzjasnjenjaComponent,
-    PodnosenjeIzvestajaComponent
+    PodnosenjeIzvestajaComponent,
+    PregledIzvestajaComponent,
+    PrikazIzvestajaComponent
   ],
     imports: [
       BrowserModule,

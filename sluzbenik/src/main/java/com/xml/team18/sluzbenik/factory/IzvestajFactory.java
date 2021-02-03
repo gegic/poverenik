@@ -1,8 +1,8 @@
 
 package com.xml.team18.sluzbenik.factory;
 
-import mypackage.GodisnjaStatistika;
-import mypackage.Izvestaj;
+import com.xml.team18.sluzbenik.model.izvestaj.GodisnjaStatistika;
+import com.xml.team18.sluzbenik.model.izvestaj.Izvestaj;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -33,19 +33,19 @@ public class IzvestajFactory {
     }
 
     /**
-     * Create an instance of {@link mypackage.Izvestaj }
+     * Create an instance of {@link Izvestaj }
      *
      */
-    public mypackage.Izvestaj createIzvestaj() {
-        return new mypackage.Izvestaj();
+    public Izvestaj createIzvestaj() {
+        return new Izvestaj();
     }
 
     /**
-     * Create an instance of {@link mypackage.Izvestaj.TrazilacInformacije }
+     * Create an instance of {@link Izvestaj.TrazilacInformacije }
      *
      */
-    public mypackage.Izvestaj.TrazilacInformacije createIzvestajTrazilacInformacije() {
-        return new mypackage.Izvestaj.TrazilacInformacije();
+    public Izvestaj.TrazilacInformacije createIzvestajTrazilacInformacije() {
+        return new Izvestaj.TrazilacInformacije();
     }
 
     /**
@@ -57,18 +57,18 @@ public class IzvestajFactory {
     }
 
     /**
-     * Create an instance of {@link mypackage.Izvestaj.TrazilacInformacije.Zahtevi }
+     * Create an instance of {@link Izvestaj.TrazilacInformacije.Zahtevi }
      *
      */
-    public mypackage.Izvestaj.TrazilacInformacije.Zahtevi createIzvestajTrazilacInformacijeZahtevi() {
-        return new mypackage.Izvestaj.TrazilacInformacije.Zahtevi();
+    public Izvestaj.TrazilacInformacije.Zahtevi createIzvestajTrazilacInformacijeZahtevi() {
+        return new Izvestaj.TrazilacInformacije.Zahtevi();
     }
 
     /**
-     * Create an instance of {@link mypackage.Izvestaj.TrazilacInformacije.Zalbe }
+     * Create an instance of {@link Izvestaj.TrazilacInformacije.Zalbe }
      *
      */
-    public mypackage.Izvestaj.TrazilacInformacije.Zalbe createIzvestajTrazilacInformacijeZalbe() {
+    public Izvestaj.TrazilacInformacije.Zalbe createIzvestajTrazilacInformacijeZalbe() {
         return new Izvestaj.TrazilacInformacije.Zalbe();
     }
 

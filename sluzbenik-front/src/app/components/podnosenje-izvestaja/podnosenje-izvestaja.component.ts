@@ -91,12 +91,14 @@ export class PodnosenjeIzvestajaComponent implements OnInit {
           encoding: 'utf-8'
         }
       },
-      'godisnja-statistika': this.izvestajService.godisnjaStatistika,
-      'trazilac-informacije': []
+      izvestaj: {
+        'godisnja-statistika': this.izvestajService.godisnjaStatistika,
+        'trazilac-informacije': []
+      }
     };
 
     this.traziociInformacija.forEach(trazilac => {
-      izvestaj['trazilac-informacije'].push({
+      izvestaj.izvestaj['trazilac-informacije'].push({
         naziv: {_text: trazilac.naziv},
         zahtevi: {_attributes: {prihvaceni: trazilac.prihvaceniZahtevi, odbijeni: trazilac.odbijeniZahtevi}},
         zalbe: {_attributes: {cutanje: trazilac.zalbeCutanje, 'na-odluku': trazilac.zalbeNaOdluku}}

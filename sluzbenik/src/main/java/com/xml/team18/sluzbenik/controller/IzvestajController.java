@@ -34,7 +34,7 @@ public class IzvestajController {
     }
 
     @PostMapping
-    ResponseEntity<String> addIzvestaj(@RequestBody Izvestaj izvestaj) throws JAXBException {
+    ResponseEntity<String> addIzvestaj(@RequestBody Izvestaj izvestaj) throws Exception {
         return ResponseEntity.created(URI.create(this.service.save(izvestaj))).build();
     }
 

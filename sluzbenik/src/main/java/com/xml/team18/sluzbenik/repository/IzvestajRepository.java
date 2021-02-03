@@ -71,9 +71,8 @@ public class IzvestajRepository {
         String contentFound;
         try {
             contentFound = found.getContent().toString();
-            return (Izvestaj) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Izvestaj.class, IzvestajFactory.class))
-                    .getValue();
+            return (Izvestaj) jaxB
+                    .unmarshall(contentFound, Izvestaj.class, IzvestajFactory.class);
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
             return null;
@@ -82,7 +81,7 @@ public class IzvestajRepository {
 
     public void createGodisnjaStatistika() {
         try {
-            this.existManager.read(collectionId, "godisnja-statistika");
+            this.existManager.read("/db/godisnjastatistika", "godisnja-statistika");
             return;
         } catch (ResourceNotFoundException ignored) {
         }
@@ -103,14 +102,14 @@ public class IzvestajRepository {
             return;
         }
         try {
-            this.existManager.saveRaw(collectionId, "godisnja-statistika", rawXml);
+            this.existManager.saveRaw("/db/godisnjastatistika", "godisnja-statistika", rawXml);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public GodisnjaStatistika getGodisnjaStatistika() throws Exception {
-        String xml = this.existManager.read(collectionId, "godisnja-statistika").getContent().toString();
+        String xml = this.existManager.read("/db/godisnjastatistika", "godisnja-statistika").getContent().toString();
         return (GodisnjaStatistika) jaxB
                 .unmarshall(xml, GodisnjaStatistika.class, GodisnjaStatistikaFactory.class);
     }

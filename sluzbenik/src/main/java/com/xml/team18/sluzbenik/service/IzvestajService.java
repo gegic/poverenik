@@ -29,8 +29,9 @@ public class IzvestajService {
         this.izvestajGenerator = generator;
     }
 
-    public String save(Izvestaj z) throws JAXBException {
+    public String save(Izvestaj z) throws Exception {
         z = this.repository.save(z);
+        this.repository.resetGodisnjaStatistika();
         return z.getId();
     }
 

@@ -33,6 +33,7 @@ import {PregledZalbiComponent} from './components/pregled-zalbi/pregled-zalbi.co
 import { SlanjeResenjaComponent } from './components/slanje-resenja/slanje-resenja.component';
 import { PregledResenjaComponent } from './components/pregled-resenja/pregled-resenja.component';
 import { ResenjePrikazComponent } from './components/resenje-prikaz/resenje-prikaz.component';
+import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregled-izvestaja.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ResenjePrikazComponent } from './components/resenje-prikaz/resenje-prik
     ZalbaNaOdlukuPrikazComponent,
     SlanjeResenjaComponent,
     PregledResenjaComponent,
-    ResenjePrikazComponent
+    ResenjePrikazComponent,
+    PregledIzvestajaComponent
   ],
   imports: [
     BrowserModule,
