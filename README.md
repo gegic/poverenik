@@ -36,6 +36,10 @@ Kako bi se pokrenule obe bekend aplikacije, potrebno je, korišćenjem mavena, p
 
 Portal službenika će se pokrenuti na portu 8080, a portal poverenika na 8079
 
+Još jedna spring aplikacija koju je potrebno pokrenuti je i imejl servis. On se pokreće sa porta 8078.
+
+Sve navedene projekte je moguće otvoriti u razvojnom okruženju koje podržava Javu i Spring Boot framework (Eclipse, Spring Tool Suite, IntelliJ...) i pokrenuti kao Spring Boot aplikaciju.
+
 #### Frontend
 
-Iz direktorijuma sa nastavkom -front, potrebno je pozvati komandu `ng serve`, korišćenjem angular clija, kako bi se pokrenuli dati portali. Kad se pokrenu oba portala, službeniku je moguće pristupiti preko adrese http://localhost:4200/, a portalu poverenika preko http://localhost:4201/
+Iz direktorijuma sa nastavkom -front, potrebno je pozvati prvo komandu `npm install` kako bi se instalirali svi moduli i zavisnosti, a onda komandu `ng serve`, korišćenjem angular clija, kako bi se pokrenuli dati portali. Kad se pokrenu oba portala, službeniku je moguće pristupiti preko adrese http://localhost:4200/, a portalu poverenika preko http://localhost:4201/
