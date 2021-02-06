@@ -6,6 +6,9 @@ import * as xml from 'xml-js';
 import {ZahtevService} from '../../core/services/zahtev.service';
 import {ObavestenjeService} from '../../core/services/obavestenje.service';
 import {Router} from '@angular/router';
+import {ZalbaNaOdlukuService} from '../../core/services/zalba-na-odluku.service';
+import {ZalbaCutanjeService} from '../../core/services/zalba-cutanje.service';
+import {ResenjeService} from '../../core/services/resenje.service';
 
 @Component({
   selector: 'app-pregled-pretraga',
@@ -24,7 +27,10 @@ export class PregledPretragaComponent implements OnInit {
               private pretragaService: PretragaService,
               private zahtevService: ZahtevService,
               private obavestenjeService: ObavestenjeService,
-              private router: Router) { }
+              private router: Router,
+              private zalbaNaOdlukuService: ZalbaNaOdlukuService,
+              private zalbaCutanjeService: ZalbaCutanjeService,
+              private resenjeService: ResenjeService) { }
 
   ngOnInit(): void {
   }
@@ -67,7 +73,7 @@ export class PregledPretragaComponent implements OnInit {
           element: o
         };
       }));
-      this.naprednaPretragaZahteva()
+      this.naprednaPretragaZahteva();
     });
   }
 
@@ -188,40 +194,116 @@ export class PregledPretragaComponent implements OnInit {
   }
 
   generateXHTML(rezultat: any): void {
-    if (rezultat.tip === 'zahtev') {
+    this.loading = true;
+    if (rezultat.tip === 'zalba-na-odluku') {
+      this.zalbaNaOdlukuService.generateXHTML(rezultat.id).subscribe(val => {
+        this.loading = false;
+        window.location.href = `http://localhost:4200/${val}`;
+      });
+    } else if (rezultat.tip === 'zalba-cutanje') {
+      this.loading = true;
+      this.zalbaCutanjeService.generateXHTML(rezultat.id).subscribe(val => {
+        this.loading = false;
+
+        window.location.href = `http://localhost:4200/${val}`;
+      });
+    } else if (rezultat.tip === 'resenje') {
+      this.loading = true;
+      this.resenjeService.generateXHTML(rezultat.id).subscribe(val => {
+        this.loading = false;
+
+        window.location.href = `http://localhost:4200/${val}`;
+      });
+    } else if (rezultat.tip === 'zahtev') {
+      this.loading = true;
       this.zahtevService.generateXHTML(rezultat.id).subscribe(val => {
+        this.loading = false;
+
         window.location.href = `http://localhost:4200/${val}`;
       });
     } else {
+      this.loading = true;
       this.obavestenjeService.generateXHTML(rezultat.id).subscribe(val => {
+        this.loading = false;
+
         window.location.href = `http://localhost:4200/${val}`;
       });
     }
   }
 
   generatePdf(rezultat: any): void {
-    if (rezultat.tip === 'zahtev') {
+    if (rezultat.tip === 'zalba-na-odluku') {
+      this.loading = true;
+      this.zalbaNaOdlukuService.generatePdf(rezultat.id).subscribe(val => {
+        this.loading = false;
+
+        window.location.href = `http://localhost:4200/${val}`;
+      });
+    } else if (rezultat.tip === 'zalba-cutanje') {
+      this.loading = true;
+      this.zalbaCutanjeService.generatePdf(rezultat.id).subscribe(val => {
+        this.loading = false;
+
+        window.location.href = `http://localhost:4200/${val}`;
+      });
+    } else if (rezultat.tip === 'resenje') {
+      this.loading = true;
+      this.resenjeService.generatePdf(rezultat.id).subscribe(val => {
+        this.loading = false;
+
+        window.location.href = `http://localhost:4200/${val}`;
+      });
+    } else if (rezultat.tip === 'zahtev') {
+      this.loading = true;
       this.zahtevService.generatePdf(rezultat.id).subscribe(val => {
+        this.loading = false;
+
         window.location.href = `http://localhost:4200/${val}`;
       });
     } else {
+      this.loading = true;
       this.obavestenjeService.generatePdf(rezultat.id).subscribe(val => {
+        this.loading = false;
+
         window.location.href = `http://localhost:4200/${val}`;
       });
     }
   }
 
   detalji(rezultat: any): void {
-    if (rezultat.tip === 'obavestenje') {
+    if (rezultat.tip === 'zalba-na-odluku') {
+      this.router.navigate(['zalba-na-odluku'], {queryParams: {zalbaNaOdluku: rezultat.id}});
+
+    } else if (rezultat.tip === 'zalba-cutanje') {
+      this.router.navigate(['zalba-cutanje'], {queryParams: {zalbaCutanje: rezultat.id}});
+
+    } else if (rezultat.tip === 'resenje'){
+      this.router.navigate(['resenje'], {queryParams: {resenje: rezultat.id}});
+
+    } else if (rezultat.tip === 'obavestenje') {
       this.router.navigate(['obavestenje'], {queryParams: {obavestenje: rezultat.id}});
     } else {
       this.router.navigate(['zahtev'], {queryParams: {zahtev: rezultat.id}});
     }
   }
 
+
+  otvoriReferenciranuZalbu(rezultat: any): void {
+    if (rezultat.podtip === 'cutanje') {
+      this.router.navigate(['zalba-cutanje'], {queryParams: {zalbaCutanje: rezultat.zalba}});
+    } else {
+      this.router.navigate(['zalba-na-odluku'], {queryParams: {zalbaNaOdluku: rezultat.zalba}});
+    }
+  }
+
   otvoriReferenciraniZahtev(rezultat: any): void {
     this.router.navigate(['zahtev'], {queryParams: {zahtev: rezultat.zahtev}});
   }
+
+  otvoriReferenciranoObavestenje(rezultat: any): void {
+    this.router.navigate(['obavestenje'], {queryParams: {obavestenje: rezultat.obavestenje}});
+  }
+
 
   obicnaPretraga(): void {
     this.rezultati = [];
