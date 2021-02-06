@@ -6,6 +6,7 @@ import com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory;
 import com.xml.team18.poverenik.fuseki.FusekiWriter;
 import com.xml.team18.poverenik.fuseki.MetadataExtractor;
 import com.xml.team18.poverenik.jaxb.JaxB;
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
 import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,6 +21,8 @@ import javax.xml.namespace.QName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Repository
@@ -52,27 +55,16 @@ public class ZalbaNaOdlukuRepository {
             z.setVocab("http://team14.xml.com/rdf/zalbe-na-odluku/predicate/");
             z.setAbout("http://team14.xml.com/rdf/zalbe-na-odluku/" + id);
             z.getPrimalac().getAdresa().getMesto().setProperty("pred:mesto-poverenika");
-            z.getPrimalac().getAdresa().getMesto().setDatatype("xs:string");
             z.getPrimalac().getAdresa().getUlica().setProperty("pred:ulica-poverenika");
-            z.getPrimalac().getAdresa().getUlica().setDatatype("xs:string");
             z.getPrimalac().getNaziv().setProperty("pred:naziv-poverenika");
-            z.getPrimalac().getNaziv().setDatatype("xs:string");
             z.getProtiv().getDonosilac().getAdresa().getMesto().setProperty("pred:mesto-protivnika");
-            z.getProtiv().getDonosilac().getAdresa().getMesto().setDatatype("xs:string");
             z.getProtiv().getDonosilac().getAdresa().getUlica().setProperty("pred:ulica-protivnika");
-            z.getProtiv().getDonosilac().getAdresa().getUlica().setDatatype("xs:string");
             z.getProtiv().getDonosilac().getNaziv().setProperty("pred:naziv-protivnika");
-            z.getProtiv().getDonosilac().getNaziv().setDatatype("xs:string");
             z.getZahtev().getDatum().setProperty("pred:datum-zahteva");
-            z.getZahtev().getDatum().setDatatype("xs:date");
             z.getZahtev().getOpisZahteva().setProperty("pred:opis-zahteva");
-            z.getZahtev().getOpisZahteva().setDatatype("xs:string");
             z.getPodnosilac().getAdresa().getMesto().setProperty("pred:mesto-podnosioca");
-            z.getPodnosilac().getAdresa().getMesto().setDatatype("xs:string");
             z.getPodnosilac().getAdresa().getUlica().setProperty("pred:ulica-podnosioca");
-            z.getPodnosilac().getAdresa().getUlica().setDatatype("xs:string");
             z.getPodnosilac().getImePrezime().setProperty("pred:ime-prezime-podnosioca");
-            z.getPodnosilac().getImePrezime().setDatatype("xs:string");
             JAXBElement<ZalbaNaOdluku> element = new JAXBElement<>(QName.valueOf("zalba-na-odluku"), ZalbaNaOdluku.class, z);
             String rawXml = jaxB.marshall(element, ZalbaNaOdluku.class, ZalbaNaOdlukuFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
@@ -126,6 +118,42 @@ public class ZalbaNaOdlukuRepository {
 
     public List<ZalbaNaOdluku> getAllNeresene() throws Exception {
         String query = "/zalba-na-odluku[@tip-resenja = 'neresena']";
+        return this.getByQuery(query);
+    }
+
+
+    public List<ZalbaNaOdluku> naprednaPretraga(String upit) {
+        Pattern p = Pattern.compile("([\\w:\\-]+)\\s+eq\\s+\"([\\w\\d \\-]+)\"");
+        Matcher m = p.matcher(upit);
+        String prvaZamena;
+        if (m.find()) {
+            prvaZamena = m.replaceAll("$1 \"$2\"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");  // number 46
+        } else {
+            return new ArrayList<>();
+        }
+        p = Pattern.compile("\"([\\w\\d]{8}(-[\\w\\d]{4}){3}-[\\w\\d]{12})\"\\^\\^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");
+        m = p.matcher(prvaZamena);
+        String drugaZamena;
+        if (m.find()) {
+            drugaZamena = m.replaceAll("\"$1\"^^<http://www.w3.org/2000/01/rdf-schema#Literal>");
+        } else {
+            drugaZamena = prvaZamena;
+        }
+        String filterQuery = drugaZamena.replaceAll(" and ", "; ").replaceAll(" or ", "} union { ?s ");
+        String whereQuery = String.format("{?s %s }", filterQuery);
+        List<String> ids = this.fusekiWriter.getIdsForString("zalbenaodluku", whereQuery);
+        try {
+            return this.getByIds(ids);
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
+    public List<ZalbaNaOdluku> getByIds(List<String> ids) throws Exception {
+        String idsJoined = ids.stream()
+                .map(id -> id.replace("http://team14.xml.com/rdf/zalbenaodluku/", ""))
+                .collect(Collectors.joining(" "));
+        String query = String.format("/zalba-na-odluku[contains('%s', @id)]", idsJoined);
         return this.getByQuery(query);
     }
 

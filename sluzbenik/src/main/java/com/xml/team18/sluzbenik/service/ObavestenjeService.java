@@ -60,6 +60,10 @@ public class ObavestenjeService {
         return repository.findById(id);
     }
 
+    public List<Obavestenje> naprednaPretraga(String upit) {
+        return repository.naprednaPretraga(upit);
+    }
+
     public List<Obavestenje> getAllByKorisnikId(String korisnikId) throws Exception {
         return repository.getAllByKorisnikId(korisnikId);
     }

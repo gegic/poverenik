@@ -45,29 +45,52 @@ export class PregledPretragaComponent implements OnInit {
   naprednaPretraga(): void {
     this.rezultati = [];
     this.loading = true;
-    this.pretragaService.naprednaPretragaZahteva(this.upit.value).subscribe(zahteviXml => {
-      const za = (xml.xml2js(zahteviXml, {compact: true}) as any).entityList.zahtev;
-      let zahtevi: any[] = [];
-      if (Array.isArray(za)) {
-        zahtevi = za;
+    this.pretragaService.naprednaPretragaObavestenja(this.upit.value).subscribe(obavestenjaXml => {
+      const ob = (xml.xml2js(obavestenjaXml, {compact: true}) as any).entityList.obavestenje;
+      let obavestenja: any[];
+      if (Array.isArray(ob)) {
+        obavestenja = ob;
       } else {
-        if (!za) {
-          zahtevi = [];
+        if (!ob) {
+          obavestenja = [];
         } else {
-          zahtevi = [za];
+          obavestenja = [ob];
         }
       }
-      console.log(zahteviXml);
-      this.rezultati = this.rezultati.concat(zahtevi.map(o => {
+      this.rezultati = this.rezultati.concat(obavestenja.map(o => {
         return {
-          tip: 'zahtev',
+          tip: 'obavestenje',
           id: o._attributes.id,
-          podnosilac: o['trazilac-informacije']['ime-prezime']._text,
+          podnosilac: o.podnosilac['ime-prezime']._text,
           organ: o.organ.naziv._text,
+          zahtev: o.zahtev._attributes.id,
           element: o
         };
       }));
-      this.loading = false;
+      this.pretragaService.naprednaPretragaZahteva(this.upit.value).subscribe(zahteviXml => {
+        const za = (xml.xml2js(zahteviXml, {compact: true}) as any).entityList.zahtev;
+        let zahtevi: any[] = [];
+        if (Array.isArray(za)) {
+          zahtevi = za;
+        } else {
+          if (!za) {
+            zahtevi = [];
+          } else {
+            zahtevi = [za];
+          }
+        }
+        this.rezultati = this.rezultati.concat(zahtevi.map(o => {
+          return {
+            tip: 'zahtev',
+            id: o._attributes.id,
+            podnosilac: o['trazilac-informacije']['ime-prezime']._text,
+            organ: o.organ.naziv._text,
+            element: o
+          };
+        }));
+        this.loading = false;
+      });
+      this.resultsSet = true;
     });
   }
 
@@ -157,5 +180,20 @@ export class PregledPretragaComponent implements OnInit {
       });
       this.resultsSet = true;
     });
+  }
+
+  copyId(rezultat): void {
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = rezultat.id;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    this.messageService.add({severity: 'info', summary: 'Kopirano', detail: `Vrijednost ${rezultat.id} je kopirana`});
   }
 }

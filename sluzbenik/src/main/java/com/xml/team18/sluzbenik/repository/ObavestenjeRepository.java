@@ -195,15 +195,23 @@ public class ObavestenjeRepository {
     public List<Obavestenje> naprednaPretraga(String upit) {
         Pattern p = Pattern.compile("([\\w:\\-]+)\\s+eq\\s+\"([\\w\\d \\-]+)\"");
         Matcher m = p.matcher(upit);
-        String prvaZamena = null;
+        String prvaZamena;
         if (m.find()) {
             prvaZamena = m.replaceAll("$1 \"$2\"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");  // number 46
         } else {
             return new ArrayList<>();
         }
-        String filterQuery = prvaZamena.replaceAll(" and ", "; ").replaceAll(" or ", "} union { ?s ");
+        p = Pattern.compile("\"([\\w\\d]{8}(-[\\w\\d]{4}){3}-[\\w\\d]{12})\"\\^\\^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");
+        m = p.matcher(prvaZamena);
+        String drugaZamena;
+        if (m.find()) {
+            drugaZamena = m.replaceAll("\"$1\"^^<http://www.w3.org/2000/01/rdf-schema#Literal>");
+        } else {
+            drugaZamena = prvaZamena;
+        }
+        String filterQuery = drugaZamena.replaceAll(" and ", "; ").replaceAll(" or ", "} union { ?s ");
         String whereQuery = String.format("{?s %s }", filterQuery);
-        List<String> ids = this.fusekiWriter.getIdsForString("obavestenje", whereQuery);
+        List<String> ids = this.fusekiWriter.getIdsForString("obavestenja", whereQuery);
         try {
             return this.getByIds(ids);
         } catch (Exception e) {

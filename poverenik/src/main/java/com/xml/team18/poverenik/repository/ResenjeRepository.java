@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Repository
@@ -55,13 +57,9 @@ public class ResenjeRepository {
             z.setVocab("http://team14.xml.com/rdf/resenja/predicate/");
             z.setAbout("http://team14.xml.com/rdf/resenja/" + id);
             z.getDatum().setProperty("pred:datum-resenja");
-            z.getDatum().setDatatype("xs:date");
             z.getPoverenik().getImePrezime().setProperty("pred:ime-prezime-poverenika");
-            z.getPoverenik().getImePrezime().setDatatype("xs:string");
             z.getZalilac().getImePrezime().setProperty("pred:ime-prezime-zalioca");
-            z.getZalilac().getImePrezime().setDatatype("xs:string");
             z.getProtiv().getNaziv().setProperty("pred:naziv-ustanove");
-            z.getProtiv().getNaziv().setDatatype("xs:string");
 
             String rawXml = jaxB.marshall(z, Resenje.class, ResenjeFactory.class);
             this.existManager.saveRaw(collectionId, id, rawXml);
@@ -105,6 +103,41 @@ public class ResenjeRepository {
             e.printStackTrace();
             return new ArrayList<>();
         }
+    }
+
+    public List<Resenje> naprednaPretraga(String upit) {
+        Pattern p = Pattern.compile("([\\w:\\-]+)\\s+eq\\s+\"([\\w\\d \\-]+)\"");
+        Matcher m = p.matcher(upit);
+        String prvaZamena;
+        if (m.find()) {
+            prvaZamena = m.replaceAll("$1 \"$2\"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");  // number 46
+        } else {
+            return new ArrayList<>();
+        }
+        p = Pattern.compile("\"([\\w\\d]{8}(-[\\w\\d]{4}){3}-[\\w\\d]{12})\"\\^\\^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>");
+        m = p.matcher(prvaZamena);
+        String drugaZamena;
+        if (m.find()) {
+            drugaZamena = m.replaceAll("\"$1\"^^<http://www.w3.org/2000/01/rdf-schema#Literal>");
+        } else {
+            drugaZamena = prvaZamena;
+        }
+        String filterQuery = drugaZamena.replaceAll(" and ", "; ").replaceAll(" or ", "} union { ?s ");
+        String whereQuery = String.format("{?s %s }", filterQuery);
+        List<String> ids = this.fusekiWriter.getIdsForString("resenja", whereQuery);
+        try {
+            return this.getByIds(ids);
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
+    public List<Resenje> getByIds(List<String> ids) throws Exception {
+        String idsJoined = ids.stream()
+                .map(id -> id.replace("http://team14.xml.com/rdf/resenja/", ""))
+                .collect(Collectors.joining(" "));
+        String query = String.format("/resenje[contains('%s', @id)]", idsJoined);
+        return this.getByQuery(query);
     }
 
     public List<Resenje> getByKorisnikId(String idZalbe) throws Exception {
