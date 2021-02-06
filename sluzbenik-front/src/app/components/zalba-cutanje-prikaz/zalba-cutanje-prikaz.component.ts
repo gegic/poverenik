@@ -39,13 +39,13 @@ export class ZalbaCutanjePrikazComponent implements AfterViewInit {
 
   generatePdf(): void {
     this.zalbaCutanjeService.generatePdf(this.zalbaCutanje._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4201/${val}`;
+      window.location.href = `http://localhost:4200/${val}`;
     });
   }
 
   generateXHTML(): void {
     this.zalbaCutanjeService.generateXHTML(this.zalbaCutanje._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4201/${val}`;
+      window.location.href = `http://localhost:4200/${val}`;
     });
   }
 

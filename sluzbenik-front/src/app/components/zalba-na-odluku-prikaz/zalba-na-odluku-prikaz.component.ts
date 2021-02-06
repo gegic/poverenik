@@ -39,13 +39,13 @@ export class ZalbaNaOdlukuPrikazComponent implements AfterViewInit {
 
   generatePdf(): void {
     this.zalbaNaOdlukuService.generatePdf(this.zalbaNaOdluku._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4201/${val}`;
+      window.location.href = `http://localhost:4200/${val}`;
     });
   }
 
   generateXHTML(): void {
     this.zalbaNaOdlukuService.generateXHTML(this.zalbaNaOdluku._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4201/${val}`;
+      window.location.href = `http://localhost:4200/${val}`;
     });
   }
 

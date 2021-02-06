@@ -80,13 +80,13 @@ export class ZalbaCutanjePrikazComponent implements AfterViewInit {
 
   generateJson(): void {
     this.zalbaCutanjeService.generateJson(this.zalbaCutanje._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 
   generateRdf(): void {
     this.zalbaCutanjeService.generateRdf(this.zalbaCutanje._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 }

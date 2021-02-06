@@ -39,13 +39,13 @@ export class PrikazIzvestajaComponent implements OnInit {
 
   generatePdf(): void {
     this.izvestajService.generatePdf(this.izvestaj._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 
   generateXHTML(): void {
     this.izvestajService.generateXHTML(this.izvestaj._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 

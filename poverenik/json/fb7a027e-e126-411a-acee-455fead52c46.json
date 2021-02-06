@@ -1,0 +1,25 @@
+{
+  "head": {
+    "vars": [ "predicate" , "object" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/resenja/predicate/ime-prezime-poverenika" } ,
+        "object": { "type": "literal" , "datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral" , "value": "Milan Marinovic" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/resenja/predicate/naziv-ustanove" } ,
+        "object": { "type": "literal" , "datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral" , "value": "Naziv organa" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/resenja/predicate/ime-prezime-zalioca" } ,
+        "object": { "type": "literal" , "datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral" , "value": "Haris Gegic" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/resenja/predicate/datum-resenja" } ,
+        "object": { "type": "literal" , "datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral" , "value": "2021-02-06" }
+      }
+    ]
+  }
+}

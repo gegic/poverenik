@@ -45,13 +45,13 @@ export class PregledIzvestajaComponent implements OnInit {
 
   generatePdf(izvestaj: any): void {
     this.izvestajService.generatePdf(izvestaj._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 
   generateXHTML(izvestaj: any): void {
     this.izvestajService.generateXHTML(izvestaj._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 

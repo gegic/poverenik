@@ -44,13 +44,13 @@ export class ResenjePrikazComponent implements AfterViewInit {
 
   generatePdf(): void {
     this.resenjeService.generatePdf(this.resenje._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4201/${val}`;
+      window.location.href = `http://localhost:4200/${val}`;
     });
   }
 
   generateXHTML(): void {
     this.resenjeService.generateXHTML(this.resenje._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4201/${val}`;
+      window.location.href = `http://localhost:4200/${val}`;
     });
   }
 

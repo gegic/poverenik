@@ -79,14 +79,14 @@ export class ZalbaNaOdlukuPrikazComponent implements AfterViewInit {
   }
 
   generateJson(): void {
-    this.zalbaNaOdluku.generateJson(this.zalbaNaOdluku._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+    this.zalbaNaOdlukuService.generateJson(this.zalbaNaOdluku._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 
   generateRdf(): void {
-    this.zalbaNaOdluku.generateRdf(this.zalbaNaOdluku._attributes.id).subscribe(val => {
-      window.location.href = `http://localhost:4200/${val}`;
+    this.zalbaNaOdlukuService.generateRdf(this.zalbaNaOdluku._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4201/${val}`;
     });
   }
 }

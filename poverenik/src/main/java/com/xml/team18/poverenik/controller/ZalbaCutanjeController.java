@@ -90,12 +90,12 @@ public class ZalbaCutanjeController {
     }
 
     @PostMapping(value = "/generate-json/{id}")
-    public String getJsonById(@PathVariable String id) throws FileNotFoundException {
-        return service.getJsonById(id);
+    public ResponseEntity<String> getJsonById(@PathVariable String id) throws FileNotFoundException {
+        return ResponseEntity.ok(service.getJsonById(id));
     }
 
     @PostMapping(value = "/generate-rdf/{id}")
-    public String getRdfById(@PathVariable String id) throws FileNotFoundException {
-        return service.getRdfById(id);
+    public ResponseEntity<String> getRdfById(@PathVariable String id) throws FileNotFoundException {
+        return ResponseEntity.ok(service.getRdfById(id));
     }
 }
