@@ -1,0 +1,80 @@
+<div>
+  <p-toolbar styleClass="p-mb-4 p-pt-4 p-pl-4">
+    <ng-template pTemplate="left">
+      <form class="p-d-flex p-ai-center" (ngSubmit)="search()">
+        <span class="p-float-label">
+          <input type="text"
+                 id="upit"
+                 name="upit"
+                 autocomplete="off"
+                 autofocus
+                 [formControl]="upit"
+                 pInputText
+          >
+          <label for="upit">Pretraga</label>
+        </span>
+        <button class="p-button-icon p-button-rounded p-ml-2" icon="pi pi-search" pButton></button>
+        <div class="p-field-checkbox p-ml-4 p-mb-0">
+          <p-checkbox [(ngModel)]="napredno" name="napredno" binary="true" inputId="napredno"></p-checkbox>
+          <label for="napredno">Napredna pretraga</label>
+        </div>
+      </form>
+    </ng-template>
+    <ng-template pTemplate="right">
+    </ng-template>
+  </p-toolbar>
+  <p-table [value]="rezultati" [loading]="loading">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Podnosilac</th>
+        <th>Organ</th>
+        <th>PDF</th>
+        <th>XHTML</th>
+        <th>Detalji</th>
+        <th>Reference</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rezultat>
+      <tr>
+        <td><button class="p-button-icon p-button-text" icon="pi pi-copy" (click)="copyId(rezultat)" pButton></button></td>
+        <td>{{rezultat.podnosilac}}</td>
+        <td>
+          {{rezultat.organ}}
+        </td>
+        <td>
+          <button class="p-button"
+                  label="PDF"
+                  (click)="generatePdf(rezultat)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button"
+                  label="XHTML"
+                  (click)="generateXHTML(rezultat)"
+                  pButton
+          ></button>
+        </td>
+        <td>
+          <button class="p-button" label="Detalji" (click)="detalji(rezultat)" pButton></button>
+        </td>
+        <td>
+          <button type="button"
+                  *ngIf="rezultat.tip === 'resenje'"
+                  pButton
+                  label="Žalba"
+                  (click)="otvoriReferenciranuZalbu(rezultat)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="6">
+          {{!resultsSet ? 'Prvo izvršite pretragu' : 'Nema rezultata pretrage...'}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

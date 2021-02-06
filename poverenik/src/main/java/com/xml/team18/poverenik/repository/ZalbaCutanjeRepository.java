@@ -8,6 +8,7 @@ import com.xml.team18.poverenik.fuseki.MetadataExtractor;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.resenje.Resenje;
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.Resource;
@@ -111,6 +112,11 @@ public class ZalbaCutanjeRepository {
             e.printStackTrace();
             return new ArrayList<>();
         }
+    }
+
+    public List<ZalbaCutanje> pretraga(String tekst) throws Exception {
+        String query = String.format("/zalba-cutanje[descendant::*[text()[contains(lower-case(.), '%s')]]]", tekst.toLowerCase());
+        return this.getByQuery(query);
     }
 
     public List<ZalbaCutanje> naprednaPretraga(String upit) {

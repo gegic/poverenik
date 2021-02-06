@@ -117,4 +117,13 @@ public class ResenjeService {
         }
 
     }
+
+    public List<Resenje> naprednaPretraga(String upit) {
+        return repository.naprednaPretraga(upit);
+    }
+
+    public List<Resenje> pretraga(String query) throws Exception {
+        return repository.pretraga(query);
+    }
+
 }

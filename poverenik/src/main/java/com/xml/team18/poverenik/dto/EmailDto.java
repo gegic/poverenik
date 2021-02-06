@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@XmlRootElement(name = "email")
+@XmlRootElement(name = "email-dto")
 public class EmailDto {
     @XmlElement(required = true)
     private String to;

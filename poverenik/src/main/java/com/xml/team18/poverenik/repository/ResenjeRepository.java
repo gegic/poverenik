@@ -105,6 +105,11 @@ public class ResenjeRepository {
         }
     }
 
+    public List<Resenje> pretraga(String tekst) throws Exception {
+        String query = String.format("/resenje[descendant::*[text()[contains(lower-case(.), '%s')]]]", tekst.toLowerCase());
+        return this.getByQuery(query);
+    }
+
     public List<Resenje> naprednaPretraga(String upit) {
         Pattern p = Pattern.compile("([\\w:\\-]+)\\s+eq\\s+\"([\\w\\d \\-]+)\"");
         Matcher m = p.matcher(upit);

@@ -34,6 +34,8 @@ import { ResenjePrikazComponent } from './components/resenje-prikaz/resenje-prik
 import { PregledIzvestajaComponent } from './components/pregled-izvestaja/pregled-izvestaja.component';
 import {PrikazIzvestajaComponent} from './components/prikaz-izvestaja/prikaz-izvestaja.component';
 import {ToolbarModule} from 'primeng/toolbar';
+import {PregledPretragaComponent} from './components/pregled-pretraga/pregled-pretraga.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import {ToolbarModule} from 'primeng/toolbar';
     PregledResenjaComponent,
     ResenjePrikazComponent,
     PregledIzvestajaComponent,
-    PrikazIzvestajaComponent
+    PrikazIzvestajaComponent,
+    PregledPretragaComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import {ToolbarModule} from 'primeng/toolbar';
     CardModule,
     DropdownModule,
     ProgressSpinnerModule,
-    ToolbarModule
+    ToolbarModule,
+    CheckboxModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

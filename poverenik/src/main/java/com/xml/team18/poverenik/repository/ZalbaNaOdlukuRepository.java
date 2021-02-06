@@ -6,6 +6,7 @@ import com.xml.team18.poverenik.factory.ZalbaNaOdlukuFactory;
 import com.xml.team18.poverenik.fuseki.FusekiWriter;
 import com.xml.team18.poverenik.fuseki.MetadataExtractor;
 import com.xml.team18.poverenik.jaxb.JaxB;
+import com.xml.team18.poverenik.model.resenje.Resenje;
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
 import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,6 +119,11 @@ public class ZalbaNaOdlukuRepository {
 
     public List<ZalbaNaOdluku> getAllNeresene() throws Exception {
         String query = "/zalba-na-odluku[@tip-resenja = 'neresena']";
+        return this.getByQuery(query);
+    }
+
+    public List<ZalbaNaOdluku> pretraga(String tekst) throws Exception {
+        String query = String.format("/zalba-na-odluku[descendant::*[text()[contains(lower-case(.), '%s')]]]", tekst.toLowerCase());
         return this.getByQuery(query);
     }
 

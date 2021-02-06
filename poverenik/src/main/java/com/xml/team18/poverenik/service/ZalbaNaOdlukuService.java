@@ -3,6 +3,7 @@ package com.xml.team18.poverenik.service;
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.generators.ZalbaNaOdlukuGenerator;
 import com.xml.team18.poverenik.jaxb.JaxB;
+import com.xml.team18.poverenik.model.resenje.Resenje;
 import com.xml.team18.poverenik.model.zahtev.Zahtev;
 import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import com.xml.team18.poverenik.repository.ZalbaNaOdlukuRepository;
@@ -71,5 +72,13 @@ public class ZalbaNaOdlukuService {
     public String generateXhtml(String id) throws Exception {
         ZalbaNaOdluku z = repository.findById(id);
         return generator.generateXhtml(z);
+    }
+
+    public List<ZalbaNaOdluku> naprednaPretraga(String upit) {
+        return repository.naprednaPretraga(upit);
+    }
+
+    public List<ZalbaNaOdluku> pretraga(String query) throws Exception {
+        return repository.pretraga(query);
     }
 }

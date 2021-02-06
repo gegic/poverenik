@@ -5,6 +5,7 @@ import com.xml.team18.poverenik.generators.ZalbaCutanjeGenerator;
 import com.xml.team18.poverenik.jaxb.JaxB;
 import com.xml.team18.poverenik.model.zahtev.Zahtev;
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import com.xml.team18.poverenik.repository.ZalbaCutanjeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,5 +69,13 @@ public class ZalbaCutanjeService {
     public String generateXhtml(String id) throws Exception {
         ZalbaCutanje z = repository.findById(id);
         return generator.generateXhtml(z);
+    }
+
+    public List<ZalbaCutanje> naprednaPretraga(String upit) {
+        return repository.naprednaPretraga(upit);
+    }
+
+    public List<ZalbaCutanje> pretraga(String query) throws Exception {
+        return repository.pretraga(query);
     }
 }

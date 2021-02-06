@@ -2,6 +2,7 @@ package com.xml.team18.poverenik.controller;
 
 import com.xml.team18.poverenik.dto.EntityList;
 import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
+import com.xml.team18.poverenik.model.resenje.Resenje;
 import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import com.xml.team18.poverenik.service.ZalbaNaOdlukuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,5 +74,15 @@ public class ZalbaNaOdlukuController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @GetMapping(path = "/pretraga", produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<EntityList<ZalbaNaOdluku>> pretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.pretraga(upit)));
+    }
+
+    @GetMapping(path = "/napredna-pretraga", produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<EntityList<ZalbaNaOdluku>> naprednaPretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.naprednaPretraga(upit)));
     }
 }

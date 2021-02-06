@@ -33,6 +33,15 @@ public class ResenjeController {
         return ResponseEntity.ok(service.getById(id));
     }
 
+    @GetMapping(path = "/pretraga", produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<EntityList<Resenje>> pretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.pretraga(upit)));
+    }
+
+    @GetMapping(path = "/napredna-pretraga", produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<EntityList<Resenje>> naprednaPretraga(@RequestParam String upit) throws Exception {
+        return ResponseEntity.ok(new EntityList<>(service.naprednaPretraga(upit)));
+    }
     @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
     ResponseEntity<EntityList<Resenje>> getAll() throws Exception {
         return ResponseEntity.ok(new EntityList<>(service.getAll()));
