@@ -1,0 +1,1 @@
+set FUSEKI_BASE=C:\poverenik_db\fuseki
