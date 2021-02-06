@@ -30,3 +30,12 @@ Da bi fuseki mogao da funkcioniše ispravno, potrebno je podesiti i lokaciju na 
 
 Nakon odrađenog, u komandnoj liniji izabrati direktorijum bin, pa za oba tomcat servera pozvati komandu startup.
 
+#### Bekend
+
+Kako bi se pokrenule obe bekend aplikacije, potrebno je, korišćenjem mavena, pozvati komandu spring-boot:run za obe aplikacije.
+
+Portal službenika će se pokrenuti na portu 8080, a portal poverenika na 8079
+
+#### Frontend
+
+Iz direktorijuma sa nastavkom -front, potrebno je pozvati komandu ng serve kako bi se pokrenuli dati portali. Kad se pokrenu oba portala, službeniku je moguće pristupiti preko adrese http://localhost:4200/, a portalu poverenika preko http://localhost:4201/
