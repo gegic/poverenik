@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="docs.xsd"/>
+    <xs:element name="zalba-cutanje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="primalac" type="Organ"/>
+                <xs:element name="zakon" type="Akt"/>
+                <xs:element name="protiv" type="Organ"/>
+                <xs:element name="razlog">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="nepostupanje"/>
+                            <xs:element name="nepostupanje-u-celosti"/>
+                            <xs:element name="nepostupanje-u-roku"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="zahtev" type="PodnetiZahtev"/>
+                <xs:element name="mesto">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                                <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="datum">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:attribute name="property" type="xs:NMTOKEN" use="required"/>
+                                <xs:attribute name="datatype" type="xs:NMTOKEN" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="podnosilac" type="Osoba"/>
+            </xs:sequence>
+            <xs:attribute name="vocab" type="xs:anyURI" use="required"/>
+            <xs:attribute name="about" type="xs:anyURI" use="required"/>
+            <xs:attribute name="id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[\w]{8}(-[\w]{4}){3}-[\w]{12}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="property" type="xs:string"/>
+            <xs:attribute name="content" type="xs:string"/>
+            <xs:attribute name="tip-resenja">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="neresena"/>
+                        <xs:enumeration value="prihvatanje"/>
+                        <xs:enumeration value="odbijanje-zalbe"/>
+                        <xs:enumeration value="odbijanje-zahteva"/>
+                        <xs:whiteSpace value="preserve"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
