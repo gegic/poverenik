@@ -1,4 +1,9 @@
-# xml2020
+# xml2020 Tim 18
+
+* Nikola Papić
+* Slobodan Zelić
+* Damjan Manojlović
+* Gegić Haris
 
 ### Video demonstracija
 Nespretno i neuko snimljeni i uređeni video snimak, dužine nešto više od tri minuta, prikazuje najosnovnije funkcionalnosti sistema. Na snimku je prvo prikazan rad sa portalom organa vlasti u okviru kojeg se mogu uočiti sljedeće funkcionalnosti: 
@@ -28,14 +33,18 @@ Da bi mogli da rade na različitim portovima, u server.xml datoteci, u conf dire
 
 Da bi fuseki mogao da funkcioniše ispravno, potrebno je podesiti i lokaciju na kojoj će se čuvati baza. Iz tog razloga je potrebno kopirati datoteku iz ovog repozitorijuma, pod imenom setenv.sh i prebaciti je u bin direktorijum servera baze poverenika.
 
-Nakon odrađenog, u komandnoj liniji izabrati direktorijum bin, pa za oba tomcat servera pozvati komandu startup.
+Nakon odrađenog, u komandnoj liniji izabrati direktorijum bin, pa za oba tomcat servera pozvati komandu `startup`.
 
 #### Bekend
 
-Kako bi se pokrenule obe bekend aplikacije, potrebno je, korišćenjem mavena, pozvati komandu spring-boot:run za obe aplikacije.
+Kako bi se pokrenule obe bekend aplikacije, potrebno je, korišćenjem mavena, pozvati komandu `spring-boot:run` za obe aplikacije.
 
 Portal službenika će se pokrenuti na portu 8080, a portal poverenika na 8079
 
+Još jedna spring aplikacija koju je potrebno pokrenuti je i imejl servis. On se pokreće sa porta 8078.
+
+Sve navedene projekte je moguće otvoriti u razvojnom okruženju koje podržava Javu i Spring Boot framework (Eclipse, Spring Tool Suite, IntelliJ...) i pokrenuti kao Spring Boot aplikaciju.
+
 #### Frontend
 
-Iz direktorijuma sa nastavkom -front, potrebno je pozvati komandu ng serve kako bi se pokrenuli dati portali. Kad se pokrenu oba portala, službeniku je moguće pristupiti preko adrese http://localhost:4200/, a portalu poverenika preko http://localhost:4201/
+Iz direktorijuma sa nastavkom -front, potrebno je pozvati prvo komandu `npm install` kako bi se instalirali svi moduli i zavisnosti, a onda komandu `ng serve`, korišćenjem angular clija, kako bi se pokrenuli dati portali. Kad se pokrenu oba portala, službeniku je moguće pristupiti preko adrese http://localhost:4200/, a portalu poverenika preko http://localhost:4201/
