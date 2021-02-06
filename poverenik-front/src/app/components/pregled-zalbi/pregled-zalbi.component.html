@@ -8,6 +8,7 @@
         <th>PDF</th>
         <th>Odgovor</th>
         <th></th>
+        <th></th>
         <th *ngIf="tip === 'neresene-zalbe'"></th>
       </tr>
     </ng-template>
@@ -47,6 +48,27 @@
           <ng-template #ostali>
             {{zalba._attributes['tip-resenja']}}
           </ng-template>
+        </td>
+        <td>
+          <div class="p-grid">
+
+            <div class="p-col-12 p-text-center" *ngIf="!!zalba.protiv.donosilac">
+              <button type="button"
+                      class="p-button-rounded"
+                      label="Obaveštenje"
+                      (click)="otvoriReferenciranoObavestenje(zalba.protiv._attributes)"
+                      pButton
+              ></button>
+            </div>
+            <div class="p-col-12 p-text-center">
+              <button type="button"
+                      class="p-button-rounded"
+                      pButton
+                      label="Zahtev"
+                      (click)="otvoriReferenciraniZahtev(zalba.zahtev._attributes)"
+              ></button>
+            </div>
+          </div>
         </td>
         <td *ngIf="tip === 'neresene-zalbe'">
           <button class="p-button-danger" label="Odbij" (click)="odbij(zalba)" pButton></button>

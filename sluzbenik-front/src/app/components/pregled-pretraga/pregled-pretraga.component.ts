@@ -67,30 +67,123 @@ export class PregledPretragaComponent implements OnInit {
           element: o
         };
       }));
-      this.pretragaService.naprednaPretragaZahteva(this.upit.value).subscribe(zahteviXml => {
-        const za = (xml.xml2js(zahteviXml, {compact: true}) as any).entityList.zahtev;
-        let zahtevi: any[] = [];
-        if (Array.isArray(za)) {
-          zahtevi = za;
+      this.naprednaPretragaZahteva()
+    });
+  }
+
+  naprednaPretragaZahteva(): void {
+    this.pretragaService.naprednaPretragaZahteva(this.upit.value).subscribe(zahteviXml => {
+      const za = (xml.xml2js(zahteviXml, {compact: true}) as any).entityList.zahtev;
+      let zahtevi: any[] = [];
+      if (Array.isArray(za)) {
+        zahtevi = za;
+      } else {
+        if (!za) {
+          zahtevi = [];
         } else {
-          if (!za) {
-            zahtevi = [];
-          } else {
-            zahtevi = [za];
-          }
+          zahtevi = [za];
         }
-        this.rezultati = this.rezultati.concat(zahtevi.map(o => {
-          return {
-            tip: 'zahtev',
-            id: o._attributes.id,
-            podnosilac: o['trazilac-informacije']['ime-prezime']._text,
-            organ: o.organ.naziv._text,
-            element: o
-          };
-        }));
-        this.loading = false;
-      });
+      }
+      this.rezultati = this.rezultati.concat(zahtevi.map(o => {
+        return {
+          tip: 'zahtev',
+          id: o._attributes.id,
+          podnosilac: o['trazilac-informacije']['ime-prezime']._text,
+          organ: o.organ.naziv._text,
+          element: o
+        };
+      }));
+      this.loading = false;
       this.resultsSet = true;
+      if (this.upit.value.includes('pred:zahtev')) {
+        this.naprednaPretragaZalbiCutanje();
+      } else if (this.upit.value.includes('pred:obavestenje')) {
+        this.naprednaPretragaZalbiNaOdluku();
+      }
+    });
+  }
+
+  naprednaPretragaResenja(): void {
+    this.pretragaService.naprednaPretragaResenja(this.upit.value).subscribe(resenjaXml => {
+      const ob = (xml.xml2js(resenjaXml, {compact: true}) as any)['lista-resenja'].resenje;
+      let resenja: any[];
+      if (Array.isArray(ob)) {
+        resenja = ob;
+      } else {
+        if (!ob) {
+          resenja = [];
+        } else {
+          resenja = [ob];
+        }
+      }
+      this.rezultati = this.rezultati.concat(resenja.map(o => {
+        return {
+          tip: 'resenje',
+          podtip: o.zalba._attributes.tip,
+          id: o._attributes.id,
+          podnosilac: o.zalilac['ime-prezime']._text,
+          organ: o.protiv.naziv._text,
+          zahtev: o.zahtev._attributes.id,
+          zalba: o.zalba._attributes.id,
+          obavestenje: !o.zalba.obavestenje ? undefined : o.zalba.obavestenje._attributes.id,
+          element: o
+        };
+      }));
+    });
+  }
+
+  naprednaPretragaZalbiCutanje(): void {
+    this.pretragaService.naprednaPretragaZalbiCutanje(this.upit.value).subscribe(zalbeXml => {
+      const ob = (xml.xml2js(zalbeXml, {compact: true}) as any)['lista-zalbi-cutanje']['zalba-cutanje'];
+      let zalbe: any[];
+      if (Array.isArray(ob)) {
+        zalbe = ob;
+      } else {
+        if (!ob) {
+          zalbe = [];
+        } else {
+          zalbe = [ob];
+        }
+      }
+      this.rezultati = this.rezultati.concat(zalbe.map(o => {
+        return {
+          tip: 'zalba-cutanje',
+          id: o._attributes.id,
+          podnosilac: o.podnosilac['ime-prezime']._text,
+          organ: o.protiv.naziv._text,
+          zahtev: o.zahtev._attributes.id,
+          element: o
+        };
+      }));
+      this.naprednaPretragaZalbiNaOdluku();
+    });
+  }
+
+  naprednaPretragaZalbiNaOdluku(): void {
+    this.pretragaService.naprednaPretragaZalbiNaOdluku(this.upit.value).subscribe(zalbeXml => {
+      const ob = (xml.xml2js(zalbeXml, {compact: true}) as any)['lista-zalbi-na-odluku']['zalba-na-odluku'];
+      let zalbe: any[];
+      if (Array.isArray(ob)) {
+        zalbe = ob;
+      } else {
+        if (!ob) {
+          zalbe = [];
+        } else {
+          zalbe = [ob];
+        }
+      }
+      this.rezultati = this.rezultati.concat(zalbe.map(o => {
+        return {
+          tip: 'zalba-na-odluku',
+          id: o._attributes.id,
+          podnosilac: o.podnosilac['ime-prezime']._text,
+          organ: o.protiv.donosilac.naziv._text,
+          obavestenje: o.protiv._attributes.id,
+          zahtev: o.zahtev._attributes.id,
+          element: o
+        };
+      }));
+      this.naprednaPretragaResenja();
     });
   }
 

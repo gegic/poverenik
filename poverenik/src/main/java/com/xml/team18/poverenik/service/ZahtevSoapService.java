@@ -1,11 +1,13 @@
 package com.xml.team18.poverenik.service;
 
+import com.xml.team18.poverenik.generators.ZahtevGenerator;
 import com.xml.team18.poverenik.model.ListaZahteva;
 import com.xml.team18.poverenik.model.izjasnjenje.Izjasnjenje;
 import com.xml.team18.poverenik.model.zahtev.Zahtev;
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
 import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import com.xml.team18.poverenik.soap.incoming.ZahtevServicePortType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.namespace.QName;
@@ -15,6 +17,9 @@ import java.net.URL;
 @Service
 public class ZahtevSoapService {
     private ZahtevServicePortType endpoint;
+
+    @Autowired
+    private ZahtevGenerator zahtevGenerator;
 
     public ListaZahteva neodgovoreniZahtevi(String idKorisnika) {
         this.setupService();
@@ -52,6 +57,16 @@ public class ZahtevSoapService {
         i.setIdZalbe(zalbaCutanje.getId());
         i.setTipZalbe("cutanje");
         endpoint.zahtevajIzjasnjenje(i);
+    }
+
+    public String generatePdfZahtev(String id) throws Exception {
+        Zahtev z = endpoint.getById(id);
+        return zahtevGenerator.generatePDF(z);
+    }
+
+    public String generateXhtmlZahtev(String id) throws Exception {
+        Zahtev z = endpoint.getById(id);
+        return zahtevGenerator.generateXhtml(z);
     }
 
     private void setupService() {

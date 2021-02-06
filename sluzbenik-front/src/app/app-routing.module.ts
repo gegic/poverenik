@@ -18,6 +18,9 @@ import {PodnosenjeIzvestajaComponent} from './components/podnosenje-izvestaja/po
 import {PregledIzvestajaComponent} from './components/pregled-izvestaja/pregled-izvestaja.component';
 import {PrikazIzvestajaComponent} from './components/prikaz-izvestaja/prikaz-izvestaja.component';
 import {PregledPretragaComponent} from './components/pregled-pretraga/pregled-pretraga.component';
+import {ResenjePrikazComponent} from './components/resenje-prikaz/resenje-prikaz.component';
+import {ZalbaCutanjePrikazComponent} from './components/zalba-cutanje-prikaz/zalba-cutanje-prikaz.component';
+import {ZalbaNaOdlukuPrikazComponent} from './components/zalba-na-odluku-prikaz/zalba-na-odluku-prikaz.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
@@ -39,6 +42,9 @@ const routes: Route[] = [
       {path: 'pregled-izvestaja', component: PregledIzvestajaComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'prikaz-izvestaja', component: PrikazIzvestajaComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'pregled-pretraga', component: PregledPretragaComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
+      {path: 'resenje', component: ResenjePrikazComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
+      {path: 'zalba-cutanje', component: ZalbaCutanjePrikazComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
+      {path: 'zalba-na-odluku', component: ZalbaNaOdlukuPrikazComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]},
       {path: 'sluzbenik', component: SluzbenikViewComponent, data: {roles: ['sluzbenik']}, canActivate: [AuthGuard]}
     ]
   },

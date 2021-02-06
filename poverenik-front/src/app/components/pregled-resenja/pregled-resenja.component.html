@@ -27,11 +27,32 @@
           ></button>
         </td>
         <td>
-          <button class="p-button-secondary"
-                  label="Žalba"
-                  (click)="pregledajZalbu(resenje.zalba._attributes.id, resenje.zalba._attributes.tip)"
-                  pButton
-          ></button>
+          <div class="p-grid">
+            <div class="p-col-12 p-text-center">
+              <button type="button"
+                      class="p-button-rounded"
+                      pButton
+                      label="Žalba"
+                      (click)="otvoriReferenciranuZalbu(resenje.zalba._attributes)"
+              ></button>
+            </div>
+            <div class="p-col-12 p-text-center" *ngIf="!!resenje.zalba.obavestenje">
+              <button type="button"
+                      class="p-button-rounded"
+                      label="Obaveštenje"
+                      (click)="otvoriReferenciranoObavestenje(resenje.zalba.obavestenje._attributes)"
+                      pButton
+              ></button>
+            </div>
+            <div class="p-col-12 p-text-center">
+              <button type="button"
+                      class="p-button-rounded"
+                      pButton
+                      label="Zahtev"
+                      (click)="otvoriReferenciraniZahtev(resenje.zahtev._attributes)"
+              ></button>
+            </div>
+          </div>
         </td>
         <td>
           <button class="p-button-secondary"

@@ -1,7 +1,13 @@
 package com.xml.team18.poverenik.soap.zalba;
 
+import com.xml.team18.poverenik.model.ListaZalbiCutanje;
+import com.xml.team18.poverenik.model.ListaZalbiNaOdluku;
 import com.xml.team18.poverenik.model.izjasnjenje.OdgovorIzjasnjenje;
+import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import com.xml.team18.poverenik.model.zalba.na.odluku.ZalbaNaOdluku;
 import com.xml.team18.poverenik.repository.OdgovorRepository;
+import com.xml.team18.poverenik.repository.ZalbaCutanjeRepository;
+import com.xml.team18.poverenik.repository.ZalbaNaOdlukuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +29,21 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 public class ZalbaServiceSoapBindingImpl implements ZalbaServicePortType {
 
     private OdgovorRepository odgovorRepository;
-
+    private ZalbaNaOdlukuRepository zalbaNaOdlukuRepository;
+    private ZalbaCutanjeRepository zalbaCutanjeRepository;
+    
     private static final Logger LOG = Logger.getLogger(ZalbaServiceSoapBindingImpl.class.getName());
+
+    @Override
+    public ZalbaNaOdluku getByIdZalbaNaOdluku(String id) {
+        LOG.info("Executing operation getByIdZalbaNaOdluku");
+        try {
+            return this.zalbaNaOdlukuRepository.findById(id);
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 
     public boolean odgovori(OdgovorIzjasnjenje odgovor) {
         LOG.info("Executing operation odgovori");
@@ -38,9 +57,52 @@ public class ZalbaServiceSoapBindingImpl implements ZalbaServicePortType {
         }
     }
 
+    @Override
+    public ZalbaCutanje getByIdZalbaCutanje(String id) {
+        LOG.info("Executing operation getByIdZalbaCutanje");
+        try {
+            return this.zalbaCutanjeRepository.findById(id);
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public ListaZalbiNaOdluku pretragaZalbaNaOdluku(String id) {
+        LOG.info("Executing operation pretragaZalbaNaOdluku");
+        try {
+            return new ListaZalbiNaOdluku(this.zalbaNaOdlukuRepository.naprednaPretraga(id));
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public ListaZalbiCutanje pretragaZalbaCutanje(String id) {
+        LOG.info("Executing operation pretragaZalbaNaOdluku");
+        try {
+            return new ListaZalbiCutanje(this.zalbaCutanjeRepository.naprednaPretraga(id));
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
     @Autowired
     public void setOdgovorRepository(OdgovorRepository odgovorRepository) {
         this.odgovorRepository = odgovorRepository;
+    }
+
+    @Autowired
+    public void setZalbaNaOdlukuRepository(ZalbaNaOdlukuRepository zalbaNaOdlukuRepository) {
+        this.zalbaNaOdlukuRepository = zalbaNaOdlukuRepository;
+    }
+
+    @Autowired
+    public void setZalbaCutanjeRepository(ZalbaCutanjeRepository zalbaCutanjeRepository) {
+        this.zalbaCutanjeRepository = zalbaCutanjeRepository;
     }
 
 }

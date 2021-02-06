@@ -36,6 +36,9 @@ import { PrikazIzvestajaComponent } from './components/prikaz-izvestaja/prikaz-i
 import { PregledPretragaComponent } from './components/pregled-pretraga/pregled-pretraga.component';
 import {MenuModule} from 'primeng/menu';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ResenjePrikazComponent} from './components/resenje-prikaz/resenje-prikaz.component';
+import {ZalbaCutanjePrikazComponent} from './components/zalba-cutanje-prikaz/zalba-cutanje-prikaz.component';
+import {ZalbaNaOdlukuPrikazComponent} from './components/zalba-na-odluku-prikaz/zalba-na-odluku-prikaz.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     PregledIzvestajaComponent,
     PrikazIzvestajaComponent,
     PregledPretragaComponent,
+    ResenjePrikazComponent,
+    ZalbaCutanjePrikazComponent,
+    ZalbaNaOdlukuPrikazComponent
   ],
     imports: [
       BrowserModule,

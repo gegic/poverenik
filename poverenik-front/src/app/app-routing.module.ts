@@ -19,6 +19,8 @@ import {ResenjePrikazComponent} from './components/resenje-prikaz/resenje-prikaz
 import {PregledIzvestajaComponent} from './components/pregled-izvestaja/pregled-izvestaja.component';
 import {PrikazIzvestajaComponent} from './components/prikaz-izvestaja/prikaz-izvestaja.component';
 import {PregledPretragaComponent} from './components/pregled-pretraga/pregled-pretraga.component';
+import {ZahtevPrikazComponent} from './components/zahtev-prikaz/zahtev-prikaz.component';
+import {ObavestenjePrikazComponent} from './components/obavestenje-prikaz/obavestenje-prikaz.component';
 
 const routes: Route[] = [
   {path: 'prijava', component: PrijavaComponent, data: {roles: ['UNREGISTERED']}, canActivate: [AuthGuard]},
@@ -42,6 +44,8 @@ const routes: Route[] = [
       {path: 'pregled-izvestaja', component: PregledIzvestajaComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
       {path: 'prikaz-izvestaja', component: PrikazIzvestajaComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
       {path: 'pregled-pretraga', component: PregledPretragaComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
+      {path: 'zahtev', component: ZahtevPrikazComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
+      {path: 'obavestenje', component: ObavestenjePrikazComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]},
       {path: 'poverenik', component: PoverenikViewComponent, data: {roles: ['poverenik']}, canActivate: [AuthGuard]}
     ]
   },

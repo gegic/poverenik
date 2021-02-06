@@ -2,16 +2,20 @@
 package com.xml.team18.poverenik.model;
 
 import com.xml.team18.poverenik.model.resenje.Resenje;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "resenje"
 })
-@XmlRootElement(name = "lista-resenjea")
+@XmlRootElement(name = "lista-resenja")
 public class ListaResenja {
 
     @XmlElement(required = true)

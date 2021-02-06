@@ -44,35 +44,6 @@ export class PregledPretragaComponent implements OnInit {
     }
   }
 
-  naprednaPretraga(): void {
-    this.rezultati = [];
-    this.loading = true;
-    this.pretragaService.naprednaPretragaResenja(this.upit.value).subscribe(resenjaXml => {
-      const ob = (xml.xml2js(resenjaXml, {compact: true}) as any).entityList.resenje;
-      let resenja: any[];
-      if (Array.isArray(ob)) {
-        resenja = ob;
-      } else {
-        if (!ob) {
-          resenja = [];
-        } else {
-          resenja = [ob];
-        }
-      }
-      this.rezultati = this.rezultati.concat(resenja.map(o => {
-        return {
-          tip: 'resenje',
-          id: o._attributes.id,
-          podnosilac: o.podnosilac['ime-prezime']._text,
-          organ: o.organ.naziv._text,
-          zahtev: o.zahtev._attributes.id,
-          element: o
-        };
-      }));
-      this.resultsSet = true;
-    });
-  }
-
   generateXHTML(rezultat: any): void {
     if (rezultat.tip === 'zalba-na-odluku') {
       this.zalbaNaOdlukuService.generateXHTML(rezultat.id).subscribe(val => {
@@ -124,6 +95,14 @@ export class PregledPretragaComponent implements OnInit {
     } else {
       this.router.navigate(['zalba-na-odluku'], {queryParams: {zalbaNaOdluku: rezultat.zalba}});
     }
+  }
+
+  otvoriReferenciraniZahtev(rezultat: any): void {
+      this.router.navigate(['zahtev'], {queryParams: {zahtev: rezultat.zahtev}});
+  }
+
+  otvoriReferenciranoObavestenje(rezultat: any): void {
+    this.router.navigate(['obavestenje'], {queryParams: {obavestenje: rezultat.obavestenje}});
   }
 
   obicnaPretraga(): void {
@@ -213,6 +192,95 @@ export class PregledPretragaComponent implements OnInit {
       this.loading = false;
     });
   }
+
+  naprednaPretraga(): void {
+    this.rezultati = [];
+    this.loading = true;
+    this.pretragaService.naprednaPretragaResenja(this.upit.value).subscribe(resenjaXml => {
+      const ob = (xml.xml2js(resenjaXml, {compact: true}) as any).entityList.resenje;
+      let resenja: any[];
+      if (Array.isArray(ob)) {
+        resenja = ob;
+      } else {
+        if (!ob) {
+          resenja = [];
+        } else {
+          resenja = [ob];
+        }
+      }
+      this.rezultati = this.rezultati.concat(resenja.map(o => {
+        return {
+          tip: 'resenje',
+          podtip: o.zalba._attributes.tip,
+          id: o._attributes.id,
+          podnosilac: o.zalilac['ime-prezime']._text,
+          organ: o.protiv.naziv._text,
+          zahtev: o.zahtev._attributes.id,
+          zalba: o.zalba._attributes.id,
+          obavestenje: !o.zalba.obavestenje ? undefined : o.zalba.obavestenje._attributes.id,
+          element: o
+        };
+      }));
+      this.naprednaPretragaZalbiCutanje();
+    });
+  }
+
+  naprednaPretragaZalbiCutanje(): void {
+    this.pretragaService.naprednaPretragaZalbiCutanje(this.upit.value).subscribe(zalbeXml => {
+      const ob = (xml.xml2js(zalbeXml, {compact: true}) as any).entityList['zalba-cutanje'];
+      let zalbe: any[];
+      if (Array.isArray(ob)) {
+        zalbe = ob;
+      } else {
+        if (!ob) {
+          zalbe = [];
+        } else {
+          zalbe = [ob];
+        }
+      }
+      this.rezultati = this.rezultati.concat(zalbe.map(o => {
+        return {
+          tip: 'zalba-cutanje',
+          id: o._attributes.id,
+          podnosilac: o.podnosilac['ime-prezime']._text,
+          organ: o.protiv.naziv._text,
+          zahtev: o.zahtev._attributes.id,
+          element: o
+        };
+      }));
+      this.naprednaPretragaZalbiNaOdluku();
+    });
+  }
+
+  naprednaPretragaZalbiNaOdluku(): void {
+    this.pretragaService.naprednaPretragaZalbiNaOdluku(this.upit.value).subscribe(zalbeXml => {
+      const ob = (xml.xml2js(zalbeXml, {compact: true}) as any).entityList['zalba-na-odluku'];
+      let zalbe: any[];
+      if (Array.isArray(ob)) {
+        zalbe = ob;
+      } else {
+        if (!ob) {
+          zalbe = [];
+        } else {
+          zalbe = [ob];
+        }
+      }
+      this.rezultati = this.rezultati.concat(zalbe.map(o => {
+        return {
+          tip: 'zalba-na-odluku',
+          id: o._attributes.id,
+          podnosilac: o.podnosilac['ime-prezime']._text,
+          organ: o.protiv.donosilac.naziv._text,
+          obavestenje: o.protiv._attributes.id,
+          zahtev: o.zahtev._attributes.id,
+          element: o
+        };
+      }));
+      this.resultsSet = true;
+      this.loading = false;
+    });
+  }
+
 
   copyId(rezultat): void {
     const selBox = document.createElement('textarea');

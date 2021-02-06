@@ -84,4 +84,20 @@ export class PregledResenjaComponent implements OnInit {
     });
   }
 
+  otvoriReferenciranuZalbu(rezultat: any): void {
+    if (rezultat.tip === 'cutanje') {
+      this.router.navigate(['zalba-cutanje'], {queryParams: {zalbaCutanje: rezultat.id}});
+    } else {
+      this.router.navigate(['zalba-na-odluku'], {queryParams: {zalbaNaOdluku: rezultat.id}});
+    }
+  }
+
+  otvoriReferenciraniZahtev(rezultat: any): void {
+    this.router.navigate(['zahtev'], {queryParams: {zahtev: rezultat.id}});
+  }
+
+  otvoriReferenciranoObavestenje(rezultat: any): void {
+    this.router.navigate(['obavestenje'], {queryParams: {obavestenje: rezultat.id}});
+  }
+
 }

@@ -32,4 +32,16 @@ export class PretragaService {
   naprednaPretragaIzvestaja(upit: string): Observable<any> {
     return this.httpClient.get(`/api/izvestaji/napredna-pretraga?upit=${upit}`);
   }
+
+  naprednaPretragaResenja(upit: string): Observable<any> {
+    return this.httpClient.get(`/api/resenja/napredna-pretraga?upit=${upit}`);
+  }
+
+  naprednaPretragaZalbiCutanje(upit: string): Observable<any> {
+    return this.httpClient.get(`/api/zalbe-cutanje/napredna-pretraga?upit=${upit}`);
+  }
+
+  naprednaPretragaZalbiNaOdluku(upit: string): Observable<any> {
+    return this.httpClient.get(`/api/zalbe-na-odluku/napredna-pretraga?upit=${upit}`);
+  }
 }

@@ -3,6 +3,8 @@ package com.xml.team18.poverenik.model;
 
 
 import com.xml.team18.poverenik.model.zalba.cutanje.ZalbaCutanje;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -28,6 +30,8 @@ import java.util.List;
  * 
  * 
  */
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "zalbaCutanje"

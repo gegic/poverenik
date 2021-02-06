@@ -11,7 +11,7 @@ import java.util.List;
 @XmlType(name = "", propOrder = {
     "resenje"
 })
-@XmlRootElement(name = "lista-resenjea")
+@XmlRootElement(name = "lista-resenja")
 public class ListaResenja {
 
     @XmlElement(required = true)

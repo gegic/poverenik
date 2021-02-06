@@ -166,6 +166,14 @@ export class PregledZalbiComponent implements OnInit, OnDestroy {
 
   }
 
+  otvoriReferenciraniZahtev(rezultat: any): void {
+    this.router.navigate(['zahtev'], {queryParams: {zahtev: rezultat.id}});
+  }
+
+  otvoriReferenciranoObavestenje(rezultat: any): void {
+    this.router.navigate(['obavestenje'], {queryParams: {obavestenje: rezultat.id}});
+  }
+
   ngOnDestroy(): void {
     this.zalbe = [];
   }

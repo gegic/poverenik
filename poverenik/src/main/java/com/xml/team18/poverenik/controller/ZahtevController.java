@@ -37,4 +37,30 @@ public class ZahtevController {
         return ResponseEntity.ok(this.zahtevSoapService.odbijeniZahtevi(idKorisnika));
     }
 
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    ResponseEntity<Zahtev> getById(@PathVariable String id) {
+        return ResponseEntity.ok(this.zahtevSoapService.getById(id));
+    }
+
+    @PostMapping(value = "/generate-pdf/{id}")
+    public ResponseEntity<String> generatePDFZahtev(@PathVariable String id) {
+        try {
+            String path = zahtevSoapService.generatePdfZahtev(id);
+            return ResponseEntity.ok(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @PostMapping(value = "/generate-xhtml/{id}")
+    public ResponseEntity<String> generateXhtmlZahtev(@PathVariable String id) {
+        try {
+            String path = zahtevSoapService.generateXhtmlZahtev(id);
+            return ResponseEntity.ok(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

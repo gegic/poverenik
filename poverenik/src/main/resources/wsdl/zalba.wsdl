@@ -7,8 +7,8 @@
                   name="ZalbaService">
     <wsdl:types>
         <xsd:schema>
-            <xsd:include schemaLocation="../xsd/zalbacutanje.xsd"/>
-            <xsd:include schemaLocation="../xsd/zalbanaodluku.xsd"/>
+            <xsd:include schemaLocation="../xsd/lista_zalbi_cutanje.xsd"/>
+            <xsd:include schemaLocation="../xsd/lista_zalbi_na_odluku.xsd"/>
             <xsd:include schemaLocation="../xsd/odgovor_izjasnjenje.xsd"/>
         </xsd:schema>
     </wsdl:types>
@@ -20,19 +20,98 @@
         <wsdl:part name="uspesno" type="xsd:boolean" />
     </wsdl:message>
 
-    <wsdl:portType name="ZalbaServicePortType">
+    <wsdl:message name="getByIdZalbaCutanjeRequest">
+        <wsdl:part name="id" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getByIdZalbaCutanjeResponse">
+        <wsdl:part name="zalba" element="zalba-cutanje" />
+    </wsdl:message>
 
+    <wsdl:message name="getByIdZalbaNaOdlukuRequest">
+        <wsdl:part name="id" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getByIdZalbaNaOdlukuResponse">
+        <wsdl:part name="zalba" element="zalba-na-odluku" />
+    </wsdl:message>
+
+    <wsdl:message name="pretragaZalbaCutanjeRequest">
+        <wsdl:part name="id" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="pretragaZalbaCutanjeResponse">
+        <wsdl:part name="listaZalbi" element="lista-zalbi-cutanje" />
+    </wsdl:message>
+
+    <wsdl:message name="pretragaZalbaNaOdlukuRequest">
+        <wsdl:part name="id" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="pretragaZalbaNaOdlukuResponse">
+        <wsdl:part name="listaZalbi" element="lista-zalbi-na-odluku" />
+    </wsdl:message>
+    
+    <wsdl:portType name="ZalbaServicePortType">
         <wsdl:operation name="odgovori">
             <wsdl:input message="tns:odgovoriRequest" />
             <wsdl:output message="tns:odgovoriResponse" />
         </wsdl:operation>
+        <wsdl:operation name="getByIdZalbaCutanje">
+            <wsdl:input message="tns:getByIdZalbaCutanjeRequest" />
+            <wsdl:output message="tns:getByIdZalbaCutanjeResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="getByIdZalbaNaOdluku">
+            <wsdl:input message="tns:getByIdZalbaNaOdlukuRequest" />
+            <wsdl:output message="tns:getByIdZalbaNaOdlukuResponse" />
+        </wsdl:operation>
 
+        <wsdl:operation name="pretragaZalbaCutanje">
+            <wsdl:input message="tns:pretragaZalbaCutanjeRequest" />
+            <wsdl:output message="tns:pretragaZalbaCutanjeResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="pretragaZalbaNaOdluku">
+            <wsdl:input message="tns:pretragaZalbaNaOdlukuRequest" />
+            <wsdl:output message="tns:pretragaZalbaNaOdlukuResponse" />
+        </wsdl:operation>
     </wsdl:portType>
 
     <wsdl:binding name="ZalbaServiceSoapBinding" type="tns:ZalbaServicePortType">
         <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
         <wsdl:operation name="odgovori">
             <soap:operation soapAction="odgovori" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getByIdZalbaCutanje">
+            <soap:operation soapAction="getByIdZalbaCutanje" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getByIdZalbaNaOdluku">
+            <soap:operation soapAction="getByIdZalbaNaOdluku" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pretragaZalbaCutanje">
+            <soap:operation soapAction="pretragaZalbaCutanje" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pretragaZalbaNaOdluku">
+            <soap:operation soapAction="pretragaZalbaNaOdluku" />
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

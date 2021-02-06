@@ -1,5 +1,6 @@
 package com.xml.team18.poverenik.soap.resenje;
 
+import com.xml.team18.poverenik.exceptions.ResourceNotFoundException;
 import com.xml.team18.poverenik.model.ListaResenja;
 import com.xml.team18.poverenik.model.izjasnjenje.OdgovorIzjasnjenje;
 import com.xml.team18.poverenik.model.resenje.Resenje;
@@ -33,11 +34,15 @@ public class ResenjeServiceSoapBindingImpl implements ResenjeServicePortType {
 
     @Override
     public Resenje getById(String idResenja) {
-        return null;
+        try {
+            return this.resenjeRepository.findById(idResenja);
+        } catch (ResourceNotFoundException e) {
+            return null;
+        }
     }
 
     @Override
     public ListaResenja pretraga(String upit) {
-        return null;
+        return new ListaResenja(this.resenjeRepository.naprednaPretraga(upit));
     }
 }

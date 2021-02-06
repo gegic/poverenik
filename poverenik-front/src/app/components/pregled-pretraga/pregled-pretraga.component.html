@@ -60,18 +60,38 @@
           <button class="p-button" label="Detalji" (click)="detalji(rezultat)" pButton></button>
         </td>
         <td>
-          <button type="button"
-                  *ngIf="rezultat.tip === 'resenje'"
-                  pButton
-                  label="Žalba"
-                  (click)="otvoriReferenciranuZalbu(rezultat)"
-          ></button>
+          <div class="p-grid">
+            <div class="p-col-12 p-text-center" *ngIf="rezultat.tip === 'resenje'">
+              <button type="button"
+                      class="p-button-rounded"
+                      pButton
+                      label="Žalba"
+                      (click)="otvoriReferenciranuZalbu(rezultat)"
+              ></button>
+            </div>
+            <div class="p-col-12 p-text-center" *ngIf="(rezultat.tip === 'resenje' && rezultat.podtip === 'na-odluku') || rezultat.tip === 'zalba-na-odluku'">
+              <button type="button"
+                      class="p-button-rounded"
+                      label="Obaveštenje"
+                      (click)="otvoriReferenciranoObavestenje(rezultat)"
+                      pButton
+              ></button>
+            </div>
+            <div class="p-col-12 p-text-center">
+              <button type="button"
+                      class="p-button-rounded"
+                      pButton
+                      label="Zahtev"
+                      (click)="otvoriReferenciraniZahtev(rezultat)"
+              ></button>
+            </div>
+          </div>
         </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">
       <tr>
-        <td [attr.colspan]="6">
+        <td [attr.colspan]="7">
           {{!resultsSet ? 'Prvo izvršite pretragu' : 'Nema rezultata pretrage...'}}
         </td>
       </tr>
