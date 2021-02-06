@@ -1,4 +1,9 @@
-# xml2020
+# xml2020 Tim 18
+
+* Nikola Papić
+* Slobodan Zelić
+* Damjan Manojlović
+* Gegić Haris
 
 ### Video demonstracija
 Nespretno i neuko snimljeni i uređeni video snimak, dužine nešto više od tri minuta, prikazuje najosnovnije funkcionalnosti sistema. Na snimku je prvo prikazan rad sa portalom organa vlasti u okviru kojeg se mogu uočiti sljedeće funkcionalnosti: 
