@@ -47,4 +47,4 @@ Sve navedene projekte je moguće otvoriti u razvojnom okruženju koje podržava 
 
 #### Frontend
 
-Iz direktorijuma sa nastavkom -front, potrebno je pozvati prvo komandu `npm install` kako bi se instalirali svi moduli i zavisnosti, a onda komandu `ng serve`, korišćenjem angular clija, kako bi se pokrenuli dati portali. Kad se pokrenu oba portala, službeniku je moguće pristupiti preko adrese http://localhost:4200/, a portalu poverenika preko http://localhost:4201/
+Iz direktorijuma poverenik-front i sluzbenik-front, potrebno je pozvati prvo komandu `npm install` kako bi se instalirali svi moduli i zavisnosti, a onda komandu `ng serve`, korišćenjem angular clija, kako bi se pokrenuli dati portali. Kad se pokrenu oba portala, službeniku je moguće pristupiti preko adrese http://localhost:4200/, a portalu poverenika preko http://localhost:4201/
