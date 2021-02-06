@@ -48,7 +48,11 @@ public class AuthController {
         try {
             korisnikService.loadUserByUsername(authenticationRequest.getEmail());
         } catch (UsernameNotFoundException e) {
-            Korisnik k = this.korisnikSoapService.korisnikByEmail(authenticationRequest.getEmail());
+            Korisnik k = null;
+            try {
+                k = this.korisnikSoapService.korisnikByEmail(authenticationRequest.getEmail());
+            } catch (Exception ignored) {
+            }
             if (k == null) {
                 return new ResponseEntity<>("Korisnik ne postoji.", HttpStatus.UNAUTHORIZED);
             }
@@ -73,13 +77,16 @@ public class AuthController {
 
     @PostMapping(value = "/registracija", consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> addUser(@Valid @RequestBody Korisnik userRequest) throws Exception {
-        Korisnik k;
         try {
             this.korisnikService.loadUserByUsername(userRequest.getEmail());
             return new ResponseEntity<>("Korisnik sa emailom vec postoji", HttpStatus.CONFLICT);
-        } catch (UsernameNotFoundException ignored) {
-            Korisnik korisnik = this.korisnikSoapService.korisnikByEmail(userRequest.getEmail());
-            if (korisnik != null) {
+        } catch (UsernameNotFoundException e) {
+            Korisnik k = null;
+            try {
+                k = this.korisnikSoapService.korisnikByEmail(userRequest.getEmail());
+            } catch (Exception ignored) {
+            }
+            if (k != null) {
                 return new ResponseEntity<>("Korisnik vec postoji.", HttpStatus.UNAUTHORIZED);
             }
         }

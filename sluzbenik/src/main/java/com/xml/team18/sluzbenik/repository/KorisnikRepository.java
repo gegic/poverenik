@@ -59,9 +59,8 @@ public class KorisnikRepository {
         String contentFound;
         try {
             contentFound = found.getContent().toString();
-            return (Korisnik) ((JAXBElement<?>) jaxB
-                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class))
-                    .getValue();
+            return (Korisnik) jaxB
+                    .unmarshall(contentFound, Korisnik.class, KorisnikFactory.class);
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
             return null;

@@ -1,17 +1,25 @@
 package com.xml.team18.sluzbenik.service;
 
 
+import com.xml.team18.sluzbenik.dto.EmailDto;
 import com.xml.team18.sluzbenik.exceptions.ResourceNotFoundException;
+import com.xml.team18.sluzbenik.factory.EmailDtoFactory;
 import com.xml.team18.sluzbenik.factory.ObavestenjeFactory;
 import com.xml.team18.sluzbenik.generators.ObavestenjeGenerator;
 import com.xml.team18.sluzbenik.jaxb.JaxB;
 import com.xml.team18.sluzbenik.model.obavestenje.Obavestenje;
 import com.xml.team18.sluzbenik.model.zahtev.Zahtev;
 import com.xml.team18.sluzbenik.repository.IzvestajRepository;
+import com.xml.team18.sluzbenik.repository.KorisnikRepository;
 import com.xml.team18.sluzbenik.repository.ObavestenjeRepository;
 import com.xml.team18.sluzbenik.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -26,18 +34,21 @@ public class ObavestenjeService {
     private final JaxB jaxB;
     private final ObavestenjeGenerator obavestenjeGenerator;
     private final IzvestajRepository izvestajRepository;
+    private final KorisnikRepository korisnikRepository;
 
     @Autowired
     public ObavestenjeService(ObavestenjeRepository obavestenjeRepository,
                               JaxB jaxB,
                               ZahtevRepository zahtevRepository,
                               ObavestenjeGenerator obavestenjeGenerator,
-                              IzvestajRepository izvestajRepository) {
+                              IzvestajRepository izvestajRepository,
+                              KorisnikRepository korisnikRepository) {
         this.repository = obavestenjeRepository;
         this.jaxB = jaxB;
         this.zahtevRepository = zahtevRepository;
         this.obavestenjeGenerator = obavestenjeGenerator;
         this.izvestajRepository = izvestajRepository;
+        this.korisnikRepository = korisnikRepository;
     }
 
     public String save(Obavestenje obavestenje) throws Exception {
@@ -52,6 +63,9 @@ public class ObavestenjeService {
             z.setPrihvatanje("odbijen");
             this.izvestajRepository.zahtevOdbijen();
         }
+        String email = korisnikRepository.findById(o.getPodnosilac().getId()).getEmail();
+        this.generatePdf(o.getId());
+        this.sendEmailObavestenje(o.getId(), email);
         zahtevRepository.save(z);
         return o.getId();
     }
@@ -84,5 +98,25 @@ public class ObavestenjeService {
     public String generateXhtml(String id) throws Exception {
         Obavestenje o = repository.findById(id);
         return obavestenjeGenerator.generateXhtml(o);
+    }
+
+    @Async
+    public void sendEmailObavestenje(String id, String email) {
+        EmailDto emailDto = new EmailDto();
+        emailDto.setTo(email);
+        emailDto.setSubject("Novo obavestenje");
+        emailDto.setContent("U vezi sa Vasim zahtevom je doneto novo obavestenje. Mozete ga procitati i preuzeti na " +
+                "&lt;a href=&quot;http://localhost:4200/pdf/" + id + ".pdf&quot;&gt;ovoj adresi&lt;/a&gt;.");
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_XML);
+        try {
+            String xml = jaxB.marshall(emailDto, EmailDto.class, EmailDtoFactory.class);
+            HttpEntity<String> entity = new HttpEntity<String>(xml, headers);
+
+            restTemplate.postForEntity("http://localhost:8078/api/email", entity, Void.class);
+        } catch (JAXBException ignored) {
+        }
+
     }
 }

@@ -24,7 +24,7 @@ public class ResenjeController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
-    ResponseEntity<String> addResenje(@RequestBody Resenje resenje) throws ResourceNotFoundException {
+    ResponseEntity<String> addResenje(@RequestBody Resenje resenje) throws Exception {
         return ResponseEntity.created(URI.create(this.service.save(resenje))).build();
     }
 
