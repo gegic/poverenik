@@ -37,13 +37,15 @@ Nakon odrađenog, u komandnoj liniji izabrati direktorijum bin, pa za oba tomcat
 
 #### Bekend
 
+Sve dolje navedene projekte je moguće otvoriti u razvojnom okruženju koje podržava Javu i Spring Boot framework (Eclipse, Spring Tool Suite, IntelliJ...) i pokrenuti kao Spring Boot aplikaciju.
+
+Eventualno, moguće je upotrebiti sljedeći način: 
+
 Kako bi se pokrenule obe bekend aplikacije, potrebno je, korišćenjem mavena, pozvati komandu `spring-boot:run` za obe aplikacije.
 
 Portal službenika će se pokrenuti na portu 8080, a portal poverenika na 8079
 
 Još jedna spring aplikacija koju je potrebno pokrenuti je i imejl servis. On se pokreće sa porta 8078.
-
-Sve navedene projekte je moguće otvoriti u razvojnom okruženju koje podržava Javu i Spring Boot framework (Eclipse, Spring Tool Suite, IntelliJ...) i pokrenuti kao Spring Boot aplikaciju.
 
 #### Frontend
 
