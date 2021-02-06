@@ -1,0 +1,12 @@
+@prefix pred:  <http://team14.xml.com/rdf/zahtevi/predicate/> .
+
+<http://team14.xml.com/rdf/zahtevi/dcfa63ac-5001-4bdd-8c1f-99cc63b7bd9e>
+        pred:datum-zahteva         "2021-02-06"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral> ;
+        pred:ime-prezime-trazioca  "Macak Mackic"^^<file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string> ;
+        pred:mesto-trazioca        "Mesto"^^<file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string> ;
+        pred:mesto-ustanove        "Mestasce"^^<file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string> ;
+        pred:mesto-zahteva         "Mestasce"^^<file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/date> ;
+        pred:naziv-ustanove        "Neka ustanova"^^<file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string> ;
+        pred:opis-zahteva          "Opisuje se navedeni zahtev i oko cega se sve tu radi"^^<file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string> ;
+        pred:trazilac              "775b3f3b-9f96-4187-ad00-b062fe4d88d9"^^<http://www.w3.org/2000/01/rdf-schema#Literal> ;
+        pred:ulica-trazioca        "Ulicica"^^<file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string> .

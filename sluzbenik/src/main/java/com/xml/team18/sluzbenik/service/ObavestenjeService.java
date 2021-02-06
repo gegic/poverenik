@@ -24,6 +24,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.UUID;
 
@@ -118,5 +119,13 @@ public class ObavestenjeService {
         } catch (JAXBException ignored) {
         }
 
+    }
+
+    public String getJsonById(String id) throws FileNotFoundException {
+        return repository.getJsonById(id);
+    }
+
+    public String getRdfById(String id) throws FileNotFoundException {
+        return repository.getRdfById(id);
     }
 }

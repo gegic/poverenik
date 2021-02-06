@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @Service
@@ -80,5 +81,13 @@ public class ZalbaNaOdlukuService {
 
     public List<ZalbaNaOdluku> pretraga(String query) throws Exception {
         return repository.pretraga(query);
+    }
+
+    public String getJsonById(String id) throws FileNotFoundException {
+        return repository.getJsonById(id);
+    }
+
+    public String getRdfById(String id) throws FileNotFoundException {
+        return repository.getRdfById(id);
     }
 }

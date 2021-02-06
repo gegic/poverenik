@@ -69,10 +69,15 @@
                   pButton
           ></button>
           <button type="submit"
+                  *ngIf="!loading; else loadingSpinner"
                   class="p-d-inline-block registracija-btn"
                   label="Registracija"
                   pButton
           ></button>
+          <ng-template #loadingSpinner>
+            <p-progressSpinner class="p-d-inline-block registracija-btn" [style]="{width: '30px', height: '30px'}">
+            </p-progressSpinner>
+          </ng-template>
         </div>
       </form>
     </p-card>

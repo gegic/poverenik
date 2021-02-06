@@ -47,4 +47,12 @@ export class ZalbaNaOdlukuService {
   generateXHTML(id: string): Observable<any> {
     return this.httpClient.post(`/api/zalbe-na-odluku/generate-xhtml/${id}`, null);
   }
+
+  generateJson(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zalbe-na-odluku/generate-json/${id}`, null);
+  }
+
+  generateRdf(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zalbe-na-odluku/generate-rdf/${id}`, null);
+  }
 }

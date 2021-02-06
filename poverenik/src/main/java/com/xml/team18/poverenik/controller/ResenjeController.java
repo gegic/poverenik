@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.net.URI;
 
 @RestController
@@ -72,6 +73,16 @@ public class ResenjeController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @PostMapping(value = "/generate-json/{id}")
+    public String getJsonById(@PathVariable String id) throws FileNotFoundException {
+        return service.getJsonById(id);
+    }
+
+    @PostMapping(value = "/generate-rdf/{id}")
+    public String getRdfById(@PathVariable String id) throws FileNotFoundException {
+        return service.getRdfById(id);
     }
 
 }

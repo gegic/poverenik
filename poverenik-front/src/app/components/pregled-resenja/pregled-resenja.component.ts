@@ -68,7 +68,6 @@ export class PregledResenjaComponent implements OnInit {
   }
 
   pregledajResenje(id: string): void {
-    console.log(id);
     this.router.navigate(['resenje'], {queryParams: {resenje: id}});
   }
 

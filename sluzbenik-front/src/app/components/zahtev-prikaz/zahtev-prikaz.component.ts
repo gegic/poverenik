@@ -51,6 +51,18 @@ export class ZahtevPrikazComponent implements AfterViewInit {
     });
   }
 
+  generateJson(): void {
+    this.zahtevService.generateJson(this.zahtev._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4200/${val}`;
+    });
+  }
+
+  generateRdf(): void {
+    this.zahtevService.generateRdf(this.zahtev._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4200/${val}`;
+    });
+  }
+
   prihvati(): void {
     this.obavestenjeService.zahtev.next(this.zahtev);
     this.router.navigate(['prihvatanje']);

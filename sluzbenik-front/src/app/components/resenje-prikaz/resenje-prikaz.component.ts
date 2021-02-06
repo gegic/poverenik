@@ -21,7 +21,6 @@ export class ResenjePrikazComponent implements AfterViewInit {
               public editService: ResenjeEditService) { }
 
   ngAfterViewInit(): void {
-    console.log('DJESI');
     this.activatedRoute.queryParams.subscribe(val => {
       if (!val.resenje) {
         this.router.navigate(['']);

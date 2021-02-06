@@ -27,6 +27,18 @@ public class SparqlUtil {
     /* Simple SPARQL query on a named graph */
     private static final String SELECT_NAMED_GRAPH_TEMPLATE = "SELECT * FROM <%1$s> WHERE { %2$s }";
 
+    private static final String SELECT_OBJECT_PREDICATE_NAMED_GRAPH_TEMPLATE =
+            "PREFIX pred: <http://team14.xml.com/rdf/%1$s/predicate/> " +
+                    "SELECT ?predicate ?object " +
+                    "FROM <%2$s> " +
+                    "WHERE { %3$s }";
+
+    private static final String DESCRIBE_NAMED_GRAPH_TEMPLATE =
+            "PREFIX pred: <http://team14.xml.com/rdf/%1$s/predicate/> " +
+                    "DESCRIBE <%2$s> " +
+                    "FROM <%3$s> " +
+                    "WHERE { %4$s }";
+
 
     /* Plain text RDF serialization format */
     public static final String NTRIPLES = "N-TRIPLES";
@@ -57,5 +69,13 @@ public class SparqlUtil {
 
     public static String selectDistinctIdsForData(String type, String location, String condition) {
         return String.format(SELECT_DISTINCT_NAMED_GRAPH_TEMPLATE, type, location, condition);
+    }
+
+    public static String selectPredicateObjectData(String type, String location, String condition) {
+        return String.format(SELECT_OBJECT_PREDICATE_NAMED_GRAPH_TEMPLATE, type, location, condition);
+    }
+
+    public static String describeData(String type, String subject, String location, String condition) {
+        return String.format(DESCRIBE_NAMED_GRAPH_TEMPLATE, type, subject, location, condition);
     }
 }

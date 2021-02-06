@@ -22,7 +22,6 @@ export class PodnosenjeIzvestajaComponent implements OnInit {
   ngOnInit(): void {
     this.izvestajService.getGodisnjaStatistika().subscribe(val => {
       this.izvestajService.godisnjaStatistika = (xml.xml2js(val, {compact: true}) as any)['godisnja-statistika'];
-      console.log(this.izvestajService.godisnjaStatistika);
       if (!this.izvestajService.godisnjaStatistika) {
         this.router.navigate(['']);
       }
@@ -106,7 +105,6 @@ export class PodnosenjeIzvestajaComponent implements OnInit {
     });
 
     const izvestajXml = xml.js2xml(izvestaj, {compact: true});
-    console.log(izvestajXml);
 
     this.izvestajService.post(izvestajXml).subscribe(() => {
       this.messageService.add({severity: 'success', summary: 'Uspešno podnet', detail: 'Uspešno podnet izveštaj'});

@@ -52,4 +52,17 @@ export class ObavestenjePrikazComponent implements AfterViewInit {
     });
   }
 
+  generateJson(): void {
+    this.obavestenjeService.generateJson(this.obavestenje._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4200/${val}`;
+    });
+  }
+
+  generateRdf(): void {
+    this.obavestenjeService.generateRdf(this.obavestenje._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4200/${val}`;
+    });
+  }
+
+
 }

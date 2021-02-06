@@ -55,8 +55,7 @@ export class AuthGuard implements CanActivate {
   }
 
   private authorize(accessRoles: string[], korisnik: Korisnik | null): boolean {
-    console.log(accessRoles);
-    console.log(korisnik.uloga._text);
+
     if (!korisnik) {
       return false;
     }

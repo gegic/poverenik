@@ -39,6 +39,14 @@ export class ZahtevService {
     return this.httpClient.post(`/api/zahtevi/generate-xhtml/${id}`, null);
   }
 
+  generateJson(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zahtevi/generate-json/${id}`, null);
+  }
+
+  generateRdf(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zahtevi/generate-rdf/${id}`, null);
+  }
+
   odbij(id: string): Observable<any> {
     return this.httpClient.put(`/api/zahtevi/odbij/${id}`, null);
   }

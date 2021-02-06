@@ -55,8 +55,8 @@ export class PrijavaComponent implements OnInit {
         this.router.navigate(['']);
       },
       () => {
-        this.messageService.add({severity: 'error', summary: 'Neuspešna prijava', detail: 'Prijava nije bila uspešna'});
         this.loading = false;
+        this.messageService.add({severity: 'error', summary: 'Neuspešna prijava', detail: 'Prijava nije bila uspešna'});
       });
   }
 

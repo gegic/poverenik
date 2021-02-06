@@ -25,6 +25,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.namespace.QName;
+import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -237,5 +238,13 @@ public class ObavestenjeRepository {
                     .unmarshall(r.getContent().toString(), Obavestenje.class, ObavestenjeFactory.class));
         }
         return zahtevi;
+    }
+
+    public String getJsonById(String id) throws FileNotFoundException {
+        return this.fusekiWriter.getMetaDataByIdAsJSON("obavestenja", id);
+    }
+
+    public String getRdfById(String id) throws FileNotFoundException {
+        return this.fusekiWriter.getDocumentMetaDataByIdAsRDF("obavestenja", id);
     }
 }

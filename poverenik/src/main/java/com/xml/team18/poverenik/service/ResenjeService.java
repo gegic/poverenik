@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @Service
@@ -124,6 +125,14 @@ public class ResenjeService {
 
     public List<Resenje> pretraga(String query) throws Exception {
         return repository.pretraga(query);
+    }
+
+    public String getJsonById(String id) throws FileNotFoundException {
+        return repository.getJsonById(id);
+    }
+
+    public String getRdfById(String id) throws FileNotFoundException {
+        return repository.getRdfById(id);
     }
 
 }

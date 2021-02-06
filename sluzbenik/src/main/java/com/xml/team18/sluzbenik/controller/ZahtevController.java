@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.net.URI;
 
 @RestController
@@ -88,5 +89,15 @@ public class ZahtevController {
     @PutMapping(value = "/odbij/{id}")
     public ResponseEntity<Zahtev> odbij(@PathVariable String id) throws ResourceNotFoundException {
         return ResponseEntity.ok(service.odbij(id));
+    }
+
+    @PostMapping(value = "/generate-json/{id}")
+    public String getJsonById(@PathVariable String id) throws FileNotFoundException {
+        return service.getJsonById(id);
+    }
+
+    @PostMapping(value = "/generate-rdf/{id}")
+    public String getRdfById(@PathVariable String id) throws FileNotFoundException {
+        return service.getRdfById(id);
     }
 }

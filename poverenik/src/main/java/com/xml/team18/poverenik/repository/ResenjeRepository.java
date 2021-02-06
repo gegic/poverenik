@@ -19,6 +19,7 @@ import org.xmldb.api.modules.XMLResource;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -161,5 +162,13 @@ public class ResenjeRepository {
                     .unmarshall(r.getContent().toString(), Resenje.class, ResenjeFactory.class));
         }
         return zahtevi;
+    }
+
+    public String getJsonById(String id) throws FileNotFoundException {
+        return this.fusekiWriter.getMetaDataByIdAsJSON("resenja", id);
+    }
+
+    public String getRdfById(String id) throws FileNotFoundException {
+        return this.fusekiWriter.getDocumentMetaDataByIdAsRDF("resenja", id);
     }
 }

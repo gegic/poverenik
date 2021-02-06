@@ -21,7 +21,6 @@ export class ResenjePrikazComponent implements AfterViewInit {
               public editService: ResenjeEditService) { }
 
   ngAfterViewInit(): void {
-    console.log('DJESI');
     this.activatedRoute.queryParams.subscribe(val => {
       if (!val.resenje) {
         this.router.navigate(['']);
@@ -52,6 +51,18 @@ export class ResenjePrikazComponent implements AfterViewInit {
   generateXHTML(): void {
     this.resenjeService.generateXHTML(this.resenje._attributes.id).subscribe(val => {
       window.location.href = `http://localhost:4201/${val}`;
+    });
+  }
+
+  generateJson(): void {
+    this.resenjeService.generateJson(this.resenje._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4200/${val}`;
+    });
+  }
+
+  generateRdf(): void {
+    this.resenjeService.generateRdf(this.resenje._attributes.id).subscribe(val => {
+      window.location.href = `http://localhost:4200/${val}`;
     });
   }
 

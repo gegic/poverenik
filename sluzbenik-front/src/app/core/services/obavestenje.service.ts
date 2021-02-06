@@ -35,4 +35,11 @@ export class ObavestenjeService {
   generateXHTML(id: string): Observable<any> {
     return this.httpClient.post(`/api/obavestenja/generate-xhtml/${id}`, null);
   }
+  generateJson(id: string): Observable<any> {
+    return this.httpClient.post(`/api/obavestenja/generate-json/${id}`, null);
+  }
+
+  generateRdf(id: string): Observable<any> {
+    return this.httpClient.post(`/api/obavestenja/generate-rdf/${id}`, null);
+  }
 }

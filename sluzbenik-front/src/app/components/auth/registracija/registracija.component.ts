@@ -15,6 +15,7 @@ import {Router} from '@angular/router';
 export class RegistracijaComponent implements OnInit {
 
   registrationForm: FormGroup;
+  loading = false;
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
@@ -61,11 +62,13 @@ export class RegistracijaComponent implements OnInit {
     const korisnikElement: KorisnikElement = new KorisnikElement();
     korisnikElement.korisnik = korisnik;
     const xmlKorisnik = xml.js2xml(korisnikElement, {compact: true, ignoreComment: true, spaces: 2});
-
+    this.loading = true;
     this.authService.register(xmlKorisnik).subscribe(val => {
       this.messageService.add({severity: 'success', summary: 'Uspešna registracija', detail: 'Sada možete pristupiti prijavi'});
       this.router.navigate(['/prijava']);
+      this.loading = false;
     }, error => {
+      this.loading = false;
       if (error.status === 409) {
         this.messageService.add({severity: 'error', summary: 'Neuspešna registracija', detail: 'Korisnik sa ovim emailom već postoji'});
         return;

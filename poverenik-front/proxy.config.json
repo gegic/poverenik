@@ -14,5 +14,13 @@
   "/xhtml/*": {
     "target": "http://localhost:8079",
     "secure": false
+  },
+  "/json/*": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/rdf/*": {
+    "target": "http://localhost:8080",
+    "secure": false
   }
 }

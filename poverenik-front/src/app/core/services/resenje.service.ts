@@ -40,4 +40,12 @@ export class ResenjeService {
   generateXHTML(id: string): Observable<any> {
     return this.httpClient.post(`/api/resenja/generate-xhtml/${id}`, null);
   }
+
+  generateJson(id: string): Observable<any> {
+    return this.httpClient.post(`/api/resenja/generate-json/${id}`, null);
+  }
+
+  generateRdf(id: string): Observable<any> {
+    return this.httpClient.post(`/api/resenja/generate-rdf/${id}`, null);
+  }
 }

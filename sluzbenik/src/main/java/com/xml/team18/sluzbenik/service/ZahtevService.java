@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @Service
@@ -81,5 +82,13 @@ public class ZahtevService {
 
     public List<Zahtev> naprednaPretraga(String upit) {
         return repository.naprednaPretraga(upit);
+    }
+
+    public String getJsonById(String id) throws FileNotFoundException {
+        return repository.getJsonById(id);
+    }
+
+    public String getRdfById(String id) throws FileNotFoundException {
+        return repository.getRdfById(id);
     }
 }

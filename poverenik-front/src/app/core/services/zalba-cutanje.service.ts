@@ -43,4 +43,12 @@ export class ZalbaCutanjeService {
   generateXHTML(id: string): Observable<any> {
     return this.httpClient.post(`/api/zalbe-cutanje/generate-xhtml/${id}`, null);
   }
+
+  generateJson(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zalbe-cutanje/generate-json/${id}`, null);
+  }
+
+  generateRdf(id: string): Observable<any> {
+    return this.httpClient.post(`/api/zalbe-cutanje/generate-rdf/${id}`, null);
+  }
 }

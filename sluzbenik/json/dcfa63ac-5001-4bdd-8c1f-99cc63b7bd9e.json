@@ -1,0 +1,45 @@
+{
+  "head": {
+    "vars": [ "predicate" , "object" ]
+  } ,
+  "results": {
+    "bindings": [
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/mesto-ustanove" } ,
+        "object": { "type": "literal" , "datatype": "file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string" , "value": "Mestasce" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/mesto-trazioca" } ,
+        "object": { "type": "literal" , "datatype": "file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string" , "value": "Mesto" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/ulica-trazioca" } ,
+        "object": { "type": "literal" , "datatype": "file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string" , "value": "Ulicica" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/opis-zahteva" } ,
+        "object": { "type": "literal" , "datatype": "file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string" , "value": "Opisuje se navedeni zahtev i oko cega se sve tu radi" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/trazilac" } ,
+        "object": { "type": "literal" , "datatype": "http://www.w3.org/2000/01/rdf-schema#Literal" , "value": "775b3f3b-9f96-4187-ad00-b062fe4d88d9" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/naziv-ustanove" } ,
+        "object": { "type": "literal" , "datatype": "file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string" , "value": "Neka ustanova" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/mesto-zahteva" } ,
+        "object": { "type": "literal" , "datatype": "file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/date" , "value": "Mestasce" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/ime-prezime-trazioca" } ,
+        "object": { "type": "literal" , "datatype": "file:///C:/Users/gh/Desktop/xmlProjekat/xml2020/sluzbenik/string" , "value": "Macak Mackic" }
+      } ,
+      {
+        "predicate": { "type": "uri" , "value": "http://team14.xml.com/rdf/zahtevi/predicate/datum-zahteva" } ,
+        "object": { "type": "literal" , "datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral" , "value": "2021-02-06" }
+      }
+    ]
+  }
+}
